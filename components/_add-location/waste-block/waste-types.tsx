@@ -1,0 +1,1 @@
+export const wasteTypes = ["Mixed", "Plastic", "Industrial", "Glass", "Organic", "Paper", "Other"];

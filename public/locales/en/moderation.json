@@ -1,0 +1,10 @@
+{
+  "databaseTitle": "Cleanups Location Database",
+
+  "locationDescription": "Location description",
+  "status": "Status",
+  "date": "Date added",
+  "dateShort": "Date",
+  "description": "Description",
+  "announcement": "Announcement (link)"
+}

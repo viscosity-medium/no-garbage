@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../public/assets/fonts/Montserrat-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --navbar-height: 100px;
+  white-space: pre-line;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+}
+
+button {
+  transition: 0.2s;
+  scale: 1;
+}
+
+button:hover{
+  scale: 1.05;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

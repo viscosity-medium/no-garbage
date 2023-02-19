@@ -1,0 +1,10 @@
+{
+  "databaseTitle": "База данных местоположений загрезненных участков",
+
+  "locationDescription": "Описание локации",
+  "status": "Статус",
+  "date": "Дата добавления",
+  "dateShort": "Дата",
+  "description": "Описание",
+  "announcement": "Аннонс (ссылка)"
+}

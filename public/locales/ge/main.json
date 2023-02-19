@@ -1,0 +1,35 @@
+{
+  "promoTitle": "ჩვენ ვაწყობთ დასუფთავებას თბილისში და მთელი საქართველოს მასშტაბით",
+  "map": "რუკა",
+  "addLocation": "მდებარეობის დამატება",
+  "manuals": "სახელმძღვანელოები",
+  "faq": "კითხვა-პასუხი",
+  "login": "ელ-ფოსტა",
+  "rus": "რუს",
+  "eng": "ინგ",
+  "geo": "ქარ",
+
+  "goalsTitle": "2022 წლის დასაწყისიდან,\n ჩვენ გვქონდა",
+  "goals1Number": 23,
+  "goals2Number": 6700,
+  "goals3Number": 751,
+  "goals1Description": "გასუფთავება მოწყობილი",
+  "goals2Description": "კგ ნაგავი შეგროვებული და გადამუშავებული",
+  "goals3Description": "მოხალისეები, რომლებმაც მონაწილეობა მიიღეს ჩვენს ღონისძიებებში",
+
+  "mapSectionTitle": "თქვენ შეგიძლიათ შეამოწმოთ ჩვენი ადგილმდებარეობის მონაცემთა ბაზა",
+  "mapSectionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ",
+  "mapSectionButtonName": "გადადით რუკაზე",
+
+  "helpSectionTitle": "თქვენ შეგიძლიათ დაგვეხმაროთ\nრუკაზე დანაგვიანებული ადგილების დამატებით",
+  "step": "ნაბიჯი",
+  "step1Description": "ატვირთეთ მედია",
+  "step2Description": "დაადასტურეთ ადგილმდებარეობა",
+  "step3Description": "მიეცით აღწერა",
+
+  "footerDownloadApp" : "ჩამოტვირთეთ ჩვენი აპლიკაცია",
+  "footerTelegramBotStart": "გამოიყენეთ ჩვენი ",
+  "footerTelegramBotEnd": "ტელეგრამის ბოტი",
+  "footerSocials": "მოგვყევით სოციალურ მედიაში",
+  "footerLocation": "თბილისი, საქართველო"
+}

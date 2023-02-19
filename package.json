@@ -1,0 +1,44 @@
+{
+  "name": "no-garbage",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 4141",
+    "build": "next build",
+    "start": "next start -p 4141",
+    "lint": "next lint",
+    "start:forever": "forever start npm --  start",
+    "start:pm2": "pm2 start npm --name no-garbage -- run start -- -p 4141",
+    "stopt:pm2": "pm2 stop no-garbage && pm2 delete no-garbage"
+  },
+  "dependencies": {
+    "eslint": "8.30.0",
+    "eslint-config-next": "13.1.1",
+    "firebase": "^9.15.0",
+    "i18next": "^22.4.7",
+    "mapbox-gl": "^2.12.0",
+    "next": "13.1.1",
+    "next-i18next": "^13.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-firebase-hooks": "^5.1.1",
+    "react-i18next": "^12.1.1",
+    "react-redux": "^8.0.5",
+    "sass": "^1.57.1",
+    "sharp": "^0.31.3",
+    "styled-components": "^5.3.6",
+    "typescript": "4.9.4"
+  },
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "devDependencies": {
+    "@headlessui/react": "^1.7.7",
+    "@next/font": "^13.1.2",
+    "@reduxjs/toolkit": "^1.9.1",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "@types/styled-components": "^5.1.26"
+  }
+}

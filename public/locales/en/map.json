@@ -1,0 +1,29 @@
+{
+  "promoTitle": "We’re organising cleanups in Tbilisi \nand all across Georgia ",
+  "map": "Map",
+  "addLocation": "Add Location",
+  "manuals": "Manuals",
+  "faq": "FAQ",
+  "login": "Login",
+  "rus": "Rus",
+  "eng": "Eng",
+  "geo": "Geo",
+
+  "goalsTitle": "Since the beginning of 2022\nwe’ve had",
+  "goals1Number": 23,
+  "goals2Number": 6700,
+  "goals3Number": 751,
+  "goals1Description": "cleanups\n arranged \n ",
+  "goals2Description": "kg  of garbage collected and recycled",
+  "goals3Description": "volunteers \nwho took \npart in our events",
+
+  "mapSectionTitle": "You can explore our database of \nlocations",
+  "mapSectionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ",
+  "mapSectionButtonName": "Go to the map",
+
+  "helpSectionTitle": "You can help us\nby adding littered locations to the map",
+  "step": "step",
+  "step1Description": "Upload media",
+  "step2Description": "Confirm location",
+  "step3Description": "Give description"
+}

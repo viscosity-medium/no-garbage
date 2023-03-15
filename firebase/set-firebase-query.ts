@@ -1,5 +1,5 @@
-import {limit, query, where, orderBy, startAfter} from "firebase/firestore";
-import {firebaseInstance} from "./firebase-instance";
+import { limit, query, where, orderBy } from "firebase/firestore";
+import { firebaseInstance } from "./firebase-instance";
 
 export const setFirebaseQuery = ({ paginationQuantity, searchBarValue, order}) => {
 
@@ -11,4 +11,5 @@ export const setFirebaseQuery = ({ paginationQuantity, searchBarValue, order}) =
         orderBy("description", order),
         limit(+paginationQuantity),
     )
+
 };

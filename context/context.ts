@@ -5,8 +5,9 @@ import {CollectionReference, DocumentData, Firestore, query} from "firebase/fire
 
 export interface IContextProviderValue {
     firebase: FirebaseApp | undefined,
-    auth: Auth | undefined,
+    auth: any | undefined,
     firestore: any | undefined
+    authenticateUser: (({ email, password }: { email: any, password: any }) => Promise<void>) | undefined
     reportsRef: CollectionReference<DocumentData> | undefined
     userProviderRef: CollectionReference<DocumentData> | undefined
     reportsQuery: any | undefined
@@ -18,6 +19,7 @@ const contextValue: IContextProviderValue = {
     firebase: undefined,
     auth: undefined,
     firestore: undefined,
+    authenticateUser: undefined,
     reportsRef: undefined,
     userProviderRef: undefined,
     reportsQuery: undefined,

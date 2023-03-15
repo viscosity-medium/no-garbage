@@ -11,12 +11,12 @@ import {Context} from "../context/context";
 import colors from "../styles/globals/colors";
 import Footer from "../components/_common/footer/footer";
 import Head from "next/head";
+import AuthModal from "../components/_common/auth-modal/auth-modal";
 
 const MainPage = () => {
     const promoImagePath = "/assets/main-page/promo-section.png";
     const { t } = useTranslation(['main']);
     const { pastelGray } = colors;
-    const {firebase} = useContext(Context);
     return (
         <>
             <Head>
@@ -29,6 +29,7 @@ const MainPage = () => {
             <MapSection/>
             <HelpSection/>
             <Footer/>
+            {/*<AuthModal/>*/}
         </>
     );
 };

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4141",
+    "dev": "next dev -H localhost -p 4141",
     "build": "next build",
-    "start": "next start -p 4141",
+    "start": "next start -H localhost -p 4141",
     "lint": "next lint",
     "start:forever": "forever start npm --  start",
     "start:pm2": "pm2 start npm --name no-garbage -- run start -- -p 4141",

@@ -2,13 +2,21 @@ import {useEffect, useState} from "react";
 import sizes from "../styles/globals/sizes";
 import {ESidebarTypes} from "../components/_common/sidebar/sidebar.styled";
 
+interface UseDefineSidebarSizes {
+    sidebarType?: any
+    sidebarWidth?: any
+    windowHeight: any
+    document: any
+    bodyHeight: any
+}
+
 const useDefineSidebarSizes = ({
     sidebarType,
     sidebarWidth,
     windowHeight,
     document,
     bodyHeight
-}) => {
+}: UseDefineSidebarSizes) => {
     const [calculatedHeight, setCalculatedHeight] = useState<string>();
     const [calculatedWidth, setCalculatedWidth] = useState<string>("")
     const [sidebarIsOpened, setSidebarIsOpened] = useState<boolean>(false);

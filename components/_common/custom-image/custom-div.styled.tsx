@@ -24,8 +24,11 @@ export interface IStyledWrapper {
     initScale?: string
     background?: string
     border?: string
+    borderLeft?: string
     borderRadius?: string
     textAlign?: string
+    maxHeight?: string
+    minHeight?: string
 }
 
 export const Div = styled.div<IStyledWrapper>`
@@ -43,25 +46,27 @@ export const Div = styled.div<IStyledWrapper>`
     right: ${props => props.right};
     bottom: ${props => props.bottom};
     top: ${props => props.top};
-    max-width: 100%;
-    max-height: 100%;
+    max-width: ${props => props.maxHeight || "100%"};
+    max-height: ${props => props.minHeight || "100%"};
     scale: ${props => props.initScale};
     transition: 0.3s;
     background: ${props => props.background};
     border: ${props => props.border};
+    border-left: ${props => props.borderLeft};
     border-radius: ${props => props.borderRadius};
     text-align: ${props => props.textAlign};
     cursor: ${props => props.cursor};
     &:after {
-      position: absolute;
-      display: ${props => props.afterContent ? "block" : "none"};
-      top: 0;
-      left: 0;
-      content: '';
-      width: 100%;
-      height: 100%;
-      background: ${props => props.after};
-      z-index: ${props => props.zIndexAfter};
+        position: absolute;
+        display: ${props => props.afterContent ? "block" : "none"};
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: ${props => props.after};
+        z-index: ${props => props.zIndexAfter};
+        border-radius: ${props => props.borderRadius};
     }
     &hover {
       background: ${props => props.hover};

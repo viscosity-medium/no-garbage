@@ -6,7 +6,6 @@ import {moderationDataWindowActions} from "../data-window/data-window-slice";
 import {DataSearchInput, DataSearchWrapper} from "./data-search-bar.styled";
 const DataSearchBar: FC = () => {
     const dispatch = useAppDispatch();
-    const searchBarValue = useSelector(getSearchBarValue);
 
     const dataSearchInputHandler = (e: any) => {
         if(e?.target){
@@ -17,12 +16,7 @@ const DataSearchBar: FC = () => {
 
     return (
         <DataSearchWrapper>
-            <DataSearchInput
-                placeholder={"Search..."}
-                onChange={dataSearchInputHandler}
-                type={"text"}
-                value={searchBarValue}
-            />
+
         </DataSearchWrapper>
     );
 };

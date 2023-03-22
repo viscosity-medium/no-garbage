@@ -13,23 +13,30 @@ const Button: FC<IButton> = ({
     buttonName,
     classes,
     backgroundColor= colors.invisible,
+    backgroundColorOnHover,
     backgroundImage,
     color = colors.black,
     width = '340px',
     height= '54px',
     margin,
-    borderRadius = "8px",
+    borderRadius ,
     size= "16px",
     lineHeight = 400,
-    textDecoration
+    textDecoration,
+    transition,
+    disabled
 }) => {
-    const btnClasses = classes?.join(" ")
+
+    const btnClasses = classes?.join(" ");
+
     return (
         <ButtonStyled
             position={position}
+            disabled={disabled}
             className={`${btnClasses}`}
             backgroundColor={backgroundColor}
             backgroundImage={backgroundImage}
+            backgroundColorOnHover={backgroundColorOnHover}
             color={color}
             onClick={handleClick}
             width={width}
@@ -43,6 +50,7 @@ const Button: FC<IButton> = ({
             size={size}
             lineHeight={lineHeight}
             textDecoration={textDecoration}
+            transition={transition}
         >
             {buttonName ? buttonName : null}
             {children ? children : null}

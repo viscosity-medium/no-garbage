@@ -6,5 +6,5 @@ interface IFooterProps {
 
 export const StyledFooter = styled.footer<IFooterProps>`
   height: ${props => props.height};
-  background-color: ${colors.footerColor};
+  background-color: ${colors.footer};
 `;

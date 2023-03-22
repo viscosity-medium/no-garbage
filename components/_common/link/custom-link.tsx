@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import {FC} from "react";
+import {FC, useState} from "react";
 import {StyledCustomLink} from "./custom-link.styled";
 import CustomDiv from "../custom-div/custom-div";
 import CustomImage from "../custom-image/custom-image";
 import LinkFiller from "./link-filler/link-filler";
+import colors from "../../../styles/globals/colors";
 
 
 export interface ICustomLink {
@@ -11,7 +12,10 @@ export interface ICustomLink {
     linkName?: string
     href?: string
     externalHref?: string
-    background?: string
+    color?: string
+    backgroundColor?: string
+    fontColor?: string
+    fontHoverColor?: string
     backgroundImage?: string
     width: string
     height?: string
@@ -28,28 +32,40 @@ const CustomLink: FC<ICustomLink> = ({
     height = "100%",
     externalHref,
     href,
-    background,
+    color,
+    backgroundColor,
+    fontColor = colors.white,
+    fontHoverColor,
     backgroundImage,
     scale,
     size= "16px",
-    weight = 400,
+    weight = 600,
     textDecoration = "none"
 }) => {
+
+    const [isHovered, setIsHovered] = useState(false);
+    const changeIsHovered = () => {
+        setIsHovered(prevState => !prevState);
+    }
+
     return (
         href ? (
             <Link
                 href={href}
                 style={{
                     width,
-                    height
+                    height,
+                    color: isHovered ? fontHoverColor : fontColor
                 }}
+                onMouseEnter={changeIsHovered}
+                onMouseLeave={changeIsHovered}
             >
                 <LinkFiller
                     padding={padding}
                     width={width}
                     height={height}
                     linkName={linkName}
-                    background={background}
+                    backgroundColor={backgroundColor}
                     backgroundImage={backgroundImage}
                     scale={scale}
                     size={size}
@@ -63,12 +79,12 @@ const CustomLink: FC<ICustomLink> = ({
                 rel="noreferrer"
                 href={externalHref}
             >
-                <LinkFiller
+            <LinkFiller
                     padding={padding}
                     width={width}
                     height={height}
                     linkName={linkName}
-                    background={background}
+                    backgroundColor={backgroundColor}
                     backgroundImage={backgroundImage}
                     scale={scale}
                     size={size}

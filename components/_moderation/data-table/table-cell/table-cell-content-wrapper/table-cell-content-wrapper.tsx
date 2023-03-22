@@ -7,29 +7,36 @@ interface ITableCellContentWrapper {
     text?: string
     display?: string
     textAlign?: string
+    margin?: string
+    padding?: string
+    backgroundColor?: string
 }
-const TableCellContentWrapper: FC<ITableCellContentWrapper> = ({text, display, textAlign}) => {
-    const definedColor = text === "clean" ? colors.clean :
-        text === "moderation" ? colors.moderation :
-        text === "scheduled" ? colors.scheduled :
-        text === "rejected" ? colors.rejected :
-        text === "dirty" ? colors.dirty : ""
+const TableCellContentWrapper: FC<ITableCellContentWrapper> = (
+    {
+        text,
+        display,
+        textAlign,
+        margin,
+        padding,
+        backgroundColor}) => {
+
     return (
         <Div
             position={"relative"}
             zIndex={2}
-            width={"auto"}
+            width={"max-content"}
             height={"auto"}
-            padding={definedColor ? "2px 7px" : ""}
-            background={definedColor}
-            borderRadius={definedColor ? "5px" : ""}
+            padding={padding}
+            borderRadius={"8px"}
+            background={backgroundColor}
         >
             <Text
                 display={display}
                 textAlign={textAlign}
                 tag={"span"}
-                text={text || ""}
+                text={text || "————"}
                 size={"14px"}
+                margin={margin}
             />
         </Div>
     );

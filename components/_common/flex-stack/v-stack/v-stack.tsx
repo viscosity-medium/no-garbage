@@ -5,6 +5,7 @@ import {IStack} from "../h-stack/h-stack.styled";
 
 const VStack: FC<IStack> = ({
     position = "relative",
+    top,
     justify,
     align,
     overflow,
@@ -26,6 +27,7 @@ const VStack: FC<IStack> = ({
     return (
         <VStackStyled
             position={position}
+            top={top}
             justify={justify}
             align={align}
             overflow={overflow}

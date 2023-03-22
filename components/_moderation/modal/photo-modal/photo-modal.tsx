@@ -6,7 +6,7 @@ import {getChosenPhoto} from "../modal-selectors";
 import {useDispatch, useSelector} from "react-redux";
 import CloseBtnImage from "public/assets/common/close-btn.svg"
 import Button from "../../../_common/button/button";
-import {modalActions} from "../modal-slice";
+import {modalActions} from "../modal.slice";
 
 const PhotoModal = () => {
     const chosenPhoto = useSelector(getChosenPhoto);

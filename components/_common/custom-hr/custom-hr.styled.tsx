@@ -6,6 +6,7 @@ export interface IHr {
     height?: string | number
     backgroundColor?: string
     margin?: string
+    opacity?: number
 }
 
 const StyledHr = styled.hr<IHr>`
@@ -13,6 +14,8 @@ const StyledHr = styled.hr<IHr>`
     height: ${props => props.height};
     background-color: ${props => props.backgroundColor};
     margin: ${props => props.margin};
+    opacity: ${props => props.opacity};
+    transition: 0.5s;
     border: none;
 `
 

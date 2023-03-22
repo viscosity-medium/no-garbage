@@ -11,6 +11,7 @@ interface IMapbox {
     lngProp?: number
     latProp?: number
     zoomProp?: number
+
 }
 const Mapbox: FC<IMapbox> = ({
     size,

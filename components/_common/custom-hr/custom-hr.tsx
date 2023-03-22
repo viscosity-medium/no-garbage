@@ -5,7 +5,8 @@ const CustomHr: FC<IHr> = ({
     width,
     height,
     backgroundColor,
-    margin
+    margin,
+    opacity
 }) => {
     return (
         <StyledHr
@@ -13,6 +14,7 @@ const CustomHr: FC<IHr> = ({
             height={height}
             backgroundColor={backgroundColor}
             margin={margin}
+            opacity={opacity}
         />
     );
 };

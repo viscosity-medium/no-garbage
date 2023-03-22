@@ -16,6 +16,9 @@ interface IText {
     top?: string
     size?: string
     textAlign?: string
+    color?: string
+    margin?: string,
+    lineHeight?: string
 }
 const Text: FC<IText> = ({
     position,
@@ -28,7 +31,10 @@ const Text: FC<IText> = ({
     bottom,
     top,
     size,
-    textAlign
+    textAlign,
+    color,
+    margin,
+    lineHeight
 }) => {
     if(tag === "h1"){
         return <StyledH1
@@ -41,6 +47,9 @@ const Text: FC<IText> = ({
             top={top}
             size={size}
             textAlign={textAlign}
+            color={color}
+            margin={margin}
+            lineHeight={lineHeight}
         >
             {text}
         </StyledH1>;
@@ -56,6 +65,9 @@ const Text: FC<IText> = ({
             top={top}
             size={size}
             textAlign={textAlign}
+            color={color}
+            margin={margin}
+            lineHeight={lineHeight}
         >
             {text}
         </StyledH2>;
@@ -71,6 +83,9 @@ const Text: FC<IText> = ({
             top={top}
             size={size}
             textAlign={textAlign}
+            color={color}
+            margin={margin}
+            lineHeight={lineHeight}
         >
             {text}
         </StyledH3>;
@@ -87,6 +102,9 @@ const Text: FC<IText> = ({
                 top={top}
                 size={size}
                 textAlign={textAlign}
+                color={color}
+                margin={margin}
+                lineHeight={lineHeight}
             >
                 {text}
             </StyledSpan>

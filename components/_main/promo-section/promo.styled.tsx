@@ -12,7 +12,7 @@ export interface IStyledSection {
 
 const StyledSection = styled.section<IStyledSection>`
   position: relative;
-  width: 100%;
+  width: ${props => props.width || "100%"};
   height: ${props => props.height};
   background-color: ${props => props.backgroundColor};
   background-image: ${props => props.backgroundImage};

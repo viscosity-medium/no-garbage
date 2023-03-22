@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledSelect = styled.select`
-  font-family: 'Montserrat';
+  
   width: 138px;
   height: 54px;
   background: #F0F4E3;
@@ -11,7 +11,7 @@ const StyledSelect = styled.select`
 `
 
 const StyledOption = styled.option`
-  font-family: 'Montserrat';
+  
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

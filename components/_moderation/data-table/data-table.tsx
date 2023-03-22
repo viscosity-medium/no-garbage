@@ -1,26 +1,48 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useRef} from 'react';
 import TableRow from "./table-row/table-row";
 import {useSelector} from "react-redux";
 import {getFirebaseReports} from "../data-window/data-window-selectors";
 import {StyledTable, StyledTableBody} from "./table.styled";
+import WindowHeader from "../data-window/window-header";
+import {firebaseInstance} from "../../../firebase/firebase-instance";
+import {updateFirebaseReport} from "../../../firebase/update-firebase-report";
 
 const DataTable: FC = () => {
+
     const firebaseReports = useSelector(getFirebaseReports);
+    const refHeader = useRef<JSX.Element>(<></>);
+
+
+    useEffect(()=>{
+        refHeader.current = <WindowHeader/>;
+    },[])
+
     return (
         <StyledTable>
+            {refHeader.current}
             <StyledTableBody>
                 {firebaseReports.map((document: any, index)=>{
+                    const tableRowInfo = {
+                        id: document.id,
+                        document: document,
+                        description: document?.description,
+                        status: document?.status,
+                        community: document?.community,
+                        created: document?.created_on,
+                        modified: document?.modified_on,
+                        photos: document?.photos,
+                        location: document?.location,
+                        userName: document?.user_name,
+                        announcement: document?.announcement
+                    }
+
                     return (
                         <TableRow
                             key={`table-row-${index}`}
-                            description={document.description}
-                            status={document.status}
-                            created={document.created_on}
-                            photos={document.photos}
-                            location={document.location}
-                            announcement={"https://t.me/tbilisi_cleanups/5887"}
+                            tableRowInfo={tableRowInfo}
                         />
                     )
+
                 })}
             </StyledTableBody>
         </StyledTable>

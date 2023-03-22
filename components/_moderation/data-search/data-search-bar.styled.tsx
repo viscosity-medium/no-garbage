@@ -4,18 +4,18 @@ import colors from "../../../styles/globals/colors";
 export const DataSearchWrapper = styled.div`
   width: 100%;
   height: 64px;
-  background-color: ${colors.searchBarColor};
+  background-color: ${colors.searchBar};
 `
 export const DataSearchInput = styled.input`
-  margin: 12px 0px 12px 40px;
-  padding-left: 15px;
+  margin: 12px 0 12px 40px;
+  padding-left: 20px;
   width: 520px;
   height: 40px;
   background: ${colors.white};
-  border-radius: 8px;
-  border: none;
+  border-radius: 14px;
+  border: solid darkGrey 2px;
   outline: none;
-  font-family: 'Montserrat';
+  
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

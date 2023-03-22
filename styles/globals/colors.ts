@@ -1,7 +1,9 @@
 const colors = {
     black: "#000000",
     white: "#ffffff",
-    lightGrey: '#e5e5e5',
+    lightGrey: '#F8F8F8',
+    middleGrey: "#eeeeee",
+    darkGrey: "#6C6C77",
     invisible: "rgba(255,255,255,0)",
     whiteBright: "rgba(255,255,255,0.6)",
     pastelGray: "#CFDBB7",
@@ -12,12 +14,23 @@ const colors = {
     pastelGreen: "#81E87E",
     myrtleGreen: "#1C767B",
     terraCotta: "#DF6F5D",
+    veryDarkGreen: "#005744",
+    brightLime: "#e2fc47",
+    orange: "#FE7962",
+    opaqueOrange: "rgba(241,153,126,0.8)",
+    lightBlack: "#100F0F",
+    opaqueBlack: "rgba(0,0,0,0.1)",
 
-    moderationSidebarColor: "#1F2637",
-    footerColor: "#E8EED8",
-    wasteBtnColor: "#1C767B",
-    wasteBtnPaleColor: "#88BABD",
-    searchBarColor: '#CBC9E0',
+    moderationNavbar: "#BAC5FD",
+    moderationName2: "#2F00B9",
+    moderationSidebar: "#1F2637",
+    moderationTableHeader: "#DFE4FF",
+    footer: "#E8EED8",
+    wasteBtn: "#1C767B",
+    wasteBtnPale: "#88BABD",
+    searchBar: '#CBC9E0',
+    tableCellBorder: "#AFB1B6",
+    tableCellDefault: "#F9FBFF",
     tableCellDark: '#D9D9D9',
     tableCellLight: '#F2F1F1',
     mapGrayBackground: '#EEEFEB',
@@ -29,10 +42,11 @@ const colors = {
     mapSidebarColor: "rgba(238, 239, 235, 1)",
 
     //cleanup statuses
-    clean: "#D3DFD0",
-    moderation: "#CBD7E1",
-    scheduled: "#ECD2ED",
-    dirty: "#EDD7D2",
-    rejected: "#EDEAD2"
+    clean: "#F1FFCA",
+    moderation: "#E4EFFF",
+    dirty: "#FED7C7",
+    declined: "#FFC9DC",
+    notEnough: "#D6D7D9",
+    cleanupPlanned: "#FFFACE"
 };
 export default colors;

@@ -21,6 +21,7 @@ export interface IStack {
     cursor?: string
     opacity?: string | number
     transition?: string
+    top?: string
 }
 
 const HStackStyled = styled.div<IStack>`

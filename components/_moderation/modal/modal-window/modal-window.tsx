@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import {ModalWindowStyled} from "./modal-window.styled";
-import colors from "../../../../styles/globals/colors";
-import ModalWindowContent from "../modal-window-content/modal-window-content";
-import {getModalVisibility} from "../modal-selectors";
-import {batch, useDispatch, useSelector} from "react-redux";
-import {modalActions} from "../modal-slice";
-import PhotoModal from "../photo-modal/photo-modal";
-import sizes from "../../../../styles/globals/sizes";
+import { batch, useDispatch, useSelector } from "react-redux";
+import { useCloseModalOnEscape } from "../../../../hooks/use-close-modal-on-escape";
+import { useEffect, useState } from 'react';
+import { getModalVisibility } from "../modal-selectors";
 import useWindowDimensions from "../../../../hooks/use-window-dimensions";
+import ModalWindowContent from "../modal-window-content/modal-window-content";
+import { modalActions } from "../modal.slice";
+import sizes from "../../../../styles/globals/sizes";
 
 const ModalWindow = () => {
+
     const {windowHeight, document, bodyHeight} = useWindowDimensions();
     const [modalWindowHeight, setModalWindowHeight] = useState(0);
     const visibility = useSelector(getModalVisibility);
     const dispatch = useDispatch();
+
     const onClickHandler = (e) => {
         if(e.target === e.currentTarget){
             batch(()=>{
@@ -22,6 +22,7 @@ const ModalWindow = () => {
             })
         }
     };
+
     const onEscapeDown = (e) => {
         if(e.key === "Escape"){
             batch(()=>{
@@ -33,34 +34,18 @@ const ModalWindow = () => {
 
     useEffect(() => {
         if(windowHeight && document && bodyHeight){
-            const calculatedHeight = windowHeight > bodyHeight ? windowHeight : bodyHeight;
+            const calculatedHeight = (windowHeight > bodyHeight ? windowHeight : bodyHeight) - sizes.navbarHeight;
             setModalWindowHeight(prevState => calculatedHeight);
         }
     },[windowHeight, document, bodyHeight])
 
-    useEffect(() => {
-        window.addEventListener("keydown", onEscapeDown, false);
-        return () => {
-            window.removeEventListener("keydown", onEscapeDown, false);
-        };
-        // eslint-disable-next-line
-    },[]);
+    useCloseModalOnEscape(onEscapeDown);
 
     return (
-        <ModalWindowStyled
-            className={"moderation-modal-window"}
-            onClick={onClickHandler}
-            background={colors.modalBackground}
-            visibility={visibility ? "visible" : "hidden"}
-            opacity={visibility ? 1 : 0}
-            height={`${modalWindowHeight}px`}
-        >
-            <PhotoModal/>
-            <ModalWindowContent
-                visibility={visibility}
-                modalWindowHeight={`${modalWindowHeight}px`}
-            />
-        </ModalWindowStyled>
+        <ModalWindowContent
+            visibility={visibility}
+            modalWindowHeight={`${modalWindowHeight}px`}
+        />
     );
 };
 

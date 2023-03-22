@@ -37,7 +37,7 @@ const WasteBlock = () => {
                     {
                         wasteTypes.map(type => {
                             const backgroundColor = type === chosenType ?
-                                colors.wasteBtnColor : colors.wasteBtnPaleColor;
+                                colors.wasteBtn : colors.wasteBtnPale;
                             return(
                                 <Button
                                     key={type}

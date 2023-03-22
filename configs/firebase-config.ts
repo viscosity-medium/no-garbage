@@ -16,7 +16,7 @@ const firebaseConfig: IFirebaseConfig = {
     storageBucket: "dev-nogarbage.appspot.com",
     messagingSenderId: "107165234014",
     appId: "1:107165234014:web:aa26a97fc87ebc2ba995cf",
-    measurementId: "G-99WYTTK4GN"
+    measurementId: "G-99WYTTK4GN",
 
 };
 

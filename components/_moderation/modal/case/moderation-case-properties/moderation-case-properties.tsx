@@ -6,39 +6,227 @@ import {useSelector} from "react-redux";
 import {getModalContent} from "../../modal-selectors";
 import TableCellContentWrapper
     from "../../../data-table/table-cell/table-cell-content-wrapper/table-cell-content-wrapper";
+import {useDefineCellTableColor} from "../../../../../hooks/use-define-cell-table-color";
+import {VerticalDropdownMenu} from "../../../../_common/dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu";
+import {Div} from "../../../../_common/custom-image/custom-div.styled";
+import {reportsStatuses} from "../../../reports-statuses/reports-statuses";
+import CustomInput from "../../../../_common/custom-input/custom-input";
+import colors from "../../../../../styles/globals/colors";
 
-const ModerationCaseProperties = () => {
-    const content = useSelector(getModalContent);
+const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
+
     return (
         <>
-            <Text
-                text={content?.description || ""}
-                tag={"h3"}
-            />
+
+            <VStack
+                justify={"center"}
+                height={"40px"}
+                margin={"5px 0"}
+            >
+                <CustomInput
+                    value={modalForm.description}
+                    onChange={
+                        changeModalForm("description")
+                    }
+                    width={"100%"}
+                    height={"100%"}
+                    fontSize={"16px"}
+                    border={"none"}
+                    borderRadius={"8px"}
+                    backgroundColor={colors.middleGrey}
+                />
+            </VStack>
             <HStack
-                margin={"40px 0 0 "}
                 position={"relative"}
-                height={"120px"}
+                margin={"20px 0 8px"}
             >
                 <VStack
                     position={"relative"}
-                    justify={"space-between"}
-                    width={"auto"}
+                    width={"40%"}
                     grow={0}
                 >
-                    <Text tag={"span"} text={"Status"}/>
-                    <Text tag={"span"} text={"Announcement"}/>
-                    <Text tag={"span"} text={"Date"}/>
-                    <Text tag={"span"} text={"Reported by"}/>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"h3"}
+                            text={"Status"}
+                            size={"14px"}
+                            margin={"8px 0"}
+                        />
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"h3"}
+                            text={"Community"}
+                            size={"14px"}
+                            margin={"8px 0"}
+                        />
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"h3"}
+                            text={"Announcement"}
+                            size={"14px"}
+                            margin={"8px 0"}
+                        />
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"h3"}
+                            text={"Date Added"}
+                            size={"14px"}
+                            margin={"8px 0"}
+                        />
+                    </VStack>
+                    {
+                        modalForm.dateModified ? (
+                            <VStack
+                                justify={"center"}
+                                height={"40px"}
+                                margin={"5px 0"}
+                            >
+                                <Text
+                                    tag={"h3"}
+                                    text={"Date Modified"}
+                                    size={"14px"}
+                                    margin={"8px 0"}
+                                />
+                            </VStack>
+                        ) : <></>
+                    }
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"h3"}
+                            text={"Reported by"}
+                            size={"14px"}
+                            margin={"8px 0"}
+                        />
+                    </VStack>
                 </VStack>
                 <VStack
-                    justify={"space-between"}
-                    margin={"0 0 0 40px"}
+                    width={"100%"}
+                    margin={"0 0 0 20px"}
                 >
-                    <TableCellContentWrapper text={content?.status} display={"block"} textAlign={"center"}/>
-                    <Text tag={"span"} text={content?.announcement || ""}/>
-                    <Text tag={"span"} text={content?.created || ""}/>
-                    <Text tag={"span"} text={"Reported by"}/>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Div
+                            position={"relative"}
+                            zIndex={2}
+                            width={"100%"}
+                            height={"100%"}
+                            overflow={"nones"}
+                        >
+                            <VerticalDropdownMenu
+                                position={"absolute"}
+                                items={reportsStatuses}
+                                selectedProperty={modalForm.status}
+                                setSelectedProperty={
+                                    changeModalForm("status")
+                                }
+                            />
+                        </Div>
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <CustomInput
+                            value={modalForm.community}
+                            onChange={
+                                changeModalForm("community")
+                            }
+                            width={"100%"}
+                            height={"100%"}
+                            fontSize={"14px"}
+                            border={"none"}
+                            borderRadius={"8px"}
+                            backgroundColor={colors.middleGrey}
+                        />
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <CustomInput
+                            value={modalForm.announcement}
+                            onChange={
+                                changeModalForm("announcement")
+                            }
+                            width={"100%"}
+                            height={"100%"}
+                            fontSize={"14px"}
+                            border={"none"}
+                            borderRadius={"8px"}
+                            backgroundColor={colors.middleGrey}
+                        />
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"span"}
+                            size={"14px"}
+                            text={modalForm.dateAdded}
+                            margin={"8px 0"}
+                        />
+                    </VStack>
+                    {
+                        modalForm.dateModified ? (
+                            <VStack
+                                justify={"center"}
+                                height={"40px"}
+                                margin={"5px 0"}
+                            >
+                                <Text
+                                    tag={"span"}
+                                    size={"14px"}
+                                    text={modalForm.dateModified}
+                                    margin={"8px 0"}
+                                />
+                            </VStack>
+                        ) : <></>
+
+                    }
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"span"}
+                            size={"14px"}
+                            text={modalForm.userName}
+                            margin={"8px 0"}
+                        />
+                    </VStack>
+
+
                 </VStack>
             </HStack>
         </>

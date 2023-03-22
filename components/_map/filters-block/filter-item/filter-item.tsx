@@ -5,11 +5,13 @@ import FilterFiller from "./filter-filler/filter-filler";
 import colors from "../../../../styles/globals/colors";
 
 const FilterItem = ({filterName, filterOptions}) => {
+
     const [visibility, setVisibility] = useState<boolean>(false);
     const optionPanelHeight = filterOptions.length * 40;
     const onButtonClick = () => {
-        setVisibility(!visibility);
+        setVisibility(prevState => !prevState);
     }
+
     return (
         <VStack>
             <FilterButton

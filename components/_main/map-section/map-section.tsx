@@ -21,7 +21,7 @@ const MapSection = () => {
             <CustomImage
                 position={"absolute"}
                 afterContent
-                backgroundImage={"/assets/main-page/map-background.png"}
+                backgroundImage={"/assets/main-page/map-backgroundColor.png"}
                 width={"100%"}
                 height={"100%"}
                 zIndexAfter={1}

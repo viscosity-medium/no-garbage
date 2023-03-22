@@ -13,6 +13,7 @@ interface ICustomImageProps {
     height: string
     zIndex: number
     zIndexAfter?: number | string
+    border?: string
     borderRadius?: string
     scale?: boolean
     margin?: string
@@ -21,6 +22,10 @@ interface ICustomImageProps {
     imageScale?: string
     imageTransition?: string
     imageRotate?: string
+    top?: string
+    right?: string
+    bottom?: string
+    left?: string
     clickHandler?: () => void
 }
 
@@ -34,6 +39,7 @@ const CustomImage: FC<ICustomImageProps> = ({
     zIndex,
     afterContent,
     zIndexAfter= 2,
+    border,
     borderRadius,
     scale,
     margin,
@@ -42,6 +48,10 @@ const CustomImage: FC<ICustomImageProps> = ({
     imageScale,
     imageTransition,
     imageRotate,
+    top,
+    right,
+    bottom,
+    left,
     clickHandler
 }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -49,6 +59,10 @@ const CustomImage: FC<ICustomImageProps> = ({
         <Div
             afterContent={afterContent}
             position={position}
+            top={top}
+            right={right}
+            bottom={bottom}
+            left={left}
             after={after}
             width={width}
             height={height}
@@ -58,8 +72,10 @@ const CustomImage: FC<ICustomImageProps> = ({
             scale={scale}
             margin={margin}
             cursor={cursor}
-            overflow={overflow}
+            overflow={"hidden"}
             onClick={clickHandler}
+            border={border}
+            borderRadius={borderRadius}
         >
             <Image
                 className={imageScale && isHovered ? cls["is-hovered"] : ""}
@@ -73,7 +89,6 @@ const CustomImage: FC<ICustomImageProps> = ({
                     zIndex: 1,
                     position: "absolute",
                     objectFit: "cover",
-                    borderRadius: borderRadius,
                     transition: imageTransition,
                     rotate: imageRotate,
                     userSelect: "none"

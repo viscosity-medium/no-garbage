@@ -14,6 +14,7 @@ interface ICustomSelect {
     clear?: boolean
     types: any
     orientation?: string
+    margin?: string
 }
 
 type TListBoxHandler = (chosenValue: string) => void ;
@@ -25,7 +26,8 @@ const CustomSelect: FC<ICustomSelect> = ({
     clear,
     selectImgObject,
     types,
-    orientation = "bottom"
+    orientation = "bottom",
+    margin,
 }) => {
     const listBoxHandler: TListBoxHandler = (chosenValue) => {
         setSelectedProperty(chosenValue);
@@ -40,6 +42,9 @@ const CustomSelect: FC<ICustomSelect> = ({
             value={selectedProperty}
             as={"div"}
             className={cls['wrapper-div']}
+            style={{
+                margin
+            }}
         >
             <Listbox.Button
                 className={`${cls.button} ${clear && cls.clear}`}

@@ -8,7 +8,7 @@ const LinkFiller: FC<ICustomLink> = ({
     width,
     height,
     linkName,
-    background,
+    backgroundColor,
     backgroundImage,
     scale,
     size,
@@ -21,7 +21,7 @@ const LinkFiller: FC<ICustomLink> = ({
                 linkName ? (
                     <StyledCustomLink
                         padding={padding}
-                        background={background}
+                        background={backgroundColor}
                         width={width}
                         height={height}
                         size={size}

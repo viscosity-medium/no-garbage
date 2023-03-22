@@ -1,1 +1,1 @@
-export const linksArray = ["Map", "Add-location", "Manuals", "FAQ"]
+export const linksArray = ["Map", "Add-location"]

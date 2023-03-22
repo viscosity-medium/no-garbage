@@ -1,25 +1,27 @@
-import React from 'react';
-import {useAppDispatch} from "../../../../store/store";
-import {useSelector} from "react-redux";
+import {HorizontalDropdownMenu} from "../../../_common/dropdown-menu/horizontal-dropdown-menu/horizontal-dropdown-menu";
 import {getPaginationQuantity} from "../pagination-selectors";
 import {paginationActions} from "../pagination-slice";
-import CustomSelect from "../../../_common/custom-select/custom-select";
+import {useAppDispatch} from "../../../../store/store";
+import {useSelector} from "react-redux";
+import colors from "../../../../styles/globals/colors";
 
 const PaginationQuantityController = () => {
+
     const dispatch = useAppDispatch();
+    const paginationProps = [ "50", "100", "150" ];
     const paginationQuantity = useSelector(getPaginationQuantity);
     const setSelectedProperty = (quantity) => dispatch(paginationActions.setPaginationQuantity(quantity));
+
     return (
-        <CustomSelect
+
+        <HorizontalDropdownMenu
+            position={"relative"}
             selectedProperty={paginationQuantity}
             setSelectedProperty={setSelectedProperty}
-            orientation={"right"}
-            types={{
-                "3": "3",
-                "10": "10",
-                "14": "14",
-            }}
+            backgroundColorOnHover={colors.moderation}
+            items={paginationProps}
         />
+
     );
 };
 

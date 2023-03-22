@@ -13,6 +13,7 @@ export interface IButton {
     styles?: CSSProperties
     handleClick?: (e?: any) => void
     backgroundColor?: string
+    backgroundColorOnHover?: string
     backgroundImage?: string
     color?: string
     width?: string
@@ -22,31 +23,37 @@ export interface IButton {
     size?: string
     lineHeight?: number
     textDecoration?: string
+    transition?: string,
+    disabled?: boolean
 }
 const ButtonStyled = styled.button<IButton>`
-  font-family: Montserrat;
-  position: ${props => props.position};
-  width: ${props => props.width};
-  height: ${props => props.height};
-  background-color: ${props => props.backgroundColor};
-  background-image: url(${props => props.backgroundImage});
-  background-repeat: no-repeat;
-  background-size: contain;
-  border: none;
-  border-radius: ${props => props.borderRadius};
-  cursor: pointer;
-  font-style: normal;
-  font-weight: ${props => props.lineHeight};
-  font-size: ${props => props.size};
-  line-height: 1.625;
-  color: ${props => props.color};
-  left: ${props => props.left};
-  right: ${props => props.right};
-  bottom: ${props => props.bottom};
-  top: ${props => props.top};
-  margin: ${props => props.margin};
-  text-decoration: ${props => props.textDecoration};
-  z-index: 5;
+    position: ${props => props.position};
+    width: ${props => props.width};
+    height: ${props => props.height};
+    background-color: ${props => props.backgroundColor};
+    background-image: url(${props => props.backgroundImage});
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    border-radius: ${props => props.borderRadius};
+    cursor: pointer;
+    font-style: normal;
+    font-weight: ${props => props.lineHeight};
+    font-size: ${props => props.size};
+    line-height: 1.625;
+    color: ${props => props.color};
+    left: ${props => props.left};
+    right: ${props => props.right};
+    bottom: ${props => props.bottom};
+    top: ${props => props.top};
+    margin: ${props => props.margin};
+    text-decoration: ${props => props.textDecoration};
+    z-index: 5;
+    transition: ${props => props.transition};
+    outline: none;
+    &:hover{
+        background-color: ${props => props.backgroundColorOnHover};
+    }
 `;
 
 export {

@@ -1,30 +1,34 @@
 import React from 'react';
-import CustomImage from "../../custom-image/custom-image";
 import Text from "../../text/text";
-import {LogoBlockWrapper} from "./logo-block.styled";
-import Logo from "public/assets/main-page/logo.png"
 import {useRouter} from "next/router";
+import HStack from "../../flex-stack/h-stack/h-stack";
+import {IStyledNavbar} from "../nav-bar.styled";
 
-const LogoBlock = () => {
-    const router = useRouter()
+const LogoBlock = ({ nameColor1, nameColor2 }: IStyledNavbar) => {
+    const router = useRouter();
     return (
-        <LogoBlockWrapper
+        <HStack
+            justify={"start"}
+            align={"center"}
             onClick={()=>{
                 router?.push("/")
             }}
+            cursor={"pointer"}
         >
-            <CustomImage
-                position={"relative"}
-                backgroundImage={Logo}
-                width={"56px"}
-                height={"56px"}
-                zIndex={2}
+
+            <Text
+                tag={"h2"}
+                text={"No"}
+                size={"34px"}
+                color={nameColor1}
             />
             <Text
-                tag={"h1"}
-                text={"Nogarba.ge"}
+                tag={"h2"}
+                text={"garba.ge"}
+                size={"34px"}
+                color={nameColor2}
             />
-        </LogoBlockWrapper>
+        </HStack>
 
     );
 };

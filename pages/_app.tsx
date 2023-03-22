@@ -8,9 +8,9 @@ import { Context } from "../context/context";
 import { firebaseInstance } from "../firebase/firebase-instance";
 import {Provider} from "react-redux";
 import {store} from "../store/store";
+import "../default.scss";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-
     return (
         <Provider store={store}>
             <Context.Provider

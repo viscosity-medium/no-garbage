@@ -3,9 +3,9 @@ import React, {FC, ReactNode} from "react";
 
 interface IBtnGroup {
     children?: ReactNode
-    width: string | undefined
-    height: string | undefined
-    backgroundImage?: any
+    width?: string
+    height?: string
+    backgroundImage?: string
     clickHandler?: () => void
 }
 

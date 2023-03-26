@@ -22,6 +22,13 @@ interface ITableRow {
         photos?: string[]
     }
 }
+
+interface DateOptions {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+}
+
 const TableRow: FC<ITableRow> = ({
     tableRowInfo
 }) => {
@@ -39,9 +46,9 @@ const TableRow: FC<ITableRow> = ({
         photos,
     } = tableRowInfo;
 
-    const options: any = { year: 'numeric', month: 'long', day: 'numeric' };
-    const dateAdded = created ? new Date(created * 1000).toLocaleDateString("en-US", options) : "————";
-    const dateModified = modified ? new Date(modified * 1000).toLocaleDateString("en-US", options) : "————";
+    const dateOptions: DateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    const dateAdded = created ? new Date(created * 1000).toLocaleDateString("en-US", dateOptions) : "————";
+    const dateModified = modified ? new Date(modified * 1000).toLocaleDateString("en-US", dateOptions) : "————";
 
     const dispatch = useDispatch();
     const onClickHandler = () => {

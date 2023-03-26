@@ -8,22 +8,20 @@ import {Div} from "../../../custom-image/custom-div.styled";
 import HStack from "../../../flex-stack/h-stack/h-stack";
 import Text from "../../../text/text";
 import colors from "../../../../../styles/globals/colors";
+import {FC, useRef, useState} from "react";
+import {loginFormMethods} from "../../model/login-form-methods";
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
 
-    const dispatch = useAppDispatch();
     const email = useSelector(getLoginEmail);
     const password = useSelector(getLoginPassword);
+    const passwordInputRef = useRef<HTMLInputElement>(null);
 
-    const onEmailChange = (value: string) => {
-        dispatch(loginModalActions.setAuthModalEmail(value));
-    };
-    const onPasswordChange = (value: string) => {
-        dispatch(loginModalActions.setAuthModalPassword(value));
-    };
-    const onAuthenticate = async () => {
-        await dispatch(fetchFirebaseLogin({email, password}))
-    }
+    const {
+        onEmailChange, onPasswordChange,
+        onFocusPasswordInput, onAuthenticate, onEnterSubmit
+    } = loginFormMethods({ email, password, passwordInputRef });
+
 
     return (
         <>
@@ -39,7 +37,13 @@ const LoginForm = () => {
                     align={"center"}
                 >
                     <Text tag={"span"} text={"Email"} size={"18px"}/>
-                    <CustomInput value={email} onChange={onEmailChange} width={"300px"}/>
+                    <CustomInput
+                        value={email}
+                        onChange={onEmailChange}
+                        onEnter={onFocusPasswordInput}
+                        width={"300px"}
+                    />
+
                 </HStack>
                 <HStack
                     justify={"space-between"}
@@ -47,7 +51,13 @@ const LoginForm = () => {
                     margin={"10px 0 0"}
                 >
                     <Text tag={"span"} text={"Password"} size={"18px"}/>
-                    <CustomInput value={password} onChange={onPasswordChange} type={"password"} width={"300px"}/>
+                    <CustomInput
+                        ref={passwordInputRef}
+                        value={password}
+                        onChange={onPasswordChange}
+                        onEnter={onEnterSubmit}
+                        type={"password"}
+                        width={"300px"}/>
                 </HStack>
             </Div>
 

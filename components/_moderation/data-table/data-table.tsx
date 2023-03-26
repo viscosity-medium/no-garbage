@@ -6,6 +6,7 @@ import {StyledTable, StyledTableBody} from "./table.styled";
 import WindowHeader from "../data-window/window-header";
 import {firebaseInstance} from "../../../firebase/firebase-instance";
 import {updateFirebaseReport} from "../../../firebase/update-firebase-report";
+import {DocumentData} from "firebase/firestore";
 
 const DataTable: FC = () => {
 
@@ -21,7 +22,7 @@ const DataTable: FC = () => {
         <StyledTable>
             {refHeader.current}
             <StyledTableBody>
-                {firebaseReports.map((document: any, index)=>{
+                {firebaseReports.map((document: DocumentData, index: number)=>{
                     const tableRowInfo = {
                         id: document.id,
                         document: document,

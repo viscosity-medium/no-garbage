@@ -4,7 +4,7 @@ import Button from "../button/button";
 import VStack from "../flex-stack/v-stack/v-stack";
 import Text from "../text/text";
 import colors from "../../../styles/globals/colors";
-import {NabButtonsProps} from "../nav-bar/nav-btns/nav-buttons";
+import {NavButtonsProps} from "../nav-bar/nav-btns/nav-buttons";
 import ProfileImage from "public/assets/main-page/logo.png"
 import {batch, useSelector} from "react-redux";
 import {getLoginData} from "../login-modal-window/model/login-modal-window.selectors";
@@ -15,7 +15,7 @@ import {useAppDispatch} from "../../../store/store";
 
 
 
-const Profile: FC<NabButtonsProps> = ({fontColor}) => {
+const Profile: FC<NavButtonsProps> = ({fontColor}) => {
 
     const dispatch = useAppDispatch();
     const profileData = useSelector(getLoginData);

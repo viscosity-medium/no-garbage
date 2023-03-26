@@ -1,35 +1,8 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import colors from "../../../styles/globals/colors";
+import {IModalSchema, SaveButtonState} from "./modal.types";
 
-export interface IModalContent {
-    id: string
-    document: any
-    description?: string
-    status?: string
-    created?: any
-    modified?: any
-    announcement?: string
-    community?: string
-    location: {
-        lon: number,
-        lat: number
-    }
-    photos?: string[]
-
-}
-export interface IModalSchema {
-    modalVisibility: boolean
-    modalContent: IModalContent | undefined
-    chosenPhoto: string | undefined
-    saveButtonState: {
-        text: string
-        isActive: boolean,
-        textColor: string
-        backgroundColor: string
-    }
-}
-
-const initialState = {
+const initialState: IModalSchema = {
     modalVisibility: false,
     modalContent: undefined,
     chosenPhoto: undefined,
@@ -48,7 +21,7 @@ const modalSlice = createSlice({
         setVisibility: state => {state.modalVisibility = !state.modalVisibility},
         setContent: (state, action) => {state.modalContent = action.payload},
         setChosenPhoto: (state, action) => {state.chosenPhoto = action.payload},
-        setSaveButtonState: (state, action) => {state.saveButtonState = action.payload}
+        setSaveButtonState: (state, action: PayloadAction<SaveButtonState>) => {state.saveButtonState = action.payload}
     }
 });
 

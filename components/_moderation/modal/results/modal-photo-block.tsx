@@ -8,7 +8,7 @@ import {getChosenPhoto} from "../modal-selectors";
 import colors from "../../../../styles/globals/colors";
 
 interface IResults {
-    photos?: any[]
+    photos?: string[]
 }
 const ModalPhotoBlock: FC<IResults> = ({photos}) => {
 

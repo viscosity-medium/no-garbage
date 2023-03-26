@@ -1,6 +1,13 @@
 const { i18n, react } = require('./next-i18next.config')
 
 module.exports = {
+    webpack(config, { dev }) {
+        if (dev) {
+            const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+            config.plugins.push(new ForkTsCheckerWebpackPlugin());
+        }
+        return config;
+    },
     env: {
         BASE_URL: process.env.BASE_URL,
     },

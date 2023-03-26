@@ -16,12 +16,12 @@ import {getModalVisibility} from "../../../_moderation/modal/modal-selectors";
 import {getLoginData} from "../../login-modal-window/model/login-modal-window.selectors";
 import {getUserDataFromLocalStorage} from "../../../../hooks/get-user-data-from-local-storage";
 
-export interface NabButtonsProps {
+export interface NavButtonsProps {
     userData?: any
     fontColor?: string
 }
 
-const NavButtons: FC<NabButtonsProps> = ({userData, fontColor}) => {
+const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
 
     const { t } = useTranslation("main");
     const dispatch = useAppDispatch();

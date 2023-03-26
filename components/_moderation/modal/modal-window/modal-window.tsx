@@ -14,15 +14,6 @@ const ModalWindow = () => {
     const visibility = useSelector(getModalVisibility);
     const dispatch = useDispatch();
 
-    const onClickHandler = (e) => {
-        if(e.target === e.currentTarget){
-            batch(()=>{
-                dispatch(modalActions.setVisibility());
-                dispatch(modalActions.setChosenPhoto(undefined))
-            })
-        }
-    };
-
     const onEscapeDown = (e) => {
         if(e.key === "Escape"){
             batch(()=>{

@@ -6,10 +6,12 @@ import {useAppDispatch} from "../store/store";
 import {navbarActions} from "../components/_common/nav-bar/nav-bar-slice";
 
 const useCustomTranslation = () => {
+
     const {locale, push, route} = useRouter();
-    const dispatch = useAppDispatch()
-    const language = useSelector(getLanguage)
+    const dispatch = useAppDispatch();
+    const language = useSelector(getLanguage);
     const setLanguage = (language) => dispatch(navbarActions.setLanguage(language));
+
     useEffect(()=>{
         setLanguage(locale)
     },[])

@@ -37,16 +37,14 @@ const MapSection = () => {
             >
                 <Text
                     tag={"h3"}
-                    text={t("mapSectionTitle")}
                     textAlign={"center"}
                     width={"500px"}
-                />
+                >{t("mapSectionTitle")}</Text>
                 <Text
                     tag={"span"}
-                    text={t("mapSectionDescription")}
                     textAlign={"center"}
                     width={"500px"}
-                />
+                >{t("mapSectionDescription")}</Text>
                 <Button
                     buttonName={t("mapSectionButtonName")!}
                     handleClick={mapButtonHandler}

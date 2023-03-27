@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomImage from "../../_common/custom-image/custom-image";
 
-const BottomImage = () => {
+const BottomImageSection = () => {
 
     const cleaningHeroes = "/assets/main-page/cleaning-heroes.png"
 
@@ -17,4 +17,4 @@ const BottomImage = () => {
     );
 };
 
-export default BottomImage;
+export default BottomImageSection;

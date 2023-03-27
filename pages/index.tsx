@@ -13,7 +13,8 @@ import { LoginModalWindow } from "../components/_common/login-modal-window";
 import {useAuthenticateUser} from "../hooks/use-authenticate-user";
 import PageWrapper from "../components/_common/page-wrapper/page-wrapper";
 import VStack from "../components/_common/flex-stack/v-stack/v-stack";
-import BottomImage from "../components/_main/bottom-image/bottom-image";
+import BottomImageSection from "../components/_main/bottom-image-section/bottom-image-section";
+import VolunteersSection from "../components/_main/volunteers-section/ui/volunteers-section/volunteers-section";
 
 
 const MainPage = () => {
@@ -51,9 +52,10 @@ const MainPage = () => {
                 >
                     <PromoSection backgroundImage={promoImagePath}/>
                     <Goals/>
+                    <VolunteersSection/>
                 </VStack>
             </PageWrapper>
-            <BottomImage/>
+            <BottomImageSection/>
             <Footer/>
             <LoginModalWindow/>
         </PageWrapper>

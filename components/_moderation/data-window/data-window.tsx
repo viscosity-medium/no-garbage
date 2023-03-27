@@ -68,8 +68,7 @@ const DataWindow = () => {
                         <Text
                             tag={"h3"}
                             size={"24px"}
-                            text={t("databaseTitle")}
-                        />
+                        >{t("databaseTitle")}</Text>
                         <DataSearchInput
                             placeholder={"Search..."}
                             onChange={dataSearchInputHandler}

@@ -31,9 +31,8 @@ const Footer = () => {
                 >
                     <Text
                         tag={"span"}
-                        text={t("footerDownloadApp")}
                         size={"24px"}
-                    />
+                    >{t("footerDownloadApp")}</Text>
                     <HStack
                         justify={"space-between"}
                         margin={"25px 0 30px"}
@@ -60,9 +59,8 @@ const Footer = () => {
                         <Text
                             width={"auto"}
                             tag={"span"}
-                            text={t("footerTelegramBotStart")}
                             size={"24px"}
-                        />
+                        >{t("footerTelegramBotStart")}</Text>
                         <CustomLink
                             linkName={t("footerTelegramBotEnd")!}
                             width={"auto"}
@@ -80,8 +78,7 @@ const Footer = () => {
                     <Text
                         tag={"span"}
                         size={"24px"}
-                        text={t("footerSocials")}
-                    />
+                    >{t("footerSocials")}</Text>
                     <HStack
                         justify={"space-between"}
                         margin={"25px 0 30px"}
@@ -124,9 +121,8 @@ const Footer = () => {
                     >
                         <Text
                             tag={"span"}
-                            text={t("footerLocation")}
                             size={"16px"}
-                        />
+                        >{t("footerLocation")}</Text>
                     </VStack>
                 </VStack>
             </HStack>

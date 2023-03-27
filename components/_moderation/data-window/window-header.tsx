@@ -32,9 +32,8 @@ const WindowHeader = () => {
                             <Text
                                 key={header.text}
                                 tag={"span"}
-                                text={t(header.text)}
                                 margin={"0 0 0 10px"}
-                            />
+                            >{t(header.text)}</Text>
                         </HStack>
 
                     ))

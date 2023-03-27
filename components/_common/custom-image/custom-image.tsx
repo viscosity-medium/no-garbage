@@ -7,6 +7,7 @@ interface ICustomImageProps {
     position: string
     afterContent?: boolean
     backgroundImage?: string | StaticImageData
+    backgroundColor?: string
     after?: string
     hover?: string
     width: string
@@ -26,12 +27,14 @@ interface ICustomImageProps {
     right?: string
     bottom?: string
     left?: string
+    objectFit?: string
     clickHandler?: () => void
 }
 
 const CustomImage: FC<ICustomImageProps> = ({
     position,
     backgroundImage,
+    backgroundColor,
     after,
     hover,
     width,
@@ -44,7 +47,7 @@ const CustomImage: FC<ICustomImageProps> = ({
     scale,
     margin,
     cursor,
-    overflow,
+    overflow="hidden",
     imageScale,
     imageTransition,
     imageRotate,
@@ -52,7 +55,8 @@ const CustomImage: FC<ICustomImageProps> = ({
     right,
     bottom,
     left,
-    clickHandler
+    clickHandler,
+    objectFit,
 }) => {
     const [isHovered, setIsHovered] = useState(false);
     return (
@@ -72,10 +76,11 @@ const CustomImage: FC<ICustomImageProps> = ({
             scale={scale}
             margin={margin}
             cursor={cursor}
-            overflow={"hidden"}
+            overflow={overflow}
             onClick={clickHandler}
             border={border}
             borderRadius={borderRadius}
+            background={backgroundColor}
         >
             <Image
                 className={imageScale && isHovered ? cls["is-hovered"] : ""}

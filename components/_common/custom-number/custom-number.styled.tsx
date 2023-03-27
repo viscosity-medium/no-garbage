@@ -1,5 +1,6 @@
 import React, {ReactNode} from 'react';
 import styled from "styled-components";
+import colors from "../../../styles/globals/colors";
 
 export interface ICustomNumber {
     number?: string | number
@@ -9,10 +10,10 @@ export interface ICustomNumber {
 }
 
 const StyledNumber = styled.span<ICustomNumber>`
-  font-family: Montserrat;
-  font-size: ${props => props.fontSize};
-  color: ${props => props.color};
-  line-height: 1.2;
+    font-size: ${props => props.fontSize};
+    font-weight: 600;
+    color: ${colors.veryDarkGrey};
+    line-height: 1.2;
 `;
 
 export {

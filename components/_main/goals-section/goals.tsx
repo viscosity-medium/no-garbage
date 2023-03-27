@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import { useTranslation } from "next-i18next";
-import { StyledSection } from "../promo-section/promo.styled";
+import { StyledSection } from "../promo-section/ui/promo-section/promo.styled";
 import colors from "../../../styles/globals/colors";
 import HStack from "../../_common/flex-stack/h-stack/h-stack";
 import GoalItem from "./goal-item/goal-item";
@@ -16,24 +16,26 @@ const Goals: FC<IGoals> = ({ width }) => {
     return (
         <StyledSection
             width={width}
-            height={"961px"}
-            padding={"194px 130px 0"}
-            backgroundColor={colors.backgroundMilk}
+            padding={"100px 0 0"}
         >
             <VStack
-            align={"center"}
+                align={"center"}
             >
                 <Text
                     tag={"h3"}
-                    text={t('goalsTitle')}
+                    size={"48px"}
+                    lineHeight={"1.5"}
                     position={"relative"}
-                    textAlign={"center"}
+                    alignSelf={"flex-start"}
                     width={"510px"}
-                />
-                <HStack
+                >
+                    {t('goalsTitle')}
+                </Text>
+                <VStack
                     justify={"space-between"}
                     align={"center"}
-                    margin={"166px 0 0"}
+                    width={"1000px"}
+                    margin={"80px 0"}
                 >
                     <GoalItem
                         backgroundImage={"/assets/main-page/goals-section-1.png"}
@@ -41,6 +43,7 @@ const Goals: FC<IGoals> = ({ width }) => {
                         descriptionText={t('goals1Description')}
                         width={"240px"}
                         height={"240px"}
+                        margin={"0 auto 0 0"}
                     >
                         <GoalsItemInternal
                             number={t('goals1Number')}
@@ -54,6 +57,7 @@ const Goals: FC<IGoals> = ({ width }) => {
                         descriptionText={t('goals2Description')}
                         width={"240px"}
                         height={"240px"}
+                        margin={"36px 0 36px auto"}
                     >
                         <GoalsItemInternal
                             number={t('goals2Number')}
@@ -67,6 +71,7 @@ const Goals: FC<IGoals> = ({ width }) => {
                         descriptionText={t('goals3Description')}
                         width={"240px"}
                         height={"240px"}
+                        margin={"0 auto 0 0"}
                     >
                         <GoalsItemInternal
                             number={t('goals3Number')}
@@ -74,7 +79,7 @@ const Goals: FC<IGoals> = ({ width }) => {
                             width={"240px"}
                         />
                     </GoalItem>
-                </HStack>
+                </VStack>
             </VStack>
         </StyledSection>
     );

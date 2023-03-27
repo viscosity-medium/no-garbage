@@ -49,7 +49,7 @@ const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
             <HStack
                 width={"auto"}
                 height={"100%"}
-                justify={"start"}
+                justify={"flex-start"}
             >
                 <Button
                     width={"80px"}
@@ -83,7 +83,7 @@ const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
                     opacity={elementOpacity}
                 />
                 <HStack
-                    justify={"start"}
+                    justify={"flex-start"}
                     width={stackWidth}
                     transition={"width 0.5s, opacity 0.3s"}
                     opacity={elementOpacity}

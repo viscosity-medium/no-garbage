@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledSection} from "../../_main/promo-section/promo.styled";
+import {StyledSection} from "../../_main/promo-section/ui/promo-section/promo.styled";
 import VStack from "../../_common/flex-stack/v-stack/v-stack";
 import Text from "../../_common/text/text";
 import HStack from "../../_common/flex-stack/h-stack/h-stack";

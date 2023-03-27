@@ -23,6 +23,7 @@ export interface IStyledWrapper {
     cursor?: string
     initScale?: string
     background?: string
+    backgroundColor?: string
     border?: string
     borderLeft?: string
     borderRadius?: string
@@ -51,6 +52,7 @@ export const Div = styled.div<IStyledWrapper>`
     scale: ${props => props.initScale};
     transition: 0.3s;
     background: ${props => props.background};
+    background-color: ${props => props.backgroundColor};
     border: ${props => props.border};
     border-left: ${props => props.borderLeft};
     border-radius: ${props => props.borderRadius};

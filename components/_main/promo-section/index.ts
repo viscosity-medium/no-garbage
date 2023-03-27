@@ -1,0 +1,1 @@
+export { PromoSection } from "./ui/promo-section/promo-section"

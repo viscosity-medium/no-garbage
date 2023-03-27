@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledSection} from "../promo-section/promo.styled";
+import {StyledSection} from "../promo-section/ui/promo-section/promo.styled";
 import CustomImage from "../../_common/custom-image/custom-image";
 import Text from "../../_common/text/text";
 import {useTranslation} from "next-i18next";

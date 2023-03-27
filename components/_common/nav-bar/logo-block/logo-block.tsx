@@ -8,7 +8,7 @@ const LogoBlock = ({ nameColor1, nameColor2 }: IStyledNavbar) => {
     const router = useRouter();
     return (
         <HStack
-            justify={"start"}
+            justify={"flex-start"}
             align={"center"}
             onClick={()=>{
                 router?.push("/")

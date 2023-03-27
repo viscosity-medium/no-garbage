@@ -21,26 +21,24 @@ const GoalsItemInternal: FC<IGoalsItemInternal> = ({
     return (
         <VStack
             justify={"center"}
-            align={"center"}
+            align={"flex-start"}
+            margin={"0 0 0 25px"}
             width={width}
             textAlign={"center"}
         >
             <CustomNumber
                 number={number}
-                fontSize={"48px"}
-                color={colors.myrtleGreen}
+                fontSize={"96px"}
             />
-                <CustomHr
-                    width={"195px"}
-                    height={"4px"}
-                    backgroundColor={colors.pastelGreen}
-                    margin={"15px 0 15px"}
-                />
+
                 <Text
                     tag={"span"}
-                    text={t(descriptionText)}
-
-                />
+                    size={"32px"}
+                    weight={"600"}
+                    textAlign={"left"}
+                >
+                    {t(descriptionText)}
+                </Text>
         </VStack>
     );
 };

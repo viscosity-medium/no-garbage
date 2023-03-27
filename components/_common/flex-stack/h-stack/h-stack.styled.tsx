@@ -2,9 +2,9 @@ import styled from "styled-components";
 import {ReactNode} from "react";
 
 export interface IStack {
-    position?: string
-    justify?: string
-    align?: string
+    position?: "absolute" | "relative"
+    justify?: "space-between" | "space-around" | "center" | "flex-start" | "flex-end" | "start" | "end"
+    align?: "center" | "flex-start" | "flex-end" | "self-start" | "self-end" | "start" | "end"
     overflow?: string
     children?: ReactNode
     onClick?: (e: any) => void

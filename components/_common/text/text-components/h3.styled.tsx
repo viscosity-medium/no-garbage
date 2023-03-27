@@ -8,7 +8,8 @@ const StyledH3 = styled.h3<ITextProps>`
     font-style: normal;
     font-weight: 600;
     line-height: ${props => props.lineHeight || 1.2};
-    text-align: ${props => props.textAlign};;
+    align-items: ${props => props.textAlign};
+    align-self: ${props => props.alignSelf};
     color: ${props => props.color};
     width: ${props => props.width};
     left: ${props => props.left};

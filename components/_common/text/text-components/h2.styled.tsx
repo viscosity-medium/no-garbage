@@ -7,7 +7,8 @@ const StyledH2 = styled.h2<ITextProps>`
     margin: ${props => props.margin};
     font-weight: 700;
     align-items: ${props => props.textAlign};
-    letter-spacing: 0.09em;
+    align-self: ${props => props.alignSelf};
+    letter-spacing: 2px;
     color: ${props => props.color};
     margin: ${props => props.margin};
     width: ${props => props.width};
@@ -16,7 +17,7 @@ const StyledH2 = styled.h2<ITextProps>`
     bottom: ${props => props.bottom};
     top: ${props => props.top};
     font-size: ${props => props.size};
-    ${props => props.lineHeight || 1.2};
+    line-height: ${props => props.lineHeight || 1.2};
     text-align: ${props => props.textAlign};
     user-select: none;
 `;

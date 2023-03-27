@@ -4,19 +4,22 @@ import CustomImage from "../../../_common/custom-image/custom-image";
 import GoalsItemInternal, {IGoalsItemInternal} from "./goals-item-internal/goals-item-internal";
 
 interface IGoalsItem extends  IGoalsItemInternal {
-    backgroundImage: string
     children?: ReactNode
+    margin?: string
+    backgroundImage: string
 }
 const GoalItem: FC<IGoalsItem> = ({
     backgroundImage,
     width,
     height,
-    children
+    children,
+    margin
 }) => {
     return (
        <HStack
            align={"center"}
            justify={"space-between"}
+           margin={margin}
        >
            <CustomImage
                position={"relative"}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledSection} from "../promo-section/promo.styled";
+import {StyledSection} from "../promo-section/ui/promo-section/promo.styled";
 import colors from "../../../styles/globals/colors";
 import Text from "../../_common/text/text";
 import Button from "../../_common/button/button";
@@ -29,9 +29,10 @@ const HelpSection = () => {
             >
                 <Text
                     tag={"h3"}
-                    text={t("helpSectionTitle")}
                     textAlign={"center"}
-                />
+                >
+                    ${t("helpSectionTitle")}
+                </Text>
                 <HStack
                     margin={"116px 0 96px"}
                     width={"100%"}
@@ -50,7 +51,7 @@ const HelpSection = () => {
                     >
                         <VStack
                             justify={"space-between"}
-                            align={"start"}
+                            align={"flex-start"}
                             margin={"0 0 0 22px"}
                             height={"70px"}
                         >
@@ -61,9 +62,10 @@ const HelpSection = () => {
                             />
                             <Text
                                 tag={"span"}
-                                text={t("step1Description")}
                                 size={"16px"}
-                            />
+                            >
+                                t("step1Description")
+                            </Text>
                         </VStack>
                     </GoalItem>
                     <GoalItem
@@ -75,7 +77,7 @@ const HelpSection = () => {
                     >
                         <VStack
                             justify={"space-between"}
-                            align={"start"}
+                            align={"flex-start"}
                             margin={"0 0 0 22px"}
                             height={"70px"}
                         >
@@ -86,9 +88,10 @@ const HelpSection = () => {
                             />
                             <Text
                                 tag={"span"}
-                                text={t("step2Description")}
                                 size={"16px"}
-                            />
+                            >
+                                t("step2Description")
+                            </Text>
                         </VStack>
                     </GoalItem>
                     <GoalItem
@@ -100,7 +103,7 @@ const HelpSection = () => {
                     >
                         <VStack
                             justify={"space-between"}
-                            align={"start"}
+                            align={"flex-start"}
                             margin={"0 0 0 22px"}
                             height={"70px"}
                         >
@@ -111,9 +114,10 @@ const HelpSection = () => {
                             />
                             <Text
                                 tag={"span"}
-                                text={t("step3Description")}
                                 size={"16px"}
-                            />
+                            >
+                                t("step3Description")
+                            </Text>
                         </VStack>
                     </GoalItem>
                 </HStack>

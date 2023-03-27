@@ -1,5 +1,5 @@
 import NavBar from "../components/_common/nav-bar/nav-bar";
-import Promo from "../components/_main/promo-section/promo";
+import {PromoSection} from "../components/_main/promo-section";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'react-i18next';
 
@@ -12,6 +12,8 @@ import Head from "next/head";
 import { LoginModalWindow } from "../components/_common/login-modal-window";
 import {useAuthenticateUser} from "../hooks/use-authenticate-user";
 import PageWrapper from "../components/_common/page-wrapper/page-wrapper";
+import VStack from "../components/_common/flex-stack/v-stack/v-stack";
+import BottomImage from "../components/_main/bottom-image/bottom-image";
 
 
 const MainPage = () => {
@@ -38,10 +40,20 @@ const MainPage = () => {
                 linkHoverBackground={colors.backgroundMilk}
                 profileFontColor={colors.backgroundMilk}
             />
-            <Promo backgroundImage={promoImagePath}/>
-            <Goals/>
-            <MapSection/>
-            <HelpSection/>
+            <PageWrapper
+                isAnimated={false}
+                backgroundColor={colors.lightGrey}
+            >
+                <VStack
+                    width={"1440px"}
+                    margin={"0 auto"}
+
+                >
+                    <PromoSection backgroundImage={promoImagePath}/>
+                    <Goals/>
+                </VStack>
+            </PageWrapper>
+            <BottomImage/>
             <Footer/>
             <LoginModalWindow/>
         </PageWrapper>

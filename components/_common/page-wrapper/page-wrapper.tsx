@@ -5,12 +5,14 @@ import {PageWrapperProps, PageWrapperStyled} from "./page-wrapper.styled";
 const PageWrapper: FC<PageWrapperProps> = ({
     children,
     isAnimated,
-    margin
+    margin,
+    backgroundColor
 }) => {
     return (
         <PageWrapperStyled
             isAnimated={isAnimated}
             margin={margin}
+            backgroundColor={backgroundColor}
         >
             {children}
         </PageWrapperStyled>

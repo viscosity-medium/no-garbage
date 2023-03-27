@@ -1,4 +1,4 @@
-import {StyledSection} from "../../_main/promo-section/promo.styled";
+import {StyledSection} from "../../_main/promo-section/ui/promo-section/promo.styled";
 import Text from "../../_common/text/text";
 import VStack from "../../_common/flex-stack/v-stack/v-stack";
 import DataTable from "../data-table/data-table";

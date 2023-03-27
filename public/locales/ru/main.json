@@ -1,5 +1,5 @@
 {
-  "promoTitle": "Мы организуем уборку мусора в Тбилиси и по всей Грузии",
+  "promoTitle": "Сделаем Грузию чище. \nВместе.",
   "map": "Карта",
   "addLocation": "Добавить локацию",
   "manuals": "Инструкции",
@@ -9,13 +9,13 @@
   "eng": "Англ",
   "geo": "Груз",
 
-  "goalsTitle": "С начала 2022 года\nу нас было",
+  "goalsTitle": "С начала 2022 года",
   "goals1Number": 23,
   "goals2Number": 6700,
   "goals3Number": 751,
-  "goals1Description": "организованных уборки",
-  "goals2Description": "кг собранного и переработанного мусора",
-  "goals3Description": "волонтер принял участие в наших мероприятиях",
+  "goals1Description": "организовано\nуборок",
+  "goals2Description": "кг собранного\nмусора",
+  "goals3Description": "волонтеры,\nпринявшие участие",
 
   "mapSectionTitle": "Вы можете ознакомиться с нашей базой данных местоположений",
   "mapSectionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ",

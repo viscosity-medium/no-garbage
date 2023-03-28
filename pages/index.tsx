@@ -2,10 +2,7 @@ import NavBar from "../components/_common/nav-bar/nav-bar";
 import {PromoSection} from "../components/_main/promo-section";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'react-i18next';
-
 import Goals from "../components/_main/goals-section/goals";
-import MapSection from "../components/_main/map-section/map-section";
-import HelpSection from "../components/_main/help-section/help-section";
 import colors from "../styles/globals/colors";
 import Footer from "../components/_common/footer/footer";
 import Head from "next/head";
@@ -14,7 +11,8 @@ import {useAuthenticateUser} from "../hooks/use-authenticate-user";
 import PageWrapper from "../components/_common/page-wrapper/page-wrapper";
 import VStack from "../components/_common/flex-stack/v-stack/v-stack";
 import BottomImageSection from "../components/_main/bottom-image-section/bottom-image-section";
-import VolunteersSection from "../components/_main/volunteers-section/ui/volunteers-section/volunteers-section";
+import {VolunteersSection} from "../components/_main/volunteers-section";
+import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-friends-section";
 
 
 const MainPage = () => {
@@ -53,6 +51,7 @@ const MainPage = () => {
                     <PromoSection backgroundImage={promoImagePath}/>
                     <Goals/>
                     <VolunteersSection/>
+                    <CommunitiesAndFriendsSection/>
                 </VStack>
             </PageWrapper>
             <BottomImageSection/>

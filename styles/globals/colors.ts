@@ -3,6 +3,7 @@ const colors = {
     white: "#ffffff",
     lightGrey: '#F8F8F8',
     middleGrey: "#eeeeee",
+    mediumGrey: "#EAEEF5",
     darkGrey: "#6C6C77",
     veryDarkGrey: "#343232",
     invisible: "rgba(255,255,255,0)",

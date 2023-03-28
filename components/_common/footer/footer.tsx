@@ -12,8 +12,8 @@ import TelegramBtn from "public/assets/footer/socials-telegram.svg";
 import Button from "../button/button";
 import {useTranslation} from "next-i18next";
 
-
 type ISocialButtonHandler = (link: string) => () => void;
+
 const Footer = () => {
 
     const { t } = useTranslation("main")

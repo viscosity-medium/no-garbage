@@ -8,6 +8,7 @@ import colors from "../../../styles/globals/colors";
 
 
 export interface ICustomLink {
+    margin?: string
     padding?: string
     linkName?: string
     href?: string
@@ -26,6 +27,7 @@ export interface ICustomLink {
 }
 
 const CustomLink: FC<ICustomLink> = ({
+    margin,
     padding= "0 10px",
     linkName="",
     width = "100%",
@@ -53,6 +55,7 @@ const CustomLink: FC<ICustomLink> = ({
             <Link
                 href={href}
                 style={{
+                    margin,
                     width,
                     height,
                     color: isHovered ? fontHoverColor : fontColor
@@ -78,6 +81,12 @@ const CustomLink: FC<ICustomLink> = ({
                 target="_blank"
                 rel="noreferrer"
                 href={externalHref}
+                style={{
+                    margin,
+                    width,
+                    height,
+                    color: isHovered ? fontHoverColor : fontColor
+                }}
             >
             <LinkFiller
                     padding={padding}

@@ -54,4 +54,4 @@ const VolunteersSection = () => {
     );
 };
 
-export default VolunteersSection;
+export { VolunteersSection };

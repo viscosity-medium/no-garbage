@@ -2,11 +2,6 @@ import React from 'react';
 import Text from "../../../../_common/text/text";
 import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
 import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import {useSelector} from "react-redux";
-import {getModalContent} from "../../modal-selectors";
-import TableCellContentWrapper
-    from "../../../data-table/table-cell/table-cell-content-wrapper/table-cell-content-wrapper";
-import {useDefineCellTableColor} from "../../../../../hooks/use-define-cell-table-color";
 import {VerticalDropdownMenu} from "../../../../_common/dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu";
 import {Div} from "../../../../_common/custom-image/custom-div.styled";
 import {reportsStatuses} from "../../../reports-statuses/reports-statuses";

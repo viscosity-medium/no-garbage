@@ -15,10 +15,11 @@ const Button: FC<IButton> = ({
     backgroundColor= colors.invisible,
     backgroundColorOnHover,
     backgroundImage,
-    color = colors.black,
-    width = '340px',
-    height= '54px',
+    color = colors.lightBlack,
+    width = '110px',
+    height= '50px',
     margin,
+    border,
     borderRadius ,
     size= "16px",
     lineHeight = 400,
@@ -46,6 +47,7 @@ const Button: FC<IButton> = ({
             bottom={bottom}
             top={top}
             margin={margin}
+            border={`2px solid ${backgroundColor}`}
             borderRadius={borderRadius}
             size={size}
             lineHeight={lineHeight}

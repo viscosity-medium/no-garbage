@@ -1,20 +1,15 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import Button from "../../button/button";
-import CustomSelect from "../../custom-select/custom-select";
 import HStack from "../../flex-stack/h-stack/h-stack";
 import {useTranslation} from "next-i18next";
 import {useCustomTranslation} from "../../../../hooks/use-custom-translation";
 import colors from "../../../../styles/globals/colors";
-import RusImg from "public/assets/common/lang/rus.svg";
-import EngImg from "public/assets/common/lang/eng.svg";
-import GeoImg from "public/assets/common/lang/geo.svg"
 import {useAppDispatch} from "../../../../store/store";
 import {loginModalActions} from "../../login-modal-window/model/login-modal-window.slice";
 import Profile from "../../profile/profile";
 import {useSelector} from "react-redux";
-import {getModalVisibility} from "../../../_moderation/modal/modal-selectors";
 import {getLoginData} from "../../login-modal-window/model/login-modal-window.selectors";
-import {getUserDataFromLocalStorage} from "../../../../hooks/get-user-data-from-local-storage";
+import {VerticalDropdownMenu} from "../../dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu";
 
 export interface NavButtonsProps {
     userData?: any
@@ -50,25 +45,26 @@ const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
                         handleClick={showLoginModal}
                         width={"126px"}
                         borderRadius={"8px"}
-                        backgroundColor={colors.wildBlueYonder}
+                        color={colors.defaultTextColor}
+                        backgroundColor={colors.white}
                     />
                 )
             }
-            <CustomSelect
-                selectedProperty={language}
-                setSelectedProperty={setLanguage}
-                types={{
-                    en: "En",
-                    ge: "Ge",
-                    ru: "Ru",
-                }}
-                selectImgObject={{
-                    en: EngImg,
-                    ge: GeoImg,
-                    ru: RusImg,
-                }}
+            <HStack
                 margin={"0 0 0 25px"}
-            />
+                top={"0"}
+                width={"126px"}
+                height={"50px"}
+                position={"relative"}
+            >
+                <VerticalDropdownMenu
+                    items={["en", "ge", "ru"]}
+                    position={"absolute"}
+                    buttonHeight={50}
+                    selectedProperty={language}
+                    setSelectedProperty={setLanguage}
+                />
+            </HStack>
         </HStack>
     );
 };

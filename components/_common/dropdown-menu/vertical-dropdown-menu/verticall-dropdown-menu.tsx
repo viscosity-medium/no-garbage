@@ -16,10 +16,11 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
     position,
     selectedProperty,
     setSelectedProperty,
-    backgroundColorOnHover
+    backgroundColorOnHover,
+    buttonHeight = 30
 }) => {
 
-    const defaultButtonHeight = "30px";
+    const borderWidth = 2;
     const [dropdownState, setDropDownState] = useState<boolean>(false);
     const [stackHeight, setStackHeight] = useState<string>("0");
     const [elementOpacity, setElementOpacity] = useState<number>(0);
@@ -36,7 +37,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
     };
 
     useEffect(()=> {
-        dropdownState ? setStackHeight(`${items.length * 30}px`) : setStackHeight("0");
+        dropdownState ? setStackHeight(`${items.length * buttonHeight}px`) : setStackHeight("0");
         dropdownState ? setElementOpacity(1) : setElementOpacity(0);
     })
 
@@ -48,7 +49,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
             maxHeight={"unset"}
             minHeight={"unset"}
             position={position}
-            border={`solid 2px ${colors.tableCellBorder}`}
+            border={`solid ${borderWidth}px ${colors.tableCellBorder}`}
             borderRadius={"8px"}
             overflow={"hidden"}
             background={colors.white}
@@ -60,7 +61,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
             >
                 <Button
                     width={"100%"}
-                    height={defaultButtonHeight}
+                    height={`${buttonHeight - borderWidth * 2}px`}
                     handleClick={switchDropDownState}
                     backgroundColor={
                         useDefineCellTableColor({status: selectedProperty})
@@ -111,7 +112,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
                                 <Button
                                     key={item}
                                     width={"100%"}
-                                    height={defaultButtonHeight}
+                                    height={`${buttonHeight}px`}
                                     backgroundColor={useDefineCellTableColor({status: item})}
                                     backgroundColorOnHover={backgroundColorOnHover}
                                     handleClick={chooseCurrentItem(item)}

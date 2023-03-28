@@ -5,5 +5,6 @@ export interface DropDownMenuProps {
     position: "absolute" | "relative"
     selectedProperty: string
     setSelectedProperty: Dispatch<SetStateAction<string>>
+    buttonHeight?: number
     backgroundColorOnHover?: string
 }

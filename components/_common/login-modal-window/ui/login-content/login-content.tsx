@@ -67,8 +67,10 @@ const LoginContent = () => {
                 margin={"10px"}
             />
             <Button
+                width={"260px"}
                 color={colors.white}
                 backgroundColor={colors.orange}
+                borderRadius={"8px"}
                 handleClick={comeBack}
             >
                 Try one more time!

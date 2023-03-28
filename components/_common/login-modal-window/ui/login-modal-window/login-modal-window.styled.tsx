@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
-interface IAuthModalStyled {
 
-}
-
-const LoginModalWindowStyled =  styled.div<IAuthModalStyled>`
+const LoginModalWindowStyled =  styled.div`
     padding: 20px;
     position: absolute;
     left: 50%;

@@ -40,7 +40,9 @@ const LoginModalSlice = createSlice({
         setAuthModalEmail: (state, action) => {state.email = action.payload},
         setAuthModalPassword: (state, action) => {state.password = action.payload},
         setAuthModalLoginData: (state, action) => {state.loginData = action.payload},
-        setModalVisibility: (state) => {state.visibility = !state.visibility},
+        setModalVisibility: (state) => {
+            state.visibility = !state.visibility;
+        },
         setModalLoginState: (state, action) => {state.loginState = action.payload},
     },
     extraReducers: (builder) => {

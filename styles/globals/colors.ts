@@ -24,6 +24,8 @@ const colors = {
     lightBlack: "#100F0F",
     opaqueBlack: "rgba(0,0,0,0.1)",
 
+    defaultTextColor: "#61646B",
+
     moderationNavbar: "#BAC5FD",
     moderationName2: "#2F00B9",
     moderationSidebar: "#1F2637",

@@ -19,6 +19,7 @@ export interface IButton {
     width?: string
     height?: string
     margin?: string
+    border?: string
     borderRadius?: string
     size?: string
     lineHeight?: number
@@ -34,7 +35,7 @@ const ButtonStyled = styled.button<IButton>`
     background-image: url(${props => props.backgroundImage});
     background-repeat: no-repeat;
     background-size: contain;
-    border: none;
+    border: ${props => props.border};
     border-radius: ${props => props.borderRadius};
     cursor: pointer;
     font-style: normal;

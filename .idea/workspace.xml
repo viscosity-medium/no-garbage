@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed062c94-3f63-4db6-9a20-521bed446ba4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/button/button.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/button/button.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/button/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/button/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/custom-select/custom-select.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/custom-select/custom-select.styled.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/custom-select/custom-select.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/dropdown-menu/dropdown-menu-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/dropdown-menu/dropdown-menu-types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-modal-window.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-modal-window.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-content/login-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-content/login-content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-form/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-form/login-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/nav-bar/nav-btns/nav-buttons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/nav-bar/nav-btns/nav-buttons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/case/moderation-case-properties/moderation-case-properties.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/case/moderation-case-properties/moderation-case-properties.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal-window/modal-window-background.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/modal-window/modal-window-background.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals/colors.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="SCSS File" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/firebase@9.15.0/node_modules/firebase/auth/dist/auth/index.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JegutGb207HTfNe3itwI34JQlf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/evgen/Desktop/Job/Web/no-garbage/components/_moderation/modal/modal.types.ts",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "ts.external.directory.path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\no-garbage\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_common\dropdown-menu\vertical-dropdown-menu" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_common\nav-bar" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\modal-window" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_common\text-area" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_map" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-card\social-panel\social-button" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-card" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-card\community-and-friends-text-block" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-section" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\volunteers-section\ui\volunteers-section" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\modal\modal.types.ts" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\firebase\authenticate-firebase-user.ts" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\table.styled.tsx" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\table-cell\table-cell.styled.tsx" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-window\data-window-selectors.ts" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed062c94-3f63-4db6-9a20-521bed446ba4" name="Changes" comment="" />
+      <created>1672444189124</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672444189124</updated>
+      <workItem from="1672444190587" duration="2102000" />
+      <workItem from="1672499289143" duration="3206000" />
+      <workItem from="1672545026953" duration="1470000" />
+      <workItem from="1672588483782" duration="1000000" />
+      <workItem from="1672609135578" duration="21505000" />
+      <workItem from="1672668766590" duration="5970000" />
+      <workItem from="1672708835536" duration="15035000" />
+      <workItem from="1672726359717" duration="3128000" />
+      <workItem from="1672791914320" duration="1429000" />
+      <workItem from="1672793478873" duration="5888000" />
+      <workItem from="1672803712218" duration="9996000" />
+      <workItem from="1672816069622" duration="6468000" />
+      <workItem from="1672823784204" duration="5956000" />
+      <workItem from="1672949221230" duration="669000" />
+      <workItem from="1672967856030" duration="3251000" />
+      <workItem from="1673048454547" duration="8340000" />
+      <workItem from="1673062064960" duration="26195000" />
+      <workItem from="1673114521421" duration="3838000" />
+      <workItem from="1673123423879" duration="13040000" />
+      <workItem from="1673136628174" duration="1000" />
+      <workItem from="1673162566337" duration="1834000" />
+      <workItem from="1673269037557" duration="62000" />
+      <workItem from="1673341577037" duration="1188000" />
+      <workItem from="1673364659035" duration="25000" />
+      <workItem from="1673469040845" duration="42061000" />
+      <workItem from="1673530935472" duration="592000" />
+      <workItem from="1673548743572" duration="2637000" />
+      <workItem from="1673617123427" duration="1907000" />
+      <workItem from="1673626515533" duration="8000" />
+      <workItem from="1673686090492" duration="13436000" />
+      <workItem from="1673779766432" duration="9631000" />
+      <workItem from="1673814035118" duration="6746000" />
+      <workItem from="1673856564057" duration="7577000" />
+      <workItem from="1673896825632" duration="12029000" />
+      <workItem from="1673939576852" duration="15934000" />
+      <workItem from="1673959679207" duration="9439000" />
+      <workItem from="1673972821322" duration="3939000" />
+      <workItem from="1673985261336" duration="5544000" />
+      <workItem from="1673993515778" duration="1873000" />
+      <workItem from="1674027837692" duration="15912000" />
+      <workItem from="1674075697953" duration="6210000" />
+      <workItem from="1674114337518" duration="5430000" />
+      <workItem from="1674157956140" duration="8004000" />
+      <workItem from="1674207410758" duration="940000" />
+      <workItem from="1674226077576" duration="1279000" />
+      <workItem from="1674227380904" duration="1979000" />
+      <workItem from="1674259710836" duration="2994000" />
+      <workItem from="1674294303654" duration="2310000" />
+      <workItem from="1674347210981" duration="4977000" />
+      <workItem from="1674392084200" duration="2881000" />
+      <workItem from="1674409380400" duration="8586000" />
+      <workItem from="1674420007284" duration="1581000" />
+      <workItem from="1674425765104" duration="276000" />
+      <workItem from="1674458937485" duration="9121000" />
+      <workItem from="1674570867474" duration="1192000" />
+      <workItem from="1674603620785" duration="14000" />
+      <workItem from="1674728466593" duration="41000" />
+      <workItem from="1676158491810" duration="3428000" />
+      <workItem from="1676200590009" duration="3747000" />
+      <workItem from="1676205411557" duration="830000" />
+      <workItem from="1676212849914" duration="1372000" />
+      <workItem from="1676215278855" duration="3959000" />
+      <workItem from="1676233691247" duration="1188000" />
+      <workItem from="1676285237495" duration="41000" />
+      <workItem from="1676292289132" duration="1284000" />
+      <workItem from="1676319777036" duration="18000" />
+      <workItem from="1676320892921" duration="629000" />
+      <workItem from="1676322052512" duration="42000" />
+      <workItem from="1676330394020" duration="2542000" />
+      <workItem from="1676392794926" duration="647000" />
+      <workItem from="1676398427792" duration="593000" />
+      <workItem from="1676406800065" duration="326000" />
+      <workItem from="1676478910645" duration="128000" />
+      <workItem from="1676668485647" duration="1605000" />
+      <workItem from="1676670146790" duration="3000" />
+      <workItem from="1676733761723" duration="3000" />
+      <workItem from="1676847195973" duration="1447000" />
+      <workItem from="1677019282891" duration="1432000" />
+      <workItem from="1677022944733" duration="772000" />
+      <workItem from="1677071475654" duration="6000" />
+      <workItem from="1677075893863" duration="2304000" />
+      <workItem from="1677078636793" duration="666000" />
+      <workItem from="1677080011371" duration="180000" />
+      <workItem from="1677080204505" duration="26000" />
+      <workItem from="1677182468564" duration="1810000" />
+      <workItem from="1677191749655" duration="29000" />
+      <workItem from="1677250453049" duration="4000" />
+      <workItem from="1677254283784" duration="3000" />
+      <workItem from="1677262218510" duration="135000" />
+      <workItem from="1677417126464" duration="38000" />
+      <workItem from="1677417196572" duration="3000" />
+      <workItem from="1677417304348" duration="19000" />
+      <workItem from="1677506009953" duration="592000" />
+      <workItem from="1677627515435" duration="111000" />
+      <workItem from="1677665365668" duration="656000" />
+      <workItem from="1677843184606" duration="18000" />
+      <workItem from="1678839055218" duration="12828000" />
+      <workItem from="1678872174309" duration="5963000" />
+      <workItem from="1678889721686" duration="5068000" />
+      <workItem from="1678913400873" duration="102000" />
+      <workItem from="1679061132372" duration="8660000" />
+      <workItem from="1679091153021" duration="8352000" />
+      <workItem from="1679139991723" duration="9579000" />
+      <workItem from="1679186351143" duration="4143000" />
+      <workItem from="1679226132784" duration="9583000" />
+      <workItem from="1679239103340" duration="4329000" />
+      <workItem from="1679255901962" duration="11398000" />
+      <workItem from="1679317403860" duration="16223000" />
+      <workItem from="1679352206435" duration="5241000" />
+      <workItem from="1679392371289" duration="13084000" />
+      <workItem from="1679422813934" duration="2698000" />
+      <workItem from="1679431633464" duration="3913000" />
+      <workItem from="1679441432990" duration="3370000" />
+      <workItem from="1679486704310" duration="2109000" />
+      <workItem from="1679509085090" duration="51000" />
+      <workItem from="1679745874395" duration="40000" />
+      <workItem from="1679798227023" duration="1199000" />
+      <workItem from="1679830078625" duration="10970000" />
+      <workItem from="1679903692397" duration="19334000" />
+      <workItem from="1679949677291" duration="3000" />
+      <workItem from="1680003507415" duration="5749000" />
+      <workItem from="1680016772170" duration="4981000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/components/_common/button/button.tsx</url>
+          <line>12</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/store/store.tsx</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

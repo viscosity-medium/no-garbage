@@ -8,7 +8,7 @@ export interface IModalWindow {
     zIndex?: number
 }
 export const ModalWindowBackgroundStyled = styled.dialog<IModalWindow>`
-  position: absolute;
+  position: fixed;
   display:  block;
   visibility: ${props => props.visibility};
   background-color: ${props => props.background};

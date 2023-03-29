@@ -4,8 +4,7 @@ import {
 import {LoginModalWindowStyled} from "./login-modal-window.styled";
 import {useCloseModalOnEscape} from "../../../../../hooks/use-close-modal-on-escape";
 import {getLoginVisibility} from "../../model/login-modal-window.selectors";
-import {loginModalActions} from "../../model/login-modal-window.slice";
-import {useAppDispatch} from "../../../../../store/store";
+import {loginFormHelpers} from "../../model/login-form.helpers";
 import {useSelector} from "react-redux";
 import CrossSvg from "public/assets/common/cross-icon.svg";
 import Button from "../../../button/button";
@@ -18,20 +17,14 @@ const LoginModalWindow = () => {
     const loginModalIsVisible = useSelector(getLoginVisibility);
     const modalOpacity = loginModalIsVisible ? 1 : 0;
     const modalZIndex = loginModalIsVisible ? 20 : -1;
-    const dispatch = useAppDispatch();
 
-    const hideLoginModal = () => {
-        dispatch(loginModalActions.setModalVisibility());
-    };
-
-    const onEscapeDown = (e) => {
-        if(e.key === "Escape" && loginModalIsVisible){
-            dispatch(loginModalActions.setModalVisibility());
-        }
-    };
+    const {
+        onEscapeDown,
+        hideLoginModal
+    } = loginFormHelpers({});
 
     useCloseModalOnEscape({
-        executionFunction: onEscapeDown,
+        executionFunction: onEscapeDown(loginModalIsVisible),
         deps: [loginModalIsVisible]
     });
 

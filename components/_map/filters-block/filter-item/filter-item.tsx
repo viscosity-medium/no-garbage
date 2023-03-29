@@ -8,6 +8,7 @@ const FilterItem = ({filterName, filterOptions}) => {
 
     const [visibility, setVisibility] = useState<boolean>(false);
     const optionPanelHeight = filterOptions.length * 40;
+
     const onButtonClick = () => {
         setVisibility(prevState => !prevState);
     }

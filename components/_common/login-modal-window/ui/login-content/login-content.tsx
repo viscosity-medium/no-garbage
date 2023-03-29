@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useSelector} from "react-redux";
 import {getLoginState} from "../../model/login-modal-window.selectors";
 import LoginForm from "../login-form/login-form";
@@ -16,9 +16,18 @@ const LoginContent = () => {
 
     const loginState = useSelector(getLoginState);
     const dispatch = useAppDispatch();
+
     const comeBack = () => {
         dispatch(loginModalActions.setModalLoginState("not-authenticated"))
     }
+
+    useEffect(()=>{
+        if(loginState === "success"){
+            setTimeout(()=>{
+                dispatch(loginModalActions.setModalVisibility());
+            }, 1000)
+        }
+    },[loginState])
 
     const content = loginState === "not-authenticated" ? (
         <LoginForm/>

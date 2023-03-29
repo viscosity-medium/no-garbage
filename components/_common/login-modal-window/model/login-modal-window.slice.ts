@@ -55,7 +55,6 @@ const LoginModalSlice = createSlice({
             if(action?.payload?.auth){
                 state.loginState = "success"
                 state.loginData = action.payload;
-                state.visibility = false;
 
                 if(state.email && state.password){
                     localStorage.setItem("email", state.email);

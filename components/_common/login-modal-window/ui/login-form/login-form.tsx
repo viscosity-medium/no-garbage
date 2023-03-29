@@ -7,7 +7,7 @@ import HStack from "../../../flex-stack/h-stack/h-stack";
 import Text from "../../../text/text";
 import colors from "../../../../../styles/globals/colors";
 import {FC, useRef} from "react";
-import {loginFormMethods} from "../../model/login-form-methods";
+import {loginFormHelpers} from "../../model/login-form.helpers";
 
 const LoginForm: FC = () => {
 
@@ -18,7 +18,7 @@ const LoginForm: FC = () => {
     const {
         onEmailChange, onPasswordChange,
         onFocusPasswordInput, onAuthenticate, onEnterSubmit
-    } = loginFormMethods({ email, password, passwordInputRef });
+    } = loginFormHelpers({ email, password, passwordInputRef });
 
 
     return (
@@ -37,6 +37,7 @@ const LoginForm: FC = () => {
                     <Text tag={"span"} text={"Email"} size={"18px"}/>
                     <CustomInput
                         value={email}
+                        type={"email"}
                         onChange={onEmailChange}
                         onEnter={onFocusPasswordInput}
                         width={"300px"}

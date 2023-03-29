@@ -1,4 +1,6 @@
 import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import {getLoginData} from "../components/_common/login-modal-window/model/login-modal-window.selectors";
 
 interface UserDataProps {
     email?
@@ -6,19 +8,20 @@ interface UserDataProps {
 
 const getUserDataFromLocalStorage = () => {
 
-    const [userData, setUserData] = useState<UserDataProps>({});
+    const profileData = useSelector(getLoginData);
+    const [localStorageUserData, setLocalStorageUserData] = useState<UserDataProps>({});
     
     useEffect(()=>{
         if(typeof window !== "undefined"){
 
             const email = localStorage.getItem("email");
-            const newState = {...userData, email};
+            const newState = {...localStorageUserData, email};
 
-            setUserData(prevState => newState)
+            setLocalStorageUserData(prevState => newState)
         }
-    },[])
+    },[profileData])
 
-    return userData
+    return localStorageUserData
 
 }
 

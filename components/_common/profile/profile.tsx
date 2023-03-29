@@ -12,14 +12,16 @@ import {getUserDataFromLocalStorage} from "../../../hooks/get-user-data-from-loc
 import {useLogOut} from "../../../utilities/use-log-out";
 import {loginModalActions} from "../login-modal-window/model/login-modal-window.slice";
 import {useAppDispatch} from "../../../store/store";
+import {useRouter} from "next/router";
 
 
 
 const Profile: FC<NavButtonsProps> = ({fontColor}) => {
 
+    const {route, push} = useRouter();
     const dispatch = useAppDispatch();
-    const profileData = useSelector(getLoginData);
     const userData = getUserDataFromLocalStorage();
+
     const onLogout = () => {
         if( typeof window !== undefined){
             localStorage.removeItem("email");
@@ -33,6 +35,12 @@ const Profile: FC<NavButtonsProps> = ({fontColor}) => {
             dispatch(loginModalActions.setAuthModalLoginData(""));
             dispatch(loginModalActions.setModalLoginState("not-authenticated"))
         })
+
+        if(route === "/moderation") {
+            (async()=>{
+                await push("/")
+            })()
+        }
     }
 
     return (

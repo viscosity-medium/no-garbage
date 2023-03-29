@@ -7,19 +7,6 @@ import {getMapFilters} from "./filter-block-selectors";
 import {filterBlockActions} from "./filters-block-slice";
 
 const FiltersBlock = () => {
-    // const mapFilters = useSelector(getMapFilters);
-    // const dispatch = useDispatch();
-    // const initialFilterBlockState = Object.entries(filtersData).map(([filterName, filterOptions])=>{
-    //     const spreadOptions = filterOptions.map(filterOption => ({[filterOption]: false}))
-    //     return {
-    //         [filterName]: {...spreadOptions}
-    //     }
-    // })
-    // useEffect(()=>{
-    //     dispatch(filterBlockActions.setMapFilters(initialFilterBlockState))
-    // },[])
-    //
-    // console.log(mapFilters)
     return (
         <Div
             position={"absolute"}

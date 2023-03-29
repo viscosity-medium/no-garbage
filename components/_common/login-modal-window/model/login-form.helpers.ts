@@ -1,7 +1,17 @@
 import {fetchFirebaseLogin, loginModalActions} from "./login-modal-window.slice";
 import {useAppDispatch} from "../../../../store/store";
 
-const loginFormMethods = ({email, password, passwordInputRef}) => {
+interface LoginFormHelpers {
+    email?: string,
+    password?: string,
+    passwordInputRef?: any
+}
+
+const loginFormHelpers = ({
+    email,
+    password,
+    passwordInputRef,
+}: LoginFormHelpers) => {
 
     const dispatch = useAppDispatch();
 
@@ -9,15 +19,27 @@ const loginFormMethods = ({email, password, passwordInputRef}) => {
         dispatch(loginModalActions.setAuthModalEmail(value));
     };
 
+    const hideLoginModal = () => {
+        dispatch(loginModalActions.setModalVisibility());
+    };
+
+    const onEscapeDown = (loginModalIsVisible) => (e) => {
+        if(e.key === "Escape" && loginModalIsVisible){
+            dispatch(loginModalActions.setModalVisibility());
+        }
+    };
+
     const onPasswordChange = (value: string) => {
         dispatch(loginModalActions.setAuthModalPassword(value));
     };
 
     const onAuthenticate = async () => {
-        await dispatch(fetchFirebaseLogin({
-            email: email.replace(/\s/gm, ""),
-            password
-        }));
+        if(email && password){
+            await dispatch(fetchFirebaseLogin({
+                email: email?.replace(/\s/gm, ""),
+                password
+            }));
+        }
     };
 
     const onFocusPasswordInput = () => {
@@ -29,6 +51,8 @@ const loginFormMethods = ({email, password, passwordInputRef}) => {
     };
 
     return {
+        hideLoginModal,
+        onEscapeDown,
         onEmailChange,
         onPasswordChange,
         onFocusPasswordInput,
@@ -37,4 +61,4 @@ const loginFormMethods = ({email, password, passwordInputRef}) => {
     }
 }
 
-export { loginFormMethods }
+export { loginFormHelpers }

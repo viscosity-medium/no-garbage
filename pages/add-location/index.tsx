@@ -1,4 +1,3 @@
-import React from 'react';
 import NavBar from "../../components/_common/nav-bar/nav-bar";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import colors from "../../styles/globals/colors";

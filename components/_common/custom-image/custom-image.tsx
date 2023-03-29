@@ -58,6 +58,8 @@ const CustomImage: FC<ICustomImageProps> = ({
     clickHandler,
     objectFit,
 }) => {
+
+    const defaultImage = "/assets/main-page/goals-section-1.png"
     const [isHovered, setIsHovered] = useState(false);
     return (
         <Div
@@ -87,7 +89,7 @@ const CustomImage: FC<ICustomImageProps> = ({
                 onMouseEnter={() => {setIsHovered(true)}
             }
                 onMouseLeave={() => {setIsHovered(false)}}
-                src={backgroundImage || ""}
+                src={backgroundImage ? backgroundImage : defaultImage}
                 alt={"promo-section-custom-image.png"}
                 fill
                 style={{

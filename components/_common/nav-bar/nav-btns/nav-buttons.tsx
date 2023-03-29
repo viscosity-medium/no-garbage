@@ -63,6 +63,7 @@ const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
                     buttonHeight={50}
                     selectedProperty={language}
                     setSelectedProperty={setLanguage}
+                    backgroundColorOnHover={colors.middleGrey}
                 />
             </HStack>
         </HStack>

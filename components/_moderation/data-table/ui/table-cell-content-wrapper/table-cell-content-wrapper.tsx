@@ -11,14 +11,14 @@ interface ITableCellContentWrapper {
     padding?: string
     backgroundColor?: string
 }
-const TableCellContentWrapper: FC<ITableCellContentWrapper> = (
-    {
-        text,
-        display,
-        textAlign,
-        margin,
-        padding,
-        backgroundColor}) => {
+const TableCellContentWrapper: FC<ITableCellContentWrapper> = ({
+    text,
+    display,
+    textAlign,
+    margin,
+    padding,
+    backgroundColor
+}) => {
 
     return (
         <Div

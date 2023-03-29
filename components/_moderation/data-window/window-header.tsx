@@ -7,7 +7,10 @@ import {Div} from "../../_common/custom-image/custom-div.styled";
 import colors from "../../../styles/globals/colors";
 
 const WindowHeader = () => {
-    const { t } = useTranslation("moderation");
+
+    const { t } = useTranslation( "moderation" );
+    const tableRowInfo = { id: "table-header" };
+
     return (
         <Div
             zIndex={3}
@@ -18,7 +21,7 @@ const WindowHeader = () => {
         >
             <HStack>
                 {
-                    windowHeaderData.map((header,index) => (
+                    windowHeaderData({tableRowInfo}).map((header,index) => (
                         <HStack
                             key={`${header}-${index}`}
                             position={"relative"}
@@ -35,7 +38,6 @@ const WindowHeader = () => {
                                 margin={"0 0 0 10px"}
                             >{t(header.text)}</Text>
                         </HStack>
-
                     ))
                 }
             </HStack>

@@ -5,22 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed062c94-3f63-4db6-9a20-521bed446ba4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/button/button.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/button/button.styled.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/button/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/button/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/custom-select/custom-select.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/custom-select/custom-select.styled.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/custom-select/custom-select.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/dropdown-menu/dropdown-menu-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/dropdown-menu/dropdown-menu-types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-modal-window.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-modal-window.slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-content/login-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-content/login-content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-form/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-form/login-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/custom-image/custom-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/custom-image/custom-image.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/filter-switcher/filter-switcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/filter-switcher/filter-switcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/_common/nav-bar/nav-btns/nav-buttons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/nav-bar/nav-btns/nav-buttons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/case/moderation-case-properties/moderation-case-properties.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/case/moderation-case-properties/moderation-case-properties.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal-window/modal-window-background.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/modal-window/modal-window-background.styled.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/sidebar/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/sidebar/sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/data-table/data-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/table-cell/table-cell-content-wrapper/table-cell-content-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/table-cell-content-wrapper/table-cell-content-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/table-cell/table-cell.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/table-cell/table-cell.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/table-cell/table-cell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/table-cell/table-cell.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/table-row/table-row.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/table-row/table-row.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/table-row/table-row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/table-row/table-row.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/table.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/data-table/table.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-window/data-window.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-window/data-window.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-window/window-header-data.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-window/window-header-data.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-window/window-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-window/window-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/case/moderation-case-properties/moderation-case-properties.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/moderation-case-properties/moderation-case-properties.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/initialize-modal-form.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/meet-up/meet-up.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/meet-up/meet-up.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal-selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/model/modal-selectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal-window-content/modal-window-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window-content/modal-window-content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal-window/modal-window-background.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window/modal-window-background.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal-window/modal-window.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window/modal-window.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/model/modal.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/modal.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/model/modal.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/photo-modal/photo-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/photo-modal/photo-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/results/modal-photo-block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/results/modal-photo-block.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/test/images.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/pagination-panel/pagination-panel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/pagination-panel/pagination-panel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/update-firebase-report.ts" beforeDir="false" afterPath="$PROJECT_DIR$/firebase/update-firebase-report.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/get-user-data-from-local-storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/get-user-data-from-local-storage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-close-modal-on-escape.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/use-close-modal-on-escape.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-define-cell-table-color.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/use-define-cell-table-color.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-window-dimensions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/use-window-dimensions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add-location/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add-location/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/moderation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/moderation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/state-schema.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/state-schema.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +57,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="SCSS File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -52,23 +76,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/evgen/Desktop/Job/Web/no-garbage/components/_moderation/modal/modal.types.ts",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "ts.external.directory.path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\no-garbage\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/evgen/Desktop/Job/Web/no-garbage/components/_moderation/data-table/model/data-table.types.ts&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\evgen\\Desktop\\Job\\Web\\no-garbage\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_common\dropdown-menu\vertical-dropdown-menu" />
@@ -78,18 +103,18 @@
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_map" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-card\social-panel\social-button" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-card" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-card\community-and-friends-text-block" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\communities-and-friends-section\ui\communities-and-friends-section" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_main\volunteers-section\ui\volunteers-section" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\pages\map" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\pages\add-location" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\pages" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\ui\data-table" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\ui" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\model\data-table.types.ts" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\modal\model\modal.helper.ts" />
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\modal\modal.types.ts" />
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\firebase\authenticate-firebase-user.ts" />
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\table.styled.tsx" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\table-cell\table-cell.styled.tsx" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-window\data-window-selectors.ts" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -221,7 +246,15 @@
       <workItem from="1679903692397" duration="19334000" />
       <workItem from="1679949677291" duration="3000" />
       <workItem from="1680003507415" duration="5749000" />
-      <workItem from="1680016772170" duration="4981000" />
+      <workItem from="1680016772170" duration="7287000" />
+      <workItem from="1680076454169" duration="1183000" />
+      <workItem from="1680079919886" duration="132000" />
+      <workItem from="1680080127864" duration="112000" />
+      <workItem from="1680080256307" duration="2324000" />
+      <workItem from="1680087596368" duration="14763000" />
+      <workItem from="1680115533128" duration="275000" />
+      <workItem from="1680122328007" duration="2000" />
+      <workItem from="1680127446200" duration="3409000" />
     </task>
     <servers />
   </component>

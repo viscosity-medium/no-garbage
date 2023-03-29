@@ -13,6 +13,7 @@ import VStack from "../components/_common/flex-stack/v-stack/v-stack";
 import BottomImageSection from "../components/_main/bottom-image-section/bottom-image-section";
 import {VolunteersSection} from "../components/_main/volunteers-section";
 import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-friends-section";
+import {useAppDispatch} from "../store/store";
 
 
 const MainPage = () => {

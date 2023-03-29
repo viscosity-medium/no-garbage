@@ -3,7 +3,7 @@ import {sidebarReducer as sidebar} from "../components/_common/sidebar/sidebar-s
 import {moderationDataWindowReducer as moderationDataWindow} from "../components/_moderation/data-window/data-window-slice";
 import {filterSwitcherReducer as filterSwitcher} from "../components/_common/filter-switcher/filter-switcher-slice";
 import {wasteBlockReducer as wasteBlock} from "../components/_add-location/waste-block/waste-block-slice";
-import {modalReducer as modal} from "../components/_moderation/modal/modal.slice";
+import {modalReducer as modal} from "../components/_moderation/modal/model/modal.slice";
 import {navbarReducer as navbar} from "../components/_common/nav-bar/nav-bar-slice";
 import {paginationReducer as moderationPagination} from "../components/_moderation/pagination-panel/pagination-slice";
 import {filterBlockReducer as filterBlock} from "../components/_map/filters-block/filters-block-slice";

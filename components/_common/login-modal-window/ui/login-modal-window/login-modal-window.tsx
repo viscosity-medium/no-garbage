@@ -1,11 +1,12 @@
-import {ModalWindowBackgroundStyled} from "../../../../_moderation/modal/modal-window/modal-window-background.styled";
+import {
+    ModalWindowBackgroundStyled
+} from "../../../../_moderation/modal/ui/modal-window/modal-window-background.styled";
 import {LoginModalWindowStyled} from "./login-modal-window.styled";
 import {useCloseModalOnEscape} from "../../../../../hooks/use-close-modal-on-escape";
 import {getLoginVisibility} from "../../model/login-modal-window.selectors";
 import {loginModalActions} from "../../model/login-modal-window.slice";
 import {useAppDispatch} from "../../../../../store/store";
 import {useSelector} from "react-redux";
-import LoginForm from "../login-form/login-form";
 import CrossSvg from "public/assets/common/cross-icon.svg";
 import Button from "../../../button/button";
 import VStack from "../../../flex-stack/v-stack/v-stack";
@@ -14,9 +15,9 @@ import LoginContent from "../login-content/login-content";
 
 const LoginModalWindow = () => {
 
-    const modalIsVisible = useSelector(getLoginVisibility);
-    const modalOpacity = modalIsVisible ? 1 : 0;
-    const modalZIndex = modalIsVisible ? 20 : -1;
+    const loginModalIsVisible = useSelector(getLoginVisibility);
+    const modalOpacity = loginModalIsVisible ? 1 : 0;
+    const modalZIndex = loginModalIsVisible ? 20 : -1;
     const dispatch = useAppDispatch();
 
     const hideLoginModal = () => {
@@ -24,12 +25,15 @@ const LoginModalWindow = () => {
     };
 
     const onEscapeDown = (e) => {
-        if(e.key === "Escape"){
+        if(e.key === "Escape" && loginModalIsVisible){
             dispatch(loginModalActions.setModalVisibility());
         }
     };
 
-    useCloseModalOnEscape(onEscapeDown);
+    useCloseModalOnEscape({
+        executionFunction: onEscapeDown,
+        deps: [loginModalIsVisible]
+    });
 
     return (
         <ModalWindowBackgroundStyled

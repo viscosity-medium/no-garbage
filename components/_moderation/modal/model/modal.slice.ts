@@ -1,11 +1,11 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import colors from "../../../styles/globals/colors";
+import colors from "../../../../styles/globals/colors";
 import {IModalSchema, SaveButtonState} from "./modal.types";
 
 const initialState: IModalSchema = {
     modalVisibility: false,
     modalContent: undefined,
-    chosenPhoto: undefined,
+    chosenPhoto: "",
     saveButtonState: {
         text: "Edit form to save changes",
         isActive: false,

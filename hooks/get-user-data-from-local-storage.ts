@@ -5,7 +5,9 @@ interface UserDataProps {
 }
 
 const getUserDataFromLocalStorage = () => {
+
     const [userData, setUserData] = useState<UserDataProps>({});
+    
     useEffect(()=>{
         if(typeof window !== "undefined"){
 

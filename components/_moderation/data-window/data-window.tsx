@@ -1,7 +1,7 @@
 import {StyledSection} from "../../_main/promo-section/ui/promo-section/promo.styled";
 import Text from "../../_common/text/text";
 import VStack from "../../_common/flex-stack/v-stack/v-stack";
-import DataTable from "../data-table/data-table";
+import DataTable from "../data-table/ui/data-table/data-table";
 import FilterSwitcher from "../../_common/filter-switcher/filter-switcher";
 import {useTranslation} from "next-i18next";
 import PaginationPanel from "../pagination-panel/pagination-panel";
@@ -52,9 +52,11 @@ const DataWindow = () => {
     return (
         <StyledSection
             width={"100%"}
-            height={`${calculatedHeight}px`}
+            height={calculatedHeight}
         >
-            <VStack>
+            <VStack
+                height={"100%"}
+            >
                 <HStack
                     height={"94px"}
                     padding={"0 24px 0 24px"}

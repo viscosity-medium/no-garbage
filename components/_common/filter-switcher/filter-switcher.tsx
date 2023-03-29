@@ -1,5 +1,4 @@
 import React from 'react';
-import CustomSelect from "../custom-select/custom-select";
 import {useSelector} from "react-redux";
 import {getFilterValue, getOrderValue} from "./filter-switch-selectors";
 import {useTranslation} from "next-i18next";
@@ -23,17 +22,18 @@ const FilterSwitcher = () => {
         }
     }
     return (
-        <CustomSelect
-            selectedProperty={filter}
-            setSelectedProperty={setFilter}
-            additionalAction={additionalAction}
-            clear
-            types={{
-                created_on: t("dateShort"),
-                status: t("status"),
-                description:  t("description"),
-            }}
-        />
+        <></>
+        // <CustomSelect
+        //     selectedProperty={filter}
+        //     setSelectedProperty={setFilter}
+        //     additionalAction={additionalAction}
+        //     clear
+        //     types={{
+        //         created_on: t("dateShort"),
+        //         status: t("status"),
+        //         description:  t("description"),
+        //     }}
+        // />
     );
 };
 

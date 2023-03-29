@@ -1,13 +1,18 @@
 import {useEffect} from "react";
 
-const useCloseModalOnEscape = ( executionFunction ) => {
+interface UseCloseModalOnEscape {
+    executionFunction: (e: any) => void
+    deps?: any[]
+}
+
+const useCloseModalOnEscape = ( {executionFunction, deps = []}: UseCloseModalOnEscape ) => {
     useEffect(() => {
         window.addEventListener("keydown", executionFunction, false);
         return () => {
             window.removeEventListener("keydown", executionFunction, false);
         };
         // eslint-disable-next-line
-    },[]);
+    },deps);
 }
 
 export {

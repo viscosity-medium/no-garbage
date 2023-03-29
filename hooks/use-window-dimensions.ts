@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 
 type useWindowDimensions = {
-    windowWidth: number | undefined;
-    windowHeight: number | undefined;
-    bodyHeight: number | undefined;
-
-    document?: Document | undefined;
+    windowWidth?: number;
+    windowHeight?: number;
+    bodyHeight?: number;
+    document?: Document;
 };
 
 const useUseWindowDimensions = (): useWindowDimensions => {

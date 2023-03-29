@@ -9,7 +9,7 @@ import {
 import {IModerationDataWindowSchema} from "../components/_moderation/data-window/data-window-slice";
 import {filterBlockActions as filterBlock, IFilterBlock} from "../components/_map/filters-block/filters-block-slice";
 import {LoginModalSlice} from "../components/_common/login-modal-window/model/login-modal-window.slice";
-import {IModalSchema} from "../components/_moderation/modal/modal.types";
+import {IModalSchema} from "../components/_moderation/modal/model/modal.types";
 
 export interface IStateSchema {
     sidebar: ISidebarSchema

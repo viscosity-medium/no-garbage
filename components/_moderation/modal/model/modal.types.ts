@@ -26,6 +26,6 @@ export interface SaveButtonState {
 export interface IModalSchema {
     modalVisibility: boolean
     modalContent: IModalContent | undefined
-    chosenPhoto: string | undefined
+    chosenPhoto: string
     saveButtonState: SaveButtonState
 }

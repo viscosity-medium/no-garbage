@@ -1,21 +1,22 @@
 import { batch, useDispatch, useSelector } from "react-redux";
-import { useCloseModalOnEscape } from "../../../../hooks/use-close-modal-on-escape";
+import { useCloseModalOnEscape } from "../../../../../hooks/use-close-modal-on-escape";
 import { useEffect, useState } from 'react';
-import { getModalVisibility } from "../modal-selectors";
-import useWindowDimensions from "../../../../hooks/use-window-dimensions";
+import { getModalVisibility } from "../../model/modal-selectors";
+import useWindowDimensions from "../../../../../hooks/use-window-dimensions";
 import ModalWindowContent from "../modal-window-content/modal-window-content";
-import { modalActions } from "../modal.slice";
-import sizes from "../../../../styles/globals/sizes";
+import { modalActions } from "../../model/modal.slice";
+import sizes from "../../../../../styles/globals/sizes";
+import {getLoginState} from "../../../../_common/login-modal-window/model/login-modal-window.selectors";
 
 const ModalWindow = () => {
 
     const {windowHeight, document, bodyHeight} = useWindowDimensions();
     const [modalWindowHeight, setModalWindowHeight] = useState(0);
-    const visibility = useSelector(getModalVisibility);
+    const modalVisibility = useSelector(getModalVisibility);
     const dispatch = useDispatch();
 
     const onEscapeDown = (e) => {
-        if(e.key === "Escape"){
+        if( e.key === "Escape" && modalVisibility){
             batch(()=>{
                 dispatch(modalActions.setVisibility());
                 dispatch(modalActions.setChosenPhoto(undefined))
@@ -30,14 +31,17 @@ const ModalWindow = () => {
         }
     },[windowHeight, document, bodyHeight])
 
-    useCloseModalOnEscape(onEscapeDown);
+    useCloseModalOnEscape({
+        executionFunction: onEscapeDown,
+        deps: [modalVisibility]
+    });
 
     return (
         <ModalWindowContent
-            visibility={visibility}
+            visibility={modalVisibility}
             modalWindowHeight={`${modalWindowHeight}px`}
         />
     );
 };
 
-export default ModalWindow;
+export { ModalWindow };

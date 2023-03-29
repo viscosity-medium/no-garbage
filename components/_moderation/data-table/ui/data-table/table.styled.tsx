@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import colors from "../../../styles/globals/colors";
+import colors from "../../../../../styles/globals/colors";
 
 export const StyledTable = styled.table`
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     overflow: scroll;
     overflow-x: hidden;

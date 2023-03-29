@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../../../../styles/globals/colors";
+import colors from "../../../../../styles/globals/colors";
 
 export interface ITableCellStyle {
     backgroundColor?: string

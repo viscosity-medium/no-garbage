@@ -1,16 +1,16 @@
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import ModalWindow from "../../components/_moderation/modal/modal-window/modal-window";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useAuthenticateUser } from "../../hooks/use-authenticate-user";
+import { LoginModalWindow } from "../../components/_common/login-modal-window";
+import { useCheckIsAuth } from "../../hooks/use-check-is-auth";
+import { ModalWindow } from "../../components/_moderation/modal";
+import { useState } from "react";
+import PageWrapper from "../../components/_common/page-wrapper/page-wrapper";
 import DataWindow from "../../components/_moderation/data-window/data-window";
+import { Div } from "../../components/_common/custom-image/custom-div.styled";
 import Sidebar from "../../components/_common/sidebar/sidebar";
 import NavBar from "../../components/_common/nav-bar/nav-bar";
 import HStack from "../../components/_common/flex-stack/h-stack/h-stack";
 import colors from "../../styles/globals/colors";
-import {Div} from "../../components/_common/custom-image/custom-div.styled";
-import PageWrapper from "../../components/_common/page-wrapper/page-wrapper";
-import {LoginModalWindow} from "../../components/_common/login-modal-window";
-import React, {useEffect, useState} from "react";
-import {useAuthenticateUser} from "../../hooks/use-authenticate-user";
-import {useRouter} from "next/router";
 import Head from "next/head";
 
 
@@ -25,23 +25,9 @@ const ModerationPage = () => {
         accessToken: undefined,
         refreshToken: undefined,
     });
-    const { push } = useRouter();
+
     useAuthenticateUser();
-
-    useEffect(()=>{
-        if( typeof window !== undefined ){
-
-            const refreshToken = localStorage.getItem("refreshToken");
-            const accessToken = localStorage.getItem("accessToken");
-            setTokens({
-                refreshToken: refreshToken,
-                accessToken: accessToken
-            })
-            if(!tokens?.refreshToken || ! accessToken) {
-                push("/")
-            }
-        }
-    },[])
+    useCheckIsAuth({ setTokens });
 
     return (
         <>

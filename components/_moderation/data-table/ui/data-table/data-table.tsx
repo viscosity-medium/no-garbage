@@ -1,18 +1,17 @@
 import React, {FC, useEffect, useRef} from 'react';
-import TableRow from "./table-row/table-row";
+import TableRow from "../table-row/table-row";
 import {useSelector} from "react-redux";
-import {getFirebaseReports} from "../data-window/data-window-selectors";
+import {getFirebaseReports} from "../../../data-window/data-window-selectors";
 import {StyledTable, StyledTableBody} from "./table.styled";
-import WindowHeader from "../data-window/window-header";
-import {firebaseInstance} from "../../../firebase/firebase-instance";
-import {updateFirebaseReport} from "../../../firebase/update-firebase-report";
+import WindowHeader from "../../../data-window/window-header";
+import {firebaseInstance} from "../../../../../firebase/firebase-instance";
+import {updateFirebaseReport} from "../../../../../firebase/update-firebase-report";
 import {DocumentData} from "firebase/firestore";
 
 const DataTable: FC = () => {
 
     const firebaseReports = useSelector(getFirebaseReports);
     const refHeader = useRef<JSX.Element>(<></>);
-
 
     useEffect(()=>{
         refHeader.current = <WindowHeader/>;

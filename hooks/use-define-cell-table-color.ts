@@ -18,7 +18,7 @@ const useDefineCellTableColor = ({status}: ICellTableStatus) => {
     } else if ( ["cleanup planned", "scheduled"]?.includes(status?.toLowerCase())){
         return colors.cleanupPlanned
     } else {
-        return colors.moderation
+
     }
 }
 

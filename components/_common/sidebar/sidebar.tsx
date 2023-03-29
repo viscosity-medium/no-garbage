@@ -1,11 +1,6 @@
-import React, {FC, ReactNode, useCallback, useEffect, useState} from 'react';
+import React, {FC, ReactNode} from 'react';
 import {ISidebar, StyledSidebar} from "./sidebar.styled";
-import sizes from "../../../styles/globals/sizes";
 import useWindowDimensions from "../../../hooks/use-window-dimensions";
-import {useDispatch, useSelector} from "react-redux";
-import {getSidebarState} from "./sidebar-selectors";
-import {sidebarActions} from "./sidebar-slice";
-import colors from "../../../styles/globals/colors";
 import {useDefineSidebarSizes} from "../../../hooks/use-define-sidebar-sizes";
 
 interface ISideBarComponent extends ISidebar {
@@ -28,6 +23,7 @@ const Sidebar:FC<ISideBarComponent> = ({
     const { calculatedWidth, calculatedHeight, changeSidebarWidth } = useDefineSidebarSizes({
         sidebarType: sidebarType, sidebarWidth, windowHeight, document, bodyHeight
     });
+
 
     return (
         <StyledSidebar

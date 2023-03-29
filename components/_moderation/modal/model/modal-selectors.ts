@@ -1,4 +1,4 @@
-import {IStateSchema} from "../../../store/state-schema";
+import {IStateSchema} from "../../../../store/state-schema";
 
 export const getModalVisibility = (state: IStateSchema) => state.modal.modalVisibility;
 export const getModalContent = (state: IStateSchema) => state.modal.modalContent;

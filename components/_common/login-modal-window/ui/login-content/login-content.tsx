@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector} from "react-redux";
-import {getLoginState} from "../../model/login-modal-window.selectors";
+import {getLoginState, getLoginVisibility} from "../../model/login-modal-window.selectors";
 import LoginForm from "../login-form/login-form";
 import Spinner from "../../../spinner/spinner";
 import VStack from "../../../flex-stack/v-stack/v-stack";
@@ -15,6 +15,7 @@ import {loginModalActions} from "../../model/login-modal-window.slice";
 const LoginContent = () => {
 
     const loginState = useSelector(getLoginState);
+    const isVisible  = useSelector(getLoginVisibility);
     const dispatch = useAppDispatch();
 
     const comeBack = () => {
@@ -22,7 +23,7 @@ const LoginContent = () => {
     }
 
     useEffect(()=>{
-        if(loginState === "success"){
+        if(loginState === "success" && isVisible){
             setTimeout(()=>{
                 dispatch(loginModalActions.setModalVisibility());
             }, 1000)

@@ -6,27 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ed062c94-3f63-4db6-9a20-521bed446ba4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/description-block/description-block.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/interactive-map/interactive-map.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/media-upload-block/media-upload-block.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/media-upload-block/upload-area/upload-area.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/title-block/title-block.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/waste-block/waste-block-slice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/waste-block/waste-block.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/waste-block/waste-types-selectors.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_add-location/waste-block/waste-types.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-form-methods.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-form.helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-modal-window.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/model/login-modal-window.slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-content/login-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-content/login-content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-form/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-form/login-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/login-modal-window/ui/login-modal-window/login-modal-window.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/nav-bar/link-panel/links-array.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/nav-bar/link-panel/links-array.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/profile/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/profile/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_map/filters-block/filter-item/filter-item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_map/filters-block/filter-item/filter-item.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_map/filters-block/filters-block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_map/filters-block/filters-block.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/get-user-data-from-local-storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/get-user-data-from-local-storage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/add-location/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/state-schema.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/state-schema.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +218,8 @@
       <workItem from="1680087596368" duration="14763000" />
       <workItem from="1680115533128" duration="275000" />
       <workItem from="1680122328007" duration="2000" />
-      <workItem from="1680127446200" duration="6664000" />
+      <workItem from="1680127446200" duration="6792000" />
+      <workItem from="1680162319215" duration="1760000" />
     </task>
     <servers />
   </component>

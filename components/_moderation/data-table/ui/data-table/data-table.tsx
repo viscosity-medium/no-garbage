@@ -7,6 +7,7 @@ import WindowHeader from "../../../data-window/window-header";
 import {firebaseInstance} from "../../../../../firebase/firebase-instance";
 import {updateFirebaseReport} from "../../../../../firebase/update-firebase-report";
 import {DocumentData} from "firebase/firestore";
+import Loading from "../../../../_common/loading/loading";
 
 const DataTable: FC = () => {
 
@@ -21,7 +22,10 @@ const DataTable: FC = () => {
         <StyledTable>
             {refHeader.current}
             <StyledTableBody>
-                {firebaseReports.map((document: DocumentData, index: number)=>{
+                {
+                    firebaseReports.length === 0 ? <Loading/> :
+                    firebaseReports.map((document: DocumentData, index: number)=>{
+
                     const tableRowInfo = {
                         id: document.id,
                         document: document,

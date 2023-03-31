@@ -1,13 +1,16 @@
 import React from 'react';
-import VolunteerCard from "../volunteer-card/volunteer-card";
 import Text from "../../../../_common/text/text";
 import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
 import CustomImage from "../../../../_common/custom-image/custom-image";
 import {Div} from "../../../../_common/custom-image/custom-div.styled";
+import {SwiperComponent} from "../../../../_common/swiper/ui/swiper/swiper";
+
 
 const VolunteersSection = () => {
 
+
     const message = "/assets/main-page/message.png"
+    const photos = ["/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png"]
 
     return (
         <div>
@@ -42,10 +45,10 @@ const VolunteersSection = () => {
                     position={"relative"}
                     zIndex={2}
                 >
-                    <HStack>
-                        <VolunteerCard/>
-                        <VolunteerCard/>
-                    </HStack>
+                    <SwiperComponent
+                        photos={["khbkh", "khbkc", "khbky", "khbky"]}
+                    >
+                    </SwiperComponent>
                 </Div>
 
             </HStack>

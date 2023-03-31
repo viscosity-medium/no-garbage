@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "Noto Sans";
   src: url('../public/assets/fonts/NotoSans-Regular.ttf');
@@ -22,7 +23,6 @@
 :root {
   --navbar-height: 100px;
   white-space: pre-line;
-  color-scheme: only light;
   color-scheme: only light;
 }
 

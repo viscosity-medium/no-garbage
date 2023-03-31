@@ -1,6 +1,9 @@
 const { i18n, react } = require('./next-i18next.config')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = {
+const nextConfig = {
     webpack(config, { dev }) {
         if (dev) {
             const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -26,3 +29,5 @@ module.exports = {
         ],
     },
 }
+
+module.exports = withBundleAnalyzer(nextConfig);

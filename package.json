@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start -H localhost -p 4141",
     "lint": "next lint",
-    "start:forever": "forever start npm --  start",
+    "analyze": "cross-env ANALYZE=true npm run build",
     "start:pm2": "pm2 start npm --name no-garbage -- run start -- -p 4141",
+    "start:forever": "forever start npm --  start",
     "stopt:pm2": "pm2 stop no-garbage && pm2 delete no-garbage"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.2.4",
+    "cross-env": "^7.0.3",
     "eslint-config-next": "13.1.1",
     "firebase": "^9.15.0",
     "i18next": "^22.4.7",
@@ -24,7 +27,8 @@
     "react-i18next": "^12.1.1",
     "react-redux": "^8.0.5",
     "sass": "^1.57.1",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "swiper": "^9.1.1"
   },
   "compilerOptions": {
     "baseUrl": "src"

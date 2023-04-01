@@ -61,7 +61,8 @@ const ModalWindowContent: FC<IModalWindowContent> = ({visibility, modalWindowHei
                 padding={"0 30px"}
             >
                 <Div
-                    position={"fixed"}
+                    position={"sticky"}
+                    top={"0"}
                     width={"388px"}
                     height={"auto"}
                     zIndex={3}
@@ -82,7 +83,7 @@ const ModalWindowContent: FC<IModalWindowContent> = ({visibility, modalWindowHei
                     </HStack>
                 </Div>
                 <VStack
-                    margin={"60px 0 0 "}
+                    margin={"20px 0 0 "}
                 >
                     <ModalPhotoBlock
                         photos={photos}
@@ -116,7 +117,11 @@ const ModalWindowContent: FC<IModalWindowContent> = ({visibility, modalWindowHei
                         })
                     }
                 >
-                    <Text tag={"span"} text={saveButtonState?.text}/>
+                    <Text
+                        tag={"span"}
+                        text={saveButtonState?.text}
+                        color={colors.white}
+                    />
                 </Button>
             </VStack>
         </Div>

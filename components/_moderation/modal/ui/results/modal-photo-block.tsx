@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {modalActions} from "../../model/modal.slice";
 import {getChosenPhoto} from "../../model/modal-selectors";
 import colors from "../../../../../styles/globals/colors";
+import {Div} from "../../../../_common/custom-image/custom-div.styled";
 
 interface IResults {
     photos?: any[]
@@ -14,6 +15,7 @@ const ModalPhotoBlock: FC<IResults> = ({photos}) => {
 
     const dispatch = useDispatch();
     const chosenPhoto = useSelector(getChosenPhoto);
+    const loadingGif = "/assets/common/loading-gif.gif"
     const clickHandler = (photo) => () => {
         dispatch(modalActions.setChosenPhoto(photo));
     }
@@ -21,12 +23,17 @@ const ModalPhotoBlock: FC<IResults> = ({photos}) => {
     return (
         <VStack>
             <CustomImage
+                key = {chosenPhoto}
                 position={"relative"}
                 width={"400px"}
                 height={"300px"}
                 zIndex={2}
+                zIndexBefore={0}
                 borderRadius={"8px"}
                 backgroundImage={ chosenPhoto }
+                beforeContent={true}
+                before={loadingGif}
+                backgroundColor={colors.mediumGrey}
             />
             <HStack
                 height={"auto"}
@@ -38,23 +45,33 @@ const ModalPhotoBlock: FC<IResults> = ({photos}) => {
                 {
                     photos?.map(photo => {
                         return(
-                            <CustomImage
-                                key={photo?.url}
-                                clickHandler={clickHandler(photo?.url)}
+                            <Div
                                 margin={"10px 10px"}
-                                position={"relative"}
-                                zIndex={2}
-                                zIndexAfter={0}
                                 height={"66px"}
                                 width={"66px"}
-                                cursor={"pointer"}
-                                overflow={"hidden"}
-                                backgroundColor={colors.mediumGrey}
-                                backgroundImage={photo?.preview_image_url}
-                                imageTransition={"0.4s"}
-                                imageScale={"1.2"}
-                                borderRadius={"8px"}
-                            />
+                                position={"relative"}
+                                zIndex={1}
+                                background={loadingGif}
+                            >
+                                <CustomImage
+                                    key={photo?.preview_image_url}
+                                    clickHandler={clickHandler(photo?.preview_image_url)}
+                                    position={"relative"}
+                                    zIndex={2}
+                                    zIndexBefore={0}
+                                    height={"66px"}
+                                    width={"66px"}
+                                    cursor={"pointer"}
+                                    overflow={"hidden"}
+                                    beforeContent={true}
+                                    before={loadingGif}
+                                    backgroundColor={colors.mediumGrey}
+                                    backgroundImage={photo?.preview_image_url}
+                                    imageTransition={"0.4s"}
+                                    imageScale={"1.2"}
+                                    borderRadius={"8px"}
+                                />
+                            </Div>
                         )
                     })
                 }

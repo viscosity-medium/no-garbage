@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import colors from "../../../styles/globals/colors";
 
 export interface IStyledWrapper {
@@ -14,8 +14,11 @@ export interface IStyledWrapper {
     bottom?: string
     top?: string
     after?: string
+    before?: any
     zIndexAfter?: string | number
+    zIndexBefore?: string | number
     afterContent?: boolean
+    beforeContent?: boolean
     hover?: string
     scale?: boolean
     margin?: string
@@ -70,6 +73,26 @@ export const Div = styled.div<IStyledWrapper>`
         z-index: ${props => props.zIndexAfter};
         border-radius: ${props => props.borderRadius};
     }
+    &:before {
+        position: absolute;
+        display: ${props => props.beforeContent ? "block" : "none"};
+        animation: skeletonAnimation alternate infinite 2s;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-image: url("${props => props.before}");
+        background-color: ${colors.lightGrey};
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: solid 2px ${colors.middleGrey};
+        object-fit: cover;
+        z-index: ${props => props.zIndexBefore};
+        border-radius: ${props => props.borderRadius};
+        box-sizing: border-box;
+    }
     &hover {
       background: ${props => props.hover};
       scale: ${props => props.scale ? 2 : null};
@@ -90,4 +113,9 @@ export const Div = styled.div<IStyledWrapper>`
     border-radius: 10px;
     background: ${colors.white};
     }
+`
+
+const skeletonAnimation = keyframes`
+    0% { opacity: 0 }
+    100% { opacity: 1 }
 `

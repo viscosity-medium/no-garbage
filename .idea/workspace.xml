@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ed062c94-3f63-4db6-9a20-521bed446ba4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/ui/data-table/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/ui/data-table/data-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/custom-image/custom-div.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/custom-image/custom-div.styled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/custom-image/custom-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/custom-image/custom-image.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/model/data-table.helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/model/data-table.helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/model/modal.helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/model/modal.helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window-content/modal-window-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window-content/modal-window-content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window/modal-window.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window/modal-window.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/results/modal-photo-block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/results/modal-photo-block.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +230,9 @@
       <workItem from="1680216040725" duration="1116000" />
       <workItem from="1680221265659" duration="1165000" />
       <workItem from="1680253355127" duration="997000" />
-      <workItem from="1680255549908" duration="1288000" />
+      <workItem from="1680255549908" duration="2221000" />
+      <workItem from="1680361569135" duration="36000" />
+      <workItem from="1680385821298" duration="6713000" />
     </task>
     <servers />
   </component>

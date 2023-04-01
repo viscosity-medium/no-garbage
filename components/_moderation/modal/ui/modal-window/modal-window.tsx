@@ -6,7 +6,6 @@ import useWindowDimensions from "../../../../../hooks/use-window-dimensions";
 import ModalWindowContent from "../modal-window-content/modal-window-content";
 import { modalActions } from "../../model/modal.slice";
 import sizes from "../../../../../styles/globals/sizes";
-import {getLoginState} from "../../../../_common/login-modal-window/model/login-modal-window.selectors";
 
 const ModalWindow = () => {
 

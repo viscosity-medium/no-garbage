@@ -6,14 +6,17 @@ import {Div} from "./custom-div.styled";
 interface ICustomImageProps {
     position: string
     afterContent?: boolean
+    beforeContent?: boolean
     backgroundImage?: string | StaticImageData
     backgroundColor?: string
     after?: string
+    before?: any
     hover?: string
     width: string
     height: string
     zIndex: number
     zIndexAfter?: number | string
+    zIndexBefore?: number | string
     border?: string
     borderRadius?: string
     scale?: boolean
@@ -36,12 +39,15 @@ const CustomImage: FC<ICustomImageProps> = ({
     backgroundImage,
     backgroundColor,
     after,
+    before,
     hover,
     width,
     height,
     zIndex,
     afterContent,
+    beforeContent,
     zIndexAfter= 2,
+    zIndexBefore = 2,
     border,
     borderRadius,
     scale,
@@ -56,24 +62,27 @@ const CustomImage: FC<ICustomImageProps> = ({
     bottom,
     left,
     clickHandler,
-    objectFit,
 }) => {
 
-    const defaultImage = "/assets/main-page/goals-section-1.png"
+    const defaultImage = "/assets/main-page/goals-section-1.png";
     const [isHovered, setIsHovered] = useState(false);
+
     return (
         <Div
             afterContent={afterContent}
+            beforeContent={beforeContent}
             position={position}
             top={top}
             right={right}
             bottom={bottom}
             left={left}
             after={after}
+            before={before}
             width={width}
             height={height}
             zIndex={zIndex}
             zIndexAfter={zIndexAfter}
+            zIndexBefore={zIndexBefore}
             hover={hover}
             scale={scale}
             margin={margin}

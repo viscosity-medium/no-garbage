@@ -20,7 +20,7 @@ const onTableRowClickHandler = ({
 
     batch(()=>{
         !modalVisibility ? dispatch(modalActions.setVisibility()) : null;
-        dispatch(modalActions.setChosenPhoto(photos[0]?.url));
+        dispatch(modalActions.setChosenPhoto(photos[0]?.preview_image_url));
         dispatch(modalActions.setContent({
             id, document, description,
             status, community,

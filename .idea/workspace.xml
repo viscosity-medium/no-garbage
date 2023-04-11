@@ -5,14 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed062c94-3f63-4db6-9a20-521bed446ba4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/aws/aws-instance.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/custom-image/custom-div.styled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/custom-image/custom-div.styled.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_common/custom-image/custom-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/custom-image/custom-image.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_common/swiper/ui/swiper/swiper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_common/swiper/ui/swiper/swiper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_map/mapbox/mapbox.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/map/mapbox.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_map/mapbox/mapbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/map/mapbox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/_moderation/data-table/model/data-table.helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-table/model/data-table.helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/model/modal.helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/model/modal.helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window-content/modal-window-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window-content/modal-window-content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window/modal-window.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/modal-window/modal-window.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/data-window/data-window.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/data-window/data-window.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/model/modal.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/model/modal.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/model/modal.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/model/modal.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/meet-up/meet-up.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/meet-up/meet-up.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/photo-modal/photo-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/photo-modal/photo-modal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/_moderation/modal/ui/results/modal-photo-block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/_moderation/modal/ui/results/modal-photo-block.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-initialize-map.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/use-initialize-map.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/map/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/map/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/moderation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/moderation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +35,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="TypeScript JSX File" />
-        <option value="TypeScript File" />
         <option value="SCSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -50,7 +60,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/evgen/Desktop/Job/Web/no-garbage/components/_moderation/data-table/model/data-table.types.ts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/evgen/Desktop/Tech/domains/ts-rostelekom&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -71,11 +81,11 @@
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_map" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\map" />
+      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage" />
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\pages\map" />
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\pages\add-location" />
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\pages" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\ui\data-table" />
-      <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\ui" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="C:\Users\evgen\Desktop\Job\Web\no-garbage\components\_moderation\data-table\model\data-table.types.ts" />
@@ -232,7 +242,24 @@
       <workItem from="1680253355127" duration="997000" />
       <workItem from="1680255549908" duration="2221000" />
       <workItem from="1680361569135" duration="36000" />
-      <workItem from="1680385821298" duration="6713000" />
+      <workItem from="1680385821298" duration="7861000" />
+      <workItem from="1680448813372" duration="510000" />
+      <workItem from="1680459628634" duration="5235000" />
+      <workItem from="1680520765858" duration="596000" />
+      <workItem from="1680561522272" duration="47000" />
+      <workItem from="1680703825762" duration="642000" />
+      <workItem from="1680704996023" duration="594000" />
+      <workItem from="1680717471302" duration="6000" />
+      <workItem from="1680790861314" duration="49000" />
+      <workItem from="1680919402106" duration="3217000" />
+      <workItem from="1680954953002" duration="2356000" />
+      <workItem from="1680963473169" duration="8817000" />
+      <workItem from="1681132777537" duration="2371000" />
+      <workItem from="1681161642570" duration="6494000" />
+      <workItem from="1681207755592" duration="780000" />
+      <workItem from="1681212272816" duration="3237000" />
+      <workItem from="1681225343422" duration="6559000" />
+      <workItem from="1681244298456" duration="1202000" />
     </task>
     <servers />
   </component>

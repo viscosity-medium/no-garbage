@@ -1,4 +1,4 @@
-import AWS from "aws-sdk";
+import {S3Client} from "@aws-sdk/client-s3";
 import { systemVariables } from "../system/system";
 
 const credentials = {
@@ -8,9 +8,8 @@ const credentials = {
 const apiVersion = systemVariables.awsApiVersion;
 const region = systemVariables.awsS3Region;
 
-const awsInstance = new AWS.S3({
+const awsInstance = new S3Client({
     credentials,
-    apiVersion,
     region
 })
 

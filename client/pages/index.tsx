@@ -14,7 +14,7 @@ import BottomImageSection from "../components/_main/bottom-image-section/bottom-
 import {VolunteersSection} from "../components/_main/volunteers-section";
 import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-friends-section";
 import {useEffect} from "react";
-import {awsServices} from "../aws/aws-services";
+import {axiosApi} from "../utilities/axios-api";
 
 
 const MainPage = () => {
@@ -28,14 +28,17 @@ const MainPage = () => {
     useEffect(()=>{
 
         (async () => {
-            const list = await awsServices.getObjectList({prefix: ""});
-            console.log(list)
-            list.forEach((item)=>{
-                //console.log(item)
-                console.log(
-                    `https://tbilisi-cleanups-media-dev.s3.eu-west-2.amazonaws.com/${item.Key}`
-                )
-            })
+
+            await axiosApi.getBucketListObjects({prefix: "_images"})
+
+            //const list = await awsServices.getObjectList({prefix: ""});
+            // console.log(list)
+            // list.forEach((item)=>{
+            //     console.log(item)
+            //     console.log(
+            //         `https://tbilisi-cleanups-media-dev.s3.eu-west-2.amazonaws.com/${item.Key}`
+            //     )
+            // })
 
         })()
 

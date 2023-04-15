@@ -1,8 +1,11 @@
+import path from "path";
 import { Request, Response } from 'express';
 import { awsServices } from "../services/aws-services";
 import {AWSServicesProps} from "../types/services-types";
+import {systemVariables} from "../system/system";
 import {utilities} from "../utilities/utilities";
 
+const {rootDir} = systemVariables
 
 class AwsController {
 
@@ -27,9 +30,10 @@ class AwsController {
 
         try {
 
-            const { prefix } = req.query as AWSServicesProps;
-            const fileName = "fileName"
-            const response = await awsServices.uploadFilesIntoBucket({fileName});
+            const { fileList } = req.query as AWSServicesProps;
+            const fileName = "fileName";
+
+            const response = await awsServices.uploadFilesIntoBucket({ fileList });
 
             return res.json(response);
 

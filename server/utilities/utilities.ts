@@ -8,7 +8,7 @@ const {rootDir} = systemVariables;
 class Utilities{
 
     async downloadFile({url, fileName}) {
-
+        console.log(url)
         const filepath = path.resolve(rootDir, "temp", fileName);
         const response = await axios({
             url,
@@ -21,6 +21,7 @@ class Utilities{
             .on('error', reject)
             .on('close', () => resolve(filepath));
         });
+        
 
     }
 

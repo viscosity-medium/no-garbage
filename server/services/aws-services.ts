@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import {systemVariables} from "../system/system";
 import {awsInstance} from "../aws/aws-instance";
 import {
@@ -9,6 +11,8 @@ import {
 import {AWSBucketListItem, AWSServicesProps} from "../types/services-types";
 import {utilities} from "../utilities/utilities";
 import {imageConverter} from "../utilities/images-converter";
+
+const {rootDir} = systemVariables;
 
 class AwsServices {
 
@@ -34,40 +38,88 @@ class AwsServices {
 
     }
 
-    async uploadFilesIntoBucket({fileName}){
+    async uploadFilesIntoBucket({ fileList }){
 
-        const input = {
-            Bucket: systemVariables.awsS3BucketName,
-            Key: "_images/test-file.jpg"
-        }
-        const command = new PutObjectCommand(input)
+        // fileList
+        //
+        // await fs.readFile(filePath, async (err, data) => {
+        //
+        //     const input = {
+        //         Bucket: systemVariables.awsS3BucketName,
+        //         Key: fileName,
+        //         Body: data
+        //     }
+        //     const command = new PutObjectCommand(input)
+        //
+        //     try {
+        //         const response = await awsInstance.send(command);
+        //         console.log(response);
+        //     } catch (err) {
+        //         console.error(err);
+        //     }
+        //
+        // });
 
-        try {
-            const response = await awsInstance.send(command);
-            console.log(response);
-        } catch (err) {
-            console.error(err);
-        }
+    }
+
+    async uploadSingleFileIntoBucket({ fileName, filePath }){
+
+        const fileNameWithFolder = fileName.match(/thumb/) ?
+            `_thumb-images/${fileName}` : `_images/${fileName}`;
+
+        await fs.readFile(filePath, async (err, data) => {
+
+            const input = {
+                Bucket: systemVariables.awsS3BucketName,
+                Key: fileNameWithFolder,
+                Body: data
+            }
+            const command = new PutObjectCommand(input);
+
+            try {
+                const response = await awsInstance.send(command);
+                console.log(response);
+            } catch (err) {
+                console.error(err);
+            }
+
+        });
 
     }
 
     async processTheFileListAndSaveThemIntoBucket({ fileList }: AWSServicesProps){
 
-        const regExp = new RegExp(`^.*${systemVariables.awsS3BucketName}/`);
-        const url = fileList?.[0]?.[0].url;
-        const fileName = fileList?.[0]?.[0].url.replace(regExp,"")
-        const fileExistence = await utilities.checkFileExistence({fileName});
+        for await (const listItem of fileList!){
+            for await (const listItemObject of listItem as any){
 
-        if( !fileExistence ){
+                const objectUrls = Object.keys(listItemObject)
 
-            await utilities.downloadFile({
-                url,
-                fileName
-            });
+                for await (const url of objectUrls){
 
-            await imageConverter.resizeImage({fileName})
+                    const regExp = new RegExp(`^.*/`);
+                    const fileName = listItemObject[url].replace(regExp,"");
+                    const filePath  = path.resolve(rootDir, "temp", fileName);
+                    const fileExistence = await utilities.checkFileExistence({fileName});
 
+
+                    if( !fileExistence ){
+
+                        await utilities.downloadFile({
+                            url: listItemObject[url],
+                            fileName
+                        });
+
+                        await imageConverter.resizeImage({fileName})
+
+                        await this.uploadSingleFileIntoBucket({fileName, filePath})
+
+                    }
+
+                }
+
+            }
         }
+
 
         // await  awsInstance.upload({
         //     Bucket: systemVariables.awsS3BucketName,

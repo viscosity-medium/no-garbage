@@ -5,7 +5,7 @@ export interface IPaginationSchema {
 }
 
 const initialState = {
-    paginationQuantity: "50",
+    paginationQuantity: "100",
     currentPage: 1
 }
 

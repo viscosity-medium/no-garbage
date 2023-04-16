@@ -35,7 +35,7 @@ const firebaseProdConfig: IFirebaseConfig = {
     measurementId: firebaseProdMeasurementId
 };
 
-const firebaseConfigs: IFirebaseConfig = {
+const firebaseDevConfig: IFirebaseConfig = {
 
     apiKey: firebaseDevApiKey,
     authDomain: `${firebaseDevProjectId}.firebaseapp.com`,
@@ -49,5 +49,5 @@ const firebaseConfigs: IFirebaseConfig = {
 
 export {
     firebaseProdConfig,
-    firebaseConfigs
+    firebaseDevConfig
 }

@@ -2,10 +2,10 @@ import {collection, doc, Firestore, getFirestore, query} from "firebase/firestor
 import {FirebaseApp, initializeApp} from "firebase/app";
 import {authenticateFirebaseUser} from "./authenticate-firebase-user";
 import {IContextProviderValue} from "../context/context";
-import {firebaseConfigs} from "../configs/firebase-configs";
+import {firebaseDevConfig} from "../configs/firebase-configs";
 import {Auth, getAuth} from "firebase/auth";
 
-const firebase: FirebaseApp = initializeApp(firebaseConfigs);
+const firebase: FirebaseApp = initializeApp(firebaseDevConfig);
 const auth: Auth = getAuth(firebase);
 const firestore: Firestore = getFirestore(firebase);
 const reportsRef = collection(firestore, "reports");

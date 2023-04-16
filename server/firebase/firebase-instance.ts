@@ -2,6 +2,7 @@ import {collection, doc, Firestore, getFirestore, query} from "firebase/firestor
 import {FirebaseApp, initializeApp} from "firebase/app";
 import {firebaseProdConfig} from "./firebase-configs";
 import {Auth, getAuth} from "firebase/auth";
+import {IFirebaseInstance} from "../types/firebase-types";
 
 const firebase: FirebaseApp = initializeApp(firebaseProdConfig);
 const auth: Auth = getAuth(firebase);
@@ -12,7 +13,7 @@ const usersDocRef = doc(firestore!, "user_providers", "password")
 const reportsQuery = query(reportsRef!);
 const userProviderQuery = query(userProviderRef!);
 
-const firebaseInstance = {
+const firebaseInstance: IFirebaseInstance = {
     firebase,
     auth,
     firestore,

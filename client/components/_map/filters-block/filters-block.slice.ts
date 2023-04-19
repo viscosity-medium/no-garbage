@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-export interface  IFilterBlock {
+export interface FilterBlockSchema {
     mapFilters: any
 }
 

@@ -1,13 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-export interface IFilterSwitchSchema {
+export interface FilterSwitchSchema {
     allFilters: string[]
     filter: string
     order: "asc" | "desc"
     types: any
 }
 
-const initialState: IFilterSwitchSchema = {
+const initialState: FilterSwitchSchema = {
     allFilters: ["created_on", "status", "description"],
     filter: "created_on",
     order: "asc",

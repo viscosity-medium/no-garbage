@@ -1,7 +1,7 @@
 import { batch, useDispatch, useSelector } from "react-redux";
 import { useCloseModalOnEscape } from "../../../../../hooks/use-close-modal-on-escape";
 import { useEffect, useState } from 'react';
-import { getModalVisibility } from "../../model/modal-selectors";
+import { getModalVisibility } from "../../model/modal.selectors";
 import useWindowDimensions from "../../../../../hooks/use-window-dimensions";
 import ModalWindowContent from "../modal-window-content/modal-window-content";
 import { modalActions } from "../../model/modal.slice";
@@ -18,8 +18,8 @@ const ModalWindow = () => {
         if( e.key === "Escape" && modalVisibility){
             batch(()=>{
                 dispatch(modalActions.setVisibility());
-                dispatch(modalActions.setChosenPhoto(undefined))
-            })
+                dispatch(modalActions.setChosenPhoto(undefined));
+            });
         }
     }
 

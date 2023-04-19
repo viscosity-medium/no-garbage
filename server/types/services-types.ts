@@ -5,7 +5,7 @@ export interface PhotoFileList {
 
 export interface AWSServicesProps {
     prefix?: string
-    fileList?: PhotoFileList[]
+    fileList?: Array<PhotoFileList[]>
 }
 
 export interface AWSBucketListItem {

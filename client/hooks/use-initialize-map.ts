@@ -1,4 +1,4 @@
-import mapboxGL, { MapboxOptions } from "mapbox-gl";
+import { MapboxOptions } from "mapbox-gl";
 import { useEffect } from "react";
 import {systemVariables} from "../system/system";
 

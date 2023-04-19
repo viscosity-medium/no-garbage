@@ -1,9 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-export interface INavbarSchema {
+export interface NavbarSchema {
     language: string
 }
 
-const initialState: INavbarSchema = {
+const initialState: NavbarSchema = {
     language: "",
 }
 

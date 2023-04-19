@@ -5,13 +5,13 @@ export interface FetchFirebaseLogin {
     email: string
     password: string
 }
-export interface LoginModalSlice extends FetchFirebaseLogin{
+export interface LoginModalSchema extends FetchFirebaseLogin{
     loginState: "not-authenticated" | "pending" | "success" | "error",
     loginData: any,
     visibility: boolean
 }
 
-const initialState: LoginModalSlice = {
+const initialState: LoginModalSchema = {
     loginData: undefined,
     loginState: "not-authenticated",
     visibility: false,
@@ -34,7 +34,7 @@ export const fetchFirebaseLogin = createAsyncThunk(
     })
 
 const LoginModalSlice = createSlice({
-    name: "login-modal-slice",
+    name: "login-modal.slice",
     initialState,
     reducers: {
         setAuthModalEmail: (state, action) => {state.email = action.payload},

@@ -4,7 +4,7 @@ import colors from "../../../../../styles/globals/colors";
 import {StyledRow} from "./table-row.styled";
 import {useDispatch, useSelector} from "react-redux";
 import {windowHeaderData} from "../../../data-window/window-header-data";
-import {getModalVisibility} from "../../../modal/model/modal-selectors";
+import {getModalVisibility} from "../../../modal/model/modal.selectors";
 import {DateOptions, ITableRow} from "../../model/data-table.types";
 import {onTableRowClickHandler} from "../../model/data-table.helpers";
 

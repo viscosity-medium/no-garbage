@@ -3,14 +3,14 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {setFirebaseQuery} from "../../../firebase/set-firebase-query";
 import {getSortedFirebaseData} from "../../../firebase/get-sorted-firebase-data";
 
-export interface IModerationDataWindowSchema {
+export interface ModerationDataWindowSchema {
     searchBarText: string
     firebaseReports: QueryDocumentSnapshot<DocumentData>[]
     dbUsers: QueryDocumentSnapshot<DocumentData>[],
     lastVisibleDoc:  string
 }
 
-const initialState: IModerationDataWindowSchema = {
+const initialState: ModerationDataWindowSchema = {
     searchBarText: "",
     firebaseReports: [],
     lastVisibleDoc: "",

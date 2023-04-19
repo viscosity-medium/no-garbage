@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import colors from "../../../../styles/globals/colors";
-import {IModalSchema, SaveButtonState} from "./modal.types";
+import {ModalSchema, SaveButtonState} from "./modal.types";
 
-const initialState: IModalSchema = {
+const initialState: ModalSchema = {
     modalVisibility: false,
     modalContent: undefined,
     chosenPhoto: {

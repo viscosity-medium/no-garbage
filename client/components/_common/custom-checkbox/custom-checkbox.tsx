@@ -3,8 +3,8 @@ import CustomDiv from "../custom-div/custom-div";
 import CustomLabel from "../custom-label/custom-label";
 import CustomCheckboxInput from "../custom-checkbox-input/custom-checkbox-input";
 import {useDispatch, useSelector} from "react-redux";
-import {getMapFilters} from "../../_map/filters-block/filter-block-selectors";
-import {filterBlockActions} from "../../_map/filters-block/filters-block-slice";
+import {getMapFilters} from "../../_map/filters-block/filter-block.selectors";
+import {filterBlockActions} from "../../_map/filters-block/filters-block.slice";
 
 const CustomCheckbox = ({id, filterName, fillerOption}) => {
     const [isChecked, setIsChecked] = useState<boolean>(false);

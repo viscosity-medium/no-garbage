@@ -1,8 +1,8 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import mapboxGL, {MapMouseEvent} from 'mapbox-gl';
-import {useMapResize} from "../hooks/use-map-resize";
-import {useInitializeMap} from "../hooks/use-initialize-map";
-import {useMapReload} from "../hooks/use-map-reload";
+import {useMapResize} from "../model/hooks/use-map-resize";
+import {useInitializeMap} from "../../hooks/use-initialize-map";
+import {useMapReload} from "../model/hooks/use-map-reload";
 
 interface IMapbox {
     size: string | number
@@ -15,8 +15,8 @@ interface IMapbox {
 const Mapbox: FC<IMapbox> = ({
     size,
     margin,
-    lngProp= 44.783333,
-    latProp= 41.716667,
+    lngProp = 44.783333,
+    latProp = 41.716667,
     zoomProp = 11,
 }) => {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {getFilterValue, getOrderValue} from "./filter-switch-selectors";
+import {getFilterValue, getOrderValue} from "./filter-switch.selectors";
 import {useTranslation} from "next-i18next";
-import {filterSwitcherActions} from "./filter-switcher-slice";
+import {filterSwitcherActions} from "./filter-switcher.slice";
 import {useAppDispatch} from "../../../store/store";
 
 const FilterSwitcher = () => {

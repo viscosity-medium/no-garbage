@@ -1,12 +1,12 @@
 import React, {FC, useEffect, useRef} from 'react';
 import TableRow from "../table-row/table-row";
 import {useSelector} from "react-redux";
-import {getFirebaseReports} from "../../../data-window/data-window-selectors";
+import {getFirebaseReports} from "../../../data-window/data-window.selectors";
 import {StyledTable, StyledTableBody} from "./table.styled";
 import WindowHeader from "../../../data-window/window-header";
 import {DocumentData} from "firebase/firestore";
 import Loading from "../../../../_common/loading/loading";
-import {axiosApi, PhotoFileList} from "../../../../../utilities/axios-api";
+import { axiosApi, PhotoFileList } from "../../../../../utilities/axios-api";
 
 const DataTable: FC = () => {
 
@@ -23,7 +23,6 @@ const DataTable: FC = () => {
         (async () => {
             firebaseReports.map(async( document: DocumentData, index: number ) => {
 
-
                 fileList = [
                     ...fileList,
                     document.photos.map((photoObject) => (
@@ -35,10 +34,11 @@ const DataTable: FC = () => {
                 ]
 
                 if (firebaseReports.length === index + 1) {
-                    await axiosApi.processTheFileListAndSaveThemIntoBucket({fileList})
-                    console.log(fileList)
-                }
-            })
+                    // await mapboxApi.processTheFileListAndSaveThemIntoBucket({fileList})
+                    //console.log(fileList)
+                };
+            });
+
         })()
 
     },[firebaseReports])

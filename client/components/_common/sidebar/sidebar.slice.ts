@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface ISidebarSchema {
+export interface SidebarSchema {
     isOpened: boolean
 }
 
-const initialState: ISidebarSchema = {
+const initialState: SidebarSchema = {
     isOpened: false
 };
 

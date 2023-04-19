@@ -5,8 +5,8 @@ import colors from "../../../../styles/globals/colors";
 import Text from "../../../_common/text/text";
 import VStack from "../../../_common/flex-stack/v-stack/v-stack";
 import {useDispatch, useSelector} from "react-redux";
-import {paginationActions} from "../pagination-slice";
-import {getCurrentPage} from "../pagination-selectors";
+import {paginationActions} from "../pagination.slice";
+import {getCurrentPage} from "../pagination.selectors";
 
 const PaginationBtnGroup = () => {
     const dispatch = useDispatch();

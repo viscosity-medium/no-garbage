@@ -1,4 +1,5 @@
-import axios, {AxiosInstance} from "axios";
+import {AxiosInstance} from "axios";
+import {axiosInstance} from "../configs/axios-config";
 
 interface BucketListProperties {
     prefix?: string
@@ -12,17 +13,6 @@ export interface PhotoFileList {
 export interface FileListProperties {
     fileList: PhotoFileList[]
 }
-
-const axiosInstance = axios.create({
-    baseURL: 'http://localhost:4142/server-api',
-    headers: {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-    }
-});
 
 class AxiosApi {
 
@@ -48,7 +38,6 @@ class AxiosApi {
         });
 
     }
-
 
 }
 

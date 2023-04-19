@@ -3,8 +3,8 @@ import FilterItem from "./filter-item/filter-item";
 import {Div} from "../../_common/custom-image/custom-div.styled";
 import {filtersData} from "./filters-data/filters-data";
 import {useDispatch, useSelector} from "react-redux";
-import {getMapFilters} from "./filter-block-selectors";
-import {filterBlockActions} from "./filters-block-slice";
+import {getMapFilters} from "./filter-block.selectors";
+import {filterBlockActions} from "./filters-block.slice";
 
 const FiltersBlock = () => {
     return (

@@ -4,7 +4,7 @@ import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
 import CustomImage from "../../../../_common/custom-image/custom-image";
 import {useDispatch, useSelector} from "react-redux";
 import {modalActions} from "../../model/modal.slice";
-import {getChosenPhoto} from "../../model/modal-selectors";
+import {getChosenPhoto} from "../../model/modal.selectors";
 import colors from "../../../../../styles/globals/colors";
 import {Div} from "../../../../_common/custom-image/custom-div.styled";
 

@@ -11,3 +11,11 @@ export interface IFirebaseInstance {
     userProviderQuery: any | undefined
     usersDocRef: any | undefined
 }
+
+export interface FirebaseCollection {
+    photos?: [
+        url: string,
+        preview_image_url:  string,
+        id: string
+    ]
+}

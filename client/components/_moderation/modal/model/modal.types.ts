@@ -29,7 +29,7 @@ export interface ChosenPhoto {
     url: string
 }
 
-export interface IModalSchema {
+export interface ModalSchema {
     modalVisibility: boolean
     modalContent: IModalContent | undefined
     chosenPhoto: ChosenPhoto

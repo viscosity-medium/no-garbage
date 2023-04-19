@@ -1,15 +1,25 @@
 import FiltersBlock from "../../components/_map/filters-block/filters-block";
 import NavBar from "../../components/_common/nav-bar/nav-bar";
-import Mapbox from "../../map/mapbox";
+import Mapbox from "../../map/ui/mapbox";
 import colors from "../../styles/globals/colors";
 import {Div} from "../../components/_common/custom-image/custom-div.styled";
 import Sidebar from "../../components/_common/sidebar/sidebar";
 import PageWrapper from "../../components/_common/page-wrapper/page-wrapper";
 import {LoginModalWindow} from "../../components/_common/login-modal-window";
-import React from "react";
+import React, {useEffect} from "react";
 import Head from "next/head";
+import {useAppDispatch} from "../../store/store";
+import {fetchMapboxGeoJson} from "../../map/model/mapbox.slice";
 
 const MapPage = () => {
+
+    const dispatch = useAppDispatch()
+    useEffect(()=> {
+        (async ()=>{
+            await dispatch(fetchMapboxGeoJson());
+        })()
+    },[])
+
     return (
         <PageWrapper>
             <Head>

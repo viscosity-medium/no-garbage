@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import sizes from "../styles/globals/sizes";
-import useWindowDimensions from "./use-window-dimensions";
+import sizes from "../../../styles/globals/sizes";
+import useWindowDimensions from "../../../hooks/use-window-dimensions";
 
 export const useMapResize = ({map, size}) => {
     const [mapHeight, setMapHeight] = useState(0);

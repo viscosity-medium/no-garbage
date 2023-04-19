@@ -89,18 +89,17 @@ class AwsServices {
 
     async processTheFileListAndSaveThemIntoBucket({ fileList }: AWSServicesProps){
 
-        for await (const listItem of fileList!){
-            for await (const listItemObject of listItem as any){
+        for await ( const listItem of fileList! ){
+            for await ( const listItemObject of listItem ){
 
                 const objectUrls = Object.keys(listItemObject)
 
-                for await (const url of objectUrls){
+                for await ( const url of objectUrls ){
 
                     const regExp = new RegExp(`^.*/`);
                     const fileName = listItemObject[url].replace(regExp,"");
-                    const filePath  = path.resolve(rootDir, "temp", fileName);
+                    const filePath = path.resolve(rootDir, "temp", fileName);
                     const fileExistence = await utilities.checkFileExistence({fileName});
-
 
                     if( !fileExistence ){
 
@@ -109,9 +108,8 @@ class AwsServices {
                             fileName
                         });
 
-                        await imageConverter.resizeImage({fileName})
-
-                        await this.uploadSingleFileIntoBucket({fileName, filePath})
+                        await imageConverter.resizeImage({fileName});
+                        await this.uploadSingleFileIntoBucket({fileName, filePath});
 
                     }
 

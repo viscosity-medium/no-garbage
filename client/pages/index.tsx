@@ -29,7 +29,7 @@ const MainPage = () => {
 
         (async () => {
 
-            // await axiosApi.getBucketListObjects({prefix: "_images"})
+            // await mapboxApi.getBucketListObjects({prefix: "_images"})
 
             //const list = await awsServices.getObjectList({prefix: ""});
             // console.log(list)

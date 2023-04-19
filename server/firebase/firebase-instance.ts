@@ -1,10 +1,12 @@
 import {collection, doc, Firestore, getFirestore, query} from "firebase/firestore";
 import {FirebaseApp, initializeApp} from "firebase/app";
-import {firebaseProdConfig} from "./firebase-configs";
+import {firebaseDevConfig, firebaseProdConfig} from "./firebase-configs";
 import {Auth, getAuth} from "firebase/auth";
 import {IFirebaseInstance} from "../types/firebase-types";
+import {systemVariables} from "../system/system";
 
-const firebase: FirebaseApp = initializeApp(firebaseProdConfig);
+const firebaseConfig = systemVariables.mode === "PRODUCTION" ? firebaseProdConfig : firebaseDevConfig;
+const firebase: FirebaseApp = initializeApp(firebaseConfig);
 const auth: Auth = getAuth(firebase);
 const firestore: Firestore = getFirestore(firebase);
 const reportsRef = collection(firestore, "reports");

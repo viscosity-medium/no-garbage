@@ -1,5 +1,5 @@
 import {changeModalForm, clickSaveButton, hideModalWindow, initializeModalForm} from "../../model/modal.helpers";
-import {getModalContent, getSaveButtonState} from "../../model/modal-selectors";
+import {getModalContent, getSaveButtonState} from "../../model/modal.selectors";
 import {useSelector} from "react-redux";
 import {FC, useEffect, useState} from 'react';
 import ModerationCaseProperties from "../moderation-case-properties/moderation-case-properties";
@@ -13,9 +13,9 @@ import colors from "../../../../../styles/globals/colors";
 import {Div} from "../../../../_common/custom-image/custom-div.styled";
 import Text from "../../../../_common/text/text";
 import {useAppDispatch} from "../../../../../store/store";
-import {getFilterValue, getOrderValue} from "../../../../_common/filter-switcher/filter-switch-selectors";
-import {getPaginationQuantity} from "../../../pagination-panel/pagination-selectors";
-import {getSearchBarValue} from "../../../data-window/data-window-selectors";
+import {getFilterValue, getOrderValue} from "../../../../_common/filter-switcher/filter-switch.selectors";
+import {getPaginationQuantity} from "../../../pagination-panel/pagination.selectors";
+import {getSearchBarValue} from "../../../data-window/data-window.selectors";
 
 interface IModalWindowContent {
     visibility: boolean

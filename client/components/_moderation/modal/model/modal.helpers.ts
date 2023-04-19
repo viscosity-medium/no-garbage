@@ -1,4 +1,4 @@
-import {fetchFirebaseReports} from "../../data-window/data-window-slice";
+import {fetchFirebaseReports} from "../../data-window/data-window.slice";
 import {updateFirebaseReport} from "../../../../firebase/update-firebase-report";
 import {modalActions} from "./modal.slice";
 import colors from "../../../../styles/globals/colors";

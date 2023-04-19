@@ -11,8 +11,19 @@ const {rootDir} = systemVariables
 class FirebaseController {
 
     async getAllFirebaseCollections(req: Request,res: Response){
+
         const data = await firebaseServices.getAllFirebaseCollections();
-        return res.json(data)
+        return res.json(data);
+
+    }
+
+    async rewriteFirebaseCollectionsPhotoPath(req: Request, res: Response){
+
+        const { collections } = req.body;
+        const data = await firebaseServices.rewriteFirebaseCollectionsPhotoPath({collections});
+
+        return res.json(data);
+
     }
 
 }

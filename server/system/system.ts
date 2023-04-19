@@ -1,5 +1,6 @@
 const systemVariables = {
     rootDir: process.cwd(),
+    mode: process.env.MODE!,
 
     //firebase prod values
     firebaseProdApiKey: process.env.FIREBASE_PROD_API_KEY!,

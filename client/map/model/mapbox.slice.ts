@@ -12,26 +12,28 @@ export const fetchMapboxGeoJson = createAsyncThunk(
 );
 
 const initialState: MapboxSchema = {
-    mapboxGeoJsonData: "non-filled",
-
+    geoJsonData: "non-filled",
+    userMarkerIsSet: false,
+    geoJsonMarkers: []
 }
 
 export const mapbox = createSlice({
     name: "mapbox",
     initialState,
     reducers: {
-
+        setUserMarkerIsSet: state => {state.userMarkerIsSet = !state.userMarkerIsSet},
+        setGeoJsonMarkers: (state, action) => {state.geoJsonMarkers = action.payload}
     },
     extraReducers: (builder) => {
         builder
         .addCase(fetchMapboxGeoJson.pending, state => {
-            state.mapboxGeoJsonData = "pending"
+            state.geoJsonData = "pending"
         })
         .addCase(fetchMapboxGeoJson.fulfilled, (state, action) => {
-            state.mapboxGeoJsonData = action.payload.mapboxGeoJsonData.data
+            state.geoJsonData = action.payload.mapboxGeoJsonData.data
         })
         .addCase(fetchMapboxGeoJson.rejected, state => {
-            state.mapboxGeoJsonData = "error"
+            state.geoJsonData = "error"
         })
     }
 })

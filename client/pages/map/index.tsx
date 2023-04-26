@@ -1,6 +1,6 @@
 import FiltersBlock from "../../components/_map/filters-block/filters-block";
 import NavBar from "../../components/_common/nav-bar/nav-bar";
-import Mapbox from "../../map/ui/mapbox";
+import {Mapbox} from "../../map/ui";
 import colors from "../../styles/globals/colors";
 import {Div} from "../../components/_common/custom-image/custom-div.styled";
 import Sidebar from "../../components/_common/sidebar/sidebar";
@@ -12,13 +12,6 @@ import {useAppDispatch} from "../../store/store";
 import {fetchMapboxGeoJson} from "../../map/model/mapbox.slice";
 
 const MapPage = () => {
-
-    const dispatch = useAppDispatch()
-    useEffect(()=> {
-        (async ()=>{
-            await dispatch(fetchMapboxGeoJson());
-        })()
-    },[])
 
     return (
         <PageWrapper>

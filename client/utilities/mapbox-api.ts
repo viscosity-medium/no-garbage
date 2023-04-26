@@ -1,5 +1,5 @@
 import axios, {AxiosInstance} from "axios";
-import {MapboxGeoJsonData} from "../map/model/mapbox.types";
+import {GeoJsonData} from "../map/model/mapbox.types";
 
 interface BucketListProperties {
     prefix?: string
@@ -35,7 +35,7 @@ class MapBoxApi {
 
 
     async getMapboxGeoJsonData(){
-        const mapboxGeoJsonData = await this.axios.get<MapboxGeoJsonData>("get-mapbox-geo-json");
+        const mapboxGeoJsonData = await this.axios.get<GeoJsonData>("get-mapbox-geo-json");
         return mapboxGeoJsonData
     }
 

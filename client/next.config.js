@@ -9,6 +9,11 @@ const nextConfig = {
             const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
             config.plugins.push(new ForkTsCheckerWebpackPlugin());
         }
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ["@svgr/webpack"]
+        });
+
         return config;
     },
     env: {

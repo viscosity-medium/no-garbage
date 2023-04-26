@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-export const useMapReload = ({map, lng, lat, zoom}) => {
+export const useReloadMap = ({map, lng, lat, zoom}) => {
     useEffect(() => {
         if (map.current) {
             map.current.setCenter([lng, lat]);

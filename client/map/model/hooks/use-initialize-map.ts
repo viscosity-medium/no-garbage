@@ -1,6 +1,6 @@
 import { MapboxOptions } from "mapbox-gl";
 import { useEffect } from "react";
-import {systemVariables} from "../system/system";
+import {systemVariables} from "../../../system/system";
 
 export const useInitializeMap = ({map, mapboxGL, mapContainer, lng, lat, zoom}) => {
 
@@ -14,7 +14,8 @@ export const useInitializeMap = ({map, mapboxGL, mapContainer, lng, lat, zoom}) 
             style: 'mapbox://styles/mapbox/streets-v12',
             center: [lng, lat],
             zoom: zoom,
-            attributionControl: false
+            attributionControl: false,
+            fadeDuration: 300
         }
 
         map.current = new mapboxGL.Map(mapBoxOptions);

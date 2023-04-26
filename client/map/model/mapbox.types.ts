@@ -1,5 +1,3 @@
-import {AxiosResponse} from "axios";
-
 export interface MapboxSingleFeature{
     type: string,
     geometry: {
@@ -12,12 +10,14 @@ export interface MapboxSingleFeature{
     }
 }
 
-export interface MapboxGeoJsonData {
+export interface GeoJsonData {
     type: string
     features: MapboxSingleFeature[]
 }
 
 export interface MapboxSchema {
-    mapboxGeoJsonData: MapboxGeoJsonData | "pending" | "non-filled" | "error"
+    geoJsonData: GeoJsonData | "pending" | "non-filled" | "error"
+    userMarkerIsSet: boolean
+    geoJsonMarkers: any[]
 
 }

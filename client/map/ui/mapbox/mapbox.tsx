@@ -1,8 +1,11 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import mapboxGL, {MapMouseEvent} from 'mapbox-gl';
-import {useMapResize} from "../model/hooks/use-map-resize";
-import {useInitializeMap} from "../../hooks/use-initialize-map";
-import {useMapReload} from "../model/hooks/use-map-reload";
+import {useResizeMap} from "../../model/hooks/use-resize-map";
+import {useInitializeMap} from "../../model/hooks/use-initialize-map";
+import {useReloadMap} from "../../model/hooks/use-reload-map";
+import {useSetMapMarkers} from "../../model/hooks/use-set-map-markers";
+import {useMapOnClick} from "../../model/hooks/use-map-on-click";
+import MarkerDefault from "../marker/marker.svg"
 
 interface IMapbox {
     size: string | number
@@ -24,23 +27,17 @@ const Mapbox: FC<IMapbox> = ({
     const map = useRef<any>(null);
     const [mapLng, setMapLng] = useState(lngProp);
     const [mapLat, setMapLat] = useState(latProp);
-    const mapHeight = useMapResize({map, size});
+    const mapHeight = useResizeMap({map, size});
 
     useInitializeMap({map, mapboxGL, mapContainer, lng: mapLng, lat: mapLat, zoom: zoomProp});
-    useMapReload({map, lng: lngProp, lat: latProp, zoom: zoomProp});
+    useReloadMap({map, lng: lngProp, lat: latProp, zoom: zoomProp});
+    useSetMapMarkers({map});
+    useMapOnClick({map});
 
-    useEffect(()=>{
-
-        map?.current?.on("click", (e: MapMouseEvent)=>{
-            console.log(JSON.stringify(e.lngLat.wrap()))
-        })
-
-    },[])
-
-    useEffect(()=>{
-        setMapLng(lngProp);
-        setMapLat(latProp)
-    },[lngProp, latProp])
+    // useEffect(()=>{
+    //     setMapLng(lngProp);
+    //     setMapLat(latProp)
+    // },[lngProp, latProp])
 
     return (
         <div
@@ -59,4 +56,4 @@ const Mapbox: FC<IMapbox> = ({
     );
 };
 
-export default Mapbox;
+export {Mapbox};

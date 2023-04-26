@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-export const useMapChangeValues = ({map, setMapLng, setMapLat, setMapZoom}) => {
+export const useChangeMapParameters = ({map, setMapLng, setMapLat, setMapZoom}) => {
     useEffect(() => {
 
         if (!map.current) return; // wait for map to initialize

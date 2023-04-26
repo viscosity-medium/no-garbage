@@ -38,7 +38,7 @@ const DataWindow = () => {
     const dependencyArray = [filter, order, paginationQuantity, searchBarValue];
 
     const { windowHeight, document, bodyHeight } = useWindowDimensions();
-    const {calculatedHeight} = useDefineSidebarSizes({
+    const { calculatedHeight } = useDefineSidebarSizes({
         sidebarWidth: [0],
         windowHeight, document, bodyHeight
     });

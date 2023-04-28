@@ -10,9 +10,15 @@ import {useAppDispatch} from "../../../../store/store";
 import {StepBlock} from "./step-block";
 import LocationInputItem from "./location-input-item";
 import {hideLocationSidebar} from "../model/map-location-info-sidebar.helpers";
+import {useSelector} from "react-redux";
+import {getUserMarkerCoordinates, getUserMarkerLocationName} from "../model/map-location-info-sidebar.selectors";
 
 const SidebarContent = ({map}) => {
+
+    const coordinatesString = useSelector(getUserMarkerCoordinates).toString().replace(/,/,", ");
+    const locationName = useSelector(getUserMarkerLocationName);
     const dispatch = useAppDispatch();
+
     return (
         <VStack
             position={"relative"}
@@ -44,7 +50,14 @@ const SidebarContent = ({map}) => {
             </Div>
             <UpperInformation/>
             <StepBlock title={"Step 1"} description={"Location details"}>
-                <LocationInputItem/>
+                <LocationInputItem
+                    title={"Coordinates"}
+                    inputValue={coordinatesString}
+                />
+                <LocationInputItem
+                    title={"Location name"}
+                    inputValue={locationName}
+                />
             </StepBlock>
             <StepBlock title={"Step 2"} description={"Upload relevant media"}>
                 <></>

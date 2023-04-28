@@ -1,4 +1,4 @@
-import { mapboxMarkerLayerConfig, markerTypes } from "./mapbox-configs";
+import {mapboxMarkerLayerConfig, mapboxSingleFeature, markerTypes} from "./mapbox-configs";
 import DefaultMarker from "../ui/marker/marker.svg"
 
 const addMapboxLayer = ({map}) => {
@@ -29,24 +29,27 @@ const addNewMapMarker = ({map, sourceId, coordinates}) => {
 
     const sourceData = map.current.getSource(sourceId);
 
-    sourceData.setData({
+    sourceData?.setData({
         type: 'FeatureCollection',
         features: [
             ...sourceData._data.features,
-            {
-                type: 'Feature',
-                geometry: {
-                    type: 'Point',
-                    coordinates: coordinates
-                },
-                properties: {
-                    title: 'Point #4',
-                    description: 'Description of point #2',
-                    type: "blue",
-                }
-            },
+            mapboxSingleFeature({coordinates})
         ]
     })
+
+}
+
+const setUserMapMarker = ({map, sourceId, coordinates}) => {
+
+    const sourceData = map.current.getSource(sourceId);
+
+    sourceData.setData({
+        type: 'FeatureCollection',
+        features: [
+            mapboxSingleFeature({coordinates})
+        ]
+    })
+
 }
 
 
@@ -125,5 +128,5 @@ const loadMapboxMarkers = ({ map, geoJsonData }) => {
 export {
     addMapboxLayer,
     loadMapboxMarkers,
-    addNewMapMarker
+    setUserMapMarker
 }

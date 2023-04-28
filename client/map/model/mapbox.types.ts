@@ -18,6 +18,7 @@ export interface GeoJsonData {
 export interface MapboxSchema {
     geoJsonData: GeoJsonData | "pending" | "non-filled" | "error"
     userMarkerIsSet: boolean
+    userMarkerIsHovered: boolean
     geoJsonMarkers: any[]
 
 }

@@ -13,7 +13,8 @@ const hideLocationSidebar = ({map, dispatch}) => () => {
 
     batch(()=>{
         dispatch(locationInfoSidebarActions.setVisibility(false));
-        dispatch(mapboxActions.setUserMarkerIsSet());
+        dispatch(mapboxActions.setUserMarkerIsSet(false));
+        dispatch(mapboxActions.setUserMarkerIsHovered(false));
         dispatch(locationInfoSidebarActions.setUserMarkerCoordinates([]));
     })
 

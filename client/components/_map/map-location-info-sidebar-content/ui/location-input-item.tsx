@@ -6,9 +6,7 @@ import CustomInput from "../../../_common/custom-input/custom-input";
 import {useSelector} from "react-redux";
 import {getUserMarkerCoordinates} from "../model/map-location-info-sidebar.selectors";
 
-const LocationInputItem = () => {
-
-    const coordinates = useSelector(getUserMarkerCoordinates).toString().replace(/,/,", ");
+const LocationInputItem = ({title, inputValue}) => {
 
     return (
         <VStack>
@@ -17,11 +15,11 @@ const LocationInputItem = () => {
                     tag={"span"}
                     size={"16px"}
                 >
-                    Coordinates
+                    {title}
                 </Text>
             </HStack>
             <CustomInput
-                value={coordinates}
+                value={inputValue}
                 fontSize={"16px"}
                 width={"100%"}
             />

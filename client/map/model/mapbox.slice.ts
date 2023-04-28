@@ -14,6 +14,7 @@ export const fetchMapboxGeoJson = createAsyncThunk(
 const initialState: MapboxSchema = {
     geoJsonData: "non-filled",
     userMarkerIsSet: false,
+    userMarkerIsHovered: false,
     geoJsonMarkers: []
 }
 
@@ -24,7 +25,8 @@ export const mapbox = createSlice({
         setDefaultMapState: state => {
             state.userMarkerIsSet = false
         },
-        setUserMarkerIsSet: state => {state.userMarkerIsSet = !state.userMarkerIsSet},
+        setUserMarkerIsSet: (state, action) => {state.userMarkerIsSet = action.payload},
+        setUserMarkerIsHovered: (state, action) => {state.userMarkerIsHovered = action.payload},
         setGeoJsonMarkers: (state, action) => {state.geoJsonMarkers = action.payload}
     },
     extraReducers: (builder) => {

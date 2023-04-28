@@ -6,6 +6,7 @@ const initialState: LocationInfoSidebarSchema = {
     modalVisibility: false,
     modalContent: undefined,
     userMarkerCoordinates: [],
+    userMarkerLocationName: "",
     saveButtonState: {
         text: "Edit form to save changes",
         isActive: false,
@@ -21,6 +22,7 @@ const mapLocationInfoSidebarSlice = createSlice({
         setVisibility: (state, action) => {state.modalVisibility = action.payload},
         setContent: (state, action) => {state.modalContent = action.payload},
         setUserMarkerCoordinates: (state, action) => {state.userMarkerCoordinates = action.payload},
+        setUserMarkerLocationName: (state, action) => {state.userMarkerLocationName = action.payload},
         setSaveButtonState: (state, action: PayloadAction<SaveButtonState>) => {state.saveButtonState = action.payload}
     }
 });

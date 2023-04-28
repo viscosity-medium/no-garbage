@@ -19,6 +19,19 @@ const mapboxMarkerLayerConfig = ({id}) => ({
     }
 });
 
+const mapboxSingleFeature = ({coordinates}: {coordinates: number[]}) => ({
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: coordinates
+    },
+    properties: {
+        title: 'Point #4',
+        description: 'Description of point #2',
+        type: "blue",
+    }
+});
+
 const markerTypes = [
     { "blue": MarkerBlue },
     { "red": MarkerRed },
@@ -30,5 +43,6 @@ const defaultMarker = MarkerBlue;
 export {
     mapboxMarkerLayerConfig,
     markerTypes,
-    defaultMarker
+    defaultMarker,
+    mapboxSingleFeature
 }

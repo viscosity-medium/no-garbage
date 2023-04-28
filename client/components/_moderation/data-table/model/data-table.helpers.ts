@@ -1,4 +1,4 @@
-import { modalActions } from "../../modal/model/modal.slice";
+import { moderationLocationInfoSidebarSliceActions } from "../../moderation-location-info-sidebar/model/moderation-location-info-sidebar.slice";
 import { dateOptions } from "../ui/table-row/table-row";
 import { batch } from "react-redux";
 import colors from "../../../../styles/globals/colors";
@@ -19,16 +19,16 @@ const onTableRowClickHandler = ({
     const dateModified = modified ? new Date(modified * 1000).toLocaleDateString("en-US", dateOptions) : "————";
 
     batch(()=>{
-        !modalVisibility ? dispatch(modalActions.setVisibility()) : null;
-        dispatch(modalActions.setChosenPhoto(photos[0]));
-        dispatch(modalActions.setContent({
+        !modalVisibility ? dispatch(moderationLocationInfoSidebarSliceActions.setVisibility()) : null;
+        dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(photos[0]));
+        dispatch(moderationLocationInfoSidebarSliceActions.setContent({
             id, document, description,
             status, community,
             created: dateAdded,
             modified: dateModified,
             announcement, photos, location
         }));
-        dispatch(modalActions.setSaveButtonState({
+        dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
             text: "Edit form to save changes",
             isActive: false,
             textColor: colors.white,

@@ -13,6 +13,7 @@
     "stopt:pm2": "pm2 stop no-garbage && pm2 delete no-garbage"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-language": "^1.0.1",
     "@next/bundle-analyzer": "^13.2.4",
     "axios": "^1.3.5",
     "cross-env": "^7.0.3",

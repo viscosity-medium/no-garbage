@@ -1,1 +1,0 @@
-export { ModalWindow } from "./ui/modal-window/modal-window"

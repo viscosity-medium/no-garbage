@@ -2,17 +2,17 @@ import React from 'react';
 import CustomImage from "../../../../_common/custom-image/custom-image";
 import {Div} from "../../../../_common/custom-image/custom-div.styled";
 import colors from "../../../../../styles/globals/colors";
-import {getChosenPhoto} from "../../model/modal.selectors";
+import {getChosenPhoto} from "../../model/moderation-location-info-sidebar.selectors";
 import {useDispatch, useSelector} from "react-redux";
 import CloseBtnImage from "public/assets/common/close-btn.svg"
 import Button from "../../../../_common/button/button";
-import {modalActions} from "../../model/modal.slice";
+import {moderationLocationInfoSidebarSliceActions} from "../../model/moderation-location-info-sidebar.slice";
 
 const PhotoModal = () => {
     const chosenPhoto = useSelector(getChosenPhoto);
     const dispatch = useDispatch();
     const onClickBtnHandler = () => {
-        dispatch(modalActions.setChosenPhoto(undefined));
+        dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(undefined));
     };
     return (
         <Div

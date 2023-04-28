@@ -21,6 +21,9 @@ export const mapbox = createSlice({
     name: "mapbox",
     initialState,
     reducers: {
+        setDefaultMapState: state => {
+            state.userMarkerIsSet = false
+        },
         setUserMarkerIsSet: state => {state.userMarkerIsSet = !state.userMarkerIsSet},
         setGeoJsonMarkers: (state, action) => {state.geoJsonMarkers = action.payload}
     },

@@ -3,8 +3,8 @@ import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
 import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
 import CustomImage from "../../../../_common/custom-image/custom-image";
 import {useDispatch, useSelector} from "react-redux";
-import {modalActions} from "../../model/modal.slice";
-import {getChosenPhoto} from "../../model/modal.selectors";
+import {moderationLocationInfoSidebarSliceActions} from "../../model/moderation-location-info-sidebar.slice";
+import {getChosenPhoto} from "../../model/moderation-location-info-sidebar.selectors";
 import colors from "../../../../../styles/globals/colors";
 import {Div} from "../../../../_common/custom-image/custom-div.styled";
 
@@ -19,7 +19,7 @@ const ModalPhotoBlock: FC<IResults> = ({photos}) => {
     const loadingGif = "/assets/common/loading-gif.gif";
     
     const clickHandler = (photo) => () => {
-        dispatch(modalActions.setChosenPhoto(photo));
+        dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(photo));
     };
 
     return (

@@ -1,0 +1,1 @@
+export {SidebarContent as MapLocationInfoSidebarContent} from "./ui/sidebar-content"

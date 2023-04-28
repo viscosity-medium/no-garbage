@@ -1,6 +1,6 @@
 import {
     ModalWindowBackgroundStyled
-} from "../../../../_moderation/modal/ui/modal-window/modal-window-background.styled";
+} from "../../../location-info-sidebar/ui/modal-window-background.styled";
 import {LoginModalWindowStyled} from "./login-modal-window.styled";
 import {useCloseModalOnEscape} from "../../../../../hooks/use-close-modal-on-escape";
 import {getLoginVisibility} from "../../model/login-modal-window.selectors";
@@ -30,7 +30,7 @@ const LoginModalWindow = () => {
 
     return (
         <ModalWindowBackgroundStyled
-            className={"moderation-modal-window"}
+            className={"moderation-moderationLocationInfoSidebarSlice-window"}
             background={colors.modalBackground}
             visibility={"visible"}
             opacity={modalOpacity}

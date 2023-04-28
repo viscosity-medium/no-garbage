@@ -29,9 +29,9 @@ export interface ChosenPhoto {
     url: string
 }
 
-export interface ModalSchema {
+export interface LocationInfoSidebarSchema {
     modalVisibility: boolean
+    userMarkerCoordinates: string[]
     modalContent: IModalContent | undefined
-    chosenPhoto: ChosenPhoto
     saveButtonState: SaveButtonState
 }

@@ -1,18 +1,6 @@
 import axios, {AxiosInstance} from "axios";
 import {GeoJsonData} from "../map/model/mapbox.types";
-
-interface BucketListProperties {
-    prefix?: string
-}
-
-export interface PhotoFileList {
-    url: string
-    previewImageUrl: string
-}
-
-export interface FileListProperties {
-    fileList: PhotoFileList[]
-}
+import {systemVariables} from "../system/system";
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:4142/server-api',
@@ -25,21 +13,37 @@ const axiosInstance = axios.create({
     }
 });
 
+const mapboxGeocodingInstance = axios.create({
+    baseURL: "https://api.mapbox.com/geocoding/v5/mapbox.places"
+})
+
 class MapBoxApi {
 
     axios: AxiosInstance
+    geocoding: AxiosInstance
+    mapboxAccessToken: string
+
 
     constructor() {
         this.axios = axiosInstance
+        this.geocoding = mapboxGeocodingInstance
+        this.mapboxAccessToken = systemVariables.mapboxAccessToken
     }
 
 
     async getMapboxGeoJsonData(){
-        const mapboxGeoJsonData = await this.axios.get<GeoJsonData>("get-mapbox-geo-json");
-        return mapboxGeoJsonData
+        return await this.axios.get<GeoJsonData>("get-mapbox-geo-json");
+    }
+
+    async getMapboxLocationInfo({coordinates, language}){
+
+        const editedLanguage = language === "ge" ? "ka" : language
+
+        return await this.geocoding.get(`${coordinates}.json?language=${editedLanguage}&limit=1&access_token=${this.mapboxAccessToken}`);
     }
 
 }
+
 
 const mapboxApi = new MapBoxApi();
 

@@ -17,9 +17,11 @@ const useCustomTranslation = () => {
     },[])
 
     useEffect(()=>{
-        if(language){
-            push(route, undefined, {locale: language})
-        }
+        (async()=>{
+            if(language){
+                await push(route, undefined, {locale: language})
+            }
+        })()
 
     },[language])
     return [language, setLanguage]

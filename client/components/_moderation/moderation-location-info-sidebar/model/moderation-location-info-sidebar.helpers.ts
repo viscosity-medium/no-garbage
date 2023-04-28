@@ -1,6 +1,6 @@
 import {fetchFirebaseReports} from "../../data-window/data-window.slice";
 import {updateFirebaseReport} from "../../../../firebase/update-firebase-report";
-import {modalActions} from "./modal.slice";
+import {moderationLocationInfoSidebarSliceActions} from "./moderation-location-info-sidebar.slice";
 import colors from "../../../../styles/globals/colors";
 import {batch} from "react-redux";
 
@@ -12,7 +12,7 @@ const changeModalForm = ({dispatch, modalForm, setModalForm}) => (changedValue) 
         [changedValue]: event
     });
 
-    dispatch(modalActions.setSaveButtonState({
+    dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
         text: "Save changes",
         isActive: true,
         textColor: colors.white,
@@ -24,9 +24,9 @@ const changeModalForm = ({dispatch, modalForm, setModalForm}) => (changedValue) 
 const hideModalWindow = ({dispatch}) => () => {
 
     batch(()=>{
-        dispatch(modalActions.setVisibility());
-        dispatch(modalActions.setChosenPhoto(undefined));
-        dispatch(modalActions.setSaveButtonState({
+        dispatch(moderationLocationInfoSidebarSliceActions.setVisibility());
+        dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(undefined));
+        dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
             text: "Edit form to save changes",
             isActive: false,
             textColor: colors.white,
@@ -40,7 +40,7 @@ const clickSaveButton = ({dispatch, modalForm, filter, order, paginationQuantity
 
     await updateFirebaseReport({ modalForm })
     await dispatch(fetchFirebaseReports({filter, order, paginationQuantity, searchBarValue}));
-    dispatch(modalActions.setSaveButtonState({
+    dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
         text: "Changes saved!",
         isActive: false,
         textColor: colors.white,

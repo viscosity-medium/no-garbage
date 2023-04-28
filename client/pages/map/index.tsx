@@ -3,15 +3,24 @@ import NavBar from "../../components/_common/nav-bar/nav-bar";
 import {Mapbox} from "../../map/ui";
 import colors from "../../styles/globals/colors";
 import {Div} from "../../components/_common/custom-image/custom-div.styled";
-import Sidebar from "../../components/_common/sidebar/sidebar";
 import PageWrapper from "../../components/_common/page-wrapper/page-wrapper";
 import {LoginModalWindow} from "../../components/_common/login-modal-window";
-import React, {useEffect} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Head from "next/head";
-import {useAppDispatch} from "../../store/store";
-import {fetchMapboxGeoJson} from "../../map/model/mapbox.slice";
-
+import {LocationInfoSidebar} from "../../components/_common/location-info-sidebar";
+import {useSelector} from "react-redux";
+import {
+    getLocationInfoSidebarVisibility
+} from "../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.selectors";
+import {useSwitchMapLocationInfoSidebar} from "./hooks/use-switch-map-location-info-sidebar";
+import {MapLocationInfoSidebarContent} from "../../components/_map/map-location-info-sidebar-content";
 const MapPage = () => {
+
+    const [modalWindowHeight, setModalWindowHeight] = useState(0);
+    const visibility = useSelector(getLocationInfoSidebarVisibility);
+    const upperLevelMapCopy = useRef()
+
+    useSwitchMapLocationInfoSidebar();
 
     return (
         <PageWrapper>
@@ -27,16 +36,20 @@ const MapPage = () => {
                 width={"100%"}
                 position={"relative"}
             >
-                <Mapbox size={"full"}/>
-                <FiltersBlock/>
-                <Sidebar
-                    position={"absolute"}
-                    top={"0"}
-                    right={"0"}
-                    sidebarWidth={["400px"]}
-                    sidebarType={"static"}
-                    color={colors.mapSidebarColor}
+                <Mapbox
+                    size={"full"}
+                    upperLevelMapCopy={upperLevelMapCopy}
                 />
+                <FiltersBlock/>
+                <LocationInfoSidebar
+                    visibility={visibility}
+                    modalWindowHeight={`${modalWindowHeight}px`}
+                    setModalWindowHeight={setModalWindowHeight}
+                >
+                    <MapLocationInfoSidebarContent
+                        map={upperLevelMapCopy}
+                    />
+                </LocationInfoSidebar>
             </Div>
             <LoginModalWindow/>
         </PageWrapper>

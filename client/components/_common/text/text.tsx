@@ -9,7 +9,7 @@ interface IText {
     children?: ReactNode
     position?: string
     display?: string
-    tag: string
+    tag: "h1" | "h2" | "h3" | "span"
     text?: string
     left?: string
     width?: string

@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import colors from "../../../../styles/globals/colors";
-import {ModalSchema, SaveButtonState} from "./modal.types";
+import {ModerationLocationInfoSidebarSchema, SaveButtonState} from "./moderation-location-info-sidebar.types";
 
-const initialState: ModalSchema = {
+const initialState: ModerationLocationInfoSidebarSchema = {
     modalVisibility: false,
     modalContent: undefined,
     chosenPhoto: {
@@ -18,8 +18,8 @@ const initialState: ModalSchema = {
     }
 }
 
-const modalSlice = createSlice({
-    name: "modal",
+const moderationLocationInfoSidebarSlice = createSlice({
+    name: "moderation-location-info-sidebar",
     initialState,
     reducers: {
         setVisibility: state => {state.modalVisibility = !state.modalVisibility},
@@ -30,11 +30,11 @@ const modalSlice = createSlice({
 });
 
 const {
-    reducer: modalReducer,
-    actions: modalActions
-} = modalSlice;
+    reducer: moderationLocationInfoSidebarSliceReducer,
+    actions: moderationLocationInfoSidebarSliceActions
+} = moderationLocationInfoSidebarSlice;
 
 export {
-    modalReducer,
-    modalActions
+    moderationLocationInfoSidebarSliceReducer,
+    moderationLocationInfoSidebarSliceActions
 }

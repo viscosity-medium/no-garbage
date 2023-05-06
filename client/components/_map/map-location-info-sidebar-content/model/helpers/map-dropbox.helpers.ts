@@ -1,6 +1,9 @@
 import colors from "../../../../../styles/globals/colors";
+import {locationInfoSidebarActions} from "../map-location-info-sidebar.slice";
 
-const appendFilesToFormData = ({files, filesInFormData, setFilesInFormData}) => {
+const appendFilesToFormData = ({files, passingProperties}) => {
+
+    const {dispatch, filesInFormData} = passingProperties
 
     const filesAmount = Object.keys(filesInFormData).length || 0;
     const editedFilesInFormData = {...filesInFormData};
@@ -15,7 +18,8 @@ const appendFilesToFormData = ({files, filesInFormData, setFilesInFormData}) => 
             i++
         }
     });
-    setFilesInFormData(editedFilesInFormData);
+
+    dispatch(locationInfoSidebarActions.setFilesInFormData(editedFilesInFormData));
 
 }
 
@@ -23,62 +27,81 @@ const onClickDropbox = ({e, fileInputRef}) => {
     e.preventDefault();
     fileInputRef?.current?.click();
 };
-const onInputContentChange = ({e, dropBoxProperties, setDropBoxProperties, filesInFormData, setFilesInFormData}) => {
+const onInputContentChange = ({e, passingProperties}) => {
 
     const files = e.target.files;
+    const {dropboxProperties, dispatch} = passingProperties;
 
-    setDropBoxProperties({
-        ...dropBoxProperties,
+    dispatch(locationInfoSidebarActions.setDropboxProperties({
+        ...dropboxProperties,
         title: "Wonderful! You did it!",
         boxShadow: ""
-    });
-    appendFilesToFormData({files, filesInFormData, setFilesInFormData});
+    }))
+    appendFilesToFormData({files, passingProperties});
 
 };
-const onMouseHoverDropbox = ({e, dropBoxProperties, setDropBoxProperties}) => {
+const onMouseHoverDropbox = ({e, passingProperties}) => {
     e.preventDefault();
-    setDropBoxProperties({
-        ...dropBoxProperties,
+    const {dropboxProperties, dispatch} = passingProperties;
+
+    dispatch(locationInfoSidebarActions.setDropboxProperties({
+        ...dropboxProperties,
         boxShadow: `0px 0px 15px 0px ${colors.mapDragAndDropColor}`
-    });
+    }));
 };
-const onMouseLeaveDropbox = ({e, dropBoxProperties, setDropBoxProperties}) => {
+const onMouseLeaveDropbox = ({e, passingProperties}) => {
     e.preventDefault();
-    setDropBoxProperties({
-        ...dropBoxProperties,
+    const {dropboxProperties, dispatch} = passingProperties;
+
+    dispatch(locationInfoSidebarActions.setDropboxProperties({
+        ...dropboxProperties,
         boxShadow: ""
-    });
+    }));
 };
-const onDropDropboxFiles = ({e, dropBoxProperties, setDropBoxProperties, filesInFormData, setFilesInFormData}) => {
+const onDropDropboxFiles = ({e, passingProperties, }) => {
+
     e.preventDefault();
+
     const files = e.dataTransfer.files;
-    setDropBoxProperties({
-        ...dropBoxProperties,
+    const {dropboxProperties, dispatch} = passingProperties;
+
+    dispatch(locationInfoSidebarActions.setDropboxProperties({
+        ...dropboxProperties,
         title: "Wonderful! You did it!",
         boxShadow: ""
-    })
-    appendFilesToFormData({files, filesInFormData, setFilesInFormData})
+    }));
+
+    appendFilesToFormData({files, passingProperties});
 };
-const onDragStart = ({e, dropBoxProperties, setDropBoxProperties}) => {
+const onDragStart = ({e, passingProperties}) => {
+
     e.preventDefault();
-    setDropBoxProperties({
-        ...dropBoxProperties,
+    const {dropboxProperties, dispatch} = passingProperties;
+
+    dispatch(locationInfoSidebarActions.setDropboxProperties({
+        ...dropboxProperties,
         title: "Great! Drop the files into this area.",
         boxShadow: `0px 0px 15px 0px ${colors.mapDragAndDropColor}`
-    })
+    }));
+
 };
-const onDragLeave = ({e, dropBoxProperties, setDropBoxProperties}) => {
+const onDragLeave = ({e, passingProperties}) => {
     e.preventDefault();
-    setDropBoxProperties({
-        ...dropBoxProperties,
+    const {dropboxProperties, dispatch} = passingProperties;
+
+    dispatch(locationInfoSidebarActions.setDropboxProperties({
+        ...dropboxProperties,
         title: "Click or drag file to this area to upload",
         boxShadow: ""
-    })
+    }));
+
 };
-export {onDragLeave};
-export {onDragStart};
-export {onDropDropboxFiles};
-export {onMouseLeaveDropbox};
-export {onMouseHoverDropbox};
-export {onInputContentChange};
-export {onClickDropbox};
+export {
+    onDragLeave,
+    onDragStart,
+    onDropDropboxFiles,
+    onMouseLeaveDropbox,
+    onMouseHoverDropbox,
+    onInputContentChange,
+    onClickDropbox
+};

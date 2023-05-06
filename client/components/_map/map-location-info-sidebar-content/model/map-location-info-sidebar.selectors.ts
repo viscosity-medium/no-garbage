@@ -6,3 +6,5 @@ export const getLocationInfoSidebarSaveButtonState = (state: StateSchema) => sta
 export const getUserMarkerCoordinates = (state: StateSchema) => state.locationInfoSidebar.userMarkerCoordinates;
 export const getUserMarkerLocationName = (state: StateSchema) => state.locationInfoSidebar.userMarkerLocationName;
 export const getSubmitButtonState = (state: StateSchema) => state.locationInfoSidebar.submitButtonState;
+export const getFilesInFormData = (state: StateSchema) => state.locationInfoSidebar.filesInFormData;
+export const getDropboxProperties = (state: StateSchema) => state.locationInfoSidebar.dropboxProperties;

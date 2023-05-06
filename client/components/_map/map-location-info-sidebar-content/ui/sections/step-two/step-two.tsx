@@ -3,15 +3,13 @@ import {DragAndDropArea} from "./drag-and-drop-area";
 import UnorderedList from "../../../../../_common/unordered-list/unordered-list";
 import {FileListItem} from "./file-list-item";
 import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
+import {useSelector} from "react-redux";
+import {getFilesInFormData} from "../../../model/map-location-info-sidebar.selectors";
+import {mapCreateSidebarFileList} from "../../../model/helpers/map-create-sidebar-file-list";
 
 const StepTwo = () => {
 
-    const [filesInFormData, setFilesInFormData] = useState({});
-    const [dropBoxProperties, setDropBoxProperties] = useState({
-        title: "Click or drag file to this area to upload",
-        description: "Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files",
-        boxShadow: ""
-    });
+    const filesInFormData = useSelector(getFilesInFormData);
 
     return (
         <>
@@ -21,32 +19,12 @@ const StepTwo = () => {
                 height={"auto"}
                 position={"relative"}
             >
-                <DragAndDropArea
-                    dropBoxProperties={dropBoxProperties}
-                    setDropBoxProperties={setDropBoxProperties}
-                    filesInFormData={filesInFormData}
-                    setFilesInFormData={setFilesInFormData}
-                />
+                <DragAndDropArea/>
                 <UnorderedList
                     margin={"10px 0 0"}
                 >
                     {
-                        Object.keys(filesInFormData).map((file, index) => {
-
-                            const fileData = filesInFormData[file];
-                            const keyAttribute = `file-data-key-${index}-${fileData.name}`;
-
-                            return(
-                                <FileListItem
-                                    key={keyAttribute}
-                                    fileData={fileData}
-                                    filesInFormData={filesInFormData}
-                                    setFilesInFormData={setFilesInFormData}
-                                    fileName={fileData.name}
-                                />
-                            )
-
-                        })
+                        mapCreateSidebarFileList({filesInFormData})
                     }
                 </UnorderedList>
             </VStack>

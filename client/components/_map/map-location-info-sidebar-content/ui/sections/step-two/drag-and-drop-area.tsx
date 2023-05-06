@@ -10,16 +10,25 @@ import {
     onClickDropbox,
     onDragLeave,
     onDragStart,
-    onDropDropboxFiles, onInputContentChange, onMouseHoverDropbox,
+    onDropDropboxFiles,
+    onInputContentChange,
+    onMouseHoverDropbox,
     onMouseLeaveDropbox
 } from "../../../model/helpers/map-dropbox.helpers";
+import {useSelector} from "react-redux";
+import {getDropboxProperties, getFilesInFormData} from "../../../model/map-location-info-sidebar.selectors";
+import {useAppDispatch} from "../../../../../../store/store";
 
-const DragAndDropArea = ({
-    dropBoxProperties,
-    setDropBoxProperties,
-    filesInFormData,
-    setFilesInFormData
-}) => {
+const DragAndDropArea = () => {
+
+    const dispatch = useAppDispatch();
+    const filesInFormData = useSelector(getFilesInFormData);
+    const dropboxProperties = useSelector(getDropboxProperties);
+    const passingProperties = {
+        dispatch,
+        filesInFormData,
+        dropboxProperties
+    }
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -31,17 +40,17 @@ const DragAndDropArea = ({
                 height={"172px"}
                 border={`1px solid ${colors.tableCellDark}`}
                 borderRadius={"5px"}
-                boxShadow={dropBoxProperties.boxShadow}
+                boxShadow={dropboxProperties.boxShadow}
                 transition={"0.3s"}
                 zIndex={2}
                 cursor={"pointer"}
                 onClick={(e) => onClickDropbox({e, fileInputRef})}
-                onDrop={(e) => onDropDropboxFiles({e, dropBoxProperties, setDropBoxProperties, filesInFormData, setFilesInFormData})}
-                onMouseEnter={(e) => onMouseHoverDropbox({e, dropBoxProperties, setDropBoxProperties})}
-                onMouseLeave={(e) => onMouseLeaveDropbox({e, dropBoxProperties, setDropBoxProperties})}
-                onDragStart={(e) => onDragStart({e, dropBoxProperties, setDropBoxProperties})}
-                onDragLeave={(e) => onDragLeave({e, dropBoxProperties, setDropBoxProperties})}
-                onDragOver={(e) => onDragStart({e, dropBoxProperties, setDropBoxProperties})}
+                onDrop={(e) => onDropDropboxFiles({e, passingProperties})}
+                onMouseEnter={(e) => onMouseHoverDropbox({e, passingProperties})}
+                onMouseLeave={(e) => onMouseLeaveDropbox({e, passingProperties})}
+                onDragStart={(e) => onDragStart({e, passingProperties})}
+                onDragLeave={(e) => onDragLeave({e, passingProperties})}
+                onDragOver={(e) => onDragStart({e, passingProperties})}
             />
             <VStack
                 width={"395px"}
@@ -63,7 +72,7 @@ const DragAndDropArea = ({
                         size={"16px"}
                         textAlign={"center"}
                     >
-                        {dropBoxProperties.title}
+                        {dropboxProperties.title}
                     </Text>
                     <Text
                         tag={"span"}
@@ -71,7 +80,7 @@ const DragAndDropArea = ({
                         textAlign={"center"}
                         margin={"5px 0 0"}
                     >
-                        {dropBoxProperties.description}
+                        {dropboxProperties.description}
                     </Text>
                 </VStack>
             </VStack>
@@ -82,10 +91,7 @@ const DragAndDropArea = ({
                 multiple={true}
                 onChange={(e) => onInputContentChange({
                     e,
-                    dropBoxProperties,
-                    setDropBoxProperties,
-                    filesInFormData,
-                    setFilesInFormData
+                    passingProperties
                 })}
             />
         </>

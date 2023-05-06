@@ -30,6 +30,14 @@ export interface LocationInfoSidebarSchema {
     modalVisibility: boolean
     userMarkerCoordinates: string[]
     userMarkerLocationName: string
+    filesInFormData: {
+        [key: string]: File
+    }
+    dropboxProperties: {
+        title: string,
+        description: string,
+        boxShadow: string
+    }
     modalContent: IModalContent | undefined
     submitButtonState: SubmitButtonState
 }

@@ -5,11 +5,24 @@ import Button from "../../../../../_common/button/button";
 import BucketSvg from "public/assets/map/bucket.svg";
 import colors from "../../../../../../styles/globals/colors";
 import {useState} from "react";
+import {
+    onClickBucketButton,
+    onHoverBucketButton,
+    onLeaveBucketButton
+} from "../../../model/helpers/map-bucket-button.helpers";
+import {useAppDispatch} from "../../../../../../store/store";
+import {useSelector} from "react-redux";
+import {getFilesInFormData} from "../../../model/map-location-info-sidebar.selectors";
 
-import {onClickBucketButton, onHoverBucketButton, onLeaveBucketButton} from "../../../model/on-click-bucket.button";
+const FileListItem = ({ fileData, fileName }) => {
 
-const FileListItem = ({ fileData, filesInFormData, setFilesInFormData, fileName }) => {
-
+    const dispatch = useAppDispatch();
+    const filesInFormData = useSelector(getFilesInFormData);
+    const passingProperties = {
+        fileName,
+        dispatch,
+        filesInFormData,
+    }
     const [bucketFillColor, setColorFillColor] = useState("rgba(0,0,0,0.45)");
 
     return (
@@ -33,7 +46,7 @@ const FileListItem = ({ fileData, filesInFormData, setFilesInFormData, fileName 
             <Button
                 width={"auto"}
                 height={"auto"}
-                onClick={onClickBucketButton({fileName, filesInFormData, setFilesInFormData})}
+                onClick={onClickBucketButton({passingProperties})}
                 onMouseEnter={onHoverBucketButton({setColorFillColor})}
                 onMouseLeave={onLeaveBucketButton({setColorFillColor})}
             >

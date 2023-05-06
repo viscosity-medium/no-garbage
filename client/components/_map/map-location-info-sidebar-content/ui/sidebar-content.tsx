@@ -8,13 +8,13 @@ import CrossIcon from "public/assets/common/cross-icon.svg"
 import {Div} from "../../../_common/custom-image/custom-div.styled";
 import {useAppDispatch} from "../../../../store/store";
 import {StepBlock} from "./sections/step-block";
-import {hideLocationSidebar} from "../model/map-location-info-sidebar.helpers";
 import {useSelector} from "react-redux";
 import {getUserMarkerCoordinates, getUserMarkerLocationName} from "../model/map-location-info-sidebar.selectors";
 import {StepOne} from "./sections/step-one/step-one";
 import {StepTwo} from "./sections/step-two/step-two";
 import {StepThree} from "./sections/step-three/step-three";
 import {DownInformation} from "./sections/down-information/down-information";
+import {hideLocationSidebar} from "../model/helpers/map-location-info-sidebar.helpers";
 
 const SidebarContent = ({map}) => {
 

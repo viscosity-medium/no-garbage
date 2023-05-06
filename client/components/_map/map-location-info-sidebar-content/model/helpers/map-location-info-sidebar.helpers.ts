@@ -1,6 +1,6 @@
 import {batch} from "react-redux";
-import {locationInfoSidebarActions} from "./map-location-info-sidebar.slice";
-import {mapboxActions} from "../../../../map/model/mapbox.slice";
+import {locationInfoSidebarActions} from "../map-location-info-sidebar.slice";
+import {mapboxActions} from "../../../../../map/model/mapbox.slice";
 
 const hideLocationSidebar = ({map, dispatch}) => () => {
 

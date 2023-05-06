@@ -1,6 +1,6 @@
 import React from 'react';
-import VStack from "../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../_common/text/text";
+import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
+import Text from "../../../../../_common/text/text";
 
 const UpperInformation = () => {
     return (
@@ -14,6 +14,8 @@ const UpperInformation = () => {
                 Submit your location for future cleanups
             </Text>
             <Text
+                margin={"10px 0 0 "}
+                lineHeight={"1.4"}
                 tag={"span"}
                 size={"14px"}
             >

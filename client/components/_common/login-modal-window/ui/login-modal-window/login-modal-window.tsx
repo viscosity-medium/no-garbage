@@ -49,7 +49,7 @@ const LoginModalWindow = () => {
                         height={"18px"}
                         backgroundImage={CrossSvg.src}
                         margin={"0 0 0 auto"}
-                        handleClick={hideLoginModal}
+                        onClick={hideLoginModal}
                     />
                     <LoginContent/>
                 </VStack>

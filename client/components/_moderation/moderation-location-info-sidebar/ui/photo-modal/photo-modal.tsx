@@ -33,7 +33,7 @@ const PhotoModal = () => {
                 height={"30px"}
                 backgroundColor={colors.white}
                 backgroundImage={CloseBtnImage.src}
-                handleClick={onClickBtnHandler}
+                onClick={onClickBtnHandler}
                 borderRadius={"5px"}
             />
             {

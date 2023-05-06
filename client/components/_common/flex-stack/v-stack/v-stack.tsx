@@ -22,7 +22,8 @@ const VStack: FC<IStack> = ({
     grow=1,
     opacity,
     transition,
-    cursor
+    cursor,
+    zIndex
 }) => {
     return (
         <VStackStyled
@@ -44,6 +45,7 @@ const VStack: FC<IStack> = ({
             opacity={opacity}
             transition={transition}
             cursor={cursor}
+            zIndex={zIndex}
         >
             {children}
         </VStackStyled>

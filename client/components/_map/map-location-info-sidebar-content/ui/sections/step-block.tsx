@@ -1,5 +1,5 @@
-import VStack from "../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../_common/text/text";
+import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
+import Text from "../../../../_common/text/text";
 import {FC, ReactNode} from "react";
 
 interface StepBlockProps {
@@ -22,7 +22,7 @@ const StepBlock: FC<StepBlockProps> = ({title, description, children}) => {
             <Text
                 tag={"h3"}
                 size={"16px"}
-                margin={"8px 0 0"}
+                margin={"8px 0"}
             >
                 {description}
             </Text>

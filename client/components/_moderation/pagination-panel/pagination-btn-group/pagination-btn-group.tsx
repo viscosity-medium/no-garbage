@@ -26,7 +26,7 @@ const PaginationBtnGroup = () => {
             height={"100%"}
         >
             <Button
-                handleClick={onClickPrevPage}
+                onClick={onClickPrevPage}
                 width={"60px"}
                 height={"100%"}
                 buttonName={"<"}
@@ -48,7 +48,7 @@ const PaginationBtnGroup = () => {
                 />
             </VStack>
             <Button
-                handleClick={onClickNextPage}
+                onClick={onClickNextPage}
                 width={"60px"}
                 height={"100%"}
                 buttonName={">"}

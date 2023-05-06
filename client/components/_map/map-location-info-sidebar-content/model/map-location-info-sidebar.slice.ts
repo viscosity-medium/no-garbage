@@ -1,17 +1,14 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import colors from "../../../../styles/globals/colors";
-import {LocationInfoSidebarSchema, SaveButtonState} from "./map-location-info-sidebar.types";
+import {LocationInfoSidebarSchema, SubmitButtonState} from "./map-location-info-sidebar.types";
 
 const initialState: LocationInfoSidebarSchema = {
     modalVisibility: false,
     modalContent: undefined,
     userMarkerCoordinates: [],
     userMarkerLocationName: "",
-    saveButtonState: {
-        text: "Edit form to save changes",
-        isActive: false,
-        textColor: colors.white,
-        backgroundColor: colors.tableCellBorder
+    submitButtonState: {
+        topScroll: "0px"
     }
 }
 
@@ -23,7 +20,7 @@ const mapLocationInfoSidebarSlice = createSlice({
         setContent: (state, action) => {state.modalContent = action.payload},
         setUserMarkerCoordinates: (state, action) => {state.userMarkerCoordinates = action.payload},
         setUserMarkerLocationName: (state, action) => {state.userMarkerLocationName = action.payload},
-        setSaveButtonState: (state, action: PayloadAction<SaveButtonState>) => {state.saveButtonState = action.payload}
+        setSaveButtonState: (state, action: PayloadAction<SubmitButtonState>) => {state.submitButtonState = action.payload}
     }
 });
 

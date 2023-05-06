@@ -54,7 +54,7 @@ const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
                 <Button
                     width={"80px"}
                     height={"auto"}
-                    handleClick={switchDropDownState}
+                    onClick={switchDropDownState}
                 >
                     <HStack
                         justify={"space-between"}
@@ -96,7 +96,7 @@ const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
                                     width={defaultButtonWidth}
                                     height={"auto"}
                                     backgroundColorOnHover={backgroundColorOnHover}
-                                    handleClick={chooseCurrentItem(item)}
+                                    onClick={chooseCurrentItem(item)}
                                     transition={"0.5"}
                                 >
                                     {item}

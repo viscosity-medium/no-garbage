@@ -16,11 +16,8 @@ export interface IModalContent {
 }
 
 export type SaveButtonText = "Edit form to save changes" | "Save changes" | "Changes saved!"
-export interface SaveButtonState {
-    text: SaveButtonText
-    isActive: boolean,
-    textColor: string
-    backgroundColor: string
+export interface SubmitButtonState {
+    topScroll: string
 }
 
 export interface ChosenPhoto {
@@ -34,5 +31,5 @@ export interface LocationInfoSidebarSchema {
     userMarkerCoordinates: string[]
     userMarkerLocationName: string
     modalContent: IModalContent | undefined
-    saveButtonState: SaveButtonState
+    submitButtonState: SubmitButtonState
 }

@@ -24,6 +24,7 @@ export const mapbox = createSlice({
     reducers: {
         setDefaultMapState: state => {
             state.userMarkerIsSet = false
+            state.userMarkerIsHovered = false
         },
         setUserMarkerIsSet: (state, action) => {state.userMarkerIsSet = action.payload},
         setUserMarkerIsHovered: (state, action) => {state.userMarkerIsHovered = action.payload},

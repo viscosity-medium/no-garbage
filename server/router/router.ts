@@ -7,13 +7,15 @@ const router: Router = Router();
 
 //aws routes
 router.get("/get-bucket-list-object", awsController.getBucketListObjects);
-router.post("/process-the-file-list-and-save-them-into-bucket", awsController.processFilesListAndSaveThemIntoBucket)
+router.post("/process-the-file-list-and-save-them-into-bucket", awsController.processFilesListAndSaveThemIntoBucket);
 router.post("/upload-files-into-bucket", awsController.uploadFilesIntoBucket);
 //firebase routes
 router.get("/get-all-firebase-collections", firebaseController.getAllFirebaseCollections);
-router.get("/rewrite-firebase-collections-photo-path", firebaseController.rewriteFirebaseCollectionsPhotoPath)
+router.get("/rewrite-firebase-collections-photo-path", firebaseController.rewriteFirebaseCollectionsPhotoPath);
+//aws and firebase routes
+router.post("upload-files-on-server", );
 //mapbox
-router.get("/get-mapbox-geo-json", mapboxController.getMapboxGeoJsonData)
+router.get("/get-mapbox-geo-json", mapboxController.getMapboxGeoJsonData);
 
 
 export {

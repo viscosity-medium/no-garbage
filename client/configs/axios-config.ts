@@ -10,3 +10,13 @@ export const axiosInstance = axios.create({
         "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
     }
 });
+
+export const onAxiosUploadHandler = (progressHandler) => ({
+    onUploadProgress: (progressEvent) => {
+        const percentCompleted = (progressEvent.loaded / progressEvent.total) * 100
+            progressHandler()
+        if(percentCompleted === 100){
+            progressHandler()
+        }
+    }
+})

@@ -5,6 +5,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onC
 
 export interface InputProps extends HTMLInputProps {
     className?: string
+    display?: string
     value?: string
     onChange?: (value) => void
     onEnter?: () => void
@@ -12,27 +13,33 @@ export interface InputProps extends HTMLInputProps {
     width?: string | number
     height?: string | number
     fontSize?: string
+    color?: string
     backgroundColor?: string
     border?: string
     borderRadius?: string
+    caretColor?: string;
 }
 const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref<HTMLInputElement> ) {
 
     const {
         value,
+        display,
         onChange,
         onEnter,
         type="text",
         width,
         height,
         fontSize,
+        color,
         backgroundColor,
         border,
         borderRadius,
+        caretColor,
+        multiple
     } = props
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value)
+        onChange?.(e)
     }
 
     const onEnterHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -44,6 +51,7 @@ const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref
 
     return (
         <InputStyled
+            display={display}
             value={value}
             ref={ref}
             onChange={onChangeHandler}
@@ -52,9 +60,12 @@ const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref
             width={width}
             height={height}
             fontSize={fontSize}
+            color={color}
             backgroundColor={backgroundColor}
             border={border}
             borderRadius={borderRadius}
+            caretColor={caretColor}
+            multiple={multiple}
         />
     );
 });

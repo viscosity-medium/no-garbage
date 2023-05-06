@@ -87,7 +87,7 @@ const Footer = () => {
                         <Button
                             width={"40px"}
                             height={"40px"}
-                            handleClick={
+                            onClick={
                                 socialsButtonHandler("https://www.facebook.com/")
                             }
                             backgroundImage={FacebookBtn.src}
@@ -95,7 +95,7 @@ const Footer = () => {
                         <Button
                             width={"40px"}
                             height={"40px"}
-                            handleClick={
+                            onClick={
                                 socialsButtonHandler("https://www.instagram.com/")
                             }
                             backgroundImage={InstagramBtn.src}
@@ -103,7 +103,7 @@ const Footer = () => {
                         <Button
                             width={"40px"}
                             height={"40px"}
-                            handleClick={
+                            onClick={
                                 socialsButtonHandler("https://telegram.org/")
                             }
                             backgroundImage={TelegramBtn.src}

@@ -45,6 +45,7 @@ const colors = {
 
     //map-block
     mapSidebarColor: "rgba(238, 239, 235, 1)",
+    mapDragAndDropColor: "#1890FF",
 
     //cleanup statuses
     clean: "#F1FFCA",

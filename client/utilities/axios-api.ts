@@ -1,5 +1,5 @@
 import {AxiosInstance} from "axios";
-import {axiosInstance} from "../configs/axios-config";
+import {axiosInstance, onAxiosUploadHandler} from "../configs/axios-config";
 
 interface BucketListProperties {
     prefix?: string
@@ -36,6 +36,14 @@ class AxiosApi {
         await this.axios.post( "/process-the-file-list-and-save-them-into-bucket", {
             fileList
         });
+
+    }
+
+    async uploadFilesOnServer({formData}: {formData: any}){
+
+        const progressHandler = () => {}
+
+        await this.axios.post("/upload-files-on-server", formData, onAxiosUploadHandler(progressHandler));
 
     }
 

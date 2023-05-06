@@ -5,7 +5,9 @@ import colors from "../../../styles/globals/colors";
 const Button: FC<IButton> = ({
     children,
     position = "relative",
-    handleClick,
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
     left,
     right,
     bottom,
@@ -39,7 +41,9 @@ const Button: FC<IButton> = ({
             backgroundImage={backgroundImage}
             backgroundColorOnHover={backgroundColorOnHover}
             color={color}
-            onClick={handleClick}
+            onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             width={width}
             height={height}
             left={left}

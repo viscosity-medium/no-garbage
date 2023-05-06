@@ -19,77 +19,78 @@ const useMapOnClick = ({map}) => {
     const dispatch = useAppDispatch();
 
     useEffect(()=>{
+        
+            const showMarkerOnClick = async (e: MapMouseEvent)=>{
 
-        const showMarkerOnClick = async (e: MapMouseEvent)=>{
+                if(!markerIsHovered){
 
-            if(!markerIsHovered){
-                const c = e.lngLat.wrap();
-                const coordinates = [c.lng, c.lat];
+                    const c = e.lngLat.wrap();
+                    const coordinates = [c.lng, c.lat];
 
-                map.current.flyTo({
-                    center: coordinates,
-                    zoom: 13,
-                    duration: 1500
-                });
+                    map.current.flyTo({
+                        center: coordinates,
+                        zoom: 13,
+                        duration: 1500
+                    });
 
-                setUserMapMarker({map, sourceId: "user-points", coordinates});
-                const mapboxLocationInformation = await mapboxApi.getMapboxLocationInfo({
-                    coordinates: coordinates.toString(),
-                    language
-                }).then((response)=> response.data.features[0].place_name);
+                    setUserMapMarker({map, sourceId: "user-points", coordinates});
+                    const mapboxLocationInformation = await mapboxApi.getMapboxLocationInfo({
+                        coordinates: coordinates.toString(),
+                        language
+                    }).then((response)=> response.data.features[0].place_name);
 
-                console.log(mapboxLocationInformation)
-                dispatch(mapboxActions.setUserMarkerIsSet(true));
-                dispatch(locationInfoSidebarActions.setUserMarkerLocationName(mapboxLocationInformation));
-                dispatch(locationInfoSidebarActions.setUserMarkerCoordinates(coordinates));
-            }
-
-        }
-
-        const hideMarkerOnClick = (e) => {
-
-            if(markerIsSet && markerIsHovered){
-
-                map.current.getSource("user-points")?.setData({
-                    type: 'FeatureCollection',
-                    features: []
-                });
-
-                dispatch(mapboxActions.setUserMarkerIsSet(false));
-                dispatch(mapboxActions.setUserMarkerIsHovered(false));
-                dispatch(locationInfoSidebarActions.setUserMarkerCoordinates([]));
+                    dispatch(mapboxActions.setUserMarkerIsSet(true));
+                    dispatch(locationInfoSidebarActions.setUserMarkerLocationName(mapboxLocationInformation));
+                    dispatch(locationInfoSidebarActions.setUserMarkerCoordinates(coordinates));
+                }
 
             }
 
-        }
+            const hideMarkerOnClick = (e) => {
 
-        const setMarkerIsHovered = () => {
-            dispatch(mapboxActions.setUserMarkerIsHovered(true));
-        };
-        const setMarkerIsNotHovered = () => {
-            dispatch(mapboxActions.setUserMarkerIsHovered(false));
-        }
+                if(markerIsSet && markerIsHovered){
 
-        if(map.current !== null){
+                    map.current.getSource("user-points")?.setData({
+                        type: 'FeatureCollection',
+                        features: []
+                    });
 
-            map.current.on("click", showMarkerOnClick);
-            map.current.on("click", "user-points", hideMarkerOnClick);
-            map.current.on('mouseenter', "user-points", setMarkerIsHovered);
-            map.current.on('mouseleave', "user-points", setMarkerIsNotHovered)
+                    dispatch(mapboxActions.setUserMarkerIsSet(false));
+                    dispatch(mapboxActions.setUserMarkerIsHovered(false));
+                    dispatch(locationInfoSidebarActions.setUserMarkerCoordinates([]));
 
-            const features = map?.current?.getSource("user-points")?._data?.features;
+                    setTimeout(()=>{
+                        dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "0px"}))
+                    },500)
 
-            if(features?.length > 0){
-                dispatch(mapboxActions.setUserMarkerIsHovered(false));
+                }
+
             }
 
-            return () => {
-                map.current.off("click", showMarkerOnClick);
-                map.current.off("click", "user-points", hideMarkerOnClick);
-                map.current.off('mouseenter', "user-points", setMarkerIsHovered);
-                map.current.off('mouseleave', "user-points", setMarkerIsNotHovered)
+            const setMarkerIsHovered = () => {
+                dispatch(mapboxActions.setUserMarkerIsHovered(true));
             };
-        }
+            const setMarkerIsNotHovered = () => {
+                dispatch(mapboxActions.setUserMarkerIsHovered(false));
+            }
+
+            if(map.current !== null){
+
+                map.current.on("click", showMarkerOnClick);
+                map.current.on("click", "user-points", hideMarkerOnClick);
+                map.current.on("mouseenter", "user-points", setMarkerIsHovered);
+                map.current.on("mouseleave", "user-points", setMarkerIsNotHovered)
+
+                const features = map?.current?.getSource("user-points")?._data?.features;
+
+                return () => {
+                    map.current.off("click", showMarkerOnClick);
+                    map.current.off("click", "user-points", hideMarkerOnClick);
+                    map.current.off("mouseenter", "user-points", setMarkerIsHovered);
+                    map.current.off("mouseleave", "user-points", setMarkerIsNotHovered)
+                };
+            }
+
 
     },[markerIsSet, markerIsHovered, language]);
 

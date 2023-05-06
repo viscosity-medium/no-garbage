@@ -66,7 +66,7 @@ const LoginForm: FC = () => {
                     buttonName={"Войти"}
                     backgroundColor={colors.pastelGray}
                     borderRadius={"8px"}
-                    handleClick={onAuthenticate}
+                    onClick={onAuthenticate}
                 />
             </HStack>
         </>

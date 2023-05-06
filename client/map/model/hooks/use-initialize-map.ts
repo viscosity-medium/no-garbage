@@ -14,8 +14,6 @@ export const useInitializeMap = ({map, mapboxGL, mapContainer, lng, lat, zoom}) 
 
     useEffect(() => {
 
-        console.log("initialize")
-
         if (map.current) return;
 
         if(agentLanguage){
@@ -35,6 +33,9 @@ export const useInitializeMap = ({map, mapboxGL, mapContainer, lng, lat, zoom}) 
             dispatch(mapboxActions.setDefaultMapState());
             map.current = new mapboxGL.Map(mapBoxOptions);
             map.current.addControl(language);
+
+            // @ts-ignore
+            document.querySelector("canvas").style.outline = "none"
         }
 
     },[agentLanguage]);

@@ -33,6 +33,8 @@ export interface IStyledWrapper {
     textAlign?: string
     maxHeight?: string
     minHeight?: string
+    boxShadow?: string
+    transition?: string
 }
 
 export const Div = styled.div<IStyledWrapper>`
@@ -61,6 +63,8 @@ export const Div = styled.div<IStyledWrapper>`
     border-radius: ${props => props.borderRadius};
     text-align: ${props => props.textAlign};
     cursor: ${props => props.cursor};
+    box-shadow: ${props => props.boxShadow};
+    transition: ${props => props.transition};
     &:after {
         position: absolute;
         display: ${props => props.afterContent ? "block" : "none"};

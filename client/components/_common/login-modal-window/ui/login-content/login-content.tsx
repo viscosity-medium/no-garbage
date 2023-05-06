@@ -81,7 +81,7 @@ const LoginContent = () => {
                 color={colors.white}
                 backgroundColor={colors.orange}
                 borderRadius={"8px"}
-                handleClick={comeBack}
+                onClick={comeBack}
             >
                 Try one more time!
             </Button>

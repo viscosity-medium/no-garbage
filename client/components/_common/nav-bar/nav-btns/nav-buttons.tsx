@@ -42,7 +42,7 @@ const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
                     ) : (
                     <Button
                         buttonName={t("login")!}
-                        handleClick={showLoginModal}
+                        onClick={showLoginModal}
                         width={"126px"}
                         borderRadius={"8px"}
                         color={colors.defaultTextColor}

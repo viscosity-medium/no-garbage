@@ -65,7 +65,7 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
                         height={"20px"}
                         border={"0 solid #000"}
                         margin={"20px 0 15px auto"}
-                        handleClick={hideModalWindow({dispatch})}
+                        onClick={hideModalWindow({dispatch})}
                     >
                         <CrossIcon/>
                     </Button>
@@ -99,7 +99,7 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
                 color={saveButtonState?.textColor}
                 backgroundColor={saveButtonState?.backgroundColor}
                 borderRadius={"15px"}
-                handleClick={
+                onClick={
                     clickSaveButton({
                         dispatch, modalForm, filter, order,
                         paginationQuantity, searchBarValue

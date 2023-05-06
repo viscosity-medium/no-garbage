@@ -123,7 +123,7 @@ const HelpSection = () => {
                 </HStack>
                 <Button
                     buttonName={t("mapSectionButtonName")!}
-                    handleClick={mapButtonHandler}
+                    onClick={mapButtonHandler}
                     backgroundColor={colors.terraCotta}
                     color={colors.white}
                     width={"340px"}

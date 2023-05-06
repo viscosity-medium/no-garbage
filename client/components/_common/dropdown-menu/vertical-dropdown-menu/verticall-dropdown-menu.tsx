@@ -62,7 +62,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
                 <Button
                     width={"100%"}
                     height={`${buttonHeight - borderWidth * 2}px`}
-                    handleClick={switchDropDownState}
+                    onClick={switchDropDownState}
                     backgroundColor={
                         useDefineCellTableColor({status: selectedProperty})
                     }
@@ -115,7 +115,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
                                     height={`${buttonHeight}px`}
                                     backgroundColor={useDefineCellTableColor({status: item})}
                                     backgroundColorOnHover={backgroundColorOnHover}
-                                    handleClick={chooseCurrentItem(item)}
+                                    onClick={chooseCurrentItem(item)}
                                     transition={"0.5"}
                                 >
                                     {item}

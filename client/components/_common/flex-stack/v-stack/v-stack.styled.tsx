@@ -21,7 +21,9 @@ const VStackStyled = styled.div<IStack>`
     flex-wrap: ${props => props.wrap};
     cursor: ${props => props.cursor};
     opacity: ${props => props.opacity};
+    z-index: ${props => props.zIndex};
     transition: ${props => props.transition};
+    box-sizing: border-box;
 };
 `
 

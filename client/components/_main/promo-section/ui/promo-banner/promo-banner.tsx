@@ -96,7 +96,7 @@ const PromoBanner = () => {
                     backgroundColor={colors.orange}
                     color={colors.white}
                     borderRadius={"8px"}
-                    handleClick={onMapButtonClick}
+                    onClick={onMapButtonClick}
                 >
                     <HStack
                         justify={"space-between"}

@@ -4,8 +4,6 @@ import {mapboxActions} from "../../../../map/model/mapbox.slice";
 
 const hideLocationSidebar = ({map, dispatch}) => () => {
 
-    console.log(map)
-
     map.current.getSource("user-points")?.setData({
         type: 'FeatureCollection',
         features: []
@@ -16,10 +14,20 @@ const hideLocationSidebar = ({map, dispatch}) => () => {
         dispatch(mapboxActions.setUserMarkerIsSet(false));
         dispatch(mapboxActions.setUserMarkerIsHovered(false));
         dispatch(locationInfoSidebarActions.setUserMarkerCoordinates([]));
-    })
+    });
+
+    setTimeout(()=>{
+        dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "0px"}))
+    },500);
 
 };
 
 export {
-    hideLocationSidebar
+    hideLocationSidebar,
+
+
+
+
+
+
 }

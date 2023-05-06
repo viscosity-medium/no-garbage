@@ -71,7 +71,7 @@ const Profile: FC<NavButtonsProps> = ({fontColor}) => {
                 <Button
                     height={"auto"}
                     width={"70px"}
-                    handleClick={onLogout}
+                    onClick={onLogout}
                 >
                     <Text
                         display={"block"}

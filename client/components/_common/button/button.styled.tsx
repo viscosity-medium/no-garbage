@@ -11,7 +11,9 @@ export interface IButton {
     buttonName?: string
     classes?: string[]
     styles?: CSSProperties
-    handleClick?: (e?: any) => void
+    onClick?: (e?: any) => void
+    onMouseEnter?: (e?: any) => void
+    onMouseLeave?: (e?: any) => void
     backgroundColor?: string
     backgroundColorOnHover?: string
     backgroundImage?: string

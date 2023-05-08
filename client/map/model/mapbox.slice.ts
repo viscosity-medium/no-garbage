@@ -1,15 +1,6 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {mapboxApi} from "../../utilities/mapbox-api";
+import {createSlice} from "@reduxjs/toolkit";
 import {MapboxSchema} from "./mapbox.types";
-
-
-export const fetchMapboxGeoJson = createAsyncThunk(
-    "mapbox/fetch-mapbox-geo-json",
-    async () => {
-        const mapboxGeoJsonData = await mapboxApi.getMapboxGeoJsonData();
-        return {mapboxGeoJsonData};
-    }
-);
+import {fetchMapboxGeoJson} from "./map.async-thunks";
 
 const initialState: MapboxSchema = {
     geoJsonData: "non-filled",

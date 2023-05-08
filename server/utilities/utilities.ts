@@ -22,7 +22,6 @@ class Utilities{
             .on('close', () => resolve(filepath));
         });
         
-
     }
 
     async checkFileExistence({fileName}){

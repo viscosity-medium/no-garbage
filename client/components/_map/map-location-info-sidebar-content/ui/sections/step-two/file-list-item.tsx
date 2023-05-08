@@ -12,16 +12,16 @@ import {
 } from "../../../model/helpers/map-bucket-button.helpers";
 import {useAppDispatch} from "../../../../../../store/store";
 import {useSelector} from "react-redux";
-import {getFilesInFormData} from "../../../model/map-location-info-sidebar.selectors";
+import {getFilesToUpload} from "../../../model/map-location-info-sidebar.selectors";
 
 const FileListItem = ({ fileData, fileName }) => {
 
     const dispatch = useAppDispatch();
-    const filesInFormData = useSelector(getFilesInFormData);
+    const filesToUpload = useSelector(getFilesToUpload);
     const passingProperties = {
         fileName,
         dispatch,
-        filesInFormData,
+        filesToUpload,
     }
     const [bucketFillColor, setColorFillColor] = useState("rgba(0,0,0,0.45)");
 

@@ -11,12 +11,35 @@ export const axiosInstance = axios.create({
     }
 });
 
-export const onAxiosUploadHandler = (progressHandler) => ({
+export const axiosMultipartInstance = axios.create({
+    baseURL: 'http://localhost:4142/server-api',
+    headers:
+        {
+            "Content-type": "multipart/form-data",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+        }
+})
+
+export const axiosStreamInstance = axios.create({
+    baseURL: 'http://localhost:4142/server-api',
+    headers:
+        {
+            "Content-type": "application/octet-stream",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+        }
+})
+
+export const onAxiosUploadHandler = {
     onUploadProgress: (progressEvent) => {
         const percentCompleted = (progressEvent.loaded / progressEvent.total) * 100
-            progressHandler()
-        if(percentCompleted === 100){
-            progressHandler()
-        }
+        console.log(percentCompleted)
+        // if(percentCompleted === 100){
+        // }
     }
-})
+}

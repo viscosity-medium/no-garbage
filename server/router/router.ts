@@ -1,7 +1,9 @@
 import { Router } from "express"
 import { awsController } from "../controller/aws-controller";
 import { firebaseController } from "../controller/firebase-controller";
-import {mapboxController} from "../controller/mapbox-controller";
+import { mapboxController } from "../controller/mapbox-controller";
+import { commonController } from "../controller/common-controller";
+import {multipleFilesMultiParser} from "../utilities/multer-utilities";
 
 const router: Router = Router();
 
@@ -13,7 +15,8 @@ router.post("/upload-files-into-bucket", awsController.uploadFilesIntoBucket);
 router.get("/get-all-firebase-collections", firebaseController.getAllFirebaseCollections);
 router.get("/rewrite-firebase-collections-photo-path", firebaseController.rewriteFirebaseCollectionsPhotoPath);
 //aws and firebase routes
-router.post("upload-files-on-server", );
+router.post("/upload-files-on-server", multipleFilesMultiParser, commonController.uploadFilesOnServer);
+router.post("/upload-files-on-server/chunks", commonController.uploadFilesOnServerChunks);
 //mapbox
 router.get("/get-mapbox-geo-json", mapboxController.getMapboxGeoJsonData);
 

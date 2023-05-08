@@ -1,7 +1,8 @@
 import {useEffect} from "react";
-import {fetchMapboxGeoJson} from "../mapbox.slice";
+
 import {loadMapboxMarkers} from "../map.helpers";
 import {useAppDispatch} from "../../../store/store";
+import {fetchMapboxGeoJson} from "../map.async-thunks";
 
 const useSetMapMarkers = ({map}) => {
     const dispatch = useAppDispatch()

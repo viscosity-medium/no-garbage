@@ -2,20 +2,20 @@ import {locationInfoSidebarActions} from "../map-location-info-sidebar.slice";
 
 const onClickBucketButton = ({passingProperties}) => () => {
 
-    const {dispatch, fileName, filesInFormData} = passingProperties;
+    const {dispatch, fileName, filesToUpload} = passingProperties;
     const editedFileList = {};
     let i = 0;
 
-    Object.keys(filesInFormData).forEach((fileNumber) => {
+    Object.keys(filesToUpload).forEach((fileNumber) => {
 
-        if (filesInFormData[fileNumber].name !== fileName) {
-            editedFileList[i] = filesInFormData[fileNumber];
+        if (filesToUpload[fileNumber].name !== fileName) {
+            editedFileList[i] = filesToUpload[fileNumber];
             i++;
         }
 
     });
 
-    dispatch(locationInfoSidebarActions.setFilesInFormData(editedFileList));
+    dispatch(locationInfoSidebarActions.setFilesToUpload(editedFileList));
 
 };
 const onHoverBucketButton = ({setColorFillColor}) => () => {

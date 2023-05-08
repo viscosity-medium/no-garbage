@@ -3,23 +3,23 @@ import {locationInfoSidebarActions} from "../map-location-info-sidebar.slice";
 
 const appendFilesToFormData = ({files, passingProperties}) => {
 
-    const {dispatch, filesInFormData} = passingProperties
+    const {dispatch, filesToUpload} = passingProperties
 
-    const filesAmount = Object.keys(filesInFormData).length || 0;
-    const editedFilesInFormData = {...filesInFormData};
-    const existedFileNames = Object.keys(filesInFormData).map(fileNumber => (
-        filesInFormData[fileNumber].name
+    const filesAmount = Object.keys(filesToUpload).length || 0;
+    const editedfilesToUpload = {...filesToUpload};
+    const existedFileNames = Object.keys(filesToUpload).map(fileNumber => (
+        filesToUpload[fileNumber].name
     ));
     let i = 0
 
     Object.keys(files).forEach(file => {
         if(!existedFileNames.includes(files[i].name)){
-            Object.assign(editedFilesInFormData, {[filesAmount + i]: files[i]});
+            Object.assign(editedfilesToUpload, {[filesAmount + i]: files[i]});
             i++
         }
     });
 
-    dispatch(locationInfoSidebarActions.setFilesInFormData(editedFilesInFormData));
+    dispatch(locationInfoSidebarActions.setFilesToUpload(editedfilesToUpload));
 
 }
 

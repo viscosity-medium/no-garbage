@@ -16,17 +16,17 @@ import {
     onMouseLeaveDropbox
 } from "../../../model/helpers/map-dropbox.helpers";
 import {useSelector} from "react-redux";
-import {getDropboxProperties, getFilesInFormData} from "../../../model/map-location-info-sidebar.selectors";
+import {getDropboxProperties, getFilesToUpload} from "../../../model/map-location-info-sidebar.selectors";
 import {useAppDispatch} from "../../../../../../store/store";
 
 const DragAndDropArea = () => {
 
     const dispatch = useAppDispatch();
-    const filesInFormData = useSelector(getFilesInFormData);
+    const filesToUpload = useSelector(getFilesToUpload);
     const dropboxProperties = useSelector(getDropboxProperties);
     const passingProperties = {
         dispatch,
-        filesInFormData,
+        filesToUpload,
         dropboxProperties
     }
 

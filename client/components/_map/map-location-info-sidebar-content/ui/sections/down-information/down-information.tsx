@@ -1,20 +1,24 @@
 import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
 import Button from "../../../../../_common/button/button";
 import colors from "../../../../../../styles/globals/colors";
-import React, {useState} from "react";
+import React from "react";
 import Text from "../../../../../_common/text/text";
 import {useSelector} from "react-redux";
-import {getSubmitButtonState} from "../../../model/map-location-info-sidebar.selectors";
+import {getFilesToUpload, getSubmitButtonState} from "../../../model/map-location-info-sidebar.selectors";
 import {useAppDispatch} from "../../../../../../store/store";
-import {locationInfoSidebarActions} from "../../../model/map-location-info-sidebar.slice";
+import {fetchFilesByChunks} from "../../../model/helpers/map-files-handler.helper";
 
 const DownInformation = () => {
-
     const dispatch = useAppDispatch();
+    const filesToUpload = useSelector(getFilesToUpload) as any;
     const submitButtonState = useSelector(getSubmitButtonState);
 
-    const submitClick = () => {
-        dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "-80px"}))
+    const submitClick = async () => {
+
+        await fetchFilesByChunks({files: filesToUpload})
+
+        // dispatch(uploadMapFilesToTheServer({filesToUpload}));
+        // dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "-80px"}));
     }
 
     return (

@@ -30,7 +30,7 @@ export interface LocationInfoSidebarSchema {
     modalVisibility: boolean
     userMarkerCoordinates: string[]
     userMarkerLocationName: string
-    filesInFormData: {
+    filesToUpload: {
         [key: string]: File
     }
     dropboxProperties: {

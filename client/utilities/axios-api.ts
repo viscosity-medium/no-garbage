@@ -1,5 +1,10 @@
 import {AxiosInstance} from "axios";
-import {axiosInstance, onAxiosUploadHandler} from "../configs/axios-config";
+import {
+    axiosInstance,
+    axiosMultipartInstance,
+    axiosStreamInstance,
+    onAxiosUploadHandler
+} from "../configs/axios-config";
 
 interface BucketListProperties {
     prefix?: string
@@ -17,9 +22,13 @@ export interface FileListProperties {
 class AxiosApi {
 
     axios: AxiosInstance
+    axiosFiles: AxiosInstance
+    axiosStream: AxiosInstance
 
     constructor() {
         this.axios = axiosInstance
+        this.axiosFiles = axiosMultipartInstance
+        this.axiosStream = axiosStreamInstance
     }
 
     async getBucketListObjects({prefix}: BucketListProperties){
@@ -41,9 +50,33 @@ class AxiosApi {
 
     async uploadFilesOnServer({formData}: {formData: any}){
 
-        const progressHandler = () => {}
+        const progressHandler = () => {
 
-        await this.axios.post("/upload-files-on-server", formData, onAxiosUploadHandler(progressHandler));
+        }
+
+        await this.axiosFiles.post("/upload-files-on-server", formData);
+
+    }
+
+    async uploadChunksOnServer({chunk, urlParams}: {chunk: any, urlParams}){
+
+        const {
+            name,
+            type,
+            size,
+            totalChunks,
+            currentChunk
+        } = urlParams;
+
+        const params = new URLSearchParams();
+
+        params.set("name", name);
+        params.set("type", type);
+        params.set("size", size);
+        params.set("totalChunks", totalChunks);
+        params.set("currentChunk", currentChunk);
+
+        await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk)
 
     }
 

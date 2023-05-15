@@ -15,7 +15,7 @@ const DownInformation = () => {
 
     const submitClick = async () => {
 
-        await fetchFilesByChunks({files: filesToUpload})
+        await fetchFilesByChunks({ filesToUpload, dispatch })
 
         // dispatch(uploadMapFilesToTheServer({filesToUpload}));
         // dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "-80px"}));

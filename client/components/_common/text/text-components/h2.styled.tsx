@@ -19,7 +19,10 @@ const StyledH2 = styled.h2<ITextProps>`
     font-size: ${props => props.size};
     line-height: ${props => props.lineHeight || 1.2};
     text-align: ${props => props.textAlign};
+    text-overflow: ${props => props.textOverflow};
     user-select: none;
+    white-space: ${props => props.whiteSpace};
+    overflow: ${props => props.overflow};
 `;
 
 export {

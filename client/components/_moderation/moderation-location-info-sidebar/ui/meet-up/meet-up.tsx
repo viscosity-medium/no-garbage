@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
 import Text from "../../../../_common/text/text";
 import {Mapbox} from "../../../../../map/ui";
@@ -11,6 +11,9 @@ interface IMeetIp {
     location?: any
 }
 const MeetUp = ({location, modalForm, changeModalForm}) => {
+
+    const upperLevelMapCopy = useRef();
+
     return (
         <VStack
             margin={"20px 0 0"}
@@ -141,6 +144,8 @@ const MeetUp = ({location, modalForm, changeModalForm}) => {
                     lngProp={location?.lng}
                     latProp={location?.lat}
                     zoomProp={15}
+                    upperLevelMapCopy={upperLevelMapCopy}
+                    interactivity={false}
                 />
             </Div>
         </VStack>

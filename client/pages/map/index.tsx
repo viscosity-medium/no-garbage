@@ -18,7 +18,7 @@ const MapPage = () => {
 
     const [modalWindowHeight, setModalWindowHeight] = useState(0);
     const visibility = useSelector(getLocationInfoSidebarVisibility);
-    const upperLevelMapCopy = useRef()
+    const upperLevelMapCopy = useRef();
 
     useSwitchMapLocationInfoSidebar();
 

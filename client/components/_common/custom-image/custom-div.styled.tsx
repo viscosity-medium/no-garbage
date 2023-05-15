@@ -53,9 +53,9 @@ export const Div = styled.div<IStyledWrapper>`
     bottom: ${props => props.bottom};
     top: ${props => props.top};
     max-width: ${props => props.maxHeight || "100%"};
-    max-height: ${props => props.minHeight || "100%"};
+    max-height: ${props => props.maxHeight || "100%"};
+    min-height: ${props => props.minHeight || ""};
     scale: ${props => props.initScale};
-    transition: 0.3s;
     background: ${props => props.background};
     background-color: ${props => props.backgroundColor};
     border: ${props => props.border};

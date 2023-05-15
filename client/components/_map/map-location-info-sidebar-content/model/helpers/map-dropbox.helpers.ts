@@ -3,23 +3,26 @@ import {locationInfoSidebarActions} from "../map-location-info-sidebar.slice";
 
 const appendFilesToFormData = ({files, passingProperties}) => {
 
-    const {dispatch, filesToUpload} = passingProperties
+    const {dispatch, filesToUpload} = passingProperties;
 
     const filesAmount = Object.keys(filesToUpload).length || 0;
-    const editedfilesToUpload = {...filesToUpload};
+    const editedFilesToUpload = {...filesToUpload};
     const existedFileNames = Object.keys(filesToUpload).map(fileNumber => (
-        filesToUpload[fileNumber].name
+        filesToUpload[fileNumber].file.name
     ));
-    let i = 0
 
-    Object.keys(files).forEach(file => {
-        if(!existedFileNames.includes(files[i].name)){
-            Object.assign(editedfilesToUpload, {[filesAmount + i]: files[i]});
-            i++
+
+    Object.keys(files).forEach((file, index) => {
+        if(!existedFileNames.includes(files[index].name)){
+
+            Object.assign(editedFilesToUpload, {[filesAmount + index]: {
+                    file: files[index],
+                    progressBar: 0
+            }});
         }
     });
 
-    dispatch(locationInfoSidebarActions.setFilesToUpload(editedfilesToUpload));
+    dispatch(locationInfoSidebarActions.setFilesToUpload(editedFilesToUpload));
 
 }
 
@@ -36,7 +39,7 @@ const onInputContentChange = ({e, passingProperties}) => {
         ...dropboxProperties,
         title: "Wonderful! You did it!",
         boxShadow: ""
-    }))
+    }));
     appendFilesToFormData({files, passingProperties});
 
 };

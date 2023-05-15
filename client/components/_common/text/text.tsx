@@ -23,6 +23,9 @@ interface IText {
     color?: string
     margin?: string,
     lineHeight?: string
+    textOverflow?: string
+    whiteSpace?: string
+    overflow?: string
 }
 const Text: FC<IText> = ({
     children,
@@ -41,7 +44,10 @@ const Text: FC<IText> = ({
     alignSelf,
     color= colors.veryDarkGrey,
     margin,
-    lineHeight
+    lineHeight,
+    textOverflow,
+    whiteSpace,
+    overflow
 }) => {
     if(tag === "h1"){
         return <StyledH1
@@ -59,6 +65,9 @@ const Text: FC<IText> = ({
             color={color}
             margin={margin}
             lineHeight={lineHeight}
+            textOverflow={textOverflow}
+            overflow={overflow}
+            whiteSpace={whiteSpace}
         >
             {children ? children : text ? text : children}
         </StyledH1>;
@@ -79,6 +88,9 @@ const Text: FC<IText> = ({
             color={color}
             margin={margin}
             lineHeight={lineHeight}
+            textOverflow={textOverflow}
+            overflow={overflow}
+            whiteSpace={whiteSpace}
         >
             {children ? children : text ? text : children}
         </StyledH2>;
@@ -99,6 +111,9 @@ const Text: FC<IText> = ({
             color={color}
             margin={margin}
             lineHeight={lineHeight}
+            textOverflow={textOverflow}
+            overflow={overflow}
+            whiteSpace={whiteSpace}
         >
             {children ? children : text ? text : children}
         </StyledH3>;
@@ -120,6 +135,9 @@ const Text: FC<IText> = ({
                 color={color}
                 margin={margin}
                 lineHeight={lineHeight}
+                textOverflow={textOverflow}
+                overflow={overflow}
+                whiteSpace={whiteSpace}
             >
                 {children ? children : text ? text : children}
             </StyledSpan>

@@ -4,14 +4,13 @@ import React from "react";
 const mapCreateSidebarFileList = ({filesToUpload}) => (
     Object.keys(filesToUpload).map((file, index) => {
 
-        const fileData = filesToUpload[file];
-        const keyAttribute = `file-data-key-${index}-${fileData.name}`;
+        const fileObject = filesToUpload[file];
+        const keyAttribute = `file-data-key-${index}-${fileObject.name}`;
 
         return(
             <FileListItem
                 key={keyAttribute}
-                fileData={fileData}
-                fileName={fileData.name}
+                fileObject={fileObject}
             />
         )
     })

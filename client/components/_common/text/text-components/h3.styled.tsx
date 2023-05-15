@@ -19,6 +19,9 @@ const StyledH3 = styled.h3<ITextProps>`
     font-size: ${props => props.size};
     user-select: none;
     text-align: ${props => props.textAlign};
+    text-overflow: ${props => props.textOverflow};
+    white-space: ${props => props.whiteSpace};
+    overflow: ${props => props.overflow};
 `;
 
 export {

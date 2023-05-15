@@ -14,6 +14,9 @@ export interface ITextProps {
     margin?: string
     lineHeight?: string
     alignSelf?: string
+    textOverflow?: string
+    whiteSpace?: string
+    overflow?: string
 }
 const StyledH1 = styled.h1<ITextProps>`
     position: ${props => props.position};
@@ -34,6 +37,9 @@ const StyledH1 = styled.h1<ITextProps>`
     user-select: none;
     text-align: ${props => props.textAlign};
     margin: ${props => props.margin};
+    text-overflow: ${props => props.textOverflow};
+    white-space: ${props => props.whiteSpace};
+    overflow: ${props => props.overflow};
 `;
 
 export {

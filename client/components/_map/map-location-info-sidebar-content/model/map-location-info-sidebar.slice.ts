@@ -4,17 +4,22 @@ import {uploadMapFilesToTheServer} from "./map-location-info-sidebar.async-thunk
 
 const initialState: LocationInfoSidebarSchema = {
     modalVisibility: false,
-    modalContent: undefined,
-    userMarkerCoordinates: [],
     filesToUpload: {},
-    userMarkerLocationName: "",
+    userMarkerProperties: {
+        name: "",
+        coordinates: []
+    },
     dropboxProperties: {
         title: "Click or drag file to this area to upload",
         description: "Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files",
         boxShadow: ""
     },
+    textAreaContent: {
+        title: "",
+        description: ""
+    },
     submitButtonState: {
-        topScroll: "0px"
+        topScroll: "0px",
     }
 }
 
@@ -23,11 +28,9 @@ const mapLocationInfoSidebarSlice = createSlice({
     initialState,
     reducers: {
         setVisibility: (state, action) => {state.modalVisibility = action.payload},
-        setContent: (state, action) => {state.modalContent = action.payload},
         setFilesToUpload: (state, action) => {state.filesToUpload = action.payload},
         setDropboxProperties: (state, action) => {state.dropboxProperties = action.payload},
-        setUserMarkerCoordinates: (state, action) => {state.userMarkerCoordinates = action.payload},
-        setUserMarkerLocationName: (state, action) => {state.userMarkerLocationName = action.payload},
+        setUserMarkerProperties: (state, action) => {state.userMarkerProperties = action.payload},
         setSaveButtonState: (state, action: PayloadAction<SubmitButtonState>) => {state.submitButtonState = action.payload}
     },
     extraReducers: (builder) => {

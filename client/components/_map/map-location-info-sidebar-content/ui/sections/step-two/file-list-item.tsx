@@ -4,7 +4,7 @@ import Text from "../../../../../_common/text/text";
 import Button from "../../../../../_common/button/button";
 import BucketSvg from "public/assets/map/bucket.svg";
 import colors from "../../../../../../styles/globals/colors";
-import {useState} from "react";
+import {FC, useState} from "react";
 import {
     onClickBucketButton,
     onHoverBucketButton,
@@ -13,48 +13,72 @@ import {
 import {useAppDispatch} from "../../../../../../store/store";
 import {useSelector} from "react-redux";
 import {getFilesToUpload} from "../../../model/map-location-info-sidebar.selectors";
+import {ProgressBar} from "../../../../../_common/progress-bar/progress-bar";
+import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
 
-const FileListItem = ({ fileData, fileName }) => {
+interface FileListItemProps {
+    fileObject
+}
+
+const FileListItem: FC<FileListItemProps> = ({ fileObject }) => {
 
     const dispatch = useAppDispatch();
     const filesToUpload = useSelector(getFilesToUpload);
     const passingProperties = {
-        fileName,
         dispatch,
         filesToUpload,
+        fileName: fileObject.file.name
     }
     const [bucketFillColor, setColorFillColor] = useState("rgba(0,0,0,0.45)");
 
     return (
-        <HStack
-            justify={"space-between"}
-            margin={"5px 0"}
-            padding={"0 5px"}
-        >
+        <VStack>
             <HStack
-                align={"center"}
+                justify={"space-between"}
+                margin={"5px 0"}
+                padding={"0 5px"}
             >
-                <PaperClipSvg/>
-                <Text
-                    tag={"span"}
-                    margin={"0 0 0 10px"}
-                    color={colors.mapDragAndDropColor}
+                <HStack
+                    align={"center"}
+                    height={"20px"}
+                    transition={"0.3s"}
                 >
-                    {fileData.name}
-                </Text>
+                    <PaperClipSvg/>
+                    <Text
+                        tag={"span"}
+                        width={"350px"}
+                        margin={"0 0 0 10px"}
+                        color={colors.mapDragAndDropColor}
+                        overflow={"hidden"}
+                        whiteSpace={"nowrap"}
+                        textOverflow={"ellipsis"}
+                    >
+                        {fileObject.file.name}
+                    </Text>
+
+                </HStack>
+                {
+                    fileObject.progressBar !== 100 ?
+                        <Button
+                            width={"auto"}
+                            height={"auto"}
+                            onClick={onClickBucketButton({passingProperties})}
+                            onMouseEnter={onHoverBucketButton({setColorFillColor})}
+                            onMouseLeave={onLeaveBucketButton({setColorFillColor})}
+                            border={"unset"}
+                            lineHeight={1}
+                        >
+                            <BucketSvg
+                                fill={bucketFillColor}
+                            />
+                        </Button> :
+                        <></>
+                }
             </HStack>
-            <Button
-                width={"auto"}
-                height={"auto"}
-                onClick={onClickBucketButton({passingProperties})}
-                onMouseEnter={onHoverBucketButton({setColorFillColor})}
-                onMouseLeave={onLeaveBucketButton({setColorFillColor})}
-            >
-                <BucketSvg
-                    fill={bucketFillColor}
-                />
-            </Button>
-        </HStack>
+            <ProgressBar
+                progressBar={fileObject.progressBar}
+            />
+        </VStack>
     );
 };
 

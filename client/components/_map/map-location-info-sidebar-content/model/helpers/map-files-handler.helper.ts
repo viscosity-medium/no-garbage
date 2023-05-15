@@ -1,62 +1,92 @@
 import {axiosApi} from "../../../../../utilities/axios-api";
+import {locationInfoSidebarActions} from "../map-location-info-sidebar.slice";
 
 interface FetchFilesByChunksProps {
-    [p: string]: File
+    filesToUpload: {
+        [p: string]: {
+            file: File,
+            progressBar: number
+        }
+    },
+    dispatch: any
 }
 
-const fetchFilesByChunks = async ({files}: FetchFilesByChunksProps) => {
+const fetchFilesByChunks = async ({ filesToUpload, dispatch }: FetchFilesByChunksProps) => {
 
-     for await (const key of Object.keys(files)){
+    const filesToUploadNewObject = {...filesToUpload};
 
-         const file = files[key];
+     for await (const key of Object.keys(filesToUpload)){
+
+         const file = filesToUpload[key].file;
          const fileReader = new FileReader();
          const chunkSize = 5 * 1024 * 1024;
          const totalChunks = Math.ceil(file.size / chunkSize) - 1;
 
          await fileReader.readAsArrayBuffer(file);
 
-         fileReader.onload = async (event: ProgressEvent<FileReader>) => {
+         if(filesToUpload[key].progressBar !== 100){
 
-             const data = event!.target!.result!;
-             const filename = `${file.name}`.split(".");
-             const extension = filename.pop();
-             const chunkArr = [];
+             await new Promise((resolve, reject)=>{
 
-             const editedName = `${filename.join(".")
-             }-${
-                 new Date().toLocaleString()
-                 .replace(/:/gm, ".")
-                 .replace(/,\s/gm,"-")
-             }.${
-                 extension
-             }`;
+                 try {
 
-             for (let currentChunk = 0; currentChunk < +totalChunks + 1; currentChunk++) {
+                     fileReader.onload = async (event: ProgressEvent<FileReader>) => {
 
-                 const chunk = data.slice(currentChunk * chunkSize, (currentChunk + 1) * chunkSize) as never;
-                 chunkArr.push(chunk);
+                         const data = event!.target!.result!;
+                         const filename = `${file.name}`.split(".");
+                         const extension = filename.pop();
 
-             }
+                         const editedName = `${filename.join(".")
+                         }-${
+                             new Date().toLocaleString()
+                             .replace(/:/gm, ".")
+                             .replace(/,\s/gm,"-")
+                         }.${
+                             extension
+                         }`;
 
-             let chunkIndex = 1
-             for await (const currentChunk of chunkArr){
-                 const urlParams = {
-                     name: editedName,
-                     type: file.type,
-                     size: file.size,
-                     totalChunks,
-                     currentChunk
-                 };
+                         for (let currentChunk = 0; currentChunk < +totalChunks + 1; currentChunk++) {
 
-                 await axiosApi.uploadChunksOnServer({chunk: currentChunk, urlParams});
-                 console.log(`${chunkIndex} of ${totalChunks + 1}`);
-                 chunkIndex++;
-             }
+                             const chunk = data.slice(currentChunk * chunkSize, (currentChunk + 1) * chunkSize) as never;
+
+                             const urlParams = {
+                                 name: editedName,
+                                 type: file.type,
+                                 size: file.size,
+                                 totalChunks,
+                                 currentChunk
+                             };
+
+                             await axiosApi.uploadChunksOnServer({chunk, urlParams});
+
+                             filesToUploadNewObject[key] = {
+                                 file: file,
+                                 progressBar: ((currentChunk + 1) / (totalChunks + 1) * 100)
+                             };
+
+                             console.log(`${currentChunk + 1} of ${totalChunks + 1}`);
+
+                             if(currentChunk + 1 === totalChunks + 1) {
+                                 resolve("");
+                             };
+
+                             dispatch(locationInfoSidebarActions.setFilesToUpload({
+                                 ...filesToUploadNewObject,
+                             }));
+
+                         }
+
+                     }
+
+                 } catch (error) {
+
+                 }
+
+             })
+
          }
 
     }
-
-     console.log("uploading completed")
 
 }
 

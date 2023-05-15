@@ -92,6 +92,7 @@ const CustomImage: FC<ICustomImageProps> = ({
             border={border}
             borderRadius={borderRadius}
             background={backgroundColor}
+            minHeight={height}
         >
             <Image
                 className={imageScale && isHovered ? cls["is-hovered"] : ""}

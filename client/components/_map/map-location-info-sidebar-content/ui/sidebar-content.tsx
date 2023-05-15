@@ -9,7 +9,7 @@ import {Div} from "../../../_common/custom-image/custom-div.styled";
 import {useAppDispatch} from "../../../../store/store";
 import {StepBlock} from "./sections/step-block";
 import {useSelector} from "react-redux";
-import {getUserMarkerCoordinates, getUserMarkerLocationName} from "../model/map-location-info-sidebar.selectors";
+import {getUserMarkerProperties} from "../model/map-location-info-sidebar.selectors";
 import {StepOne} from "./sections/step-one/step-one";
 import {StepTwo} from "./sections/step-two/step-two";
 import {StepThree} from "./sections/step-three/step-three";
@@ -18,8 +18,9 @@ import {hideLocationSidebar} from "../model/helpers/map-location-info-sidebar.he
 
 const SidebarContent = ({map}) => {
 
-    const coordinatesString = useSelector(getUserMarkerCoordinates).toString().replace(/,/,", ");
-    const locationName = useSelector(getUserMarkerLocationName);
+    const userMarkerProperties = useSelector(getUserMarkerProperties);
+    const locationName = userMarkerProperties.name;
+    const coordinatesString = userMarkerProperties.coordinates.toString().replace(/,/,", ");
     const dispatch = useAppDispatch();
 
     return (

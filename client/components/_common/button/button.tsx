@@ -24,7 +24,8 @@ const Button: FC<IButton> = ({
     border,
     borderRadius ,
     size= "16px",
-    lineHeight = 400,
+    fontWeight = 400,
+    lineHeight,
     textDecoration,
     transition,
     disabled
@@ -51,10 +52,11 @@ const Button: FC<IButton> = ({
             bottom={bottom}
             top={top}
             margin={margin}
-            border={`2px solid ${backgroundColor}`}
+            border={border ||`2px solid ${backgroundColor}`}
             borderRadius={borderRadius}
             size={size}
             lineHeight={lineHeight}
+            fontWeight={fontWeight}
             textDecoration={textDecoration}
             transition={transition}
         >

@@ -40,8 +40,10 @@ const useMapOnClick = ({map}) => {
                     }).then((response)=> response.data.features[0].place_name);
 
                     dispatch(mapboxActions.setUserMarkerIsSet(true));
-                    dispatch(locationInfoSidebarActions.setUserMarkerLocationName(mapboxLocationInformation));
-                    dispatch(locationInfoSidebarActions.setUserMarkerCoordinates(coordinates));
+                    dispatch(locationInfoSidebarActions.setUserMarkerProperties({
+                        name: mapboxLocationInformation,
+                        coordinates
+                    }));
                 }
 
             }
@@ -57,11 +59,14 @@ const useMapOnClick = ({map}) => {
 
                     dispatch(mapboxActions.setUserMarkerIsSet(false));
                     dispatch(mapboxActions.setUserMarkerIsHovered(false));
-                    dispatch(locationInfoSidebarActions.setUserMarkerCoordinates([]));
+                    dispatch(locationInfoSidebarActions.setUserMarkerProperties({
+                        name: "",
+                        coordinates: []
+                    }));
 
                     setTimeout(()=>{
                         dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "0px"}))
-                    },500)
+                    },500);
 
                 }
 

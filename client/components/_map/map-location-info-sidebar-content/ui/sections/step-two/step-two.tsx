@@ -19,6 +19,14 @@ const StepTwo = () => {
                 position={"relative"}
             >
                 <DragAndDropArea/>
+            </VStack>
+            <VStack
+                zIndex={2}
+                width={"395px"}
+                height={"auto"}
+                position={"relative"}
+                margin={"15px 0 0"}
+            >
                 <UnorderedList
                     margin={"10px 0 0"}
                 >

@@ -25,6 +25,7 @@ export interface IButton {
     borderRadius?: string
     size?: string
     lineHeight?: number
+    fontWeight?: number
     textDecoration?: string
     transition?: string,
     disabled?: boolean
@@ -41,9 +42,9 @@ const ButtonStyled = styled.button<IButton>`
     border-radius: ${props => props.borderRadius};
     cursor: pointer;
     font-style: normal;
-    font-weight: ${props => props.lineHeight};
+    line-height: ${props => props.lineHeight || 1.625};
     font-size: ${props => props.size};
-    line-height: 1.625;
+    font-weight: ${props => props.fontWeight};
     color: ${props => props.color};
     left: ${props => props.left};
     right: ${props => props.right};

@@ -24,13 +24,12 @@ const DragAndDropArea = () => {
     const dispatch = useAppDispatch();
     const filesToUpload = useSelector(getFilesToUpload);
     const dropboxProperties = useSelector(getDropboxProperties);
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const passingProperties = {
         dispatch,
         filesToUpload,
         dropboxProperties
-    }
-
-    const fileInputRef = useRef<HTMLInputElement>(null);
+    };
 
     return (
         <>

@@ -4,13 +4,11 @@ const onClickBucketButton = ({passingProperties}) => () => {
 
     const {dispatch, fileName, filesToUpload} = passingProperties;
     const editedFileList = {};
-    let i = 0;
 
-    Object.keys(filesToUpload).forEach((fileNumber) => {
+    Object.keys(filesToUpload).forEach((fileNumber, index) => {
 
-        if (filesToUpload[fileNumber].name !== fileName) {
-            editedFileList[i] = filesToUpload[fileNumber];
-            i++;
+        if (filesToUpload[fileNumber].file.name !== fileName) {
+            editedFileList[index] = filesToUpload[fileNumber];
         }
 
     });

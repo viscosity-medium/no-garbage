@@ -13,6 +13,7 @@ interface IMapbox {
     latProp?: number
     zoomProp?: number
     upperLevelMapCopy?: any
+    interactivity?: boolean
 }
 
 const Mapbox: FC<IMapbox> = ({
@@ -21,7 +22,8 @@ const Mapbox: FC<IMapbox> = ({
     lngProp = 44.783333,
     latProp = 41.716667,
     zoomProp = 12,
-    upperLevelMapCopy
+    upperLevelMapCopy,
+    interactivity = true
 }) => {
 
     const mapContainer = useRef<HTMLDivElement>(null);
@@ -35,7 +37,10 @@ const Mapbox: FC<IMapbox> = ({
     useInitializeMap({map, mapboxGL, mapContainer, lng: mapLng, lat: mapLat, zoom: zoomProp});
     useReloadMap({map, lng: lngProp, lat: latProp, zoom: zoomProp});
     useSetMapMarkers({map});
-    useMapOnClick({map});
+
+    if(interactivity){
+        useMapOnClick({map});
+    }
 
     // useEffect(()=>{
     //     setMapLng(lngProp);

@@ -53,6 +53,9 @@ const colors = {
     dirty: "#FED7C7",
     declined: "#FFC9DC",
     notEnough: "#D6D7D9",
-    cleanupPlanned: "#FFFACE"
+    cleanupPlanned: "#FFFACE",
+
+    //common
+    error: "#F00"
 };
 export default colors;

@@ -11,7 +11,7 @@ const initialState: LocationInfoSidebarSchema = {
     },
     dropboxProperties: {
         title: "Click or drag file to this area to upload",
-        description: "Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files",
+        description: "You can upload up to 10 files by adding them all together or separately",
         boxShadow: ""
     },
     textAreaContent: {

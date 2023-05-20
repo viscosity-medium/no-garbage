@@ -18,6 +18,7 @@ export interface InputProps extends HTMLInputProps {
     border?: string
     borderRadius?: string
     caretColor?: string;
+    accept?: string
 }
 const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref<HTMLInputElement> ) {
 
@@ -35,7 +36,8 @@ const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref
         border,
         borderRadius,
         caretColor,
-        multiple
+        multiple,
+        accept
     } = props
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,6 +68,7 @@ const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref
             borderRadius={borderRadius}
             caretColor={caretColor}
             multiple={multiple}
+            accept={accept}
         />
     );
 });

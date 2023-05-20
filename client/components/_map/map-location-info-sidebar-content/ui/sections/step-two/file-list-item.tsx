@@ -12,7 +12,7 @@ import {
 } from "../../../model/helpers/map-bucket-button.helpers";
 import {useAppDispatch} from "../../../../../../store/store";
 import {useSelector} from "react-redux";
-import {getFilesToUpload} from "../../../model/map-location-info-sidebar.selectors";
+import {getDropboxProperties, getFilesToUpload} from "../../../model/map-location-info-sidebar.selectors";
 import {ProgressBar} from "../../../../../_common/progress-bar/progress-bar";
 import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
 
@@ -24,10 +24,12 @@ const FileListItem: FC<FileListItemProps> = ({ fileObject }) => {
 
     const dispatch = useAppDispatch();
     const filesToUpload = useSelector(getFilesToUpload);
+    const dropboxProperties = useSelector(getDropboxProperties);
     const passingProperties = {
         dispatch,
         filesToUpload,
-        fileName: fileObject.file.name
+        fileName: fileObject.file.name,
+        dropboxProperties
     }
     const [bucketFillColor, setColorFillColor] = useState("rgba(0,0,0,0.45)");
 

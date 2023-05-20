@@ -92,6 +92,7 @@ const DragAndDropArea = () => {
                     e,
                     passingProperties
                 })}
+                accept={"image/*, video/*"}
             />
         </>
     );

@@ -64,7 +64,8 @@ export const Div = styled.div<IStyledWrapper>`
     text-align: ${props => props.textAlign};
     cursor: ${props => props.cursor};
     box-shadow: ${props => props.boxShadow};
-    transition: ${props => props.transition};
+    transition: ${props => props.transition || "0.3s"};
+    
     &:after {
         position: absolute;
         display: ${props => props.afterContent ? "block" : "none"};

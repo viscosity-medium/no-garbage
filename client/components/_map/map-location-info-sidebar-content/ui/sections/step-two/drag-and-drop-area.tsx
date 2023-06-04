@@ -81,6 +81,14 @@ const DragAndDropArea = () => {
                     >
                         {dropboxProperties.description}
                     </Text>
+                    <Text
+                        tag={"span"}
+                        size={"10px"}
+                        textAlign={"center"}
+                        margin={"5px 0 0"}
+                    >
+                        {dropboxProperties.subDescription}
+                    </Text>
                 </VStack>
             </VStack>
             <CustomInput

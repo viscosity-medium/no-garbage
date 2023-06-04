@@ -17,6 +17,7 @@ export interface LocationInfoSidebarSchema {
     dropboxProperties: {
         title: string,
         description: string,
+        subDescription: string
         boxShadow: string
     }
     textAreaContent: {

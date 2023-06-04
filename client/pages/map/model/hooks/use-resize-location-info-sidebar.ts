@@ -1,6 +1,6 @@
 import {useEffect} from "react";
-import sizes from "../../../styles/globals/sizes";
-import useWindowDimensions from "../../../hooks/use-window-dimensions";
+import sizes from "../../../../styles/globals/sizes";
+import useWindowDimensions from "../../../../hooks/use-window-dimensions";
 
 const useResizeLocationInfoSidebar = ({setModalWindowHeight}) => {
 

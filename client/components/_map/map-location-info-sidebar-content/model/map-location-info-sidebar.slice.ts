@@ -12,6 +12,7 @@ const initialState: LocationInfoSidebarSchema = {
     dropboxProperties: {
         title: "Click or drag file to this area to upload",
         description: "You can upload up to 10 files by adding them all together or separately",
+        subDescription: "",
         boxShadow: ""
     },
     textAreaContent: {

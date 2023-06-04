@@ -10,6 +10,7 @@ import {MapboxSchema} from "../map/model/mapbox.types";
 import {
     ModerationLocationInfoSidebarSchema
 } from "../components/_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.types";
+import {MapPageSchema} from "../pages/map/model/map-page.slice";
 
 export interface StateSchema {
     sidebar: SidebarSchema
@@ -22,5 +23,6 @@ export interface StateSchema {
     loginModal: LoginModalSchema
     mapbox: MapboxSchema
     locationInfoSidebar: LocationInfoSidebarSchema
+    mapPage: MapPageSchema
 
 }

@@ -12,8 +12,10 @@ import {useSelector} from "react-redux";
 import {
     getLocationInfoSidebarVisibility
 } from "../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.selectors";
-import {useSwitchMapLocationInfoSidebar} from "./hooks/use-switch-map-location-info-sidebar";
+import {useSwitchMapLocationInfoSidebar} from "./model/hooks/use-switch-map-location-info-sidebar";
 import {MapLocationInfoSidebarContent} from "../../components/_map/map-location-info-sidebar-content";
+import {useInitiateMapSessionId} from "./model/hooks/use-initiate-map-session-id";
+
 const MapPage = () => {
 
     const [modalWindowHeight, setModalWindowHeight] = useState(0);
@@ -21,6 +23,8 @@ const MapPage = () => {
     const upperLevelMapCopy = useRef();
 
     useSwitchMapLocationInfoSidebar();
+    useInitiateMapSessionId()
+
 
     return (
         <PageWrapper>

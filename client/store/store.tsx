@@ -9,6 +9,7 @@ import {filterBlockReducer as filterBlock} from "../components/_map/filters-bloc
 import {loginModalReducer as loginModal} from "../components/_common/login-modal-window/model/login-modal-window.slice";
 import {locationInfoSidebarReducer as locationInfoSidebar} from "../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
 import {mapboxReducer as mapbox} from "../map/model/mapbox.slice";
+import {mapPageReducer as mapPage} from "../pages/map/model/map-page.slice";
 import {useDispatch} from "react-redux";
 const store = configureStore({
     reducer: combineReducers({
@@ -21,7 +22,9 @@ const store = configureStore({
         moderationPagination,
         loginModal,
         locationInfoSidebar,
-        mapbox
+        mapbox,
+        mapPage
+
     }),
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

@@ -1,10 +1,10 @@
 import {useEffect} from "react";
-import {useAppDispatch} from "../../../store/store";
+import {useAppDispatch} from "../../../../store/store";
 import {useSelector} from "react-redux";
-import {getMapboxMarkerIsSet} from "../../../map/model/mapbox.selectors";
+import {getMapboxMarkerIsSet} from "../../../../map/model/mapbox.selectors";
 import {
     locationInfoSidebarActions
-} from "../../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
+} from "../../../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
 
 const useSwitchMapLocationInfoSidebar = () => {
 

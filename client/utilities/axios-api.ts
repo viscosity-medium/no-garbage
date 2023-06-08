@@ -76,7 +76,13 @@ class AxiosApi {
         params.set("totalChunks", totalChunks);
         params.set("currentChunk", currentChunk);
 
-        await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk)
+        try {
+            await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk)
+        }
+        catch(err){
+            console.log("Pizdec")
+        }
+
 
     }
 

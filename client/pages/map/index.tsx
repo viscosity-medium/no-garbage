@@ -1,12 +1,9 @@
 import FiltersBlock from "../../components/_map/filters-block/filters-block";
-import NavBar from "../../components/_common/nav-bar/nav-bar";
 import {Mapbox} from "../../map/ui";
 import colors from "../../styles/globals/colors";
 import {Div} from "../../components/_common/custom-image/custom-div.styled";
-import PageWrapper from "../../components/_common/page-wrapper/page-wrapper";
 import {LoginModalWindow} from "../../components/_common/login-modal-window";
-import React, {useEffect, useRef, useState} from "react";
-import Head from "next/head";
+import React, {useRef, useState} from "react";
 import {LocationInfoSidebar} from "../../components/_common/location-info-sidebar";
 import {useSelector} from "react-redux";
 import {
@@ -16,6 +13,7 @@ import {useSwitchMapLocationInfoSidebar} from "./model/hooks/use-switch-map-loca
 import {MapLocationInfoSidebarContent} from "../../components/_map/map-location-info-sidebar-content";
 import {useInitiateMapSessionId} from "./model/hooks/use-initiate-map-session-id";
 import {Layout} from "../../components/_layout/layout";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 const MapPage = () => {
 
@@ -23,21 +21,13 @@ const MapPage = () => {
     const visibility = useSelector(getLocationInfoSidebarVisibility);
     const upperLevelMapCopy = useRef();
 
-    const passedColors = {
-        backgroundColor: colors.pastelGray,
-        nameColor1: colors.lightBlack,
-        nameColor2: colors.lightBlack,
-        linkHoverFontColor: colors.pastelGray,
-        linkHoverBackground: colors.backgroundMilk,
-        profileFontColor: colors.backgroundMilk,
-    }
 
     useSwitchMapLocationInfoSidebar();
     useInitiateMapSessionId()
 
 
     return (
-        <Layout passedColors={passedColors}>
+        <>
             <Div
                 zIndex={2}
                 height={"100%"}
@@ -61,8 +51,24 @@ const MapPage = () => {
                 </LocationInfoSidebar>
             </Div>
             <LoginModalWindow/>
-        </Layout>
+        </>
     );
 };
+
+export async function getStaticProps({ locale }: any) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['main', 'map'])),
+            passedColors: {
+                backgroundColor: colors.pastelGray,
+                nameColor1: colors.lightBlack,
+                nameColor2: colors.lightBlack,
+                linkHoverFontColor: colors.pastelGray,
+                linkHoverBackground: colors.backgroundMilk,
+                profileFontColor: colors.backgroundMilk,
+            }
+        },
+    }
+}
 
 export default MapPage;

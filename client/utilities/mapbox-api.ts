@@ -36,10 +36,13 @@ class MapBoxApi {
     }
 
     async getMapboxLocationInfo({coordinates, language}){
+        try {
+            const editedLanguage = language === "ge" ? "ka" : language
+            return await this.geocoding.get(`${coordinates}.json?language=${editedLanguage}&limit=1&access_token=${this.mapboxAccessToken}`);
+        } catch (err){
 
-        const editedLanguage = language === "ge" ? "ka" : language
+        }
 
-        return await this.geocoding.get(`${coordinates}.json?language=${editedLanguage}&limit=1&access_token=${this.mapboxAccessToken}`);
     }
 
 }

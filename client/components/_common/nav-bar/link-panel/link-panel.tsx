@@ -17,7 +17,6 @@ const LinkPanel: FC<LinkPanelProps> = ({linkHoverFontColor,linkHoverBackground})
 
     const { t } = useTranslation("main");
     const loggedIn = useSelector(getLoginState) === "success";
-    console.log(loggedIn)
 
     return (
         <StyledLinkPanel>

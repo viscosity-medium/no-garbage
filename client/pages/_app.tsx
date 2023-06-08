@@ -9,17 +9,22 @@ import {Provider} from "react-redux";
 import {store} from "../store/store";
 import '../styles/globals.css';
 import "../default.scss";
+import {Layout} from "../components/_layout/layout";
 
+// @ts-ignore
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-    
+    const {passedColors} = pageProps;
     return (
         <Provider store={store}>
             <Context.Provider
                 value={ firebaseInstance }
             >
-                <Component { ...pageProps } />
+                <Layout passedColors={passedColors}>
+                    <Component { ...pageProps } />
+                </Layout>
             </Context.Provider>
         </Provider>
     )
+
 }
 export default appWithTranslation(App)

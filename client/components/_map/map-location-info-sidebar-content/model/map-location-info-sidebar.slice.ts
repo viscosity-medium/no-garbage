@@ -59,6 +59,7 @@ const mapLocationInfoSidebarSlice = createSlice({
             // })
         })
         .addCase( uploadMapFilesToTheServerByChunks.rejected , (state, action) => {
+            console.log("reject")
             state.submitButtonState = {
                 topScroll: "0px"
             };

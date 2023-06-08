@@ -15,15 +15,22 @@ import {VolunteersSection} from "../components/_main/volunteers-section";
 import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-friends-section";
 import {useEffect} from "react";
 import {axiosApi} from "../utilities/axios-api";
+import {Layout} from "../components/_layout/layout";
 
 
 const MainPage = () => {
 
     const promoImagePath = "/assets/main-page/map-backgroundColor.png";
     const { t } = useTranslation(['main']);
-    const { veryDarkGreen } = colors;
 
-    useAuthenticateUser();
+    const passedColors = {
+        backgroundColor: colors.veryDarkGreen,
+        nameColor1: colors.lightGrey,
+        nameColor2: colors.brightLime,
+        linkHoverFontColor: colors.veryDarkGreen,
+        linkHoverBackground: colors.backgroundMilk,
+        profileFontColor: colors.backgroundMilk,
+    }
 
     useEffect(()=>{
 
@@ -45,22 +52,9 @@ const MainPage = () => {
     },[])
 
     return (
-        <PageWrapper
-            isAnimated={true}
+        <Layout
+            passedColors={passedColors}
         >
-            <Head>
-                <meta name="keywords" content="Tbilisi, Georgia, garbage, eco, cleanups"/>
-                <meta name="color-scheme" content="light only"/>
-                <title>Nogarba.ge</title>
-            </Head>
-            <NavBar
-                backgroundColor={ veryDarkGreen }
-                nameColor1={colors.lightGrey}
-                nameColor2={colors.brightLime}
-                linkHoverFontColor={colors.veryDarkGreen}
-                linkHoverBackground={colors.backgroundMilk}
-                profileFontColor={colors.backgroundMilk}
-            />
             <PageWrapper
                 isAnimated={false}
                 backgroundColor={colors.lightGrey}
@@ -79,7 +73,7 @@ const MainPage = () => {
             <BottomImageSection/>
             <Footer/>
             <LoginModalWindow/>
-        </PageWrapper>
+        </Layout>
     );
 };
 

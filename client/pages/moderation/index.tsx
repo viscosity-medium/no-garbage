@@ -15,6 +15,7 @@ import Head from "next/head";
 import {ModalWindowContent} from "../../components/_moderation/moderation-location-info-sidebar";
 import {useSelector} from "react-redux";
 import {getModalVisibility} from "../../components/_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.selectors";
+import {Layout} from "../../components/_layout/layout";
 
 
 interface Tokens {
@@ -31,59 +32,54 @@ const ModerationPage = () => {
         refreshToken: undefined,
     });
 
-    useAuthenticateUser();
+    const passedColors = {
+        backgroundColor: colors.moderationNavbar,
+        nameColor1: colors.lightBlack,
+        nameColor2: colors.moderationName2,
+        linkHoverFontColor: colors.moderationNavbar,
+        linkHoverBackground: colors.backgroundMilk,
+        profileFontColor: colors.black,
+    };
+
     useCheckIsAuth({ setTokens });
 
     return (
         <>
             {
                 (tokens.accessToken && tokens?.refreshToken) ? (
-                    <PageWrapper
-                    isAnimated={true}>
-                        <Head>
-                            <meta name="keywords" content="Tbilisi, Georgia, garbage, eco, cleanups"/>
-                            <meta name="color-scheme" content="light only"/>
-                            <title>Nogarba.ge</title>
-                        </Head>
-                        <NavBar
-                            backgroundColor={colors.moderationNavbar}
-                            nameColor1={colors.lightBlack}
-                            nameColor2={colors.moderationName2}
-                            linkHoverFontColor={colors.moderationNavbar}
-                            linkHoverBackground={colors.backgroundMilk}
-                            profileFontColor={colors.black}
-                        />
-                        <Div
-                            zIndex={1}
-                            height={"100%"}
-                            width={"100%"}
-                            position={"relative"}
-                        >
-                            <HStack
-                                justify={"space-between"}
-                                align={"start"}
-                                width={"100%"}
-                                height={"100%"}
-                                wrap={"no-wrap"}
-                            >
-                                <Sidebar
-                                    position={"relative"}
-                                    sidebarWidth={["160px", "70px"]}
-                                    sidebarType={"dynamic"}
-                                    color={colors.moderationSidebar}
-                                />
-                                <DataWindow/>
-                            </HStack>
-                            <LocationInfoSidebar
-                                visibility={modalVisibility}
-                                modalWindowHeight={`${modalWindowHeight}px`}
-                                setModalWindowHeight={setModalWindowHeight}
-                            >
-                                <ModalWindowContent/>
-                            </LocationInfoSidebar>
-                        </Div>
-                        <LoginModalWindow/>
-                    </PageWrapper>) : <></>
+                   <Layout passedColors={passedColors}>
+                       <Div
+                           zIndex={1}
+                           height={"100%"}
+                           width={"100%"}
+                           position={"relative"}
+                       >
+                           <HStack
+                               justify={"space-between"}
+                               align={"start"}
+                               width={"100%"}
+                               height={"100%"}
+                               wrap={"no-wrap"}
+                           >
+                               <Sidebar
+                                   position={"relative"}
+                                   sidebarWidth={["160px", "70px"]}
+                                   sidebarType={"dynamic"}
+                                   color={colors.moderationSidebar}
+                               />
+                               <DataWindow/>
+                           </HStack>
+                           <LocationInfoSidebar
+                               visibility={modalVisibility}
+                               modalWindowHeight={`${modalWindowHeight}px`}
+                               setModalWindowHeight={setModalWindowHeight}
+                           >
+                               <ModalWindowContent/>
+                           </LocationInfoSidebar>
+                       </Div>
+                       <LoginModalWindow/>
+                   </Layout>
+                )  : <></>
             }
         </>
 

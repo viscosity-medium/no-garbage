@@ -15,6 +15,7 @@ import {
 import {useSwitchMapLocationInfoSidebar} from "./model/hooks/use-switch-map-location-info-sidebar";
 import {MapLocationInfoSidebarContent} from "../../components/_map/map-location-info-sidebar-content";
 import {useInitiateMapSessionId} from "./model/hooks/use-initiate-map-session-id";
+import {Layout} from "../../components/_layout/layout";
 
 const MapPage = () => {
 
@@ -22,18 +23,21 @@ const MapPage = () => {
     const visibility = useSelector(getLocationInfoSidebarVisibility);
     const upperLevelMapCopy = useRef();
 
+    const passedColors = {
+        backgroundColor: colors.pastelGray,
+        nameColor1: colors.lightBlack,
+        nameColor2: colors.lightBlack,
+        linkHoverFontColor: colors.pastelGray,
+        linkHoverBackground: colors.backgroundMilk,
+        profileFontColor: colors.backgroundMilk,
+    }
+
     useSwitchMapLocationInfoSidebar();
     useInitiateMapSessionId()
 
 
     return (
-        <PageWrapper>
-            <Head>
-                <meta name="keywords" content="Tbilisi, Georgia, garbage, eco, cleanups"/>
-                <meta name="color-scheme" content="light only"/>
-                <title>Nogarba.ge</title>
-            </Head>
-            <NavBar backgroundColor={colors.pastelGray}/>
+        <Layout passedColors={passedColors}>
             <Div
                 zIndex={2}
                 height={"100%"}
@@ -57,7 +61,7 @@ const MapPage = () => {
                 </LocationInfoSidebar>
             </Div>
             <LoginModalWindow/>
-        </PageWrapper>
+        </Layout>
     );
 };
 

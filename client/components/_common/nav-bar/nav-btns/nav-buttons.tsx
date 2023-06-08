@@ -24,7 +24,7 @@ const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
 
     const showLoginModal = () => {
         dispatch(loginModalActions.setModalVisibility());
-    }
+    };
     const [language, setLanguage]: any = useCustomTranslation();
 
 

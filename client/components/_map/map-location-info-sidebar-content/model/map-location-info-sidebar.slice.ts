@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {LocationInfoSidebarSchema, SubmitButtonState} from "./map-location-info-sidebar.types";
-import {uploadMapFilesToTheServer} from "./map-location-info-sidebar.async-thunks";
+import {uploadMapFilesToTheServerByChunks} from "./map-location-info-sidebar.async-thunks";
 
 const initialState: LocationInfoSidebarSchema = {
     modalVisibility: false,
@@ -21,8 +21,12 @@ const initialState: LocationInfoSidebarSchema = {
     },
     submitButtonState: {
         topScroll: "0px",
-    }
+    },
+    dataStatus: "init"
 }
+
+
+
 
 const mapLocationInfoSidebarSlice = createSlice({
     name: "location-info-sidebar",
@@ -32,18 +36,33 @@ const mapLocationInfoSidebarSlice = createSlice({
         setFilesToUpload: (state, action) => {state.filesToUpload = action.payload},
         setDropboxProperties: (state, action) => {state.dropboxProperties = action.payload},
         setUserMarkerProperties: (state, action) => {state.userMarkerProperties = action.payload},
-        setSaveButtonState: (state, action: PayloadAction<SubmitButtonState>) => {state.submitButtonState = action.payload}
+        setSubmitButtonState: (state, action: PayloadAction<SubmitButtonState>) => {state.submitButtonState = action.payload},
+        setDataStatus: (state, action: PayloadAction<"init" | "pending" | "success" | "reject">) => {state.dataStatus = action.payload}
     },
     extraReducers: (builder) => {
         builder
-        .addCase( uploadMapFilesToTheServer.pending , (state, action) => {
-            console.log()
+        .addCase( uploadMapFilesToTheServerByChunks.pending , (state, action) => {
+            state.dataStatus = "pending";
         })
-        .addCase( uploadMapFilesToTheServer.fulfilled , (state, action) => {
-
+        .addCase( uploadMapFilesToTheServerByChunks.fulfilled , (state, action) => {
+            state.submitButtonState = {
+                topScroll: "-80px"
+            };
+            state.dataStatus = "success";
+            state.submitButtonState = {
+                topScroll: "-80px"
+            };
+            // const sidebarScrollerContainer = document ? document?.querySelector(".sidebar-scroll-inner") : null;
+            // sidebarScrollerContainer?.scrollTo({
+            //     behavior: "smooth",
+            //     top: 1000
+            // })
         })
-        .addCase( uploadMapFilesToTheServer.rejected , (state, action) => {
-
+        .addCase( uploadMapFilesToTheServerByChunks.rejected , (state, action) => {
+            state.submitButtonState = {
+                topScroll: "0px"
+            };
+            state.dataStatus = "reject";
         })
     }
 });

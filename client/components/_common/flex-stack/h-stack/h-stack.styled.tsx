@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {ReactNode} from "react";
 
 export interface IStack {
+    className?: string
     position?: "absolute" | "relative"
     justify?: "space-between" | "space-around" | "center" | "flex-start" | "flex-end" | "start" | "end"
     align?: "center" | "flex-start" | "flex-end" | "self-start" | "self-end" | "start" | "end"

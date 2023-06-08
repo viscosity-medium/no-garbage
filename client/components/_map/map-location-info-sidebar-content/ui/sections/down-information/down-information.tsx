@@ -4,28 +4,43 @@ import colors from "../../../../../../styles/globals/colors";
 import React from "react";
 import Text from "../../../../../_common/text/text";
 import {useSelector} from "react-redux";
-import {getFilesToUpload, getSubmitButtonState} from "../../../model/map-location-info-sidebar.selectors";
+import {
+    getDataStatus,
+    getFilesToUpload,
+    getSubmitButtonState
+} from "../../../model/map-location-info-sidebar.selectors";
 import {useAppDispatch} from "../../../../../../store/store";
-import {fetchFilesByChunks} from "../../../model/helpers/map-files-handler.helper";
+import {uploadMapFilesToTheServerByChunks} from "../../../model/map-location-info-sidebar.async-thunks";
+import {hideLocationSidebar} from "../../../model/helpers/map-location-info-sidebar.helpers";
 
-const DownInformation = () => {
+const DownInformation = ({map}) => {
+
     const dispatch = useAppDispatch();
     const filesToUpload = useSelector(getFilesToUpload) as any;
+    const dataStatus = useSelector(getDataStatus);
+    const submitButtonIsDisabled = dataStatus !== "init";
+    const windowHeight =  "160px";
+    const submitButtonColor = dataStatus !== "pending" ? colors.orange : colors.opaqueOrange;
+    const submitButtonText = dataStatus === "pending" ? "Processing..." :
+        dataStatus === "success" ? "Reset the form?" :
+        dataStatus === "reject" ? "Oops..." :
+        dataStatus === "init" ? "Submit" : ""
+    ;
     const submitButtonState = useSelector(getSubmitButtonState);
+    const marginBottom = ["success", "reject"].includes(dataStatus) ? 20 : 100;
 
     const submitClick = async () => {
+        dispatch(uploadMapFilesToTheServerByChunks({filesToUpload, dispatch}));
+    };
 
-        await fetchFilesByChunks({ filesToUpload, dispatch })
-
-        // dispatch(uploadMapFilesToTheServer({filesToUpload}));
-        // dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "-80px"}));
-    }
 
     return (
         <VStack
-            height={"80px"}
-            margin={"40px 0"}
+
+            height={windowHeight}
+            margin={`25px 0 80px`}
             overflow={"hidden"}
+            border={`1px solid ${colors.white}`}
         >
             <VStack
                 align={"center"}
@@ -35,24 +50,25 @@ const DownInformation = () => {
                 transition={"0.5s"}
             >
                 <VStack
-                    height={"80px"}
+                    height={"auto"}
                 >
                     <Button
                         width={"200px"}
                         height={"40px"}
                         color={colors.white}
-                        backgroundColor={colors.orange}
+                        backgroundColor={submitButtonColor}
                         borderRadius={"8px"}
-                        margin={"20px 0 20px"}
+                        margin={`20px 0 ${marginBottom}px`}
                         onClick={submitClick}
+                        disabled={submitButtonIsDisabled}
                     >
-                        Submit
+                        {submitButtonText}
                     </Button>
                 </VStack>
                 <VStack
                     justify={"center"}
                     align={"center"}
-                    height={"80px"}
+                    height={"auto"}
                 >
                     <Text
                         tag={"h3"}
@@ -68,9 +84,21 @@ const DownInformation = () => {
                     >
                         Our moderators will review the location and if it is accurate it will be added to our interactive map
                     </Text>
+                    <Button
+                        width={"200px"}
+                        height={"40px"}
+                        color={colors.white}
+                        backgroundColor={submitButtonColor}
+                        borderRadius={"8px"}
+                        margin={"20px 0 20px"}
+                        onClick={hideLocationSidebar({map, dispatch, dataStatus})}
+                    >
+                        Reset the form?
+                    </Button>
                 </VStack>
             </VStack>
-        </VStack>
+        </VStack
+>
     );
 };
 

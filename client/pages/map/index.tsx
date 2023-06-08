@@ -49,6 +49,7 @@ const MapPage = () => {
                     visibility={visibility}
                     modalWindowHeight={`${modalWindowHeight}px`}
                     setModalWindowHeight={setModalWindowHeight}
+                    className={"sidebar-scroll-inner"}
                 >
                     <MapLocationInfoSidebarContent
                         map={upperLevelMapCopy}

@@ -10,10 +10,17 @@ import {
 } from "../../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
 import {mapboxApi} from "../../../utilities/mapbox-api";
 import {getLanguage} from "../../../components/_common/nav-bar/nav-bar.selectors";
+import {
+    hideLocationSidebar
+} from "../../../components/_map/map-location-info-sidebar-content/model/helpers/map-location-info-sidebar.helpers";
+import {
+    getDataStatus
+} from "../../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.selectors";
 
 const useMapOnClick = ({map}) => {
 
     const markerIsSet = useSelector(getMapboxMarkerIsSet);
+    const dataStatus = useSelector(getDataStatus)
     const markerIsHovered = useSelector(getMapboxMarkerIsHovered);
     const language = useSelector(getLanguage);
     const dispatch = useAppDispatch();
@@ -51,23 +58,7 @@ const useMapOnClick = ({map}) => {
             const hideMarkerOnClick = (e) => {
 
                 if(markerIsSet && markerIsHovered){
-
-                    map.current.getSource("user-points")?.setData({
-                        type: 'FeatureCollection',
-                        features: []
-                    });
-
-                    dispatch(mapboxActions.setUserMarkerIsSet(false));
-                    dispatch(mapboxActions.setUserMarkerIsHovered(false));
-                    dispatch(locationInfoSidebarActions.setUserMarkerProperties({
-                        name: "",
-                        coordinates: []
-                    }));
-
-                    setTimeout(()=>{
-                        dispatch(locationInfoSidebarActions.setSaveButtonState({topScroll: "0px"}))
-                    },500);
-
+                    hideLocationSidebar({map, dispatch, dataStatus});
                 }
 
             }

@@ -5,3 +5,4 @@ export const getUserMarkerProperties = (state: StateSchema) => state.locationInf
 export const getSubmitButtonState = (state: StateSchema) => state.locationInfoSidebar.submitButtonState;
 export const getFilesToUpload = (state: StateSchema) => state.locationInfoSidebar.filesToUpload;
 export const getDropboxProperties = (state: StateSchema) => state.locationInfoSidebar.dropboxProperties;
+export const getDataStatus = (state: StateSchema) => state.locationInfoSidebar.dataStatus;

@@ -23,6 +23,9 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch }: FetchFilesByChunk
          const totalChunks = Math.ceil(file.size / chunkSize) - 1;
 
          await fileReader.readAsArrayBuffer(file);
+         dispatch(locationInfoSidebarActions.setSubmitButtonState({
+             topScroll: "0",
+         }))
 
          if(filesToUpload[key].progressBar !== 100){
 

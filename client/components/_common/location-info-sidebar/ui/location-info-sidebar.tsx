@@ -13,13 +13,15 @@ interface LocationInfoSidebarProps {
     visibility: boolean
     modalWindowHeight: string
     setModalWindowHeight: any
+    className?: string
 }
 
 const LocationInfoSidebar: FC<LocationInfoSidebarProps> = ({
     children,
     visibility,
     modalWindowHeight,
-    setModalWindowHeight
+    setModalWindowHeight,
+    className
 }) => {
 
     const right = visibility ? "0" : "-460px";
@@ -52,6 +54,7 @@ const LocationInfoSidebar: FC<LocationInfoSidebarProps> = ({
             top={"0"}
             borderLeft={`solid 2px ${colors.darkGrey}`}
             background={colors.white}
+            className={"sidebar-scroll-inner"}
         >
             {children}
         </Div>

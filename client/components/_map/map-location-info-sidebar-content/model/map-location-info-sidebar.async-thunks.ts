@@ -1,29 +1,26 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {axiosApi} from "../../../../utilities/axios-api";
+import {fetchFilesByChunks} from "./helpers/map-files-handler.helper";
 
-interface Props {
+interface ChunkProps {
     filesToUpload: {
-        [key: string]: File
-    }
+        [p: string]: {
+            file: File,
+            progressBar: number
+        }
+    },
+    dispatch: any
 }
 
-const uploadMapFilesToTheServer = createAsyncThunk(
-    "mapbox/upload-files-on-server",
-    async (props: Props) => {
-
-        const {filesToUpload} = props;
-        const formData = new FormData;
-        await Object.keys(filesToUpload).forEach((key)=>{
-            console.log(filesToUpload[key])
-            formData.append("files", filesToUpload[key])
-        })
-        for (const pair of formData.entries() as any) {
-
-        }
-        await axiosApi.uploadFilesOnServer({formData})
+const uploadMapFilesToTheServerByChunks = createAsyncThunk(
+    "mapbox/upload-files-on-server-by-chunks",
+    async (props: ChunkProps) => {
+        const {
+            filesToUpload, dispatch
+        } = props;
+        await fetchFilesByChunks({ filesToUpload, dispatch })
     }
 )
 
 export {
-    uploadMapFilesToTheServer
+    uploadMapFilesToTheServerByChunks
 }

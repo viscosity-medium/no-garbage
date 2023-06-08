@@ -9,7 +9,7 @@ import {Div} from "../../../_common/custom-image/custom-div.styled";
 import {useAppDispatch} from "../../../../store/store";
 import {StepBlock} from "./sections/step-block";
 import {useSelector} from "react-redux";
-import {getUserMarkerProperties} from "../model/map-location-info-sidebar.selectors";
+import {getDataStatus, getUserMarkerProperties} from "../model/map-location-info-sidebar.selectors";
 import {StepOne} from "./sections/step-one/step-one";
 import {StepTwo} from "./sections/step-two/step-two";
 import {StepThree} from "./sections/step-three/step-three";
@@ -18,6 +18,7 @@ import {hideLocationSidebar} from "../model/helpers/map-location-info-sidebar.he
 
 const SidebarContent = ({map}) => {
 
+    const dataStatus = useSelector(getDataStatus);
     const userMarkerProperties = useSelector(getUserMarkerProperties);
     const locationName = userMarkerProperties.name;
     const coordinatesString = userMarkerProperties.coordinates.toString().replace(/,/,", ");
@@ -46,7 +47,7 @@ const SidebarContent = ({map}) => {
                         height={"20px"}
                         border={"0 solid #000"}
                         margin={"20px 0 15px auto"}
-                        onClick={hideLocationSidebar({map, dispatch})}
+                        onClick={hideLocationSidebar({map, dispatch, dataStatus})}
                     >
                         <CrossIcon/>
                     </Button>
@@ -74,7 +75,9 @@ const SidebarContent = ({map}) => {
             >
                 <StepThree/>
             </StepBlock>
-            <DownInformation/>
+            <DownInformation
+                map={map}
+            />
         </VStack>
     );
 };

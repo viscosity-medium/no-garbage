@@ -16,7 +16,7 @@ router.get("/get-all-firebase-collections", firebaseController.getAllFirebaseCol
 router.get("/rewrite-firebase-collections-photo-path", firebaseController.rewriteFirebaseCollectionsPhotoPath);
 //aws and firebase routes
 router.post("/upload-files-on-server", multipleFilesMultiParser, commonController.uploadFilesOnServer);
-router.post("/upload-files-on-server/chunks", commonController.uploadFilesOnServerChunks);
+router.post("/upload-files-on-server/chunks", commonController.uploadFilesOnServerByChunks);
 //mapbox
 router.get("/get-mapbox-geo-json", mapboxController.getMapboxGeoJsonData);
 

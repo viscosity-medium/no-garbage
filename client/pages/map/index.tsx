@@ -21,10 +21,8 @@ const MapPage = () => {
     const visibility = useSelector(getLocationInfoSidebarVisibility);
     const upperLevelMapCopy = useRef();
 
-
     useSwitchMapLocationInfoSidebar();
-    useInitiateMapSessionId()
-
+    useInitiateMapSessionId();
 
     return (
         <>

@@ -8,12 +8,30 @@ interface FetchFilesByChunksProps {
             progressBar: number
         }
     },
-    dispatch: any
+    dispatch: any,
+    sessionUniqueId
 }
 
-const fetchFilesByChunks = async ({ filesToUpload, dispatch }: FetchFilesByChunksProps) => {
+const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId }: FetchFilesByChunksProps) => {
 
     const filesToUploadNewObject = {...filesToUpload};
+    const timeStamp = new Date().toLocaleString();
+    const fileList = Object.keys(filesToUpload).reduce((accumulate: string[], current: string) => {
+
+        const filename = `${filesToUpload[current].file.name}`.split(".");
+        const extension = filename.pop();
+        const editedName = `${filename.join(".")
+        }-${
+            timeStamp
+            .replace(/:/gm, ".")
+            .replace(/,\s/gm,"-")
+        }.${
+            extension
+        }`;
+
+        return [...accumulate,editedName ];
+
+    }, []);
 
      for await (const key of Object.keys(filesToUpload)){
 
@@ -36,12 +54,13 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch }: FetchFilesByChunk
                      fileReader.onload = async (event: ProgressEvent<FileReader>) => {
 
                          const data = event!.target!.result!;
+
                          const filename = `${file.name}`.split(".");
                          const extension = filename.pop();
-
-                         const editedName = `${filename.join(".")
+                         const editedName = `${
+                             filename.join(".")
                          }-${
-                             new Date().toLocaleString()
+                             timeStamp
                              .replace(/:/gm, ".")
                              .replace(/,\s/gm,"-")
                          }.${
@@ -50,14 +69,20 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch }: FetchFilesByChunk
 
                          for (let currentChunk = 0; currentChunk < +totalChunks + 1; currentChunk++) {
 
-                             const chunk = data.slice(currentChunk * chunkSize, (currentChunk + 1) * chunkSize) as never;
+                             const chunk = data.slice(currentChunk * chunkSize, (currentChunk + 1) * chunkSize);
 
                              const urlParams = {
                                  name: editedName,
                                  type: file.type,
                                  size: file.size,
-                                 totalChunks,
-                                 currentChunk
+                                 totalChunks: totalChunks + 1,
+                                 currentChunk: currentChunk + 1,
+                                 sessionUniqueId: sessionUniqueId,
+                                 userSessionInfo: {
+                                     amountOfFiles: Object.keys(filesToUpload).length,
+                                     currentFileIndex: +key + 1
+                                 },
+                                 fileList
                              };
 
                              await axiosApi.uploadChunksOnServer({chunk, urlParams});
@@ -71,7 +96,7 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch }: FetchFilesByChunk
 
                              if(currentChunk + 1 === totalChunks + 1) {
                                  resolve("");
-                             };
+                             }
 
                              dispatch(locationInfoSidebarActions.setFilesToUpload({
                                  ...filesToUploadNewObject,

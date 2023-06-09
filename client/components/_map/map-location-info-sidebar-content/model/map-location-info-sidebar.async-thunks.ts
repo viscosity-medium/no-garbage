@@ -8,16 +8,14 @@ interface ChunkProps {
             progressBar: number
         }
     },
-    dispatch: any
+    dispatch: any,
+    sessionUniqueId: string
 }
 
 const uploadMapFilesToTheServerByChunks = createAsyncThunk(
     "mapbox/upload-files-on-server-by-chunks",
-    async (props: ChunkProps) => {
-        const {
-            filesToUpload, dispatch
-        } = props;
-        await fetchFilesByChunks({ filesToUpload, dispatch })
+    async ({filesToUpload, dispatch, sessionUniqueId}: ChunkProps) => {
+        await fetchFilesByChunks({ filesToUpload, dispatch, sessionUniqueId})
     }
 )
 

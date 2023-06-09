@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {FC, useState} from "react";
+import {FC, ReactNode, useState} from "react";
 import {StyledCustomLink} from "./custom-link.styled";
 import CustomDiv from "../custom-div/custom-div";
 import CustomImage from "../custom-image/custom-image";
@@ -24,6 +24,7 @@ export interface ICustomLink {
     size?: string
     weight?: number
     textDecoration?: string
+    children?: ReactNode
 }
 
 const CustomLink: FC<ICustomLink> = ({
@@ -42,7 +43,8 @@ const CustomLink: FC<ICustomLink> = ({
     scale,
     size= "16px",
     weight = 600,
-    textDecoration = "none"
+    textDecoration = "none",
+    children
 }) => {
 
     const [isHovered, setIsHovered] = useState(false);
@@ -63,18 +65,22 @@ const CustomLink: FC<ICustomLink> = ({
                 onMouseEnter={changeIsHovered}
                 onMouseLeave={changeIsHovered}
             >
-                <LinkFiller
-                    padding={padding}
-                    width={width}
-                    height={height}
-                    linkName={linkName}
-                    backgroundColor={backgroundColor}
-                    backgroundImage={backgroundImage}
-                    scale={scale}
-                    size={size}
-                    weight={weight}
-                    textDecoration={textDecoration}
-                />
+                {
+                    children ? (children) : (
+                        <LinkFiller
+                            padding={padding}
+                            width={width}
+                            height={height}
+                            linkName={linkName}
+                            backgroundColor={backgroundColor}
+                            backgroundImage={backgroundImage}
+                            scale={scale}
+                            size={size}
+                            weight={weight}
+                            textDecoration={textDecoration}
+                        />
+                    )
+                }
             </Link>
         ) : externalHref ? (
             <a
@@ -88,18 +94,22 @@ const CustomLink: FC<ICustomLink> = ({
                     color: isHovered ? fontHoverColor : fontColor
                 }}
             >
-            <LinkFiller
-                    padding={padding}
-                    width={width}
-                    height={height}
-                    linkName={linkName}
-                    backgroundColor={backgroundColor}
-                    backgroundImage={backgroundImage}
-                    scale={scale}
-                    size={size}
-                    weight={weight}
-                    textDecoration={textDecoration}
-                />
+            {
+                children ? (children) : (
+                    <LinkFiller
+                        padding={padding}
+                        width={width}
+                        height={height}
+                        linkName={linkName}
+                        backgroundColor={backgroundColor}
+                        backgroundImage={backgroundImage}
+                        scale={scale}
+                        size={size}
+                        weight={weight}
+                        textDecoration={textDecoration}
+                    />
+                )
+            }
             </a>
         ): null
     )

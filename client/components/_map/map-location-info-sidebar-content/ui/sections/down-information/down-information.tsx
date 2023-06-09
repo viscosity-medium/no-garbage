@@ -12,11 +12,13 @@ import {
 import {useAppDispatch} from "../../../../../../store/store";
 import {uploadMapFilesToTheServerByChunks} from "../../../model/map-location-info-sidebar.async-thunks";
 import {hideLocationSidebar} from "../../../model/helpers/map-location-info-sidebar.helpers";
+import {getMapPageUniqueId} from "../../../../../../pages/map/model/map-page.selectors";
 
 const DownInformation = ({map}) => {
 
     const dispatch = useAppDispatch();
     const filesToUpload = useSelector(getFilesToUpload) as any;
+    const sessionUniqueId = useSelector(getMapPageUniqueId) as string;
     const dataStatus = useSelector(getDataStatus);
     const submitButtonIsDisabled = dataStatus !== "init";
     const windowHeight =  "160px";
@@ -30,7 +32,7 @@ const DownInformation = ({map}) => {
     const marginBottom = ["success", "reject"].includes(dataStatus) ? 20 : 100;
 
     const submitClick = async () => {
-        dispatch(uploadMapFilesToTheServerByChunks({filesToUpload, dispatch}));
+        dispatch(uploadMapFilesToTheServerByChunks({filesToUpload, dispatch, sessionUniqueId}));
     };
 
 

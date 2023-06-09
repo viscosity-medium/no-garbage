@@ -9,8 +9,12 @@ import ApplePlayStoreBtn from "public/assets/footer/apple-play-store-btn.svg";
 import FacebookBtn from "public/assets/footer/socials-facebook.svg";
 import InstagramBtn from "public/assets/footer/socials-instagram.svg";
 import TelegramBtn from "public/assets/footer/socials-telegram.svg";
+import TelegramBtnColor from "public/assets/footer/socials-telegram-color.svg";
+import InstagramBtnColor from "public/assets/footer/socials-instagram-color.svg";
+import FacebookBtnColor from "public/assets/footer/socials-facebook-color.svg";
 import Button from "../button/button";
 import {useTranslation} from "next-i18next";
+import colors from "../../../styles/globals/colors";
 
 type ISocialButtonHandler = (link: string) => () => void;
 
@@ -19,7 +23,8 @@ const Footer = () => {
     const { t } = useTranslation("main")
     const socialsButtonHandler: ISocialButtonHandler = (link) => () => {
         window.open(link)
-    }
+    };
+
     return (
         <StyledFooter>
             <HStack
@@ -32,7 +37,9 @@ const Footer = () => {
                     <Text
                         tag={"span"}
                         size={"24px"}
-                    >{t("footerDownloadApp")}</Text>
+                    >
+                        {t("footerDownloadApp")}
+                    </Text>
                     <HStack
                         justify={"space-between"}
                         margin={"25px 0 30px"}
@@ -41,15 +48,17 @@ const Footer = () => {
                         <CustomLink
                             width={"136px"}
                             height={"40px"}
-                            href={"https://play.google.com/store/apps"}
-                            backgroundImage={GooglePlayStoreBtn}
-                        />
+                            externalHref={"https://play.google.com/store/apps"}
+                        >
+                            <GooglePlayStoreBtn/>
+                        </CustomLink>
                         <CustomLink
                             width={"136px"}
                             height={"40px"}
-                            href={"https://www.apple.com/app-store/"}
-                            backgroundImage={ApplePlayStoreBtn}
-                        />
+                            externalHref={"https://www.apple.com/app-store/"}
+                        >
+                            <ApplePlayStoreBtn/>
+                        </CustomLink>
                     </HStack>
                     <HStack
                         height={"auto"}
@@ -60,13 +69,16 @@ const Footer = () => {
                             width={"auto"}
                             tag={"span"}
                             size={"24px"}
-                        >{t("footerTelegramBotStart")}</Text>
+                        >
+                            {t("footerTelegramBotStart")}
+                        </Text>
                         <CustomLink
                             linkName={t("footerTelegramBotEnd")!}
                             width={"auto"}
                             externalHref={"https://telegram.org/"}
                             size={"24px"}
-                            weight={600}
+                            weight={500}
+                            fontColor={colors.veryDarkGrey}
                             textDecoration={"underline"}
                             padding={"0"}
                         />
@@ -78,7 +90,9 @@ const Footer = () => {
                     <Text
                         tag={"span"}
                         size={"24px"}
-                    >{t("footerSocials")}</Text>
+                    >
+                        {t("footerSocials")}
+                    </Text>
                     <HStack
                         justify={"space-between"}
                         margin={"25px 0 30px"}
@@ -90,24 +104,81 @@ const Footer = () => {
                             onClick={
                                 socialsButtonHandler("https://www.facebook.com/")
                             }
-                            backgroundImage={FacebookBtn.src}
-                        />
+                        >
+                            <HStack
+                                width={"100%"}
+                                height={"100%"}
+                            >
+                                <FacebookBtn
+                                    style={{
+                                        position: "absolute"
+                                    }}
+                                    width={"40px"}
+                                    height={"40px"}
+                                />
+                                <FacebookBtnColor
+                                    style={{
+                                        position: "absolute"
+                                    }}
+                                    width={"40px"}
+                                    height={"40px"}
+                                />
+                            </HStack>
+                        </Button>
                         <Button
                             width={"40px"}
                             height={"40px"}
                             onClick={
                                 socialsButtonHandler("https://www.instagram.com/")
                             }
-                            backgroundImage={InstagramBtn.src}
-                        />
+                        >
+                            <HStack
+                                width={"100%"}
+                                height={"100%"}
+                            >
+                                <InstagramBtn
+                                    style={{
+                                        position: "absolute"
+                                    }}
+                                    width={"40px"}
+                                    height={"40px"}
+                                />
+                                <InstagramBtnColor
+                                    style={{
+                                        position: "absolute"
+                                    }}
+                                    width={"40px"}
+                                    height={"40px"}
+                                />
+                            </HStack>
+                        </Button>
                         <Button
                             width={"40px"}
                             height={"40px"}
                             onClick={
                                 socialsButtonHandler("https://telegram.org/")
                             }
-                            backgroundImage={TelegramBtn.src}
-                        />
+                        >
+                            <HStack
+                                width={"100%"}
+                                height={"100%"}
+                            >
+                                <TelegramBtn
+                                    style={{
+                                        position: "absolute"
+                                    }}
+                                    width={"40px"}
+                                    height={"40px"}
+                                />
+                                <TelegramBtnColor
+                                    style={{
+                                        position: "absolute"
+                                    }}
+                                    width={"40px"}
+                                    height={"40px"}
+                                />
+                            </HStack>
+                        </Button>
                     </HStack>
                 </VStack>
                 <VStack>
@@ -122,7 +193,9 @@ const Footer = () => {
                         <Text
                             tag={"span"}
                             size={"16px"}
-                        >{t("footerLocation")}</Text>
+                        >
+                            {t("footerLocation")}
+                        </Text>
                     </VStack>
                 </VStack>
             </HStack>

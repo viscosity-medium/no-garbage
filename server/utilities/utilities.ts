@@ -29,6 +29,10 @@ class Utilities{
         return await fs.existsSync(filepath)
     }
 
+    async deleteFile({filePath}){
+        await fs.unlinkSync(filePath)
+    }
+
 }
 
 const utilities = new Utilities();

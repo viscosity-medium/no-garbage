@@ -42,7 +42,7 @@ const Text: FC<IText> = ({
     size,
     textAlign,
     alignSelf,
-    color= colors.veryDarkGrey,
+    color = colors.veryDarkGrey,
     margin,
     lineHeight,
     textOverflow,

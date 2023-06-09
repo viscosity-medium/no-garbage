@@ -58,14 +58,17 @@ class AxiosApi {
 
     }
 
-    async uploadChunksOnServer({chunk, urlParams}: {chunk: any, urlParams}){
+    async uploadChunksOnServer({chunk, urlParams}: {chunk: string | ArrayBuffer, urlParams}){
 
         const {
             name,
             type,
             size,
             totalChunks,
-            currentChunk
+            currentChunk,
+            sessionUniqueId,
+            userSessionInfo,
+            fileList
         } = urlParams;
 
         const params = new URLSearchParams();
@@ -75,6 +78,10 @@ class AxiosApi {
         params.set("size", size);
         params.set("totalChunks", totalChunks);
         params.set("currentChunk", currentChunk);
+        params.set("sessionUniqueId", sessionUniqueId);
+        params.set("userSessionInfo", JSON.stringify(userSessionInfo));
+        params.set("fileList", JSON.stringify(fileList))
+
 
         try {
             await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk)

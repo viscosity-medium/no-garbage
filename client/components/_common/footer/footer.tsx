@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import HStack from "../flex-stack/h-stack/h-stack";
 import {StyledFooter} from "./footer.styled";
 import VStack from "../flex-stack/v-stack/v-stack";
@@ -20,9 +20,21 @@ type ISocialButtonHandler = (link: string) => () => void;
 
 const Footer = () => {
 
-    const { t } = useTranslation("main")
+    const [buttonsOpacity, setButtonsOpacity] = useState({
+        telegram: "notColored",
+        instagram: "notColored",
+        facebook: "notColored"
+    });
+    const { t } = useTranslation("main");
     const socialsButtonHandler: ISocialButtonHandler = (link) => () => {
         window.open(link)
+    };
+
+    const switchBtnColor = (property) => {
+        setButtonsOpacity(prevState => ({
+            ...prevState,
+            ...property
+        }));
     };
 
     return (
@@ -104,6 +116,12 @@ const Footer = () => {
                             onClick={
                                 socialsButtonHandler("https://www.facebook.com/")
                             }
+                            onMouseEnter={
+                                () => {switchBtnColor({ facebook: "colored" })}
+                            }
+                            onMouseLeave={
+                                () => {switchBtnColor({ facebook: "notColored" })}
+                            }
                         >
                             <HStack
                                 width={"100%"}
@@ -111,14 +129,18 @@ const Footer = () => {
                             >
                                 <FacebookBtn
                                     style={{
-                                        position: "absolute"
+                                        position: "absolute",
+                                        transition: "0.3s",
+                                        transform: "scale(0.99)"
                                     }}
                                     width={"40px"}
                                     height={"40px"}
                                 />
                                 <FacebookBtnColor
                                     style={{
-                                        position: "absolute"
+                                        position: "absolute",
+                                        transition: "0.3s",
+                                        opacity: buttonsOpacity.facebook === "colored" ? 1 : 0
                                     }}
                                     width={"40px"}
                                     height={"40px"}
@@ -131,6 +153,12 @@ const Footer = () => {
                             onClick={
                                 socialsButtonHandler("https://www.instagram.com/")
                             }
+                            onMouseEnter={
+                                () => {switchBtnColor({ instagram: "colored" })}
+                            }
+                            onMouseLeave={
+                                () => {switchBtnColor({ instagram: "notColored" })}
+                            }
                         >
                             <HStack
                                 width={"100%"}
@@ -138,14 +166,18 @@ const Footer = () => {
                             >
                                 <InstagramBtn
                                     style={{
-                                        position: "absolute"
+                                        position: "absolute",
+                                        transition: "0.3s",
+                                        transform: "scale(1)"
                                     }}
                                     width={"40px"}
                                     height={"40px"}
                                 />
                                 <InstagramBtnColor
                                     style={{
-                                        position: "absolute"
+                                        position: "absolute",
+                                        transition: "0.3s",
+                                        opacity: buttonsOpacity.instagram === "colored" ? 1 : 0
                                     }}
                                     width={"40px"}
                                     height={"40px"}
@@ -158,6 +190,13 @@ const Footer = () => {
                             onClick={
                                 socialsButtonHandler("https://telegram.org/")
                             }
+                            onMouseEnter={
+                                () => {switchBtnColor({ telegram: "colored" })}
+                            }
+                            onMouseLeave={
+                                () => {switchBtnColor({ telegram: "notColored" })}
+                            }
+                            transition={"0.3s"}
                         >
                             <HStack
                                 width={"100%"}
@@ -165,14 +204,18 @@ const Footer = () => {
                             >
                                 <TelegramBtn
                                     style={{
-                                        position: "absolute"
+                                        position: "absolute",
+                                        transition: "0.3s",
+                                        transform: "scale(0.98)"
                                     }}
                                     width={"40px"}
                                     height={"40px"}
                                 />
                                 <TelegramBtnColor
                                     style={{
-                                        position: "absolute"
+                                        position: "absolute",
+                                        transition: "0.3s",
+                                        opacity: buttonsOpacity.telegram === "colored" ? 1 : 0
                                     }}
                                     width={"40px"}
                                     height={"40px"}

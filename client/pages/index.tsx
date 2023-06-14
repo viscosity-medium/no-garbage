@@ -11,11 +11,14 @@ import BottomImageSection from "../components/_main/bottom-image-section/bottom-
 import {VolunteersSection} from "../components/_main/volunteers-section";
 import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-friends-section";
 import {useEffect} from "react";
+import {useSelector} from "react-redux";
+import {getMainPageDynamicInfo} from "./main-page/model/main-page.selectors";
 
 
 const MainPage = () => {
 
     const promoImagePath = "/assets/main-page/map-backgroundColor.png";
+    const mainPageDynamicInfo = useSelector(getMainPageDynamicInfo);
     const { t } = useTranslation(['main']);
 
     useEffect(()=>{
@@ -49,7 +52,9 @@ const MainPage = () => {
 
                 >
                     <PromoSection backgroundImage={promoImagePath}/>
-                    <Goals/>
+                    <Goals
+                        goals={mainPageDynamicInfo?.goals}
+                    />
                     <VolunteersSection/>
                     <CommunitiesAndFriendsSection/>
                 </VStack>

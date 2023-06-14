@@ -20,10 +20,7 @@ export interface LocationInfoSidebarSchema {
         subDescription: string
         boxShadow: string
     }
-    textAreaContent: {
-        title: string,
-        description: string
-    }
+    textAreaContent: string
     submitButtonState: SubmitButtonState
     dataStatus: "init" | "pending" | "success" | "reject"
 }

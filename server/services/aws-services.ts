@@ -2,15 +2,9 @@ import fs from "fs";
 import path from "path";
 import {systemVariables} from "../system/system";
 import {awsInstance} from "../aws/aws-instance";
-import {
-    S3Client,
-    ListObjectsV2Command,
-    ListObjectsV2CommandOutput,
-    PutObjectCommand
-} from "@aws-sdk/client-s3";
+import {ListObjectsV2Command, ListObjectsV2CommandOutput, PutObjectCommand, S3Client} from "@aws-sdk/client-s3";
 import {AWSBucketListItem, AWSServicesProps} from "../types/services-types";
 import {utilities} from "../utilities/utilities";
-import {imageConverter} from "../utilities/images-converter";
 
 const {rootDir} = systemVariables;
 
@@ -64,8 +58,8 @@ class AwsServices {
 
     async uploadSingleFileIntoBucket({ fileName, filePath }){
 
-        const fileNameWithFolder = fileName.match(/thumb/) ?
-            `_thumb-images/${fileName}` : `_images/${fileName}`;
+        const dataStamp = new Date().toISOString().replace(/-\d{2}T.*/,"");
+        const fileNameWithFolder =`${dataStamp}/${fileName}`;
 
         await fs.readFile(filePath, async (err, data) => {
 
@@ -78,7 +72,6 @@ class AwsServices {
 
             try {
                 const response = await awsInstance.send(command);
-                console.log(response);
             } catch (err) {
                 console.error(err);
             }
@@ -99,7 +92,7 @@ class AwsServices {
                     const regExp = new RegExp(`^.*/`);
                     const fileName = listItemObject[url].replace(regExp,"");
                     const filePath = path.resolve(rootDir, "temp", fileName);
-                    const fileExistence = await utilities.checkFileExistence({fileName});
+                    const fileExistence = await utilities.checkFileExistence(["temp", fileName]);
 
                     if( !fileExistence ){
 
@@ -108,7 +101,6 @@ class AwsServices {
                             fileName
                         });
 
-                        await imageConverter.resizeImage({fileName});
                         await this.uploadSingleFileIntoBucket({fileName, filePath});
 
                     }

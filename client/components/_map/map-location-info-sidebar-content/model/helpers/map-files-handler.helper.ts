@@ -1,5 +1,6 @@
 import {axiosApi} from "../../../../../utilities/axios-api";
 import {locationInfoSidebarActions} from "../map-location-info-sidebar.slice";
+import { v4 as uuidv4 } from 'uuid';
 
 interface FetchFilesByChunksProps {
     filesToUpload: {
@@ -9,18 +10,28 @@ interface FetchFilesByChunksProps {
         }
     },
     dispatch: any,
-    sessionUniqueId
+    sessionUniqueId: string,
+    userMarkerProperties: any,
+    textAreaValue: any
 }
 
-const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId }: FetchFilesByChunksProps) => {
+interface FileLise {
+    fileName: string,
+    extension: string
+    mimeType: string,
+}
+
+const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId, userMarkerProperties, textAreaValue }: FetchFilesByChunksProps) => {
 
     const filesToUploadNewObject = {...filesToUpload};
     const timeStamp = new Date().toLocaleString();
-    const fileList = Object.keys(filesToUpload).reduce((accumulate: string[], current: string) => {
+    const fileList = Object.keys(filesToUpload).reduce((accumulate: FileLise[], current: string) => {
 
-        const filename = `${filesToUpload[current].file.name}`.split(".");
-        const extension = filename.pop();
-        const editedName = `${filename.join(".")
+        const id = uuidv4();
+        filesToUpload[current].file['id'] = id
+        const fileName = `${filesToUpload[current].file.name}`.split(".");
+        const extension = fileName.pop()!;
+        const editedName = `${fileName.join(".").replace(/\s/gm, "")
         }-${
             timeStamp
             .replace(/:/gm, ".")
@@ -29,7 +40,14 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId }: 
             extension
         }`;
 
-        return [...accumulate,editedName ];
+        const currentFileInfo = {
+            id,
+            fileName: editedName,
+            extension,
+            mimeType: filesToUpload[current].file.type,
+        }
+
+        return [...accumulate, currentFileInfo ];
 
     }, []);
 
@@ -54,11 +72,12 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId }: 
                      fileReader.onload = async (event: ProgressEvent<FileReader>) => {
 
                          const data = event!.target!.result!;
-
+                         // @ts-ignore
+                         const id = file.id
                          const filename = `${file.name}`.split(".");
                          const extension = filename.pop();
                          const editedName = `${
-                             filename.join(".")
+                             filename.join(".").replace(/\s/gm, "")
                          }-${
                              timeStamp
                              .replace(/:/gm, ".")
@@ -67,12 +86,15 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId }: 
                              extension
                          }`;
 
+
                          for (let currentChunk = 0; currentChunk < +totalChunks + 1; currentChunk++) {
 
                              const chunk = data.slice(currentChunk * chunkSize, (currentChunk + 1) * chunkSize);
 
                              const urlParams = {
                                  name: editedName,
+                                 id,
+                                 extension,
                                  type: file.type,
                                  size: file.size,
                                  totalChunks: totalChunks + 1,
@@ -82,7 +104,9 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId }: 
                                      amountOfFiles: Object.keys(filesToUpload).length,
                                      currentFileIndex: +key + 1
                                  },
-                                 fileList
+                                 fileList,
+                                 userMarkerProperties,
+                                 textAreaValue
                              };
 
                              await axiosApi.uploadChunksOnServer({chunk, urlParams});

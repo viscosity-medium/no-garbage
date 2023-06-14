@@ -9,6 +9,7 @@ const firebase: FirebaseApp = initializeApp(firebaseDevConfig);
 const auth: Auth = getAuth(firebase);
 const firestore: Firestore = getFirestore(firebase);
 const reportsRef = collection(firestore, "reports");
+const dynamicInfoRef = collection(firestore, "dynamic_info");
 const userProviderRef = collection(firestore, "user_providers");
 const usersDocRef = doc(firestore!, "user_providers", "password")
 const reportsQuery = query(reportsRef!);
@@ -22,6 +23,7 @@ const firebaseInstance: IContextProviderValue = {
     firestore,
     reportsRef,
     userProviderRef,
+    dynamicInfoRef,
     reportsQuery,
     userProviderQuery,
     usersDocRef

@@ -7,12 +7,17 @@ import GoalItem from "./goal-item/goal-item";
 import Text from "../../_common/text/text";
 import GoalsItemInternal from "./goal-item/goals-item-internal/goals-item-internal";
 import VStack from "../../_common/flex-stack/v-stack/v-stack";
+import {MainPageGoals} from "../../../pages/main-page/model/main-page.slice";
 
 interface IGoals {
+    goals?: MainPageGoals
     width?: string
 }
-const Goals: FC<IGoals> = ({ width }) => {
+const Goals: FC<IGoals> = ({ goals, width }) => {
+
+    const { cleanups_number, volunteers_number, garbage_kilograms } = goals || {};
     const { t } = useTranslation('main');
+
     return (
         <StyledSection
             width={width}
@@ -46,7 +51,7 @@ const Goals: FC<IGoals> = ({ width }) => {
                         margin={"0 auto 0 0"}
                     >
                         <GoalsItemInternal
-                            number={t('goals1Number')}
+                            number={`${cleanups_number}`}
                             descriptionText={t('goals1Description')}
                             width={"240px"}
                         />
@@ -60,7 +65,7 @@ const Goals: FC<IGoals> = ({ width }) => {
                         margin={"36px 0 36px auto"}
                     >
                         <GoalsItemInternal
-                            number={t('goals2Number')}
+                            number={`${garbage_kilograms}`}
                             descriptionText={t('goals2Description')}
                             width={"240px"}
                         />
@@ -74,7 +79,7 @@ const Goals: FC<IGoals> = ({ width }) => {
                         margin={"0 auto 0 0"}
                     >
                         <GoalsItemInternal
-                            number={t('goals3Number')}
+                            number={`${volunteers_number}`}
                             descriptionText={t('goals3Description')}
                             width={"240px"}
                         />

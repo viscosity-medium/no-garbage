@@ -53,7 +53,6 @@ const setUserMapMarker = ({map, sourceId, coordinates}) => {
             ]
         });
     } else {
-        console.log("one more time")
         setTimeout(()=>{
             setUserMapMarker({map, sourceId, coordinates})
         },200)

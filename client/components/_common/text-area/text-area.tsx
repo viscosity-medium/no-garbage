@@ -6,8 +6,11 @@ const TextArea: FC<ITextArea> = ({
     height,
     margin,
     placeholderText,
-    placeholderFontSize
+    placeholderFontSize,
+    onChangeHandler,
+    textAreaValue
 }) => {
+
     return (
         <TextAreaStyled
             width={width}
@@ -15,8 +18,11 @@ const TextArea: FC<ITextArea> = ({
             margin={margin}
             placeholder={placeholderText}
             placeholderFontSize={placeholderFontSize}
+            value={textAreaValue}
+            onChange={onChangeHandler}
         />
     );
+
 };
 
 export default TextArea;

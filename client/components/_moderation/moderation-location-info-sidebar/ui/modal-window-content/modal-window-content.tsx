@@ -40,8 +40,6 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
         setModalForm(initializeModalForm({content}))
     },[content])
 
-    console.log(CrossIcon)
-
     return (
         <VStack
             position={"relative"}

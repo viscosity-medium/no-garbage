@@ -56,6 +56,7 @@ const initializeModalForm = ({content}) => {
     return ({
         id: content?.document?.id,
         description: content?.document?.description || "",
+        fullDescription: content?.document?.full_description || "",
         status: content?.document?.status || "",
         community: content?.document?.community || "",
         announcement: content?.document?.announcement || "",

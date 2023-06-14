@@ -7,15 +7,15 @@ import {Div} from "../../../../_common/custom-image/custom-div.styled";
 import {reportsStatuses} from "../../../reports-statuses/reports-statuses";
 import CustomInput from "../../../../_common/custom-input/custom-input";
 import colors from "../../../../../styles/globals/colors";
+import TextArea from "../../../../_common/text-area/text-area";
 
 const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
 
     return (
         <>
-
             <VStack
                 justify={"center"}
-                height={"40px"}
+                height={"auto"}
                 margin={"5px 0"}
             >
                 <CustomInput
@@ -24,12 +24,44 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         changeModalForm("description")
                     }
                     width={"100%"}
-                    height={"100%"}
+                    height={"40px"}
                     fontSize={"16px"}
                     border={"none"}
                     borderRadius={"8px"}
                     backgroundColor={colors.middleGrey}
                 />
+                {
+                    modalForm.fullDescription ? (
+                        <VStack>
+                            <Text
+                                tag={"h3"}
+                                size={"14px"}
+                                margin={"18px 0 0"}
+                            >
+                                User description
+                            </Text>
+                            <Div
+                                position={"relative"}
+                                zIndex={2}
+                                margin={"10px 0"}
+                                padding={"10px"}
+                                width={"auto"}
+                                height={"auto"}
+                                border={"none"}
+                                borderRadius={"8px"}
+                                backgroundColor={colors.middleGrey}
+                            >
+                                <Text
+                                    tag={"span"}
+                                    text={modalForm.fullDescription}
+                                    color={colors.darkGrey}
+                                    size={"14px"}
+                                    lineHeight={"1"}
+                                />
+                            </Div>
+                        </VStack>
+                    ) : <></>
+                }
             </VStack>
             <HStack
                 position={"relative"}
@@ -47,10 +79,11 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     >
                         <Text
                             tag={"h3"}
-                            text={"Status"}
                             size={"14px"}
                             margin={"8px 0"}
-                        />
+                        >
+                            Status
+                        </Text>
                     </VStack>
                     <VStack
                         justify={"center"}
@@ -59,10 +92,11 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     >
                         <Text
                             tag={"h3"}
-                            text={"Community"}
                             size={"14px"}
                             margin={"8px 0"}
-                        />
+                        >
+                            Community
+                        </Text>
                     </VStack>
                     <VStack
                         justify={"center"}
@@ -71,10 +105,11 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     >
                         <Text
                             tag={"h3"}
-                            text={"Announcement"}
                             size={"14px"}
                             margin={"8px 0"}
-                        />
+                        >
+                            Announcement
+                        </Text>
                     </VStack>
                     <VStack
                         justify={"center"}
@@ -83,10 +118,11 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     >
                         <Text
                             tag={"h3"}
-                            text={"Date Added"}
                             size={"14px"}
                             margin={"8px 0"}
-                        />
+                        >
+                            Date Added
+                        </Text>
                     </VStack>
                     {
                         modalForm.dateModified ? (
@@ -97,10 +133,11 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                             >
                                 <Text
                                     tag={"h3"}
-                                    text={"Date Modified"}
                                     size={"14px"}
                                     margin={"8px 0"}
-                                />
+                                >
+                                    Date Modified
+                                </Text>
                             </VStack>
                         ) : <></>
                     }
@@ -111,10 +148,11 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     >
                         <Text
                             tag={"h3"}
-                            text={"Reported by"}
                             size={"14px"}
                             margin={"8px 0"}
-                        />
+                        >
+                            Reported by
+                        </Text>
                     </VStack>
                 </VStack>
                 <VStack

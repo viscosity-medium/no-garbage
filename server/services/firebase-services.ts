@@ -1,6 +1,8 @@
 import { IFirebaseInstance } from "../types/firebase-types";
 import { firebaseInstance } from "../firebase/firebase-instance";
 import { getDocs, query } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore"
+import { v4 as uuidv4 } from 'uuid';
 
 
 class FirebaseServices {
@@ -29,6 +31,14 @@ class FirebaseServices {
         });
         
         return allFirebaseCollections;
+
+    }
+
+    async writeDocumentToFirebaseReportsCollection({firebaseDocumentInfo}){
+
+        const db = this.firebaseInstance.firestore;
+        const documentId = uuidv4().toUpperCase();
+        await setDoc(doc(db, 'reports', documentId), firebaseDocumentInfo);
 
     }
 

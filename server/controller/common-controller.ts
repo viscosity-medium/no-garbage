@@ -1,21 +1,30 @@
 import {systemVariables} from "../system/system";
-import path from "path";
-import fs from "fs";
 import {Request, Response} from "express";
 import {commonServices} from "../services/common-services";
 import {utilities} from "../utilities/utilities";
+import {imageConverter} from "../utilities/images-converter";
+import {awsServices} from "../services/aws-services";
+import { v4 as uuidv4 } from 'uuid';
+import {FirebaseDocumentInfo} from "../firebase/firebase.types";
+import {firebaseServices} from "../services/firebase-services";
 
-const {rootDir} = systemVariables
+const {getNonConvertedMediaPath, getConvertedMediaPath} = systemVariables
 
 interface UploadByChunksProps {
+    id: string
     name: string,
     type: string,
+    extension: string,
     size: string,
     totalChunks: string,
     currentChunk: string,
     sessionUniqueId: string,
     userSessionInfo: string,
-    fileList: string
+    fileList: string,
+    textAreaValue: string
+    location: string
+    coordinates: string
+    description: string
 }
 type UploadByChunksRequestBody = string | Uint8Array
 
@@ -41,51 +50,124 @@ class CommonController {
 
         try {
             const {
+                id,
                 name,
-                type,
-                size,
+                extension,
                 totalChunks,
                 currentChunk,
+                type,
+                size,
                 sessionUniqueId,
                 userSessionInfo: stringUserSessionInfo,
-                fileList: stringFileList
+                fileList: stringFileList,
+                location,
+                coordinates: stringCoordinates,
+                description,
             } = req.query;
 
             const userSessionInfo = JSON.parse(stringUserSessionInfo);
             const fileList = JSON.parse(stringFileList);
-            const filePath = path.resolve(rootDir, "file-storage", "non-converted", `${name}`);
+            const coordinates = JSON.parse(stringCoordinates);
+            const nonConvertedChunkPath = getNonConvertedMediaPath([`${id}.${extension}`]);
 
-
-            fs.appendFileSync(filePath, req.body);
-
-            // console.log(JSON.parse(userSessionInfo as any))
-            // console.log(JSON.parse(fileList as any))
-            // console.log(`${currentChunk} / ${totalChunks} ___ ${sessionUniqueId}`)
+            await utilities.appendFileSync({
+                filePath: nonConvertedChunkPath,
+                chunk: req.body
+            });
 
             res.json({"status": "ok"});
 
+            // initialize timeout to clean a files if an error has occurred
+
+            if( +userSessionInfo.currentFileIndex === 1 && +currentChunk === 1){
+
+                await utilities.asyncCleanMediaFolders({fileList});
+
+            }
+
+            //processing after retrieving all the chunks
             if(currentChunk === totalChunks && userSessionInfo.currentFileIndex === userSessionInfo.amountOfFiles){
 
-                for await (const currentFileName of fileList){
+                const {
+                    awsS3Region,
+                    awsS3BucketName
+                } = systemVariables;
 
-                    const filenameWithoutExtension = currentFileName.split(".").slice(0,-1).join(".");
+                const photos: any = [];
+                const videos: any = []
 
-                    const nonCompressedFilePath = path.resolve(rootDir, "file-storage", "non-converted", `${currentFileName}`);
-                    const compressedFilePath = path.resolve(rootDir, "file-storage", "converted", `${filenameWithoutExtension}.mp4`)
+                for await (const currentFile of fileList){
 
-                    await commonServices.convertVideo({
-                        fileName: name,
-                        inputPath: nonCompressedFilePath,
-                        outputPath: compressedFilePath
+                    const {
+                        convertedFilePath,
+                        nonConvertedFilePath,
+                        convertedPreviewFilePath,
+                        fileName,
+                        previewFileName
+                    } = await utilities.convertAndCompressMediaFiles({currentFile});
+
+                    await awsServices.uploadSingleFileIntoBucket({
+                        fileName,
+                        filePath: convertedFilePath
+                    });
+                    await awsServices.uploadSingleFileIntoBucket({
+                        fileName: previewFileName,
+                        filePath: convertedPreviewFilePath
                     });
 
-                    await utilities.deleteFile({
-                        filePath: nonCompressedFilePath
-                    })
+                    const folder = new Date().toISOString().replace(/-\d{2}T.*/,"");
+                    const fileExtension = fileName.split(".").pop();
 
-                    console.log(currentFileName);
+                    if(fileExtension === "jpg"){
+
+                        photos.push({
+
+                            id: uuidv4(),
+                            url: `https://s3.${awsS3Region}.amazonaws.com/${awsS3BucketName}/${folder}/${fileName}`,
+                            preview_image_url: `https://s3.${awsS3Region}.amazonaws.com/${awsS3BucketName}/${folder}/${previewFileName}`
+
+                        });
+
+                    } else if(fileExtension === "mp4"){
+
+                        videos.push({
+
+                            id: uuidv4(),
+                            url: `https://s3.${awsS3Region}.amazonaws.com/${awsS3BucketName}/${folder}/${fileName}`,
+                            preview_image_url: `https://s3.${awsS3Region}.amazonaws.com/${awsS3BucketName}/${folder}/${previewFileName}`
+
+                        });
+
+                    }
+
+                    await utilities.deleteFileList([
+                        nonConvertedFilePath,
+                        convertedFilePath,
+                        convertedPreviewFilePath
+                    ]);
+
                 }
-                console.log("Done")
+
+
+                const firebaseDocumentInfo: FirebaseDocumentInfo = {
+
+                    id: uuidv4(),
+                    created_on: Math.floor((new Date()).getTime() / 1000),
+                    full_description: description,
+                    description: location,
+                    location: coordinates,
+                    status: "requires moderation",
+                    photos,
+                    videos,
+                    user_name: "Nogarbage.ge",
+                    user_provider_id: "Nogarbage.ge",
+
+                };
+
+                await  firebaseServices.writeDocumentToFirebaseReportsCollection({firebaseDocumentInfo})
+
+                //console.log(firebaseDocumentInfo);
+                //console.log("Done");
             }
 
         } catch (err){

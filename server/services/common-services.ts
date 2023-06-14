@@ -1,6 +1,6 @@
-import {Request, Response} from "express";
 import ffmpeg from "fluent-ffmpeg";
 import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
+import {systemVariables} from "../system/system";
 
 interface ConvertVideoProps {
     fileName: string
@@ -15,7 +15,6 @@ class CommonServices {
     }
 
     async convertVideo({
-        fileName,
         inputPath,
         outputPath
     }){
@@ -31,6 +30,26 @@ class CommonServices {
                 resolve("");
             })
             .save(outputPath);
+        })
+
+    }
+
+    async getFrameFromVideo({
+        inputPath,
+        fileName
+    }){
+        await new Promise(async (resolve)=>{
+            await ffmpeg({
+                source: inputPath
+            })
+            .takeScreenshots({
+                filename: fileName,
+                timemarks: [2]
+            }, systemVariables.getConvertedMediaPath([]))
+            .on("end", () => {
+                resolve("")
+            })
+
         })
 
     }

@@ -15,10 +15,7 @@ const initialState: LocationInfoSidebarSchema = {
         subDescription: "",
         boxShadow: ""
     },
-    textAreaContent: {
-        title: "",
-        description: ""
-    },
+    textAreaContent: "",
     submitButtonState: {
         topScroll: "0px",
     },
@@ -36,6 +33,7 @@ const mapLocationInfoSidebarSlice = createSlice({
         setFilesToUpload: (state, action) => {state.filesToUpload = action.payload},
         setDropboxProperties: (state, action) => {state.dropboxProperties = action.payload},
         setUserMarkerProperties: (state, action) => {state.userMarkerProperties = action.payload},
+        setTextAreaContent: (state, action) => {state.textAreaContent = action.payload},
         setSubmitButtonState: (state, action: PayloadAction<SubmitButtonState>) => {state.submitButtonState = action.payload},
         setDataStatus: (state, action: PayloadAction<"init" | "pending" | "success" | "reject">) => {state.dataStatus = action.payload}
     },

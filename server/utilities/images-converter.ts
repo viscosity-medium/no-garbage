@@ -1,32 +1,37 @@
-import path from "path";
-import fs from "fs";
-import {systemVariables} from "../system/system";
 import sharp from "sharp";
 import imageSize from "image-size";
 
-const {rootDir} = systemVariables;
+interface ResizeImageProps {
+    input: string
+    output: string
+    dimension: 2160 | 512
+}
 
 class ImagesConverter{
 
-    async resizeImage({fileName}){
+    async resizeImage({
+        input,
+        output,
+        dimension
+    }){
 
         let width, height;
-        const filePath = path.resolve(rootDir, "temp", fileName);
 
-        await imageSize( filePath, function (err, dimensions) {
+        await imageSize( input, function (err, dimensions) {
             width = dimensions?.width;
             height = dimensions?.height
         });
 
-        const smallestDimension = width < height ? {width: 2160} : {height: 2160};
 
-        try
-        {
-            const newImageInstance = await sharp(filePath)
+        const smallestDimension = width < height ? {width: dimension} : {height: dimension};
+
+        try {
+
+            const newImageInstance = await sharp(input)
             .resize(smallestDimension)
             .toBuffer();
 
-            await sharp(newImageInstance).toFile(filePath);
+            await sharp(newImageInstance).toFile(output);
 
         } catch (err){
             console.log(err);

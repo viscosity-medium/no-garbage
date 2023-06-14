@@ -4,8 +4,10 @@ export interface ITextArea {
     width?: string
     height?: string
     margin?: string
+    textAreaValue?: string
     placeholderText?: string
     placeholderFontSize?: string
+    onChangeHandler?: (e: any) => void
 }
 
 export const TextAreaStyled = styled.textarea<ITextArea>`

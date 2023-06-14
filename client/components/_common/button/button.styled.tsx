@@ -12,7 +12,7 @@ export interface IButton {
     classes?: string[]
     styles?: CSSProperties
     onClick?: (e?: any) => void
-    onMouseEnter?: (e?: any) => void
+    onMouseEnter?: any//(e?: any) => void
     onMouseLeave?: (e?: any) => void
     backgroundColor?: string
     backgroundColorOnHover?: string

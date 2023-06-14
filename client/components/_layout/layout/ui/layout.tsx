@@ -1,10 +1,9 @@
 import React, {FC, ReactNode} from 'react';
-import VStack from "../../../_common/flex-stack/v-stack/v-stack";
-import colors from "../../../../styles/globals/colors";
 import NavBar from "../../../_common/nav-bar/nav-bar";
 import Head from "next/head";
 import PageWrapper from "../../../_common/page-wrapper/page-wrapper";
 import {useAuthenticateUser} from "../../../../hooks/use-authenticate-user";
+import {useFetchDynamicInfo} from "../../../../pages/main-page/model/main-page.hooks";
 
 interface LayoutProps {
     children: ReactNode
@@ -21,6 +20,7 @@ interface LayoutProps {
 const Layout:FC<LayoutProps> = ({children, passedColors}) => {
 
     useAuthenticateUser();
+    useFetchDynamicInfo();
 
     return (
         <PageWrapper

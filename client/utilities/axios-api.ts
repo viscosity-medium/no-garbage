@@ -61,33 +61,47 @@ class AxiosApi {
     async uploadChunksOnServer({chunk, urlParams}: {chunk: string | ArrayBuffer, urlParams}){
 
         const {
+            id,
             name,
+            extension,
             type,
             size,
             totalChunks,
             currentChunk,
             sessionUniqueId,
             userSessionInfo,
-            fileList
+            fileList,
+            userMarkerProperties,
+            textAreaValue
         } = urlParams;
 
         const params = new URLSearchParams();
+        const coordinates = {
+            lat: userMarkerProperties.coordinates[0],
+            lon: userMarkerProperties.coordinates[1]
+        }
 
+        console.log(name)
+        params.set("id", id);
         params.set("name", name);
+        params.set("extension", extension);
         params.set("type", type);
         params.set("size", size);
         params.set("totalChunks", totalChunks);
         params.set("currentChunk", currentChunk);
         params.set("sessionUniqueId", sessionUniqueId);
         params.set("userSessionInfo", JSON.stringify(userSessionInfo));
-        params.set("fileList", JSON.stringify(fileList))
+        params.set("fileList", JSON.stringify(fileList));
+        params.set("location", userMarkerProperties.name);
+        params.set("coordinates", JSON.stringify(coordinates));
+        params.set("description", textAreaValue);
 
 
         try {
-            await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk)
+            await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk);
         }
         catch(err){
-            console.log("Pizdec")
+            console.log(err)
         }
 
 

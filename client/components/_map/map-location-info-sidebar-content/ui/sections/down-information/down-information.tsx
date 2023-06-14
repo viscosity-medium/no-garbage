@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 import {
     getDataStatus,
     getFilesToUpload,
-    getSubmitButtonState
+    getSubmitButtonState, getTextAreaContent, getUserMarkerProperties
 } from "../../../model/map-location-info-sidebar.selectors";
 import {useAppDispatch} from "../../../../../../store/store";
 import {uploadMapFilesToTheServerByChunks} from "../../../model/map-location-info-sidebar.async-thunks";
@@ -19,26 +19,35 @@ const DownInformation = ({map}) => {
     const dispatch = useAppDispatch();
     const filesToUpload = useSelector(getFilesToUpload) as any;
     const sessionUniqueId = useSelector(getMapPageUniqueId) as string;
+    const userMarkerProperties = useSelector(getUserMarkerProperties);
+    const textAreaValue = useSelector(getTextAreaContent);
     const dataStatus = useSelector(getDataStatus);
-    const submitButtonIsDisabled = dataStatus !== "init";
+
+    const amountOfFiles = Object.keys(filesToUpload).length;
+    const submitButtonIsDisabled = dataStatus !== "init" || ( dataStatus === "init" && amountOfFiles === 0);
     const windowHeight =  "160px";
-    const submitButtonColor = dataStatus !== "pending" ? colors.orange : colors.opaqueOrange;
+    const submitButtonColor = dataStatus !== "pending" && amountOfFiles > 0 ? colors.orange : colors.opaqueOrange;
     const submitButtonText = dataStatus === "pending" ? "Processing..." :
         dataStatus === "success" ? "Reset the form?" :
         dataStatus === "reject" ? "Oops..." :
-        dataStatus === "init" ? "Submit" : ""
-    ;
+        dataStatus === "init" && amountOfFiles > 0 ? "Submit" : "Add some files";
     const submitButtonState = useSelector(getSubmitButtonState);
     const marginBottom = ["success", "reject"].includes(dataStatus) ? 20 : 100;
 
     const submitClick = async () => {
-        dispatch(uploadMapFilesToTheServerByChunks({filesToUpload, dispatch, sessionUniqueId}));
-    };
 
+        dispatch(uploadMapFilesToTheServerByChunks({
+            filesToUpload,
+            dispatch,
+            sessionUniqueId,
+            userMarkerProperties,
+            textAreaValue
+        }));
+
+    };
 
     return (
         <VStack
-
             height={windowHeight}
             margin={`25px 0 80px`}
             overflow={"hidden"}

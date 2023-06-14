@@ -9,13 +9,15 @@ interface ChunkProps {
         }
     },
     dispatch: any,
-    sessionUniqueId: string
+    sessionUniqueId: string,
+    userMarkerProperties: any,
+    textAreaValue: any
 }
 
 const uploadMapFilesToTheServerByChunks = createAsyncThunk(
     "mapbox/upload-files-on-server-by-chunks",
-    async ({filesToUpload, dispatch, sessionUniqueId}: ChunkProps) => {
-        await fetchFilesByChunks({ filesToUpload, dispatch, sessionUniqueId})
+    async ({filesToUpload, dispatch, sessionUniqueId, userMarkerProperties, textAreaValue}: ChunkProps) => {
+        await fetchFilesByChunks({ filesToUpload, dispatch, sessionUniqueId, userMarkerProperties, textAreaValue})
     }
 )
 

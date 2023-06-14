@@ -12,7 +12,8 @@ const onTableRowClickHandler = ({
     const {
         id, document, description,
         status, created, modified,
-        community, announcement, location, photos,
+        community, announcement,
+        location, photos, videos
     } = tableRowInfo;
 
     const dateAdded = created ? new Date(created * 1000).toLocaleDateString("en-US", dateOptions) : "————";
@@ -26,7 +27,7 @@ const onTableRowClickHandler = ({
             status, community,
             created: dateAdded,
             modified: dateModified,
-            announcement, photos, location
+            announcement, photos, location, videos
         }));
         dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
             text: "Edit form to save changes",

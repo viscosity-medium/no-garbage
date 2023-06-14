@@ -4,12 +4,16 @@ import colors from "../../../../../styles/globals/colors";
 interface IStyledRow {
     position: string
     width?: string
+    top?: number
+    zIndex?: number
 }
 
-export const StyledRow = styled.tr<IStyledRow>`
+export const StyledTableHeader = styled.thead<IStyledRow>`
     display: flex;
     position: ${props => props.position};
+    z-index: ${props => props.zIndex};
     width: ${props => props.width};
+    top: ${props => props.top};
     //margin-bottom: 4px;
     transition: 0.2s;
     cursor: pointer;

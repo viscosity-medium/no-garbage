@@ -3,7 +3,7 @@ import {getModalContent, getSaveButtonState} from "../../model/moderation-locati
 import {useSelector} from "react-redux";
 import {FC, ReactNode, useEffect, useState} from 'react';
 import ModerationCaseProperties from "../moderation-case-properties/moderation-case-properties";
-import ModalPhotoBlock from "../results/modal-photo-block";
+import ModalMediaBlock from "../results/modal-media-block";
 import CrossIcon from "public/assets/common/cross-icon.svg"
 import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
 import Button from "../../../../_common/button/button";
@@ -30,14 +30,25 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
     const filter = useSelector(getFilterValue);
     const order = useSelector(getOrderValue);
 
-    const location = content?.location;
-    const photos = content?.photos?.map((photoObject: any) => photoObject);
+    const location = content?.location
 
     const dispatch = useAppDispatch();
     const [modalForm, setModalForm] = useState(initializeModalForm({content}));
+    const [media, setMedia] = useState<string[]>([])
 
     useEffect(()=>{
         setModalForm(initializeModalForm({content}))
+    },[content]);
+
+
+    useEffect(()=>{
+
+        const photos = content?.photos || [];
+        const videos = content?.videos || [];
+        const newMedia = [...photos, ...videos];
+
+        setMedia(newMedia);
+
     },[content])
 
     return (
@@ -72,8 +83,8 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
             <VStack
                 margin={"20px 0 0 "}
             >
-                <ModalPhotoBlock
-                    photos={photos}
+                <ModalMediaBlock
+                    media={media}
                 />
             </VStack>
             <ModerationCaseProperties

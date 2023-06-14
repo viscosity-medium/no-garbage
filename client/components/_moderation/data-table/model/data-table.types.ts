@@ -12,7 +12,8 @@ export interface ITableRow {
             lon: number,
             lat: number
         },
-        photos?: string[]
+        photos?: string[],
+        videos?: string[]
     }
 }
 

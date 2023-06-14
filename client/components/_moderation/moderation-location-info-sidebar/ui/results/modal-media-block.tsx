@@ -7,35 +7,27 @@ import {moderationLocationInfoSidebarSliceActions} from "../../model/moderation-
 import {getChosenPhoto} from "../../model/moderation-location-info-sidebar.selectors";
 import colors from "../../../../../styles/globals/colors";
 import {Div} from "../../../../_common/custom-image/custom-div.styled";
+import {ChosenContent} from "../chosen-content/chosen-content";
 
 interface IResults {
-    photos?: any[]
+    media?: any[]
 }
 
-const ModalPhotoBlock: FC<IResults> = ({photos}) => {
+const ModalMediaBlock: FC<IResults> = ({media}) => {
 
     const dispatch = useDispatch();
-    const chosenPhoto = useSelector(getChosenPhoto);
+    const chosenMedia = useSelector(getChosenPhoto);
     const loadingGif = "/assets/common/loading-gif.gif";
     
     const clickHandler = (photo) => () => {
         dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(photo));
     };
+    
 
     return (
         <VStack>
-            <CustomImage
-                key = {chosenPhoto?.id || ""}
-                position={"relative"}
-                width={"400px"}
-                height={"300px"}
-                zIndex={2}
-                zIndexBefore={0}
-                borderRadius={"8px"}
-                backgroundImage={chosenPhoto?.preview_image_url}
-                beforeContent={true}
-                before={loadingGif}
-                backgroundColor={colors.mediumGrey}
+            <ChosenContent
+                chosenMedia={chosenMedia}
             />
             <HStack
                 height={"auto"}
@@ -45,7 +37,7 @@ const ModalPhotoBlock: FC<IResults> = ({photos}) => {
                 wrap={"wrap"}
             >
                 {
-                    photos?.map(photo => {
+                    media?.map(photo => {
                         return(
                             <Div
                                 margin={"10px 10px"}
@@ -82,4 +74,4 @@ const ModalPhotoBlock: FC<IResults> = ({photos}) => {
     );
 };
 
-export default ModalPhotoBlock;
+export default ModalMediaBlock;

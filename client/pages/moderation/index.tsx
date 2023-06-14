@@ -28,7 +28,6 @@ const ModerationPage = () => {
         refreshToken: undefined,
     });
 
-
     useCheckIsAuth({ setTokens });
 
     return (
@@ -43,7 +42,7 @@ const ModerationPage = () => {
                            position={"relative"}
                        >
                            <HStack
-                               justify={"space-between"}
+                               justify={"start"}
                                align={"start"}
                                width={"100%"}
                                height={"100%"}

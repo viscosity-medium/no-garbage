@@ -12,6 +12,7 @@ export interface IModalContent {
         lat: number
     }
     photos?: string[]
+    videos?: string[]
 
 }
 

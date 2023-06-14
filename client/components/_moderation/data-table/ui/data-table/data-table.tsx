@@ -6,12 +6,12 @@ import {StyledTable, StyledTableBody} from "./table.styled";
 import WindowHeader from "../../../data-window/window-header";
 import {DocumentData} from "firebase/firestore";
 import Loading from "../../../../_common/loading/loading";
-import { axiosApi, PhotoFileList } from "../../../../../utilities/axios-api";
+import {PhotoFileList} from "../../../../../utilities/axios-api";
 
-const DataTable: FC = () => {
+const DataTable = () => {
 
     let fileList: PhotoFileList[] = []
-    const firebaseReports = useSelector(getFirebaseReports);
+    const firebaseReports = useSelector(getFirebaseReports) || [];
     const refHeader = useRef<JSX.Element>(<></>);
 
     useEffect(()=>{
@@ -44,39 +44,45 @@ const DataTable: FC = () => {
     },[firebaseReports])
 
     return (
-        <StyledTable>
-            {refHeader.current}
-            <StyledTableBody>
-                {
-                    firebaseReports.length === 0 ? <Loading/> :
-                    firebaseReports.map(( document: DocumentData, index: number ) => {
+        <>
+            {
+            firebaseReports.length === 0 ? <Loading/> :
+                <StyledTable>
+                    {refHeader.current}
+                    <StyledTableBody>
+                        {
 
+                            firebaseReports.map(( document: DocumentData, index: number ) => {
 
-                        const tableRowInfo = {
-                            id: document.id,
-                            document: document,
-                            description: document?.description,
-                            status: document?.status,
-                            community: document?.community,
-                            created: document?.created_on,
-                            modified: document?.modified_on,
-                            photos: document?.photos,
-                            location: document?.location,
-                            userName: document?.user_name,
-                            announcement: document?.announcement
+                                const tableRowInfo = {
+                                    id: document.id,
+                                    document: document,
+                                    description: document?.description,
+                                    status: document?.status,
+                                    community: document?.community,
+                                    created: document?.created_on,
+                                    modified: document?.modified_on,
+                                    photos: document?.photos,
+                                    videos: document?.videos,
+                                    location: document?.location,
+                                    userName: document?.user_name,
+                                    announcement: document?.announcement
+                                }
+
+                                return (
+                                    <TableRow
+                                        key={`table-row-${index}`}
+                                        tableRowInfo={tableRowInfo}
+                                    />
+                                )
+
+                            })
                         }
+                    </StyledTableBody>
+                </StyledTable>
+            }
+        </>
 
-                        return (
-                            <TableRow
-                                key={`table-row-${index}`}
-                                tableRowInfo={tableRowInfo}
-                            />
-                        )
-
-                    })
-                }
-            </StyledTableBody>
-        </StyledTable>
     );
 };
 

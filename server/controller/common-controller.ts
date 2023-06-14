@@ -78,7 +78,6 @@ class CommonController {
             res.json({"status": "ok"});
 
             // initialize timeout to clean a files if an error has occurred
-
             if( +userSessionInfo.currentFileIndex === 1 && +currentChunk === 1){
 
                 await utilities.asyncCleanMediaFolders({fileList});

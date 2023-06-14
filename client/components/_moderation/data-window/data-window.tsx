@@ -83,6 +83,7 @@ const DataWindow = () => {
                     position={"relative"}
                     padding={"0 20px"}
                     height={"100%"}
+                    justify={"end"}
                 >
                     <DataTable/>
                     <PaginationPanel/>

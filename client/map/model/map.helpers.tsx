@@ -68,12 +68,15 @@ const createGeoJsonMarkersData = ({ geoJsonNeededMarkers }) => ({
         type: 'Feature',
         geometry: {
             type: 'Point',
-            coordinates: singleMarker.geometry.coordinates
+            coordinates: [
+                singleMarker.geometry.coordinates.lat,
+                singleMarker.geometry.coordinates.lon
+            ]
         },
         properties: {
             title: singleMarker.properties.title,
             description: singleMarker.properties.title,
-            type: singleMarker.properties.type,
+            type: singleMarker.properties.waste_type,
         }
     }))
 });
@@ -99,27 +102,34 @@ const loadMapboxMarkers = async ({ map, geoJsonData }) => {
 
                 for await (const marker of markerTypes) {
 
+                    const markerName = Object.keys(marker)[0];
+
                     const geoJsonNeededMarkers = geoJsonData.features.map((singleFeature) => {
-                        if(Object.keys(marker)[0] === singleFeature.properties.type) {
+
+                        if(markerName === singleFeature.properties.waste_type) {
+
                             return singleFeature
                         }
                     }).filter(item => item);
 
                     const data = createGeoJsonMarkersData({geoJsonNeededMarkers});
-
+                    console.log(data)
                     map.current.loadImage(
                         Object.values(marker)[0].src,
                         (error, image) => {
 
                             if (error) throw error;
 
-                            map.current.addImage(`custom-marker-${Object.keys(marker)[0]}`, image);
-                            map.current.addSource(`${Object.keys(marker)[0]}-points`, {
+                            //console.log(`${markerName}-points`)
+                            //
+                            map.current.addImage(`custom-marker-${markerName}`, image);
+                            map.current.addSource(`${markerName}-points`, {
                                 'type': 'geojson',
                                 'data': data
                             });
-                            map.current.addLayer(mapboxMarkerLayerConfig({id: `${Object.keys(marker)[0]}`}));
-                            // map.current.on("click", `${Object.keys(marker)[0]}-points`, (e) => {
+
+                            map.current.addLayer(mapboxMarkerLayerConfig({id: `${markerName}`}));
+                            // map.current.on("click", `${markerName}-points`, (e) => {
                             //     console.log(e)
                             // })
 

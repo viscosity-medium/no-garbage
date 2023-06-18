@@ -33,8 +33,8 @@ const mapboxSingleFeature = ({coordinates}: {coordinates: number[]}) => ({
 });
 
 const markerTypes = [
-    { "blue": MarkerBlue },
-    { "red": MarkerRed },
+    { "Common waste": MarkerBlue },
+    { "Construction waste": MarkerRed },
     { "user": MarkerUser },
 ]
 

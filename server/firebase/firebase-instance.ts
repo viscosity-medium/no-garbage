@@ -10,6 +10,7 @@ const firebase: FirebaseApp = initializeApp(firebaseConfig);
 const auth: Auth = getAuth(firebase);
 const firestore: Firestore = getFirestore(firebase);
 const reportsRef = collection(firestore, "reports");
+const geoJsonFeaturesRef = collection(firestore, "geo_json_features");
 const userProviderRef = collection(firestore, "user_providers");
 const usersDocRef = doc(firestore!, "user_providers", "password")
 const reportsQuery = query(reportsRef!);
@@ -20,6 +21,7 @@ const firebaseInstance: IFirebaseInstance = {
     auth,
     firestore,
     reportsRef,
+    geoJsonFeaturesRef,
     userProviderRef,
     reportsQuery,
     userProviderQuery,

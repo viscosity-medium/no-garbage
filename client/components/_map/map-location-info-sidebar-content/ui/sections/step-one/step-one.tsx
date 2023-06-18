@@ -4,7 +4,7 @@ import {Switch} from "../../../../../_common/switch";
 
 const StepOne = ({coordinatesString, locationName}) => {
 
-    const garbageTypes = ["Common waste", "Сonstruction waste"]
+    const garbageTypes = ["Common waste", "Construction waste"]
 
     return (
         <>

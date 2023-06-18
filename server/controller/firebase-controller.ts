@@ -5,6 +5,7 @@ import {AWSServicesProps} from "../types/services-types";
 import {systemVariables} from "../system/system";
 import {utilities} from "../utilities/utilities";
 import {firebaseServices} from "../services/firebase-services";
+import {createGeoJsonFeatureSchema} from "../firebase/firebase-schemas";
 
 const {rootDir} = systemVariables
 
@@ -12,8 +13,19 @@ class FirebaseController {
 
     async getAllFirebaseCollections(req: Request,res: Response){
 
-        const data = await firebaseServices.getAllFirebaseCollections();
+        const documentRefProp = req.body;
+        const data = await firebaseServices.getAllFirebaseDocuments({
+            documentRefProp
+        });
+        console.log(data.length)
         return res.json(data);
+
+    }
+
+    async deleteUnnecessaryFirebaseDocuments(req: Request,res: Response){
+
+        await firebaseServices.deleteUnnecessaryFirebaseDocuments();
+        return res.json({"ok": "ok"});
 
     }
 
@@ -22,6 +34,13 @@ class FirebaseController {
         const { collections } = req.body;
         const data = await firebaseServices.rewriteFirebaseCollectionsPhotoPath({collections});
 
+        return res.json(data);
+
+    }
+
+    async createFirebaseGeoJsonDocumentsFromReports(req: Request, res: Response){
+
+        const data = await firebaseServices.createFirebaseGeoJsonDocumentsFromReports();
         return res.json(data);
 
     }

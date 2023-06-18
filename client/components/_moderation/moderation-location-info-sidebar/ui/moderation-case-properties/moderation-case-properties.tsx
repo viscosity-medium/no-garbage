@@ -200,7 +200,10 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         margin={"5px 0"}
                     >
                         <CustomInput
-                            value={modalForm.wasteType}
+                            value={
+                                modalForm.wasteType ?
+                                    modalForm.wasteType :
+                                    "Common waste"}
                             onChange={
                                 changeModalForm("wasteType")
                             }

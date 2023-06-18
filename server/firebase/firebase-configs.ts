@@ -18,6 +18,7 @@ const {
     firebaseProdAppId,
     firebaseProdMessagingSenderId,
     firebaseProdMeasurementId,
+    
     //firebase dev values
     firebaseDevApiKey,
     firebaseDevProjectId,

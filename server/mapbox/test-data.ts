@@ -10,7 +10,7 @@ export const testData = {
             properties: {
                 title: 'Point #1',
                 description: 'Description of point #1',
-                type: "blue",
+                waste_type: "blue",
             }
         },
         {
@@ -22,7 +22,7 @@ export const testData = {
             properties: {
                 title: 'Point #2',
                 description: 'Description of point #2',
-                type: "red",
+                waste_type: "red",
             }
         },
         {
@@ -34,7 +34,7 @@ export const testData = {
             properties: {
                 title: 'Point #3',
                 description: 'Description of point #3',
-                type: "blue",
+                waste_type: "blue",
             }
         },
     ]

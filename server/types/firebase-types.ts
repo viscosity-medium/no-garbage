@@ -6,6 +6,7 @@ export interface IFirebaseInstance {
     auth: any | undefined,
     firestore: any | undefined
     reportsRef: CollectionReference<DocumentData> | undefined
+    geoJsonFeaturesRef: CollectionReference<DocumentData> | undefined
     userProviderRef: CollectionReference<DocumentData> | undefined
     reportsQuery: any | undefined
     userProviderQuery: any | undefined

@@ -21,25 +21,14 @@ const TableCellContentWrapper: FC<ITableCellContentWrapper> = ({
 }) => {
 
     return (
-        // <Div
-        //     position={"relative"}
-        //     zIndex={2}
-        //     width={"auto"}
-        //     height={"auto"}
-        //     padding={padding}
-        //     borderRadius={"8px"}
-        //     background={backgroundColor}
-        // >
-        //
-        // </Div>
-    <Text
-        display={display}
-        textAlign={textAlign}
-        tag={"span"}
-        text={text || "————"}
-        size={"14px"}
-        margin={margin}
-    />
+        <Text
+            display={display}
+            textAlign={textAlign}
+            tag={"span"}
+            text={text || "————"}
+            size={"14px"}
+            margin={margin}
+        />
     );
 };
 

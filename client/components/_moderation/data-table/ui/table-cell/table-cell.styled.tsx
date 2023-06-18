@@ -14,8 +14,7 @@ export const TableCellStyle = styled.td<ITableCellStyle>`
     height:48px;
     width: ${props => props.width};
     overflow:hidden;
-    
-    padding-left: 15px;
+    padding: 5px 5px 5px 15px;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -30,7 +29,6 @@ export const TableHeaderCellStyle = styled.th<ITableCellStyle>`
     height:48px;
     width: ${props => props.width};
     overflow:hidden;
-    
     padding-left: 15px;
     font-style: normal;
     font-weight: 400;

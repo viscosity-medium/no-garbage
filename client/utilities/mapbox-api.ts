@@ -23,13 +23,11 @@ class MapBoxApi {
     geocoding: AxiosInstance
     mapboxAccessToken: string
 
-
     constructor() {
         this.axios = axiosInstance
         this.geocoding = mapboxGeocodingInstance
         this.mapboxAccessToken = systemVariables.mapboxAccessToken
     }
-
 
     async getMapboxGeoJsonData(){
         return await this.axios.get<GeoJsonData>("get-mapbox-geo-json");

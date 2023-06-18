@@ -12,6 +12,7 @@ const TableCell: FC<ITableCellStyle> = ({
 }) => {
 
     const cellColor = isColored ? useDefineCellTableColor({status: text}) : backgroundColor;
+    const editedText = text?.length > 60 ? `${text?.slice(0, 60)}...` : text;
 
     return (
         <TableCellStyle
@@ -19,7 +20,7 @@ const TableCell: FC<ITableCellStyle> = ({
             backgroundColor={cellColor}
         >
             <TableCellContentWrapper
-                text={text}
+                text={editedText}
             />
         </TableCellStyle>
     );

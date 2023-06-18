@@ -25,6 +25,7 @@ interface UploadByChunksProps {
     location: string
     coordinates: string
     description: string
+    wasteType: string
 }
 type UploadByChunksRequestBody = string | Uint8Array
 
@@ -63,6 +64,7 @@ class CommonController {
                 location,
                 coordinates: stringCoordinates,
                 description,
+                wasteType,
             } = req.query;
 
             const userSessionInfo = JSON.parse(stringUserSessionInfo);
@@ -74,6 +76,7 @@ class CommonController {
                 filePath: nonConvertedChunkPath,
                 chunk: req.body
             });
+
 
             res.json({"status": "ok"});
 
@@ -150,7 +153,7 @@ class CommonController {
 
                 const firebaseDocumentInfo: FirebaseDocumentInfo = {
 
-                    id: uuidv4(),
+                    id: uuidv4().toUpperCase(),
                     created_on: Math.floor((new Date()).getTime() / 1000),
                     full_description: description,
                     description: location,
@@ -160,6 +163,7 @@ class CommonController {
                     videos,
                     user_name: "Nogarbage.ge",
                     user_provider_id: "Nogarbage.ge",
+                    waste_type: wasteType === undefined ? "Common waste" : wasteType
 
                 };
 

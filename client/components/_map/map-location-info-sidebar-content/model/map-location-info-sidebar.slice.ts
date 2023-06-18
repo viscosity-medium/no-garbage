@@ -19,7 +19,8 @@ const initialState: LocationInfoSidebarSchema = {
     submitButtonState: {
         topScroll: "0px",
     },
-    dataStatus: "init"
+    dataStatus: "init",
+    wasteType: undefined
 }
 
 
@@ -35,7 +36,8 @@ const mapLocationInfoSidebarSlice = createSlice({
         setUserMarkerProperties: (state, action) => {state.userMarkerProperties = action.payload},
         setTextAreaContent: (state, action) => {state.textAreaContent = action.payload},
         setSubmitButtonState: (state, action: PayloadAction<SubmitButtonState>) => {state.submitButtonState = action.payload},
-        setDataStatus: (state, action: PayloadAction<"init" | "pending" | "success" | "reject">) => {state.dataStatus = action.payload}
+        setDataStatus: (state, action: PayloadAction<"init" | "pending" | "success" | "reject">) => {state.dataStatus = action.payload},
+        setWasteType: (state, action) => {state.wasteType = action.payload}
     },
     extraReducers: (builder) => {
         builder

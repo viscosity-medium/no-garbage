@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 import {
     getDataStatus,
     getFilesToUpload,
-    getSubmitButtonState, getTextAreaContent, getUserMarkerProperties
+    getSubmitButtonState, getTextAreaContent, getUserMarkerProperties, getWasteType
 } from "../../../model/map-location-info-sidebar.selectors";
 import {useAppDispatch} from "../../../../../../store/store";
 import {uploadMapFilesToTheServerByChunks} from "../../../model/map-location-info-sidebar.async-thunks";
@@ -21,6 +21,7 @@ const DownInformation = ({map}) => {
     const sessionUniqueId = useSelector(getMapPageUniqueId) as string;
     const userMarkerProperties = useSelector(getUserMarkerProperties);
     const textAreaValue = useSelector(getTextAreaContent);
+    const wasteType = useSelector(getWasteType);
     const dataStatus = useSelector(getDataStatus);
 
     const amountOfFiles = Object.keys(filesToUpload).length;
@@ -41,7 +42,8 @@ const DownInformation = ({map}) => {
             dispatch,
             sessionUniqueId,
             userMarkerProperties,
-            textAreaValue
+            textAreaValue,
+            wasteType
         }));
 
     };

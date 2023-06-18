@@ -4,6 +4,7 @@ interface ModalFormDataModel {
     status: string,
     community: string,
     announcement: string,
+    waste_type: string
     meet_up: {
         date: string,
         time: string,
@@ -20,6 +21,7 @@ const createModalFormDataModelAsCollectionInFirebase: CreateModalFormDataModel =
     {
         description: modalForm.description,
         status: modalForm.status,
+        waste_type: modalForm.wasteType,
         community: modalForm.community,
         announcement: modalForm.announcement,
         meet_up: {

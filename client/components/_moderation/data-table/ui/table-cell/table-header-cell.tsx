@@ -20,6 +20,7 @@ const TableHeaderCell: FC<ITableCellStyle> = ({
         >
             <TableCellContentWrapper
                 text={text}
+                margin={"5px 0"}
             />
         </TableHeaderCellStyle>
     );

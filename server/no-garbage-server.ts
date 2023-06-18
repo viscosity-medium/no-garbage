@@ -13,7 +13,7 @@ const forms = multer();
 const HTTP_PORT = 4142;
 
 expressApp.use(bodyParser.json());
-// expressApp.use(bodyParser.raw({type: 'application/octet-stream', limit: "100mb"}));
+expressApp.use(bodyParser.raw({type: 'application/octet-stream', limit: "100mb"}));
 expressApp.use(cors({
     origin: "*",
     credentials: true,

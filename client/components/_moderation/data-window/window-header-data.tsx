@@ -13,19 +13,19 @@ export const windowHeaderData = ({tableRowInfo}: ITableRow) => [
     },
     {
         text: "Community",
-        width: "15%",
+        width: "16%",
         data: tableRowInfo?.community,
         backgroundColor: colors.white
     },
     {
         text: "Status",
-        width: "15%",
+        width: "16%",
         data: tableRowInfo?.status,
         backgroundColor: colors.tableCellDefault
     },
     {
         text: "Date Added",
-        width: "15%",
+        width: "16%",
         data: tableRowInfo?.created ? new Date(tableRowInfo?.created * 1000).toLocaleDateString("en-US", dateOptions) : "————",
         backgroundColor: colors.white
     },

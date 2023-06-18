@@ -37,7 +37,8 @@ class FirebaseServices {
     async writeDocumentToFirebaseReportsCollection({firebaseDocumentInfo}){
 
         const db = this.firebaseInstance.firestore;
-        const documentId = uuidv4().toUpperCase();
+        const documentId = firebaseDocumentInfo.id;
+
         await setDoc(doc(db, 'reports', documentId), firebaseDocumentInfo);
 
     }

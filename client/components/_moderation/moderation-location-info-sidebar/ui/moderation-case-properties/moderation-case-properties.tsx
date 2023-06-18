@@ -95,6 +95,19 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                             size={"14px"}
                             margin={"8px 0"}
                         >
+                            Waste type
+                        </Text>
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"h3"}
+                            size={"14px"}
+                            margin={"8px 0"}
+                        >
                             Community
                         </Text>
                     </VStack>
@@ -180,6 +193,24 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                                 }
                             />
                         </Div>
+                    </VStack>
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <CustomInput
+                            value={modalForm.wasteType}
+                            onChange={
+                                changeModalForm("wasteType")
+                            }
+                            width={"100%"}
+                            height={"100%"}
+                            fontSize={"14px"}
+                            border={"none"}
+                            borderRadius={"8px"}
+                            backgroundColor={colors.middleGrey}
+                        />
                     </VStack>
                     <VStack
                         justify={"center"}

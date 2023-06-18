@@ -19,4 +19,5 @@ export interface FirebaseDocumentInfo {
     videos: MediaObject[],
     user_name: string,
     user_provider_id: string,
+    waste_type: string
 }

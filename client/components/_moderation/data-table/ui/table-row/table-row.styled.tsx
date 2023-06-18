@@ -10,7 +10,6 @@ export const StyledRow = styled.tr<IStyledRow>`
     display: flex;
     position: ${props => props.position};
     width: ${props => props.width};
-    //margin-bottom: 4px;
     transition: 0.2s;
     cursor: pointer;
 

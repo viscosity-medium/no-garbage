@@ -20,6 +20,9 @@ const hideLocationSidebar = ({map, dispatch, dataStatus}) => () => {
         dispatch(locationInfoSidebarActions.setSubmitButtonState({
             topScroll: "0px"
         }));
+        dispatch(locationInfoSidebarActions.setSubmitButtonState({
+            topScroll: "0px"
+        }));
         if(["success", "reject"].includes(dataStatus)){
             dispatch(locationInfoSidebarActions.setDataStatus("init"));
             dispatch(locationInfoSidebarActions.setDropboxProperties({
@@ -28,7 +31,10 @@ const hideLocationSidebar = ({map, dispatch, dataStatus}) => () => {
                 subDescription: "",
                 boxShadow: ""
             }));
-            dispatch(locationInfoSidebarActions.setFilesToUpload({}))
+            dispatch(locationInfoSidebarActions.setFilesToUpload({}));
+            dispatch(locationInfoSidebarActions.setSubmitButtonState({
+                topScroll: "0px"
+            }));
         }
     });
 

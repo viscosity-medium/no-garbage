@@ -23,4 +23,5 @@ export interface LocationInfoSidebarSchema {
     textAreaContent: string
     submitButtonState: SubmitButtonState
     dataStatus: "init" | "pending" | "success" | "reject"
+    wasteType: string | undefined
 }

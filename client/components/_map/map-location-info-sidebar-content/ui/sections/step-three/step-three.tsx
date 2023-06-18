@@ -25,4 +25,6 @@ const StepThree = ({}) => {
 
 };
 
-export {StepThree};
+export {
+    StepThree
+};

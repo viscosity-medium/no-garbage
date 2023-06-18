@@ -9,7 +9,7 @@ const changeModalForm = ({dispatch, modalForm, setModalForm}) => (changedValue) 
     setModalForm({
         ...modalForm,
         isChanged: true,
-        [changedValue]: event
+        [changedValue]: event.target.value
     });
 
     dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
@@ -58,6 +58,7 @@ const initializeModalForm = ({content}) => {
         description: content?.document?.description || "",
         fullDescription: content?.document?.full_description || "",
         status: content?.document?.status || "",
+        wasteType: content?.document?.waste_type || "",
         community: content?.document?.community || "",
         announcement: content?.document?.announcement || "",
         dateAdded: content?.document?.created_on ? new Date(content?.document?.created_on * 1000).toLocaleDateString("en-US", options) : "",

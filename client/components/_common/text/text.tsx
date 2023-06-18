@@ -13,6 +13,7 @@ interface IText {
     text?: string
     left?: string
     width?: string
+    height?: string
     right?: string
     bottom?: string
     top?: string
@@ -47,7 +48,8 @@ const Text: FC<IText> = ({
     lineHeight,
     textOverflow,
     whiteSpace,
-    overflow
+    overflow,
+    height
 }) => {
     if(tag === "h1"){
         return <StyledH1
@@ -124,6 +126,7 @@ const Text: FC<IText> = ({
                 position={position}
                 display={display}
                 width={width}
+                height={height}
                 left={left}
                 right={right}
                 bottom={bottom}

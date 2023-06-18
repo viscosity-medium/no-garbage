@@ -7,3 +7,4 @@ export const getFilesToUpload = (state: StateSchema) => state.locationInfoSideba
 export const getDropboxProperties = (state: StateSchema) => state.locationInfoSidebar.dropboxProperties;
 export const getTextAreaContent = (state: StateSchema) => state.locationInfoSidebar.textAreaContent;
 export const getDataStatus = (state: StateSchema) => state.locationInfoSidebar.dataStatus;
+export const getWasteType = (state: StateSchema) => state.locationInfoSidebar.wasteType;

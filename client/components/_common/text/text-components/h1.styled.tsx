@@ -4,6 +4,7 @@ export interface ITextProps {
     position?: string
     display?: string
     width?: string
+    height?: string
     left?: string
     right?: string
     bottom?: string

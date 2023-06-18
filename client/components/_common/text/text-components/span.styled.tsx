@@ -13,6 +13,7 @@ const StyledSpan = styled.span<ITextProps>`
     align-self: ${props => props.alignSelf};
     color: ${props => props.color};
     width: ${props => props.width};
+    height: ${props => props.height};
     left: ${props => props.left};
     right: ${props => props.right};
     bottom: ${props => props.bottom};

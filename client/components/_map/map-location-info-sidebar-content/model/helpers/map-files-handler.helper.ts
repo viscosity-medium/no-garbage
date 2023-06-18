@@ -13,6 +13,7 @@ interface FetchFilesByChunksProps {
     sessionUniqueId: string,
     userMarkerProperties: any,
     textAreaValue: any
+    wasteType: any
 }
 
 interface FileLise {
@@ -21,7 +22,7 @@ interface FileLise {
     mimeType: string,
 }
 
-const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId, userMarkerProperties, textAreaValue }: FetchFilesByChunksProps) => {
+const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId, userMarkerProperties, textAreaValue, wasteType }: FetchFilesByChunksProps) => {
 
     const filesToUploadNewObject = {...filesToUpload};
     const timeStamp = new Date().toLocaleString();
@@ -100,6 +101,7 @@ const fetchFilesByChunks = async ({ filesToUpload, dispatch, sessionUniqueId, us
                                  totalChunks: totalChunks + 1,
                                  currentChunk: currentChunk + 1,
                                  sessionUniqueId: sessionUniqueId,
+                                 wasteType,
                                  userSessionInfo: {
                                      amountOfFiles: Object.keys(filesToUpload).length,
                                      currentFileIndex: +key + 1

@@ -72,7 +72,8 @@ class AxiosApi {
             userSessionInfo,
             fileList,
             userMarkerProperties,
-            textAreaValue
+            textAreaValue,
+            wasteType = "Common waste"
         } = urlParams;
 
         const params = new URLSearchParams();
@@ -95,6 +96,8 @@ class AxiosApi {
         params.set("location", userMarkerProperties.name);
         params.set("coordinates", JSON.stringify(coordinates));
         params.set("description", textAreaValue);
+        params.set("wasteType", wasteType);
+
 
 
         try {

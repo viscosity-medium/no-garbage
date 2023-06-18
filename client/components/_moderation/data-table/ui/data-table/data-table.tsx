@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import TableRow from "../table-row/table-row";
 import {useSelector} from "react-redux";
 import {getFirebaseReports} from "../../../data-window/data-window.selectors";

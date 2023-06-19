@@ -11,6 +11,7 @@ import TextArea from "../../../../_common/text-area/text-area";
 
 const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
 
+
     return (
         <>
             <VStack
@@ -19,9 +20,12 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                 margin={"5px 0"}
             >
                 <CustomInput
-                    value={modalForm.description}
+                    value={modalForm?.description || ""}
                     onChange={
-                        changeModalForm("description")
+                        changeModalForm({
+                            changedValue: "description",
+                            inputType: "input"
+                        })
                     }
                     width={"100%"}
                     height={"40px"}
@@ -31,7 +35,7 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     backgroundColor={colors.middleGrey}
                 />
                 {
-                    modalForm.fullDescription ? (
+                    modalForm?.fullDescription ? (
                         <VStack>
                             <Text
                                 tag={"h3"}
@@ -49,12 +53,12 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                                 height={"auto"}
                                 border={"none"}
                                 borderRadius={"8px"}
-                                backgroundColor={colors.middleGrey}
+                                backgroundColor={colors?.middleGrey}
                             >
                                 <Text
                                     tag={"span"}
-                                    text={modalForm.fullDescription}
-                                    color={colors.darkGrey}
+                                    text={modalForm?.fullDescription}
+                                    color={colors?.darkGrey}
                                     size={"14px"}
                                     lineHeight={"1"}
                                 />
@@ -138,7 +142,7 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         </Text>
                     </VStack>
                     {
-                        modalForm.dateModified ? (
+                        modalForm?.dateModified ? (
                             <VStack
                                 justify={"center"}
                                 height={"40px"}
@@ -187,9 +191,12 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                             <VerticalDropdownMenu
                                 position={"absolute"}
                                 items={reportsStatuses}
-                                selectedProperty={modalForm.status}
+                                selectedProperty={modalForm?.status}
                                 setSelectedProperty={
-                                    changeModalForm("status")
+                                    changeModalForm({
+                                        changedValue: "status",
+                                        inputType: "select"
+                                    })
                                 }
                             />
                         </Div>
@@ -201,11 +208,15 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     >
                         <CustomInput
                             value={
-                                modalForm.wasteType ?
-                                    modalForm.wasteType :
-                                    "Common waste"}
+                                modalForm?.wasteType ?
+                                    modalForm?.wasteType :
+                                    "Common waste"
+                            }
                             onChange={
-                                changeModalForm("wasteType")
+                                changeModalForm({
+                                    changedValue: "wasteType",
+                                    inputType: "input"
+                                })
                             }
                             width={"100%"}
                             height={"100%"}
@@ -221,9 +232,12 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         margin={"5px 0"}
                     >
                         <CustomInput
-                            value={modalForm.community}
+                            value={modalForm?.community}
                             onChange={
-                                changeModalForm("community")
+                                changeModalForm({
+                                    changedValue: "community",
+                                    inputType: "input"
+                                })
                             }
                             width={"100%"}
                             height={"100%"}
@@ -239,9 +253,12 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         margin={"5px 0"}
                     >
                         <CustomInput
-                            value={modalForm.announcement}
+                            value={modalForm?.announcement}
                             onChange={
-                                changeModalForm("announcement")
+                                changeModalForm({
+                                    changedValue: "announcement",
+                                    inputType: "input"
+                                })
                             }
                             width={"100%"}
                             height={"100%"}
@@ -259,12 +276,12 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         <Text
                             tag={"span"}
                             size={"14px"}
-                            text={modalForm.dateAdded}
+                            text={modalForm?.dateAdded}
                             margin={"8px 0"}
                         />
                     </VStack>
                     {
-                        modalForm.dateModified ? (
+                        modalForm?.dateModified ? (
                             <VStack
                                 justify={"center"}
                                 height={"40px"}
@@ -273,7 +290,7 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                                 <Text
                                     tag={"span"}
                                     size={"14px"}
-                                    text={modalForm.dateModified}
+                                    text={modalForm?.dateModified}
                                     margin={"8px 0"}
                                 />
                             </VStack>
@@ -288,7 +305,7 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         <Text
                             tag={"span"}
                             size={"14px"}
-                            text={modalForm.userName}
+                            text={modalForm?.userName}
                             margin={"8px 0"}
                         />
                     </VStack>

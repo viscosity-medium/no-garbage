@@ -36,7 +36,9 @@ const MapPage = () => {
                     size={"full"}
                     upperLevelMapCopy={upperLevelMapCopy}
                 />
-                <FiltersBlock/>
+                <FiltersBlock
+                    map={upperLevelMapCopy}
+                />
                 <LocationInfoSidebar
                     visibility={visibility}
                     modalWindowHeight={`${modalWindowHeight}px`}

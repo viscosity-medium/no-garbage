@@ -1,10 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 export interface FilterBlockSchema {
-    mapFilters: any
+    mapFilters: {
+        "Communities": string[],
+        "Status of location": string[],
+        "Type of Litter": string[]
+    }
 }
 
-const initialState = {
+const initialState: FilterBlockSchema = {
     mapFilters: {
         "Communities": [],
         "Status of location": [],

@@ -1,4 +1,4 @@
-import {changeModalForm, clickSaveButton, hideModalWindow, initializeModalForm} from "../../model/moderation-location-info-sidebar.helpers";
+import {changeModalForm, clickSaveButton, hideModalWindow} from "../../model/moderation-location-info-sidebar.helpers";
 import {getModalContent, getSaveButtonState} from "../../model/moderation-location-info-sidebar.selectors";
 import {useSelector} from "react-redux";
 import {FC, ReactNode, useEffect, useState} from 'react';
@@ -16,6 +16,7 @@ import {useAppDispatch} from "../../../../../store/store";
 import {getFilterValue, getOrderValue} from "../../../../_common/filter-switcher/filter-switch.selectors";
 import {getPaginationQuantity} from "../../../pagination-panel/pagination.selectors";
 import {getSearchBarValue} from "../../../data-window/data-window.selectors";
+import {moderationLocationInfoSidebarSliceActions} from "../../model/moderation-location-info-sidebar.slice";
 
 interface IModalWindowContent {
     children?: ReactNode
@@ -26,30 +27,30 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
     const paginationQuantity = useSelector(getPaginationQuantity);
     const saveButtonState = useSelector(getSaveButtonState);
     const searchBarValue = useSelector(getSearchBarValue);
-    const content = useSelector(getModalContent);
+    const modalForm = useSelector(getModalContent);
     const filter = useSelector(getFilterValue);
     const order = useSelector(getOrderValue);
 
-    const location = content?.location
+    const location = modalForm?.location
 
     const dispatch = useAppDispatch();
-    const [modalForm, setModalForm] = useState(initializeModalForm({content}));
     const [media, setMedia] = useState<string[]>([])
 
-    useEffect(()=>{
-        setModalForm(initializeModalForm({content}))
-    },[content]);
+
+    // useEffect(()=>{
+    //     dispatch(moderationLocationInfoSidebarSliceActions.setContent(initializeModalForm({content})));
+    // },[content]);
 
 
     useEffect(()=>{
 
-        const photos = content?.photos || [];
-        const videos = content?.videos || [];
+        const photos = modalForm?.photos || [];
+        const videos = modalForm?.videos || [];
         const newMedia = [...photos, ...videos];
 
         setMedia(newMedia);
 
-    },[content])
+    },[modalForm]);
 
     return (
         <VStack
@@ -90,14 +91,14 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
             <ModerationCaseProperties
                 modalForm={modalForm}
                 changeModalForm={
-                    changeModalForm({dispatch, modalForm, setModalForm})
+                    changeModalForm({dispatch, modalForm})
                 }
             />
             <MeetUp
                 location={location}
                 modalForm={modalForm}
                 changeModalForm={
-                    changeModalForm({dispatch, modalForm, setModalForm})
+                    changeModalForm({dispatch, modalForm})
                 }
             />
             <Button

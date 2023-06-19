@@ -13,7 +13,10 @@ const useSetMapMarkers = ({map}) => {
             const data: any = await dispatch(fetchMapboxGeoJson());
             const geoJsonData = data.payload.mapboxGeoJsonData.data;
 
-            await loadMapboxMarkers({map, geoJsonData});
+            await loadMapboxMarkers({
+                map,
+                geoJsonData
+            });
 
             //const source = map.current.getSource("Common waste-points")
             //console.log(source)

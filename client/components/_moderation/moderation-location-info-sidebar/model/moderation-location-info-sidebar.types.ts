@@ -13,6 +13,9 @@ export interface IModalContent {
     }
     photos?: string[]
     videos?: string[]
+    meetUpDate: string,
+    meetUpTime: string,
+    meetUpDescription: string,
 
 }
 
@@ -32,7 +35,7 @@ export interface ChosenPhoto {
 
 export interface ModerationLocationInfoSidebarSchema {
     modalVisibility: boolean
-    modalContent: IModalContent | undefined
+    modalContent: IModalContent
     chosenPhoto: ChosenPhoto
     saveButtonState: SaveButtonState
 }

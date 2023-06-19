@@ -4,13 +4,12 @@ import {moderationLocationInfoSidebarSliceActions} from "./moderation-location-i
 import colors from "../../../../styles/globals/colors";
 import {batch} from "react-redux";
 
-const changeModalForm = ({dispatch, modalForm, setModalForm}) => (changedValue) => (event) => {
+const changeModalForm = ({dispatch, modalForm}) => ({
+    changedValue,
+    inputType
+}) => (event) => {
 
-    setModalForm({
-        ...modalForm,
-        isChanged: true,
-        [changedValue]: event.target.value
-    });
+    const newValue = inputType === "input" ? event?.target?.value : inputType === "select" ? event : "";
 
     dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
         text: "Save changes",
@@ -18,8 +17,15 @@ const changeModalForm = ({dispatch, modalForm, setModalForm}) => (changedValue) 
         textColor: colors.white,
         backgroundColor: colors.orange
     }));
+    dispatch(moderationLocationInfoSidebarSliceActions.setContent(
+        {
+            ...modalForm,
+            isChanged: true,
+            [changedValue]: newValue
+        }
+    ));
 
-}
+};
 
 const hideModalWindow = ({dispatch}) => () => {
 
@@ -63,7 +69,7 @@ const initializeModalForm = ({content}) => {
         announcement: content?.document?.announcement || "",
         dateAdded: content?.document?.created_on ? new Date(content?.document?.created_on * 1000).toLocaleDateString("en-US", options) : "",
         dateModified: content?.document?.modified_on ? new Date(content?.document?.modified_on * 1000).toLocaleDateString("en-US", options) : "",
-        userName: content?.document.user_name || "",
+        userName: content?.document?.user_name || "",
         meetUpDate: content?.document?.meet_up?.date || "",
         meetUpTime: content?.document?.meet_up?.time || "",
         meetUpDescription: content?.document?.meet_up?.description || "",

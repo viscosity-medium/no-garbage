@@ -80,9 +80,12 @@ const MeetUp = ({location, modalForm, changeModalForm}) => {
                         margin={"5px 0"}
                     >
                         <CustomInput
-                            value={modalForm.meetUpDate}
+                            value={modalForm?.meetUpDate}
                             onChange={
-                                changeModalForm("meetUpDate")
+                                changeModalForm({
+                                    changedValue: "meetUpDate",
+                                    inputType: "input"
+                                })
                             }
                             width={"100%"}
                             height={"100%"}
@@ -98,9 +101,12 @@ const MeetUp = ({location, modalForm, changeModalForm}) => {
                         margin={"5px 0"}
                     >
                         <CustomInput
-                            value={modalForm.meetUpTime}
+                            value={modalForm?.meetUpTime}
                             onChange={
-                                changeModalForm("meetUpTime")
+                                changeModalForm({
+                                    changedValue: "meetUpTime",
+                                    inputType: "input"
+                                })
                             }
                             width={"100%"}
                             height={"100%"}
@@ -116,9 +122,12 @@ const MeetUp = ({location, modalForm, changeModalForm}) => {
                         margin={"5px 0"}
                     >
                         <CustomInput
-                            value={modalForm.meetUpDescription}
+                            value={modalForm?.meetUpDescription}
                             onChange={
-                                changeModalForm("meetUpDescription")
+                                changeModalForm({
+                                    changedValue: "meetUpDescription",
+                                    inputType: "input"
+                                })
                             }
                             width={"100%"}
                             height={"100%"}

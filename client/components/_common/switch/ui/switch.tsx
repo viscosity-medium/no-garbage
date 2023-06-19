@@ -35,7 +35,9 @@ const Switch: FC<SwitchProps> = ({items}) => {
                     const color = wasteType === item ? colors.pastelGray : colors.white;
 
                     return (
-                        <>
+                        <React.Fragment
+                            key={`${item}=${index}`}
+                        >
                             <HStack
                                 align={"center"}
                                 margin={"2px 0"}
@@ -73,7 +75,7 @@ const Switch: FC<SwitchProps> = ({items}) => {
                                     size={"12px"}
                                 />
                             </HStack>
-                        </>
+                        </React.Fragment>
                     )
                 })
             }

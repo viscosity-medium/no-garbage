@@ -1,12 +1,38 @@
 import React, {useEffect} from 'react';
 import FilterItem from "./filter-item/filter-item";
 import {Div} from "../../_common/custom-image/custom-div.styled";
-import {filtersData} from "./filters-data/filters-data";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {getMapFilters} from "./filter-block.selectors";
-import {filterBlockActions} from "./filters-block.slice";
+import {filtersData, garbageTypes} from "../../../map/model/mapbox-configs";
 
-const FiltersBlock = () => {
+const FiltersBlock = ({map}) => {
+
+    const filters = useSelector(getMapFilters);
+
+    useEffect(()=>{
+
+        const activeLitterTypes = filters["Type of Litter"];
+
+        if(activeLitterTypes.length > 0){
+
+            garbageTypes.forEach(garbageType =>{
+                map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "none");
+            });
+
+            activeLitterTypes.forEach((activeLitterType)=>{
+                map?.current?.setLayoutProperty(`${activeLitterType}-points`, "visibility", "visible");
+            });
+
+        } else if(activeLitterTypes.length === 0){
+
+            garbageTypes.forEach(garbageType =>{
+                map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "visible");
+            });
+
+        }
+
+    },[filters])
+
     return (
         <Div
             position={"absolute"}
@@ -22,6 +48,7 @@ const FiltersBlock = () => {
                         key={`filter-item-${filterName}`}
                         filterName={filterName}
                         filterOptions={filterOptions}
+                        map={map}
                     />
                 ))
             }

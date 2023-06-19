@@ -82,7 +82,6 @@ class AxiosApi {
             lon: userMarkerProperties.coordinates[1]
         }
 
-        console.log(name)
         params.set("id", id);
         params.set("name", name);
         params.set("extension", extension);
@@ -97,8 +96,6 @@ class AxiosApi {
         params.set("coordinates", JSON.stringify(coordinates));
         params.set("description", textAreaValue);
         params.set("wasteType", wasteType);
-
-
 
         try {
             await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk);

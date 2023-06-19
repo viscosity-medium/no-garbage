@@ -4,14 +4,14 @@ import FilterButton from "./filter-button/filter-button";
 import FilterFiller from "./filter-filler/filter-filler";
 import colors from "../../../../styles/globals/colors";
 
-const FilterItem = ({filterName, filterOptions}) => {
+const FilterItem = ({filterName, filterOptions, map}) => {
 
     const [visibility, setVisibility] = useState<boolean>(false);
     const optionPanelHeight = filterOptions.length * 40;
 
     const onButtonClick = () => {
         setVisibility(prevState => !prevState);
-    }
+    };
 
     return (
         <VStack>
@@ -39,6 +39,7 @@ const FilterItem = ({filterName, filterOptions}) => {
                         key={`filter-filler-${filterName}-${fillerOption}`}
                         filterName={filterName}
                         fillerOption={fillerOption}
+                        map={map}
                     />))
                 }
             </VStack>

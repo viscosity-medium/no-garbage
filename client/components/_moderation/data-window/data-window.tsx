@@ -14,7 +14,7 @@ import {fetchFirebaseReports, moderationDataWindowActions} from "./data-window.s
 import {useDebounce} from "../../../hooks/use-debounce";
 import HStack from "../../_common/flex-stack/h-stack/h-stack";
 import {DataSearchInput} from "../data-search/data-search-bar.styled";
-import React from "react";
+import React, {useCallback} from "react";
 import {useDefineSidebarSizes} from "../../../hooks/use-define-sidebar-sizes";
 import useWindowDimensions from "../../../hooks/use-window-dimensions";
 
@@ -32,9 +32,12 @@ const DataWindow = () => {
             dispatch(moderationDataWindowActions.setSearchBarText(e.target.value));
         }
     };
-    const getAsyncReports = async () => {
-        await dispatch(fetchFirebaseReports({filter, order, paginationQuantity, searchBarValue}));
-    };
+
+    const getAsyncReports = useCallback(
+        async () => {
+            await dispatch(fetchFirebaseReports({filter, order, paginationQuantity, searchBarValue}));
+    }, [filter, order, paginationQuantity, searchBarValue]);
+
     const dependencyArray = [filter, order, paginationQuantity, searchBarValue];
 
     const { windowHeight, document, bodyHeight } = useWindowDimensions();

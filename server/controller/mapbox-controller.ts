@@ -15,7 +15,7 @@ class MapboxController {
                 return ({
                     type: "FeatureCollection",
                     features
-                })
+                });
 
                 // return mapboxServices.getMapboxGeoJsonData()
             }

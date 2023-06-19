@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import TableRow from "../table-row/table-row";
 import {useSelector} from "react-redux";
 import {getFirebaseReports} from "../../../data-window/data-window.selectors";
@@ -7,41 +7,16 @@ import WindowHeader from "../../../data-window/window-header";
 import {DocumentData} from "firebase/firestore";
 import Loading from "../../../../_common/loading/loading";
 import {PhotoFileList} from "../../../../../utilities/axios-api";
+import {TableRowInfo} from "../../model/data-table.helpers";
 
-const DataTable = () => {
+const DataTable = React.memo(() => {
 
-    let fileList: PhotoFileList[] = []
     const firebaseReports = useSelector(getFirebaseReports) || [];
     const refHeader = useRef<JSX.Element>(<></>);
 
     useEffect(()=>{
         refHeader.current = <WindowHeader/>;
     },[])
-
-    useEffect(()=>{
-
-        (async () => {
-            firebaseReports.map(async( document: DocumentData, index: number ) => {
-
-                fileList = [
-                    ...fileList,
-                    document.photos.map((photoObject) => (
-                        {
-                            url: photoObject.url,
-                            previewImageUrl: photoObject.preview_image_url
-                        }
-                    ))
-                ]
-
-                if (firebaseReports.length === index + 1) {
-                    // await mapboxApi.processTheFileListAndSaveThemIntoBucket({fileList})
-                    //console.log(fileList)
-                };
-            });
-
-        })()
-
-    },[firebaseReports])
 
     return (
         <>
@@ -54,19 +29,23 @@ const DataTable = () => {
 
                             firebaseReports.map(( document: DocumentData, index: number ) => {
 
-                                const tableRowInfo = {
-                                    id: document.id,
+                                const tableRowInfo: TableRowInfo = {
+                                    id: document.id || "",
                                     document: document,
-                                    description: document?.description,
-                                    status: document?.status,
-                                    community: document?.community,
-                                    created: document?.created_on,
-                                    modified: document?.modified_on,
-                                    photos: document?.photos,
-                                    videos: document?.videos,
-                                    location: document?.location,
-                                    userName: document?.user_name,
-                                    announcement: document?.announcement
+                                    description: document?.description || "",
+                                    status: document?.status || "",
+                                    wasteType: document?.waste_type || "",
+                                    community: document?.community || "",
+                                    announcement: document?.announcement || "",
+                                    created: document?.created_on || "",
+                                    modified: document?.modified_on || "",
+                                    photos: document?.photos || [],
+                                    videos: document?.videos || [],
+                                    location: document?.location || "",
+                                    userName: document?.user_name || "",
+                                    meetUpDate: document?.meet_up?.date || "",
+                                    meetUpTime: document?.meet_up?.time || "",
+                                    meetUpDescription: document?.meet_up?.description || "",
                                 }
 
                                 return (
@@ -84,6 +63,6 @@ const DataTable = () => {
         </>
 
     );
-};
+});
 
 export default DataTable;

@@ -110,10 +110,11 @@ const loadMapboxMarkers = async ({ map, geoJsonData }) => {
 
                             return singleFeature
                         }
+
                     }).filter(item => item);
 
                     const data = createGeoJsonMarkersData({geoJsonNeededMarkers});
-                    console.log(data)
+
                     map.current.loadImage(
                         Object.values(marker)[0].src,
                         (error, image) => {
@@ -138,12 +139,11 @@ const loadMapboxMarkers = async ({ map, geoJsonData }) => {
 
                 }
 
-
-            })
+            });
 
         }
 
-}
+};
 
 export {
     addMapboxLayer,

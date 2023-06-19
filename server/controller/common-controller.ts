@@ -151,11 +151,12 @@ class CommonController {
                 }
 
                 const documentId = uuidv4().toUpperCase();
+                const createdOn = Math.floor((new Date()).getTime() / 1000)
 
                 const firebaseDocumentInfo: FirebaseDocumentInfo = {
 
                     id: documentId,
-                    created_on: Math.floor((new Date()).getTime() / 1000),
+                    created_on: createdOn,
                     full_description: description,
                     description: location,
                     location: coordinates,
@@ -170,6 +171,7 @@ class CommonController {
 
                 const firebaseGeoJsonDocument = {
                     id: documentId,
+                    created_on: createdOn,
                     type: 'Feature',
                     geometry: {
                         type: 'Point',
@@ -181,9 +183,6 @@ class CommonController {
                         waste_type: wasteType === undefined ? "Common waste" : wasteType,
                     }
                 };
-
-
-
 
                 await  firebaseServices.writeDocumentToFirebaseReportsCollection({firebaseDocumentInfo});
                 await  firebaseServices.writeDocumentToFirebaseGeoJsonCollection({firebaseGeoJsonDocument});

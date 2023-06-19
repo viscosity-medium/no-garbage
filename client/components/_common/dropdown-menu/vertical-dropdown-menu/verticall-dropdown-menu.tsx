@@ -27,7 +27,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
 
     const switchDropDownState = () => {
         setDropDownState(prevState => !prevState);
-    }
+    };
 
     const chooseCurrentItem = (item) => () =>{
         batch(()=>{

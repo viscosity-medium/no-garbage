@@ -46,9 +46,9 @@ const ModalMediaBlock: FC<IResults> = ({media}) => {
                                 position={"relative"}
                                 zIndex={1}
                                 background={loadingGif}
+                                key={photo?.preview_image_url}
                             >
                                 <CustomImage
-                                    key={photo?.preview_image_url}
                                     clickHandler={clickHandler(photo)}
                                     position={"relative"}
                                     zIndex={2}

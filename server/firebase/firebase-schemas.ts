@@ -18,6 +18,7 @@ export type CreateGeoJsonFeatureSchema = ({item}: any) => GeoJsonFeatureSchema
 const createGeoJsonFeatureSchema: CreateGeoJsonFeatureSchema = ({item}) => (
     {
         id: item.id,
+        created_on: item.created_on,
         type: "Feature",
         geometry: {
             type: "Point",

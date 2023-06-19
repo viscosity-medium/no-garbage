@@ -1,10 +1,9 @@
 import React from 'react';
 import LocationInputItem from "./location-input-item";
 import {Switch} from "../../../../../_common/switch";
+import {garbageTypes} from "../../../../../../map/model/mapbox-configs";
 
 const StepOne = ({coordinatesString, locationName}) => {
-
-    const garbageTypes = ["Common waste", "Construction waste"]
 
     return (
         <>

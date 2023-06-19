@@ -4,7 +4,7 @@ import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
 import Text from "../../../../_common/text/text";
 import CustomCheckbox from "../../../../_common/custom-checkbox/custom-checkbox";
 
-const FilterFiller = ({filterName, fillerOption}) => {
+const FilterFiller = ({filterName, fillerOption, map}) => {
     return (
         <HStack
             align={"center"}
@@ -21,6 +21,7 @@ const FilterFiller = ({filterName, fillerOption}) => {
                 id={`${filterName}-${fillerOption}`}
                 filterName={filterName}
                 fillerOption={fillerOption}
+                map={map}
             />
         </HStack>
     );

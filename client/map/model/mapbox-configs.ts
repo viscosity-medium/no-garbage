@@ -1,7 +1,7 @@
 import MarkerBlue from "../ui/marker/marker-blue.png";
 import MarkerRed from "../ui/marker/marker-red.png";
 import MarkerUser from "../ui/marker/marker-grey.png";
-import DefaultMarker from "../ui/marker/marker.svg"
+import {reportsStatuses} from "../../components/_moderation/reports-statuses/reports-statuses";
 
 const mapboxMarkerLayerConfig = ({id}) => ({
     'id': `${id}-points`,
@@ -38,11 +38,18 @@ const markerTypes = [
     { "user": MarkerUser },
 ]
 
-const defaultMarker = MarkerBlue;
+const garbageTypes = ["Common waste", "Construction waste"]
+
+const filtersData = {
+    "Communities": ["Option 1", "Option 2", "Option 3"],
+    "Status of location": reportsStatuses,
+    "Type of Litter": garbageTypes
+}
 
 export {
     mapboxMarkerLayerConfig,
     markerTypes,
-    defaultMarker,
+    filtersData,
+    garbageTypes,
     mapboxSingleFeature
 }

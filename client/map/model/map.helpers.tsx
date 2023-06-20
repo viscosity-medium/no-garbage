@@ -2,6 +2,8 @@ import {mapboxMarkerLayerConfig, mapboxSingleFeature, markerTypes} from "./mapbo
 import DefaultMarker from "../ui/marker/marker.svg"
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {mapboxApi} from "../../utilities/mapbox-api";
+import {useSelector} from "react-redux";
+import {getMapboxGeoJsonData} from "./mapbox.selectors";
 
 const addMapboxLayer = ({map}) => {
     map.addLayer()
@@ -45,6 +47,8 @@ const setUserMapMarker = ({map, sourceId, coordinates}) => {
 
     const sourceData = map.current.getSource(sourceId);
 
+    console.log(sourceData)
+
     if(sourceData){
         sourceData.setData({
             type: 'FeatureCollection',
@@ -56,6 +60,29 @@ const setUserMapMarker = ({map, sourceId, coordinates}) => {
         setTimeout(()=>{
             setUserMapMarker({map, sourceId, coordinates})
         },200)
+    }
+
+}
+
+const showFilteredPoints = ({map, points}) => {
+
+    const sourceData = map.current.getSource();
+
+    const mapboxGeoJsonData = useSelector(getMapboxGeoJsonData);
+
+    console.log(mapboxGeoJsonData);
+
+    if(sourceData){
+    //     sourceData.setData({
+    //         type: 'FeatureCollection',
+    //         features: [
+    //             mapboxSingleFeature({coordinates})
+    //         ]
+    //     });
+    // } else {
+    //     setTimeout(()=>{
+    //         setUserMapMarker({map, sourceId, coordinates})
+    //     },200)
     }
 
 }
@@ -107,8 +134,8 @@ const loadMapboxMarkers = async ({ map, geoJsonData }) => {
                     const geoJsonNeededMarkers = geoJsonData.features.map((singleFeature) => {
 
                         if(markerName === singleFeature.properties.waste_type) {
-
-                            return singleFeature
+                            //console.log(singleFeature);
+                            return singleFeature;
                         }
 
                     }).filter(item => item);
@@ -122,7 +149,7 @@ const loadMapboxMarkers = async ({ map, geoJsonData }) => {
                             if (error) throw error;
 
                             //console.log(`${markerName}-points`)
-                            //
+
                             map.current.addImage(`custom-marker-${markerName}`, image);
                             map.current.addSource(`${markerName}-points`, {
                                 'type': 'geojson',
@@ -149,4 +176,5 @@ export {
     addMapboxLayer,
     loadMapboxMarkers,
     setUserMapMarker,
+    showFilteredPoints
 }

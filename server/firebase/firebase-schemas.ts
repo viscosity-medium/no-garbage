@@ -28,6 +28,7 @@ const createGeoJsonFeatureSchema: CreateGeoJsonFeatureSchema = ({item}) => (
             title: item.description || "",
             description: item.full_description || "",
             waste_type: item.waste_type || "Common waste",
+            status: item.status || "requires moderation"
         }
     }
 )

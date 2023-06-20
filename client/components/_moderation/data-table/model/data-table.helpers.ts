@@ -49,7 +49,6 @@ const onTableRowClickHandler = ({
             modified: dateModified,
             announcement, photos, location, videos,
             meetUpDate, meetUpTime, meetUpDescription
-
         }));
         dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
             text: "Edit form to save changes",

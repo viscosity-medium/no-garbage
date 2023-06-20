@@ -1,37 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import FilterItem from "./filter-item/filter-item";
 import {Div} from "../../_common/custom-image/custom-div.styled";
-import {useSelector} from "react-redux";
-import {getMapFilters} from "./filter-block.selectors";
-import {filtersData, garbageTypes} from "../../../map/model/mapbox-configs";
+import {filtersData} from "../../../map/model/mapbox-configs";
+import {useSwitchMapFilter} from "./filter-block.hooks";
 
 const FiltersBlock = ({map}) => {
 
-    const filters = useSelector(getMapFilters);
-
-    useEffect(()=>{
-
-        const activeLitterTypes = filters["Type of Litter"];
-
-        if(activeLitterTypes.length > 0){
-
-            garbageTypes.forEach(garbageType =>{
-                map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "none");
-            });
-
-            activeLitterTypes.forEach((activeLitterType)=>{
-                map?.current?.setLayoutProperty(`${activeLitterType}-points`, "visibility", "visible");
-            });
-
-        } else if(activeLitterTypes.length === 0){
-
-            garbageTypes.forEach(garbageType =>{
-                map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "visible");
-            });
-
-        }
-
-    },[filters])
+    useSwitchMapFilter({map});
 
     return (
         <Div

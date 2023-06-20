@@ -181,6 +181,7 @@ class CommonController {
                         title: location,
                         description: description,
                         waste_type: wasteType === undefined ? "Common waste" : wasteType,
+                        status: "requires moderation",
                     }
                 };
 

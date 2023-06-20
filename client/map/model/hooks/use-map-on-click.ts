@@ -47,6 +47,7 @@ const useMapOnClick = ({map}) => {
                     name: mapboxLocationInformation,
                     coordinates
                 }));
+
             }
 
         }

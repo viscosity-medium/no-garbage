@@ -5,14 +5,14 @@ import {getSortedFirebaseData} from "../../../firebase/get-sorted-firebase-data"
 
 export interface ModerationDataWindowSchema {
     searchBarText: string
-    firebaseReports: QueryDocumentSnapshot<DocumentData>[]
+    firebaseReports: QueryDocumentSnapshot<DocumentData>[] | undefined
     dbUsers: QueryDocumentSnapshot<DocumentData>[],
     lastVisibleDoc:  string
 }
 
 const initialState: ModerationDataWindowSchema = {
     searchBarText: "",
-    firebaseReports: [],
+    firebaseReports: undefined,
     lastVisibleDoc: "",
     dbUsers: [],
 };
@@ -36,7 +36,7 @@ export const moderationDataWindow = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchFirebaseReports.pending, state => {
-                state.firebaseReports = []
+                state.firebaseReports = undefined
             })
             .addCase(fetchFirebaseReports.fulfilled, (state, action) => {
                 state.firebaseReports = action.payload.data,

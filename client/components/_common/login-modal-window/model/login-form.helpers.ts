@@ -15,8 +15,8 @@ const loginFormHelpers = ({
 
     const dispatch = useAppDispatch();
 
-    const onEmailChange = (value: string) => {
-        dispatch(loginModalActions.setAuthModalEmail(value));
+    const onEmailChange = (e) => {
+        dispatch(loginModalActions.setAuthModalEmail(e?.target?.value));
     };
 
     const hideLoginModal = () => {
@@ -29,8 +29,8 @@ const loginFormHelpers = ({
         }
     };
 
-    const onPasswordChange = (value: string) => {
-        dispatch(loginModalActions.setAuthModalPassword(value));
+    const onPasswordChange = (e) => {
+        dispatch(loginModalActions.setAuthModalPassword(e?.target?.value));
     };
 
     const onAuthenticate = async () => {

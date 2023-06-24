@@ -1,13 +1,11 @@
 import React from 'react';
-import Text from "../../../../_common/text/text";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import {VerticalDropdownMenu} from "../../../../_common/dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu";
-import {Div} from "../../../../_common/custom-image/custom-div.styled";
+import {Text} from "../../../../_common/text";
+import {HStack, VStack} from "../../../../_common/flex-stack";
+import {VerticalDropdownMenu} from "../../../../_common/dropdown-menu";
+import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {reportsStatuses} from "../../../reports-statuses/reports-statuses";
-import CustomInput from "../../../../_common/custom-input/custom-input";
+import {CustomInput} from "../../../../_common/custom-input";
 import colors from "../../../../../styles/globals/colors";
-import TextArea from "../../../../_common/text-area/text-area";
 
 const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
 

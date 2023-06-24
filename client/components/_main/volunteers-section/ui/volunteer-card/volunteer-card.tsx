@@ -1,9 +1,8 @@
 import React from 'react';
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
-import CustomImage from "../../../../_common/custom-image/custom-image";
+import {HStack, VStack} from "../../../../_common/flex-stack";
+import {CustomImage} from "../../../../_common/custom-image";
 import colors from "../../../../../styles/globals/colors";
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../../_common/text/text";
+import {Text} from "../../../../_common/text";
 
 const VolunteerCard = () => {
 

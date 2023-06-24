@@ -1,18 +1,17 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {LoginModalWindow} from "../../components/_common/login-form";
 import {useCheckIsAuth} from "../../hooks/use-check-is-auth";
 import {LocationInfoSidebar} from "../../components/_common/location-info-sidebar";
 import {useState} from "react";
-import DataWindow from "../../components/_moderation/data-window/data-window";
-import {Div} from "../../components/_common/custom-image/custom-div.styled";
-import Sidebar from "../../components/_common/sidebar/sidebar";
-import HStack from "../../components/_common/flex-stack/h-stack/h-stack";
+import {Div} from "../../components/_common/custom-image/ui/custom-div.styled";
+import {Sidebar} from "../../components/_common/sidebar";
+import {HStack} from "../../components/_common/flex-stack";
 import colors from "../../styles/globals/colors";
 import {ModalWindowContent} from "../../components/_moderation/moderation-location-info-sidebar";
 import {useSelector} from "react-redux";
 import {
     getModalVisibility
 } from "../../components/_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.selectors";
+import {DataWindow} from "../../components/_moderation/data-window";
 
 interface Tokens {
     accessToken: string | undefined | null
@@ -64,7 +63,6 @@ const ModerationPage = () => {
                                <ModalWindowContent/>
                            </LocationInfoSidebar>
                        </Div>
-                       <LoginModalWindow/>
                    </>
                 )  : <></>
             }

@@ -1,5 +1,4 @@
-import React from 'react';
-import TextArea from "../../../../../_common/text-area/text-area";
+import {TextArea} from "../../../../../_common/text-area";
 import {useAppDispatch} from "../../../../../../store/store";
 import {locationInfoSidebarActions} from "../../../model/map-location-info-sidebar.slice";
 import {useSelector} from "react-redux";
@@ -25,6 +24,4 @@ const StepThree = ({}) => {
 
 };
 
-export {
-    StepThree
-};
+export { StepThree };

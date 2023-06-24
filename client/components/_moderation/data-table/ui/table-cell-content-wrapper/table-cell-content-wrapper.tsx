@@ -1,7 +1,5 @@
 import React, {FC} from 'react';
-import {Div} from "../../../../_common/custom-image/custom-div.styled";
-import colors from "../../../../../styles/globals/colors";
-import Text from "../../../../_common/text/text";
+import {Text} from "../../../../_common/text";
 
 interface ITableCellContentWrapper {
     text?: string

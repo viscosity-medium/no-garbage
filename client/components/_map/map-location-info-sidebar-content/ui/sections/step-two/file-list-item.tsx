@@ -1,7 +1,7 @@
-import HStack from "../../../../../_common/flex-stack/h-stack/h-stack";
+import {HStack, VStack} from "../../../../../_common/flex-stack";
 import PaperClipSvg from "public/assets/map/paper-clip.svg";
-import Text from "../../../../../_common/text/text";
-import Button from "../../../../../_common/button/button";
+import {Text} from "../../../../../_common/text";
+import {Button} from "../../../../../_common/button";
 import BucketSvg from "public/assets/map/bucket.svg";
 import colors from "../../../../../../styles/globals/colors";
 import {FC, useState} from "react";
@@ -13,8 +13,7 @@ import {
 import {useAppDispatch} from "../../../../../../store/store";
 import {useSelector} from "react-redux";
 import {getDropboxProperties, getFilesToUpload} from "../../../model/map-location-info-sidebar.selectors";
-import {ProgressBar} from "../../../../../_common/progress-bar/progress-bar";
-import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
+import {ProgressBar} from "../../../../../_common/progress-bar";
 
 interface FileListItemProps {
     fileObject
@@ -82,6 +81,7 @@ const FileListItem: FC<FileListItemProps> = ({ fileObject }) => {
             />
         </VStack>
     );
+
 };
 
 export { FileListItem };

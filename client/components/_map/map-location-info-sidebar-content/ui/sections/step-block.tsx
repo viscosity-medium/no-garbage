@@ -1,5 +1,5 @@
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../../_common/text/text";
+import {VStack} from "../../../../_common/flex-stack";
+import {Text} from "../../../../_common/text";
 import {FC, ReactNode} from "react";
 
 interface StepBlockProps {
@@ -31,4 +31,4 @@ const StepBlock: FC<StepBlockProps> = ({title, description, children}) => {
     );
 };
 
-export { StepBlock};
+export { StepBlock };

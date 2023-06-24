@@ -1,10 +1,10 @@
 import {getLoginEmail, getLoginPassword} from "../../model/login-form.selectors";
 import {useSelector} from "react-redux";
-import CustomInput from "../../../custom-input/custom-input";
-import Button from "../../../button/button";
-import {Div} from "../../../custom-image/custom-div.styled";
-import HStack from "../../../flex-stack/h-stack/h-stack";
-import Text from "../../../text/text";
+import {CustomInput} from "../../../custom-input";
+import {Button} from "../../../button";
+import {Div} from "../../../custom-image/ui/custom-div.styled";
+import {HStack} from "../../../flex-stack";
+import {Text} from "../../../text";
 import colors from "../../../../../styles/globals/colors";
 import {FC, useRef} from "react";
 import {loginFormHelpers} from "../../model/login-form.helpers";

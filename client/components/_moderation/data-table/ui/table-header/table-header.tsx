@@ -26,4 +26,4 @@ const TableHeader: FC<TableHeaderProps> = ({
     );
 };
 
-export default TableHeader;
+export { TableHeader };

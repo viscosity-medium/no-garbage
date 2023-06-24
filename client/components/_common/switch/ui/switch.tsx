@@ -1,10 +1,9 @@
 import React, {FC} from 'react';
-import Button from "../../button/button";
-import HStack from "../../flex-stack/h-stack/h-stack";
+import {Button} from "../../button";
+import {HStack, VStack} from "../../flex-stack";
 import colors from "../../../../styles/globals/colors";
-import VStack from "../../flex-stack/v-stack/v-stack";
-import Text from "../../text/text";
-import {Div} from "../../custom-image/custom-div.styled";
+import {Text} from "../../text";
+import {Div} from "../../custom-image/ui/custom-div.styled";
 import {useSelector} from "react-redux";
 import {getWasteType} from "../../../_map/map-location-info-sidebar-content/model/map-location-info-sidebar.selectors";
 import {useAppDispatch} from "../../../../store/store";

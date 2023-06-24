@@ -1,8 +1,8 @@
-import {Div} from "../../../../../_common/custom-image/custom-div.styled";
+import {Div} from "../../../../../_common/custom-image/ui/custom-div.styled";
 import DropBoxImage from "public/assets/common/dropbox.svg"
-import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../../../_common/text/text";
-import CustomInput from "../../../../../_common/custom-input/custom-input";
+import {VStack} from "../../../../../_common/flex-stack";
+import {Text} from "../../../../../_common/text";
+import {CustomInput} from "../../../../../_common/custom-input";
 import {useRef} from "react";
 import colors from "../../../../../../styles/globals/colors";
 
@@ -106,4 +106,4 @@ const DragAndDropArea = () => {
     );
 };
 
-export { DragAndDropArea};
+export { DragAndDropArea };

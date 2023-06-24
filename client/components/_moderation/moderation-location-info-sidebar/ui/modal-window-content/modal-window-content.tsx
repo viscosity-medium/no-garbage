@@ -5,18 +5,16 @@ import {FC, ReactNode, useEffect, useState} from 'react';
 import ModerationCaseProperties from "../moderation-case-properties/moderation-case-properties";
 import ModalMediaBlock from "../results/modal-media-block";
 import CrossIcon from "public/assets/common/cross-icon.svg"
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import Button from "../../../../_common/button/button";
+import {Button} from "../../../../_common/button";
 import MeetUp from "../meet-up/meet-up";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
+import {HStack, VStack} from "../../../../_common/flex-stack";
 import colors from "../../../../../styles/globals/colors";
-import {Div} from "../../../../_common/custom-image/custom-div.styled";
-import Text from "../../../../_common/text/text";
+import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
+import {Text} from "../../../../_common/text";
 import {useAppDispatch} from "../../../../../store/store";
-import {getFilterValue, getOrderValue} from "../../../../_common/filter-switcher/filter-switch.selectors";
+import {getFilterValue, getOrderValue} from "../../../../_common/filter-switcher/model/filter-switch.selectors";
 import {getPaginationQuantity} from "../../../pagination-panel/pagination.selectors";
-import {getSearchBarValue} from "../../../data-window/data-window.selectors";
-import {moderationLocationInfoSidebarSliceActions} from "../../model/moderation-location-info-sidebar.slice";
+import {getSearchBarValue} from "../../../data-window/model/data-window.selectors";
 
 interface IModalWindowContent {
     children?: ReactNode

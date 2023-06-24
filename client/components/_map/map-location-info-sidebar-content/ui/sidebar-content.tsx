@@ -1,11 +1,8 @@
-import React from 'react';
-import UpperInformation from "./sections/upper-information/upper-information";
-import VStack from "../../../_common/flex-stack/v-stack/v-stack";
+import {VStack, HStack} from "../../../_common/flex-stack";
 import colors from "../../../../styles/globals/colors";
-import HStack from "../../../_common/flex-stack/h-stack/h-stack";
-import Button from "../../../_common/button/button";
+import {Button} from "../../../_common/button";
 import CrossIcon from "public/assets/common/cross-icon.svg"
-import {Div} from "../../../_common/custom-image/custom-div.styled";
+import {Div} from "../../../_common/custom-image/ui/custom-div.styled";
 import {useAppDispatch} from "../../../../store/store";
 import {StepBlock} from "./sections/step-block";
 import {useSelector} from "react-redux";
@@ -15,6 +12,8 @@ import {StepTwo} from "./sections/step-two/step-two";
 import {StepThree} from "./sections/step-three/step-three";
 import {DownInformation} from "./sections/down-information/down-information";
 import {hideLocationSidebar} from "../model/helpers/map-location-info-sidebar.helpers";
+import React from "react";
+import {UpperInformation} from "./sections/upper-information/upper-information";
 
 const SidebarContent = ({map}) => {
 

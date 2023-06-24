@@ -1,7 +1,7 @@
 import React from 'react';
 import {DragAndDropArea} from "./drag-and-drop-area";
-import UnorderedList from "../../../../../_common/unordered-list/unordered-list";
-import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
+import {UnorderedList} from "../../../../../_common/unordered-list";
+import {VStack} from "../../../../../_common/flex-stack";
 import {useSelector} from "react-redux";
 import {getFilesToUpload} from "../../../model/map-location-info-sidebar.selectors";
 import {mapCreateSidebarFileList} from "../../../model/helpers/map-create-sidebar-file-list";
@@ -37,6 +37,7 @@ const StepTwo = () => {
             </VStack>
         </>
     );
+
 };
 
-export {StepTwo};
+export { StepTwo };

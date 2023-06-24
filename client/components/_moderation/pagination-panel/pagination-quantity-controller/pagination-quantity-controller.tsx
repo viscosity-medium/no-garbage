@@ -1,4 +1,4 @@
-import {HorizontalDropdownMenu} from "../../../_common/dropdown-menu/horizontal-dropdown-menu/horizontal-dropdown-menu";
+import {HorizontalDropdownMenu} from "../../../_common/dropdown-menu";
 import {getPaginationQuantity} from "../pagination.selectors";
 import {paginationActions} from "../pagination.slice";
 import {useAppDispatch} from "../../../../store/store";

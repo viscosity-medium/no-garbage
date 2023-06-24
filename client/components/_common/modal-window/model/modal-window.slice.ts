@@ -13,7 +13,6 @@ const ModalWindowSlice = createSlice({
     initialState,
     reducers: {
         setModalVisibility: (state) => {
-            console.log(!state.visibility)
             state.visibility = !state.visibility;
         },
     },

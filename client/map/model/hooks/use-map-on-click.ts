@@ -9,7 +9,7 @@ import {
     locationInfoSidebarActions
 } from "../../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
 import {mapboxApi} from "../../../utilities/mapbox-api";
-import {getLanguage} from "../../../components/_common/nav-bar/nav-bar.selectors";
+import {getLanguage} from "../../../components/_common/nav-bar/model/nav-bar.selectors";
 import {hideLocationSidebar} from "../../../components/_map/map-location-info-sidebar-content/model/helpers/map-location-info-sidebar.helpers";
 import {getDataStatus} from "../../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.selectors";
 

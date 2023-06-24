@@ -1,5 +1,5 @@
 import {Swiper, SwiperSlide} from "swiper/react";
-import SwiperCore, {Mousewheel, Autoplay} from "swiper";
+import SwiperCore, {Autoplay} from "swiper";
 import {SwiperProps} from "../../model/swiper.types";
 import VolunteerCard from "../../../../_main/volunteers-section/ui/volunteer-card/volunteer-card";
 

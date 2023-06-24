@@ -4,7 +4,7 @@ import {loadMapboxMarkers} from "../map.helpers";
 import {useAppDispatch} from "../../../store/store";
 import {fetchMapboxGeoJson} from "../map.async-thunks";
 import {useSelector} from "react-redux";
-import {getMapFilters} from "../../../components/_map/filters-block/filter-block.selectors";
+import {getMapFilters} from "../../../components/_map/filters-block/model/filter-block.selectors";
 
 const useSetMapMarkers = ({map}) => {
 

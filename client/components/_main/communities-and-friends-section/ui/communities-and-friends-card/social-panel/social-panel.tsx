@@ -1,5 +1,5 @@
 import React from 'react';
-import HStack from "../../../../../_common/flex-stack/h-stack/h-stack";
+import {HStack} from "../../../../../_common/flex-stack";
 import SocialButton from "./social-button/social-button";
 
 const SocialPanel = () => {

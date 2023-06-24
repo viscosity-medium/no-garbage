@@ -1,8 +1,8 @@
 import {fetchFirebaseLogin} from "./login-form.async-thunk";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {LoginModalSchema} from "./login-form.types"
+import {LoginFormSchema} from "./login-form.types"
 
-const initialState: LoginModalSchema = {
+const initialState: LoginFormSchema = {
     loginData: undefined,
     loginState: "not-authenticated",
     visibility: false,

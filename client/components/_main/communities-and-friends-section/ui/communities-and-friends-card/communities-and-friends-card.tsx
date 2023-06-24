@@ -1,9 +1,8 @@
 import React from 'react';
 import colors from "../../../../../styles/globals/colors";
-import CustomImage from "../../../../_common/custom-image/custom-image";
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../../_common/text/text";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
+import {CustomImage} from "../../../../_common/custom-image";
+import {VStack} from "../../../../_common/flex-stack";
+import {Text} from "../../../../_common/text";
 import SocialPanel from "./social-panel/social-panel";
 
 const CommunitiesAndFriendsCard = () => {

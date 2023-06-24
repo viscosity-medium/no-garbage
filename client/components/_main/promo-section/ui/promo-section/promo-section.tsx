@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import useWindowDimensions from "../../../../../hooks/use-window-dimensions";
 import {StyledSection} from "./promo.styled";
 import {useTranslation} from "next-i18next";
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
+import {VStack} from "../../../../_common/flex-stack";
 import sizes from "../../../../../styles/globals/sizes";
-import Text from "../../../../_common/text/text";
+import {Text} from "../../../../_common/text";
 import PromoBanner from "../promo-banner/promo-banner";
 
 const PromoSection = (props: any) => {

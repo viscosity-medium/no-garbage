@@ -1,8 +1,7 @@
 import React from 'react';
-import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
-import HStack from "../../../../../_common/flex-stack/h-stack/h-stack";
-import Text from "../../../../../_common/text/text";
-import CustomInput from "../../../../../_common/custom-input/custom-input";
+import {HStack,VStack} from "../../../../../_common/flex-stack";
+import {Text} from "../../../../../_common/text";
+import {CustomInput} from "../../../../../_common/custom-input";
 
 const LocationInputItem = ({title, inputValue, description}) => {
 
@@ -38,6 +37,7 @@ const LocationInputItem = ({title, inputValue, description}) => {
             </Text>
         </VStack>
     );
+
 };
 
-export default LocationInputItem;
+export { LocationInputItem };

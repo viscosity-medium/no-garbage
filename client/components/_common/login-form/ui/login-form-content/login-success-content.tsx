@@ -1,6 +1,6 @@
 import React from 'react';
-import Text from "../../../text/text";
-import VStack from "../../../flex-stack/v-stack/v-stack";
+import {Text} from "../../../text";
+import {VStack} from "../../../flex-stack";
 
 const LoginSuccessContent = () => {
     return (

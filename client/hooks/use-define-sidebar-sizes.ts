@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import sizes from "../styles/globals/sizes";
-import {ESidebarTypes} from "../components/_common/sidebar/sidebar.styled";
+import {ESidebarTypes} from "../components/_common/sidebar/ui/sidebar.styled";
 
 interface UseDefineSidebarSizes {
     sidebarType?: any

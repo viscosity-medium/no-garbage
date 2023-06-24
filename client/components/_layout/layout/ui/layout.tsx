@@ -1,12 +1,15 @@
 import React, {FC, ReactNode} from 'react';
-import NavBar from "../../../_common/nav-bar/nav-bar";
+import {NavBar} from "../../../_common/nav-bar";
 import Head from "next/head";
-import PageWrapper from "../../../_common/page-wrapper/page-wrapper";
+import {PageWrapper} from "../../../_common/page-wrapper";
 import {useAuthenticateUser} from "../../../../hooks/use-authenticate-user";
 import {useFetchDynamicInfo} from "../../../../pages/main-page/model/main-page.hooks";
-import {Div} from "../../../_common/custom-image/custom-div.styled";
+import {Div} from "../../../_common/custom-image/ui/custom-div.styled";
 import {useSelector} from "react-redux";
 import {getModalWindowVisibility} from "../../../_common/modal-window/model/modal-window.selectors";
+import {LoginForm} from "../../../_common/login-form";
+import {ModalWindow} from "../../../_common/modal-window";
+import {PageProgressBar} from "../../page-progress-bar";
 
 interface LayoutProps {
     children: ReactNode
@@ -33,6 +36,7 @@ const Layout:FC<LayoutProps> = ({children, passedColors}) => {
             <PageWrapper
                 isAnimated={true}
             >
+                <PageProgressBar/>
                 <Head>
                     <meta name="keywords" content="Tbilisi, Georgia, garbage, eco, cleanups"/>
                     <meta name="color-scheme" content="light only"/>
@@ -57,6 +61,9 @@ const Layout:FC<LayoutProps> = ({children, passedColors}) => {
                 left={"0"}
                 className={"modal-portal"}
             ></Div>
+            <ModalWindow>
+                <LoginForm/>
+            </ModalWindow>
         </>
     );
 };

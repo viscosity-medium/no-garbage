@@ -1,19 +1,16 @@
 import {PromoSection} from "../components/_main/promo-section";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'react-i18next';
-import Goals from "../components/_main/goals-section/goals";
+import {GoalsSection} from "../components/_main/goals-section";
 import colors from "../styles/globals/colors";
-import Footer from "../components/_common/footer/footer";
-import PageWrapper from "../components/_common/page-wrapper/page-wrapper";
-import VStack from "../components/_common/flex-stack/v-stack/v-stack";
-import BottomImageSection from "../components/_main/bottom-image-section/bottom-image-section";
+import {Footer} from "../components/_common/footer";
+import {PageWrapper} from "../components/_common/page-wrapper";
+import {VStack} from "../components/_common/flex-stack";
 import {VolunteersSection} from "../components/_main/volunteers-section";
 import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-friends-section";
 import {useSelector} from "react-redux";
 import {getMainPageDynamicInfo} from "./main-page/model/main-page.selectors";
-import {ModalWindow} from "../components/_common/modal-window";
-import {LoginForm} from "../components/_common/login-form";
-
+import {BottomImageSection} from "../components/_main/bottom-image-section";
 
 const MainPage = () => {
 
@@ -33,7 +30,7 @@ const MainPage = () => {
 
                 >
                     <PromoSection backgroundImage={promoImagePath}/>
-                    <Goals
+                    <GoalsSection
                         goals={mainPageDynamicInfo?.goals}
                     />
                     <VolunteersSection/>
@@ -42,11 +39,9 @@ const MainPage = () => {
             </PageWrapper>
             <BottomImageSection/>
             <Footer/>
-            <ModalWindow>
-                <LoginForm/>
-            </ModalWindow>
         </>
     );
+
 };
 
 export async function getStaticProps({ locale }: any) {

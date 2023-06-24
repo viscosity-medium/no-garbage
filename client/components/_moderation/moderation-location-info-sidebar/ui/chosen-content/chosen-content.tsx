@@ -1,6 +1,6 @@
 import React from 'react';
 import colors from "../../../../../styles/globals/colors";
-import CustomImage from "../../../../_common/custom-image/custom-image";
+import {CustomImage} from "../../../../_common/custom-image";
 import {Video} from "../../../../_common/video";
 
 const ChosenContent = ({chosenMedia}) => {

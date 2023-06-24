@@ -1,12 +1,11 @@
 import React, {FC} from 'react';
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
-import CustomImage from "../../../../_common/custom-image/custom-image";
+import {HStack, VStack} from "../../../../_common/flex-stack";
+import {CustomImage} from "../../../../_common/custom-image";
 import {useDispatch, useSelector} from "react-redux";
 import {moderationLocationInfoSidebarSliceActions} from "../../model/moderation-location-info-sidebar.slice";
 import {getChosenPhoto} from "../../model/moderation-location-info-sidebar.selectors";
 import colors from "../../../../../styles/globals/colors";
-import {Div} from "../../../../_common/custom-image/custom-div.styled";
+import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {ChosenContent} from "../chosen-content/chosen-content";
 
 interface IResults {

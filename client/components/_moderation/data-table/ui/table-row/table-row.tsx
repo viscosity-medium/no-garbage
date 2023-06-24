@@ -3,7 +3,7 @@ import TableCell from "../table-cell/table-cell";
 import colors from "../../../../../styles/globals/colors";
 import {StyledRow} from "./table-row.styled";
 import {useDispatch, useSelector} from "react-redux";
-import {windowHeaderData} from "../../../data-window/window-header-data";
+import {windowHeaderData} from "../../../data-window/model/window-header-data";
 import {
     getModalVisibility
 } from "../../../moderation-location-info-sidebar/model/moderation-location-info-sidebar.selectors";

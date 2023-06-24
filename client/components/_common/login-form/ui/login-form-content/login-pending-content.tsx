@@ -1,6 +1,6 @@
 import React from 'react';
-import Spinner from "../../../spinner/spinner";
-import VStack from "../../../flex-stack/v-stack/v-stack";
+import {Spinner} from "../../../spinner";
+import {VStack} from "../../../flex-stack";
 
 const LoginPendingContent = () => {
     return (

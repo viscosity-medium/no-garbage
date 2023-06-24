@@ -1,13 +1,11 @@
 import React from 'react';
-import Text from "../../../../_common/text/text";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
-import CustomImage from "../../../../_common/custom-image/custom-image";
-import {Div} from "../../../../_common/custom-image/custom-div.styled";
-import {SwiperComponent} from "../../../../_common/swiper/ui/swiper/swiper";
-
+import {Text} from "../../../../_common/text";
+import {HStack} from "../../../../_common/flex-stack";
+import {CustomImage} from "../../../../_common/custom-image";
+import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
+import {Swiper} from "../../../../_common/swiper";
 
 const VolunteersSection = () => {
-
 
     const message = "/assets/main-page/message.png"
     const photos = ["/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png"]
@@ -45,10 +43,10 @@ const VolunteersSection = () => {
                     position={"relative"}
                     zIndex={2}
                 >
-                    <SwiperComponent
+                    <Swiper
                         photos={["khbkh", "khbkc", "khbky", "khbky"]}
                     >
-                    </SwiperComponent>
+                    </Swiper>
                 </Div>
 
             </HStack>

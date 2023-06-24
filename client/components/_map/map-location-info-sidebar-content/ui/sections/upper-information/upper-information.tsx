@@ -1,6 +1,6 @@
 import React from 'react';
-import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../../../_common/text/text";
+import {VStack} from "../../../../../_common/flex-stack";
+import {Text} from "../../../../../_common/text";
 
 const UpperInformation = () => {
     return (
@@ -25,4 +25,4 @@ const UpperInformation = () => {
     );
 };
 
-export default UpperInformation;
+export { UpperInformation };

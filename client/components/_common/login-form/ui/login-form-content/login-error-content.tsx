@@ -1,10 +1,10 @@
 import React from 'react';
-import CustomImage from "../../../custom-image/custom-image";
+import {CustomImage} from "../../../custom-image";
 import CatImage from "public/assets/common/shocked-cat.png"
-import Text from "../../../text/text";
-import Button from "../../../button/button";
+import {Text} from "../../../text";
+import {Button} from "../../../button";
 import colors from "../../../../../styles/globals/colors";
-import VStack from "../../../flex-stack/v-stack/v-stack";
+import {VStack} from "../../../flex-stack";
 import {setLoginNotAuthenticatedState} from "../../model/login-form.helpers";
 import {useAppDispatch} from "../../../../../store/store";
 

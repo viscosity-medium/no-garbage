@@ -1,12 +1,11 @@
 import React from 'react';
 import colors from "../../../../../styles/globals/colors";
 import MapImage from "public/assets/main-page/map-background.png"
-import CustomImage from "../../../../_common/custom-image/custom-image";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../../_common/text/text";
-import Button from "../../../../_common/button/button";
-import {Div} from "../../../../_common/custom-image/custom-div.styled";
+import {CustomImage} from "../../../../_common/custom-image";
+import {HStack, VStack} from "../../../../_common/flex-stack";
+import {Text} from "../../../../_common/text";
+import {Button} from "../../../../_common/button";
+import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {useRouter} from "next/router";
 
 const PromoBanner = () => {

@@ -1,0 +1,1 @@
+export {SwiperComponent as Swiper} from "./ui/swiper/swiper";

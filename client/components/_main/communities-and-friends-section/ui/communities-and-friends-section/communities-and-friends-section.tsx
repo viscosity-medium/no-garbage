@@ -1,7 +1,7 @@
 import React from 'react';
 import CommunitiesAndFriendsCard from "../communities-and-friends-card/communities-and-friends-card";
-import Text from "../../../../_common/text/text";
-import HStack from '../../../../_common/flex-stack/h-stack/h-stack';
+import {Text} from "../../../../_common/text";
+import {HStack} from '../../../../_common/flex-stack';
 
 const CommunitiesAndFriendsSection = () => {
     return (

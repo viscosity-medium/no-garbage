@@ -5,7 +5,7 @@ import MapboxLanguage from "@mapbox/mapbox-gl-language";
 import {useAppDispatch} from "../../../store/store";
 import {mapboxActions} from "../mapbox.slice";
 import {useSelector} from "react-redux";
-import {getLanguage} from "../../../components/_common/nav-bar/nav-bar.selectors";
+import {getLanguage} from "../../../components/_common/nav-bar/model/nav-bar.selectors";
 
 export const useInitializeMap = ({map, mapboxGL, mapContainer, lng, lat, zoom}) => {
 

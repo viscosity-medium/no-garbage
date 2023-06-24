@@ -1,9 +1,9 @@
-import {SidebarSchema} from "../components/_common/sidebar/sidebar.slice";
-import {FilterSwitchSchema} from "../components/_common/filter-switcher/filter-switcher.slice";
-import {NavbarSchema} from "../components/_common/nav-bar/nav-bar.slice";
+import {SidebarSchema} from "../components/_common/sidebar/model/sidebar.slice";
+import {FilterSwitchSchema} from "../components/_common/filter-switcher/model/filter-switcher.slice";
+import {NavbarSchema} from "../components/_common/nav-bar/model/nav-bar.slice";
 import {PaginationSchema} from "../components/_moderation/pagination-panel/pagination.slice";
-import {ModerationDataWindowSchema} from "../components/_moderation/data-window/data-window.slice";
-import {FilterBlockSchema} from "../components/_map/filters-block/filters-block.slice";
+import {ModerationDataWindowSchema} from "../components/_moderation/data-window/model/data-window.slice";
+import {FilterBlockSchema} from "../components/_map/filters-block/model/filters-block.slice";
 import {
     LocationInfoSidebarSchema
 } from "../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.types";

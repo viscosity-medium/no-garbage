@@ -1,9 +1,9 @@
 import {useEffect} from "react";
 import {useRouter} from "next/router";
 import {useSelector} from "react-redux";
-import {getLanguage} from "../components/_common/nav-bar/nav-bar.selectors";
+import {getLanguage} from "../components/_common/nav-bar/model/nav-bar.selectors";
 import {useAppDispatch} from "../store/store";
-import {navbarActions} from "../components/_common/nav-bar/nav-bar.slice";
+import {navbarActions} from "../components/_common/nav-bar/model/nav-bar.slice";
 
 const useCustomTranslation = () => {
 

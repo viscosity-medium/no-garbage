@@ -1,8 +1,8 @@
-import VStack from "../../../../../_common/flex-stack/v-stack/v-stack";
-import Button from "../../../../../_common/button/button";
+import {VStack} from "../../../../../_common/flex-stack";
+import {Button} from "../../../../../_common/button";
 import colors from "../../../../../../styles/globals/colors";
 import React from "react";
-import Text from "../../../../../_common/text/text";
+import {Text} from "../../../../../_common/text";
 import {useSelector} from "react-redux";
 import {
     getDataStatus,
@@ -115,4 +115,4 @@ const DownInformation = ({map}) => {
     );
 };
 
-export {DownInformation};
+export { DownInformation };

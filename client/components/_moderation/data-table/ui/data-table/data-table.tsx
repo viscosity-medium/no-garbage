@@ -1,21 +1,20 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import TableRow from "../table-row/table-row";
 import {useSelector} from "react-redux";
-import {getFirebaseReports} from "../../../data-window/data-window.selectors";
+import {getFirebaseReports} from "../../../data-window/model/data-window.selectors";
 import {StyledTable, StyledTableBody} from "./table.styled";
-import WindowHeader from "../../../data-window/window-header";
+import {WindowHeader} from "../../../data-window/ui/window-header";
 import {DocumentData} from "firebase/firestore";
-import Loading from "../../../../_common/loading/loading";
-import {PhotoFileList} from "../../../../../utilities/axios-api";
+import {Loading} from "../../../../_common/loading";
 import {TableRowInfo} from "../../model/data-table.helpers";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
-import Text from "../../../../_common/text/text";
+import {HStack} from "../../../../_common/flex-stack";
+import {Text} from "../../../../_common/text";
 
 const DataTable = React.memo(() => {
 
     const firebaseReports = useSelector(getFirebaseReports) || undefined;
     const refHeader = useRef<JSX.Element>(<></>);
-    console.log(firebaseReports)
+
     useEffect(()=>{
         refHeader.current = <WindowHeader/>;
     },[])
@@ -83,4 +82,4 @@ const DataTable = React.memo(() => {
     );
 });
 
-export default DataTable;
+export { DataTable };

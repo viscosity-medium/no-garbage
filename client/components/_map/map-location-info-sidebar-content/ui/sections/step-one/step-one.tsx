@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationInputItem from "./location-input-item";
+import {LocationInputItem} from "./location-input-item";
 import {Switch} from "../../../../../_common/switch";
 import {garbageTypes} from "../../../../../../map/model/mapbox-configs";
 
@@ -22,4 +22,4 @@ const StepOne = ({coordinatesString, locationName}) => {
     );
 };
 
-export {StepOne};
+export { StepOne };

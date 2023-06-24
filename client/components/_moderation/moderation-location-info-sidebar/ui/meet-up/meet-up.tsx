@@ -1,11 +1,10 @@
 import React, {useRef} from 'react';
-import VStack from "../../../../_common/flex-stack/v-stack/v-stack";
-import Text from "../../../../_common/text/text";
+import {Text} from "../../../../_common/text";
 import {Mapbox} from "../../../../../map/ui";
-import {Div} from "../../../../_common/custom-image/custom-div.styled";
-import HStack from "../../../../_common/flex-stack/h-stack/h-stack";
+import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
+import {HStack, VStack} from "../../../../_common/flex-stack";
 import colors from "../../../../../styles/globals/colors";
-import CustomInput from "../../../../_common/custom-input/custom-input";
+import {CustomInput} from "../../../../_common/custom-input";
 
 interface IMeetIp {
     location?: any

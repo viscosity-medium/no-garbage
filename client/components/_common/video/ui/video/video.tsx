@@ -1,6 +1,6 @@
 import React from 'react';
 import {SourceStyled, VideoStyled} from "./video.styled";
-import VStack from "../../../flex-stack/v-stack/v-stack";
+import {VStack} from "../../../flex-stack";
 import colors from "../../../../../styles/globals/colors";
 
 const Video = ({media, width, height, borderRadius}) => {

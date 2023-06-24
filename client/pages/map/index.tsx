@@ -1,8 +1,6 @@
-import FiltersBlock from "../../components/_map/filters-block/filters-block";
 import {Mapbox} from "../../map/ui";
 import colors from "../../styles/globals/colors";
-import {Div} from "../../components/_common/custom-image/custom-div.styled";
-import {LoginModalWindow} from "../../components/_common/login-form";
+import {Div} from "../../components/_common/custom-image/ui/custom-div.styled";
 import React, {useRef, useState} from "react";
 import {LocationInfoSidebar} from "../../components/_common/location-info-sidebar";
 import {useSelector} from "react-redux";
@@ -13,6 +11,7 @@ import {useSwitchMapLocationInfoSidebar} from "./model/hooks/use-switch-map-loca
 import {MapLocationInfoSidebarContent} from "../../components/_map/map-location-info-sidebar-content";
 import {useInitiateMapSessionId} from "./model/hooks/use-initiate-map-session-id";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {FiltersBlock} from "../../components/_map/filters-block";
 
 const MapPage = () => {
 
@@ -49,7 +48,6 @@ const MapPage = () => {
                     />
                 </LocationInfoSidebar>
             </Div>
-            <LoginModalWindow/>
         </>
     );
 };

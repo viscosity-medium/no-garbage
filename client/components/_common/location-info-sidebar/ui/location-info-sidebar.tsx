@@ -5,7 +5,7 @@ import {
     useResizeLocationInfoSidebar
 } from "../../../../pages/map/model/hooks/use-resize-location-info-sidebar";
 import colors from "../../../../styles/globals/colors";
-import {Div} from "../../custom-image/custom-div.styled";
+import {Div} from "../../custom-image/ui/custom-div.styled";
 import {useCloseModalOnEscape} from "../../modal-window/model/modal-window.hooks";
 
 interface LocationInfoSidebarProps {

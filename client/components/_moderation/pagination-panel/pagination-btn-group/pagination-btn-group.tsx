@@ -1,9 +1,8 @@
 import React from 'react';
-import HStack from "../../../_common/flex-stack/h-stack/h-stack";
-import Button from "../../../_common/button/button";
+import {HStack, VStack} from "../../../_common/flex-stack";
+import {Button} from "../../../_common/button";
 import colors from "../../../../styles/globals/colors";
-import Text from "../../../_common/text/text";
-import VStack from "../../../_common/flex-stack/v-stack/v-stack";
+import {Text} from "../../../_common/text";
 import {useDispatch, useSelector} from "react-redux";
 import {paginationActions} from "../pagination.slice";
 import {getCurrentPage} from "../pagination.selectors";

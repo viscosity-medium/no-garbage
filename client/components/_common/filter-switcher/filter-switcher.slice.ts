@@ -18,8 +18,6 @@ const initialState: FilterSwitchSchema = {
     }
 };
 
-
-
 const filterSwitcherSlice = createSlice({
     name: 'filter-switcher',
     initialState,
@@ -27,7 +25,7 @@ const filterSwitcherSlice = createSlice({
         setCurrentFilter: (state, action) => {state.filter = action.payload},
         setCurrentOrder: (state, action) => {state.order = action.payload}
     },
-})
+});
 
 const {
     actions: filterSwitcherActions,

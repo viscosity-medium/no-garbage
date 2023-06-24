@@ -7,10 +7,10 @@ import colors from "../../../styles/globals/colors";
 import {NavButtonsProps} from "../nav-bar/nav-btns/nav-buttons";
 import ProfileImage from "public/assets/main-page/logo.png"
 import {batch, useSelector} from "react-redux";
-import {getLoginData} from "../login-modal-window/model/login-modal-window.selectors";
+import {getLoginData} from "../login-form/model/login-form.selectors";
 import {getUserDataFromLocalStorage} from "../../../hooks/get-user-data-from-local-storage";
 import {useLogOut} from "../../../utilities/use-log-out";
-import {loginModalActions} from "../login-modal-window/model/login-modal-window.slice";
+import {loginFormActions} from "../login-form/model/login-form.slice";
 import {useAppDispatch} from "../../../store/store";
 import {useRouter} from "next/router";
 
@@ -30,10 +30,10 @@ const Profile: FC<NavButtonsProps> = ({fontColor}) => {
             localStorage.removeItem("refreshToken");
         }
         batch(()=>{
-            dispatch(loginModalActions.setAuthModalEmail(""));
-            dispatch(loginModalActions.setAuthModalPassword(""));
-            dispatch(loginModalActions.setAuthModalLoginData(""));
-            dispatch(loginModalActions.setModalLoginState("not-authenticated"))
+            dispatch(loginFormActions.setLoginFormEmail(""));
+            dispatch(loginFormActions.setLoginFormPassword(""));
+            dispatch(loginFormActions.setLoginFormData(""));
+            dispatch(loginFormActions.setLoginFormStatus("not-authenticated"))
         })
 
         if(route === "/moderation") {

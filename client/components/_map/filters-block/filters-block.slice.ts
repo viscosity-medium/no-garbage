@@ -16,7 +16,7 @@ const initialState: FilterBlockSchema = {
     }
 }
 
-const filtersBlockSlice =createSlice({
+const filtersBlockSlice = createSlice({
     name: "filter-block",
     initialState,
     reducers: {

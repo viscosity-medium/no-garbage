@@ -1,15 +1,6 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {firebaseInstance} from "../../../../firebase/firebase-instance";
-
-export interface FetchFirebaseLogin {
-    email: string
-    password: string
-}
-export interface LoginModalSchema extends FetchFirebaseLogin{
-    loginState: "not-authenticated" | "pending" | "success" | "error",
-    loginData: any,
-    visibility: boolean
-}
+import {fetchFirebaseLogin} from "./login-form.async-thunk";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {LoginModalSchema} from "./login-form.types"
 
 const initialState: LoginModalSchema = {
     loginData: undefined,
@@ -19,31 +10,14 @@ const initialState: LoginModalSchema = {
     password: "",
 };
 
-interface LoginResponse {
-    auth?: any
-    name?: string
-    code?: string
-}
-
-const { authenticateUser } = firebaseInstance;
-
-export const fetchFirebaseLogin = createAsyncThunk(
-    "/",
-    async ({email, password}: FetchFirebaseLogin)=> {
-        return await authenticateUser?.({email, password});
-    })
-
 const LoginModalSlice = createSlice({
-    name: "login-modal.slice",
+    name: "login-form",
     initialState,
     reducers: {
-        setAuthModalEmail: (state, action) => {state.email = action.payload},
-        setAuthModalPassword: (state, action) => {state.password = action.payload},
-        setAuthModalLoginData: (state, action) => {state.loginData = action.payload},
-        setModalVisibility: (state) => {
-            state.visibility = !state.visibility;
-        },
-        setModalLoginState: (state, action) => {state.loginState = action.payload},
+        setLoginFormEmail: (state, action) => {state.email = action.payload},
+        setLoginFormPassword: (state, action) => {state.password = action.payload},
+        setLoginFormData: (state, action) => {state.loginData = action.payload},
+        setLoginFormStatus: (state, action) => {state.loginState = action.payload},
     },
     extraReducers: (builder) => {
         builder
@@ -79,11 +53,11 @@ const LoginModalSlice = createSlice({
 });
 
 const {
-    actions: loginModalActions,
-    reducer: loginModalReducer
+    actions: loginFormActions,
+    reducer: loginFormReducer
 } = LoginModalSlice
 
 export {
-    loginModalActions,
-    loginModalReducer
+    loginFormActions,
+    loginFormReducer
 }

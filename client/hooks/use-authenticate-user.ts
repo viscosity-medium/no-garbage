@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {fetchFirebaseLogin} from "../components/_common/login-modal-window/model/login-modal-window.slice";
+import {fetchFirebaseLogin} from "../components/_common/login-form/model/login-form.async-thunk";
 import {useAppDispatch} from "../store/store";
 
 const useAuthenticateUser = () => {

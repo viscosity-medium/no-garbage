@@ -27,7 +27,6 @@ const FiltersBlock = ({map}) => {
                     />
                 ))
             }
-
         </Div>
     );
 };

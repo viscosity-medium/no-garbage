@@ -1,4 +1,4 @@
-import {getLoginEmail, getLoginPassword} from "../../model/login-modal-window.selectors";
+import {getLoginEmail, getLoginPassword} from "../../model/login-form.selectors";
 import {useSelector} from "react-redux";
 import CustomInput from "../../../custom-input/custom-input";
 import Button from "../../../button/button";
@@ -9,7 +9,7 @@ import colors from "../../../../../styles/globals/colors";
 import {FC, useRef} from "react";
 import {loginFormHelpers} from "../../model/login-form.helpers";
 
-const LoginForm: FC = () => {
+const LoginNotAuthContent: FC = () => {
 
     const email = useSelector(getLoginEmail);
     const password = useSelector(getLoginPassword);
@@ -19,7 +19,6 @@ const LoginForm: FC = () => {
         onEmailChange, onPasswordChange,
         onFocusPasswordInput, onAuthenticate, onEnterSubmit
     } = loginFormHelpers({ email, password, passwordInputRef });
-
 
     return (
         <>
@@ -73,4 +72,4 @@ const LoginForm: FC = () => {
     );
 };
 
-export default LoginForm;
+export {LoginNotAuthContent};

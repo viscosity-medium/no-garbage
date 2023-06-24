@@ -72,29 +72,36 @@ export const locationStatusFilter = ({
     }
 };
 
+//
+
 export const litterTypeFilter = ({
     map, filters
 }) => {
 
     const activeLitterTypes = filters["Type of Litter"];
 
-    if(activeLitterTypes.length > 0){
+    if(map.current){
 
-        garbageTypes.forEach(garbageType => {
-            map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "none");
-        });
+        if(activeLitterTypes.length > 0){
 
-        activeLitterTypes.forEach((activeLitterType) => {
-            map?.current?.setLayoutProperty(`${activeLitterType}-points`, "visibility", "visible");
-        });
+            garbageTypes.forEach(garbageType => {
+                map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "none");
+            });
 
-    } else if(activeLitterTypes.length === 0){
+            activeLitterTypes.forEach((activeLitterType) => {
+                map?.current?.setLayoutProperty(`${activeLitterType}-points`, "visibility", "visible");
+            });
 
-        garbageTypes.forEach(garbageType => {
-            map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "visible");
-        });
+        } else if(activeLitterTypes.length === 0){
+
+            garbageTypes.forEach(garbageType => {
+                map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "visible");
+            });
+
+        }
 
     }
+
 };
 
 export const masterFilter = ({

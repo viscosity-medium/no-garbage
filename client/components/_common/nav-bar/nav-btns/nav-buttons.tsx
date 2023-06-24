@@ -5,11 +5,11 @@ import {useTranslation} from "next-i18next";
 import {useCustomTranslation} from "../../../../hooks/use-custom-translation";
 import colors from "../../../../styles/globals/colors";
 import {useAppDispatch} from "../../../../store/store";
-import {loginModalActions} from "../../login-modal-window/model/login-modal-window.slice";
 import Profile from "../../profile/profile";
 import {useSelector} from "react-redux";
-import {getLoginData} from "../../login-modal-window/model/login-modal-window.selectors";
+import {getLoginData} from "../../login-form/model/login-form.selectors";
 import {VerticalDropdownMenu} from "../../dropdown-menu/vertical-dropdown-menu/verticall-dropdown-menu";
+import {switchModalWindowVisibility} from "../../modal-window/model/modal-window.helpers";
 
 export interface NavButtonsProps {
     userData?: any
@@ -21,12 +21,7 @@ const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
     const { t } = useTranslation("main");
     const dispatch = useAppDispatch();
     const profileData = useSelector(getLoginData);
-
-    const showLoginModal = () => {
-        dispatch(loginModalActions.setModalVisibility());
-    };
     const [language, setLanguage]: any = useCustomTranslation();
-
 
     return (
         <HStack
@@ -42,7 +37,7 @@ const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
                     ) : (
                     <Button
                         buttonName={t("login")!}
-                        onClick={showLoginModal}
+                        onClick={()=> switchModalWindowVisibility({dispatch})}
                         width={"126px"}
                         borderRadius={"8px"}
                         color={colors.defaultTextColor}

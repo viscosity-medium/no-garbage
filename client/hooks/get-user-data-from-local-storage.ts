@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {getLoginData} from "../components/_common/login-modal-window/model/login-modal-window.selectors";
+import {getLoginData} from "../components/_common/login-form/model/login-form.selectors";
 
 interface UserDataProps {
     email?

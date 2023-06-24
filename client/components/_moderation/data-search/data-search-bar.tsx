@@ -1,9 +1,8 @@
 import React, {FC} from 'react';
-import {useSelector} from "react-redux";
 import {useAppDispatch} from "../../../store/store";
-import {getSearchBarValue} from "../data-window/data-window.selectors";
 import {moderationDataWindowActions} from "../data-window/data-window.slice";
-import {DataSearchInput, DataSearchWrapper} from "./data-search-bar.styled";
+import {DataSearchWrapper} from "./data-search-bar.styled";
+
 const DataSearchBar: FC = () => {
     const dispatch = useAppDispatch();
 

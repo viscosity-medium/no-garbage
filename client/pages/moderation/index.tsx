@@ -1,5 +1,5 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {LoginModalWindow} from "../../components/_common/login-modal-window";
+import {LoginModalWindow} from "../../components/_common/login-form";
 import {useCheckIsAuth} from "../../hooks/use-check-is-auth";
 import {LocationInfoSidebar} from "../../components/_common/location-info-sidebar";
 import {useState} from "react";

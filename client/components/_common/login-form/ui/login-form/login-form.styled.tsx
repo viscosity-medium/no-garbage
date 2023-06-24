@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-
-const LoginModalWindowStyled =  styled.div`
+const LoginFormStyled =  styled.div`
     padding: 20px;
     position: absolute;
     left: 50%;
@@ -11,10 +10,8 @@ const LoginModalWindowStyled =  styled.div`
     transform: translate(-50%, -50%);
     background-color: #fff;
     border-radius: 25px;
-    
-  
 `
 
 export {
-    LoginModalWindowStyled
+    LoginFormStyled
 }

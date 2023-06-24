@@ -1,11 +1,13 @@
-import {fetchFirebaseLogin, loginModalActions} from "./login-modal-window.slice";
 import {useAppDispatch} from "../../../../store/store";
+import {loginFormActions} from "./login-form.slice";
+import {fetchFirebaseLogin} from "./login-form.async-thunk";
 
 interface LoginFormHelpers {
     email?: string,
     password?: string,
     passwordInputRef?: any
 }
+
 
 const loginFormHelpers = ({
     email,
@@ -16,21 +18,11 @@ const loginFormHelpers = ({
     const dispatch = useAppDispatch();
 
     const onEmailChange = (e) => {
-        dispatch(loginModalActions.setAuthModalEmail(e?.target?.value));
-    };
-
-    const hideLoginModal = () => {
-        dispatch(loginModalActions.setModalVisibility());
-    };
-
-    const onEscapeDown = (loginModalIsVisible) => (e) => {
-        if(e.key === "Escape" && loginModalIsVisible){
-            dispatch(loginModalActions.setModalVisibility());
-        }
+        dispatch(loginFormActions.setLoginFormEmail(e?.target?.value));
     };
 
     const onPasswordChange = (e) => {
-        dispatch(loginModalActions.setAuthModalPassword(e?.target?.value));
+        dispatch(loginFormActions.setLoginFormPassword(e?.target?.value));
     };
 
     const onAuthenticate = async () => {
@@ -51,14 +43,17 @@ const loginFormHelpers = ({
     };
 
     return {
-        hideLoginModal,
-        onEscapeDown,
+
         onEmailChange,
         onPasswordChange,
         onFocusPasswordInput,
         onAuthenticate,
-        onEnterSubmit
+        onEnterSubmit,
     }
+}
+
+export const setLoginNotAuthenticatedState = ({dispatch}) => {
+    dispatch(loginFormActions.setLoginFormStatus("not-authenticated"));
 }
 
 export { loginFormHelpers }

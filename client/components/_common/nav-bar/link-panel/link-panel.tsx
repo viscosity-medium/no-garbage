@@ -6,7 +6,7 @@ import CustomLink from "../../link/custom-link";
 import colors from "../../../../styles/globals/colors";
 import {useAppDispatch} from "../../../../store/store";
 import {useSelector} from "react-redux";
-import {getLoginState} from "../../login-modal-window/model/login-modal-window.selectors";
+import {getLoginState} from "../../login-form/model/login-form.selectors";
 
 interface LinkPanelProps {
     linkHoverFontColor?: string

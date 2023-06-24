@@ -5,6 +5,7 @@ export interface IModalWindow {
     visibility?: string
     opacity?: number
     height?: string
+    width?: string
     zIndex?: number
 }
 export const ModalWindowBackgroundStyled = styled.dialog<IModalWindow>`
@@ -15,9 +16,9 @@ export const ModalWindowBackgroundStyled = styled.dialog<IModalWindow>`
   opacity: ${props => props.opacity};
   left: 0;
   top: 0;
-  width: 100vw;
+  width: ${props => props.width};
   height: ${props => props.height};
   border: none;
   z-index: ${props => props.zIndex};
-  transition: 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 `

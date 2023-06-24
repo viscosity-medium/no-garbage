@@ -1,6 +1,6 @@
 import {useAppDispatch} from "../store/store";
 import {batch} from "react-redux";
-import {loginModalActions} from "../components/_common/login-modal-window/model/login-modal-window.slice";
+import {loginFormActions} from "../components/_common/login-form/model/login-form.slice";
 import {useEffect} from "react";
 
 const useLogOut = () => {
@@ -15,9 +15,9 @@ const useLogOut = () => {
         //     localStorage.removeItem("refreshToken");
         // }
         // batch(()=>{
-        //     dispatch(loginModalActions.setAuthModalEmail(""));
-        //     dispatch(loginModalActions.setAuthModalPassword(""));
-        //     dispatch(loginModalActions.setAuthModalLoginData(""));
+        //     dispatch(loginFormActions.setLoginFormEmail(""));
+        //     dispatch(loginFormActions.setLoginFormPassword(""));
+        //     dispatch(loginFormActions.setLoginFormData(""));
         // })
     },[])
 

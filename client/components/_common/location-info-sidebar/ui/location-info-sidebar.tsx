@@ -1,5 +1,4 @@
 import { batch, useDispatch } from "react-redux";
-import { useCloseModalOnEscape } from "../../../../hooks/use-close-modal-on-escape";
 import React, { FC, ReactNode } from 'react';
 import { moderationLocationInfoSidebarSliceActions } from "../../../_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.slice";
 import {
@@ -7,6 +6,7 @@ import {
 } from "../../../../pages/map/model/hooks/use-resize-location-info-sidebar";
 import colors from "../../../../styles/globals/colors";
 import {Div} from "../../custom-image/custom-div.styled";
+import {useCloseModalOnEscape} from "../../modal-window/model/modal-window.hooks";
 
 interface LocationInfoSidebarProps {
     children: ReactNode

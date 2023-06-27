@@ -2,6 +2,7 @@ export interface IModalContent {
     id: string
     document: any
     description?: string
+    fullDescription?: string
     status?: string
     created?: any
     modified?: any
@@ -16,6 +17,7 @@ export interface IModalContent {
     meetUpDate: string,
     meetUpTime: string,
     meetUpDescription: string,
+    wasteType?: string
 
 }
 

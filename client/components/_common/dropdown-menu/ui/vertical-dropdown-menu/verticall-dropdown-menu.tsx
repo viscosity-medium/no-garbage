@@ -10,6 +10,7 @@ import {CustomHr} from "../../../custom-hr";
 import {batch} from "react-redux";
 import {VStack} from "../../../flex-stack";
 import {useDefineCellTableColor} from "../../../../../hooks/use-define-cell-table-color";
+import {useControlDropDown} from "../../model/dropdown-menu.hooks";
 
 const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
     items,
@@ -20,26 +21,15 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
     buttonHeight = 30
 }) => {
 
-    const borderWidth = 2;
-    const [dropdownState, setDropDownState] = useState<boolean>(false);
-    const [stackHeight, setStackHeight] = useState<string>("0");
-    const [elementOpacity, setElementOpacity] = useState<number>(0);
-
-    const switchDropDownState = () => {
-        setDropDownState(prevState => !prevState);
-    };
-
-    const chooseCurrentItem = (item) => () =>{
-        batch(()=>{
-            setSelectedProperty(item);
-            switchDropDownState();
-        })
-    };
-
-    useEffect(()=> {
-        dropdownState ? setStackHeight(`${items.length * buttonHeight}px`) : setStackHeight("0");
-        dropdownState ? setElementOpacity(1) : setElementOpacity(0);
-    })
+    const {
+        borderWidth, dropdownState,
+        stackLongDimension, elementOpacity,
+        switchDropDownState, chooseCurrentItem
+    } = useControlDropDown({
+        items,
+        buttonSideSize: buttonHeight,
+        setSelectedProperty
+    });
 
     return (
         <Div
@@ -102,7 +92,7 @@ const VerticalDropdownMenu: FC<DropDownMenuProps> = ({
                 <VStack
                     justify={"start"}
                     width={"100%"}
-                    height={stackHeight}
+                    height={stackLongDimension}
                     transition={"height 0.5s, opacity 0.3s"}
                     opacity={elementOpacity}
                 >

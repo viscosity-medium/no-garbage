@@ -8,33 +8,28 @@ import {batch} from "react-redux";
 import {Text} from "../../../text";
 import {CustomImage} from "../../../custom-image";
 import {CustomHr} from "../../../custom-hr";
+import {useControlDropDown} from "../../model/dropdown-menu.hooks";
 
 const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
     items,
     selectedProperty,
     setSelectedProperty,
-    backgroundColorOnHover
+    backgroundColorOnHover,
+    buttonWidth = 70
 }) => {
-    const defaultButtonWidth = "70px";
-    const [dropdownState, setDropDownState] = useState<boolean>(false);
-    const [stackWidth, setStackWidth] = useState<string>("0");
-    const [elementOpacity, setElementOpacity] = useState<number>(0);
 
-    const switchDropDownState = () => {
-        setDropDownState(prevState => !prevState);
-    }
-
-    const chooseCurrentItem = (item) => () =>{
-        batch(()=>{
-            setSelectedProperty(item);
-            switchDropDownState();
-        })
-    };
-
-    useEffect(()=>{
-        dropdownState ? setStackWidth(`${items.length * 70}px`) : setStackWidth("0");
-        dropdownState ? setElementOpacity(1) : setElementOpacity(0);
-    },[dropdownState]);
+    const {
+        borderWidth,
+        dropdownState,
+        stackLongDimension,
+        elementOpacity,
+        switchDropDownState,
+        chooseCurrentItem
+    } = useControlDropDown({
+        items,
+        buttonSideSize: buttonWidth,
+        setSelectedProperty
+    })
 
     return(
         <Div
@@ -42,7 +37,7 @@ const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
             height={"36px"}
             width={"auto"}
             position={"relative"}
-            border={`solid 2px ${colors.tableCellBorder}`}
+            border={`solid ${borderWidth}px ${colors.tableCellBorder}`}
             borderRadius={"8px"}
             overflow={"hidden"}
         >
@@ -84,7 +79,7 @@ const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
                 />
                 <HStack
                     justify={"flex-start"}
-                    width={stackWidth}
+                    width={stackLongDimension}
                     transition={"width 0.5s, opacity 0.3s"}
                     opacity={elementOpacity}
                 >
@@ -93,7 +88,7 @@ const HorizontalDropdownMenu: FC<DropDownMenuProps> = ({
                             return (
                                 <Button
                                     key={item}
-                                    width={defaultButtonWidth}
+                                    width={`${buttonWidth}px`}
                                     height={"auto"}
                                     backgroundColorOnHover={backgroundColorOnHover}
                                     onClick={chooseCurrentItem(item)}

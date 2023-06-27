@@ -36,12 +36,14 @@ const LoginNotAuthContent: FC = () => {
                     <Text tag={"span"} text={"Email"} size={"18px"}/>
                     <CustomInput
                         value={email}
+                        id={"email"}
+                        name={"email"}
                         type={"email"}
+                        autoComplete={"on"}
                         onChange={onEmailChange}
                         onEnter={onFocusPasswordInput}
                         width={"300px"}
                     />
-
                 </HStack>
                 <HStack
                     justify={"space-between"}

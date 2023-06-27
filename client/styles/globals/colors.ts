@@ -16,6 +16,7 @@ const colors = {
     pastelGreen: "#81E87E",
     myrtleGreen: "#1C767B",
     terraCotta: "#DF6F5D",
+    darkGreen: "#389277",
     veryDarkGreen: "#005744",
     opaqueVeryDarkGreen: "rgba(0,87,68,0.6)",
     brightLime: "#e2fc47",

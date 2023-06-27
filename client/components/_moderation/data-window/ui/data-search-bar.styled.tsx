@@ -4,7 +4,7 @@ import colors from "../../../../styles/globals/colors";
 export const DataSearchInput = styled.input`
   margin: 12px 0 12px 40px;
   padding-left: 20px;
-  width: 520px;
+  width: 27vw;
   height: 40px;
   background: ${colors.white};
   border-radius: 14px;

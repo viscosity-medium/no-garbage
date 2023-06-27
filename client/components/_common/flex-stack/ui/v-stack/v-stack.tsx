@@ -10,6 +10,7 @@ const VStack: FC<IStack> = ({
     justify,
     align,
     overflow,
+    minWidth,
     width = "auto",
     height= "auto",
     children,
@@ -35,6 +36,7 @@ const VStack: FC<IStack> = ({
             align={align}
             overflow={overflow}
             width={width}
+            minWidth={minWidth}
             height={height}
             margin={margin}
             padding={padding}

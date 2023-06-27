@@ -1,12 +1,12 @@
 import {useEffect} from "react";
 
-type TUseDebounce = (args: IUseDebounce) => void
-interface IUseDebounce {
+type UseDebounce = (args: DebounceProps) => void
+interface DebounceProps {
     callback: () => void
     delay: number
     deps?: any[]
 }
-export const useDebounce:TUseDebounce =({callback, delay, deps= []}) => {
+export const useDebounce:UseDebounce =({callback, delay, deps= []}) => {
     useEffect(
         () => {
             const handler = setTimeout(() => {

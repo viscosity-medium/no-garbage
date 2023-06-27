@@ -7,11 +7,13 @@ import {Sidebar} from "../../components/_common/sidebar";
 import {HStack} from "../../components/_common/flex-stack";
 import colors from "../../styles/globals/colors";
 import {ModalWindowContent} from "../../components/_moderation/moderation-location-info-sidebar";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
     getModalVisibility
 } from "../../components/_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.selectors";
 import {DataWindow} from "../../components/_moderation/data-window";
+import {onEscapeFunction} from "./model/moderation-page.helpers";
+import {useResetModerationPage} from "./model/moderation-page.hooks";
 
 interface Tokens {
     accessToken: string | undefined | null
@@ -20,6 +22,7 @@ interface Tokens {
 
 const ModerationPage = () => {
 
+    const dispatch = useDispatch();
     const [modalWindowHeight, setModalWindowHeight] = useState(0);
     const modalVisibility = useSelector(getModalVisibility);
     const [tokens, setTokens] = useState<Tokens>({
@@ -28,6 +31,7 @@ const ModerationPage = () => {
     });
 
     useCheckIsAuth({ setTokens });
+    useResetModerationPage();
 
     return (
         <>
@@ -59,6 +63,7 @@ const ModerationPage = () => {
                                visibility={modalVisibility}
                                modalWindowHeight={`${modalWindowHeight}px`}
                                setModalWindowHeight={setModalWindowHeight}
+                               onEscapeFunction={() => onEscapeFunction({dispatch})}
                            >
                                <ModalWindowContent/>
                            </LocationInfoSidebar>
@@ -67,9 +72,7 @@ const ModerationPage = () => {
                 )  : <></>
             }
         </>
-
     )
-
 };
 
 export async function getStaticProps({ locale }: any) {

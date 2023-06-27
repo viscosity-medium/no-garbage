@@ -21,7 +21,7 @@ export const axiosMultipartInstance = axios.create({
             "Access-Control-Allow-Methods": "*",
             "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
         }
-})
+});
 
 export const axiosStreamInstance = axios.create({
     baseURL: 'http://localhost:4142/server-api',
@@ -33,13 +33,4 @@ export const axiosStreamInstance = axios.create({
             "Access-Control-Allow-Methods": "*",
             "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
         }
-})
-
-export const onAxiosUploadHandler = {
-    onUploadProgress: (progressEvent) => {
-        const percentCompleted = (progressEvent.loaded / progressEvent.total) * 100
-        console.log(percentCompleted)
-        // if(percentCompleted === 100){
-        // }
-    }
-}
+});

@@ -14,6 +14,7 @@ interface LocationInfoSidebarProps {
     modalWindowHeight: string
     setModalWindowHeight: any
     className?: string
+    onEscapeFunction: () => void
 }
 
 const LocationInfoSidebar: FC<LocationInfoSidebarProps> = ({
@@ -21,17 +22,14 @@ const LocationInfoSidebar: FC<LocationInfoSidebarProps> = ({
     visibility,
     modalWindowHeight,
     setModalWindowHeight,
+    onEscapeFunction,
     className
 }) => {
 
     const right = visibility ? "0" : "-460px";
-    const dispatch = useDispatch();
     const onEscapeDown = (e) => {
         if( e.key === "Escape" && visibility){
-            batch(()=>{
-                dispatch(moderationLocationInfoSidebarSliceActions.setVisibility());
-                dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(undefined));
-            });
+            onEscapeFunction()
         }
     };
 
@@ -46,7 +44,7 @@ const LocationInfoSidebar: FC<LocationInfoSidebarProps> = ({
             overflow={"scroll"}
             overflowX={"hidden"}
             position={"absolute"}
-            zIndex={10}
+            zIndex={12}
             zIndexAfter={-1}
             width={"460px"}
             height={modalWindowHeight || "100vh"}

@@ -9,6 +9,7 @@ export interface IContextProviderValue {
     firestore: any | undefined
     authenticateUser: (({ email, password }: { email: any, password: any }) => Promise<void>) | undefined
     reportsRef: CollectionReference<DocumentData> | undefined
+    reportsCountPromise: Promise<number> | undefined
     userProviderRef: CollectionReference<DocumentData> | undefined
     dynamicInfoRef: CollectionReference<DocumentData> | undefined
     reportsQuery: any | undefined
@@ -22,6 +23,7 @@ const contextValue: IContextProviderValue = {
     firestore: undefined,
     authenticateUser: undefined,
     reportsRef: undefined,
+    reportsCountPromise: undefined,
     userProviderRef: undefined,
     dynamicInfoRef: undefined,
     reportsQuery: undefined,

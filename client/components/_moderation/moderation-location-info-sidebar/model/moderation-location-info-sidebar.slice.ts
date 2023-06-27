@@ -9,6 +9,7 @@ const initialState: ModerationLocationInfoSidebarSchema = {
         id: "",
         document: "",
         description: "",
+        fullDescription: "",
         status: "",
         created: "",
         modified: "",
@@ -23,6 +24,7 @@ const initialState: ModerationLocationInfoSidebarSchema = {
         meetUpDate: "",
         meetUpTime: "",
         meetUpDescription: "",
+        wasteType: ""
     },
     chosenPhoto: {
         id: "",

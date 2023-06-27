@@ -1,7 +1,7 @@
 import React from 'react';
 import {LocationInputItem} from "./location-input-item";
 import {Switch} from "../../../../../_common/switch";
-import {garbageTypes} from "../../../../../../map/model/mapbox-configs";
+import {wasteTypes} from "../../../../../../map/model/mapbox-configs";
 
 const StepOne = ({coordinatesString, locationName}) => {
 
@@ -17,7 +17,7 @@ const StepOne = ({coordinatesString, locationName}) => {
                 inputValue={locationName}
                 description={"Please choose the exact or nearest place"}
             />
-            <Switch items={garbageTypes}/>
+            <Switch items={wasteTypes}/>
         </>
     );
 };

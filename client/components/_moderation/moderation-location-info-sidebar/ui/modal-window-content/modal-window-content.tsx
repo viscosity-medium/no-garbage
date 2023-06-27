@@ -12,9 +12,13 @@ import colors from "../../../../../styles/globals/colors";
 import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {Text} from "../../../../_common/text";
 import {useAppDispatch} from "../../../../../store/store";
-import {getFilterValue, getOrderValue} from "../../../../_common/filter-switcher/model/filter-switch.selectors";
-import {getPaginationQuantity} from "../../../pagination-panel/pagination.selectors";
-import {getSearchBarValue} from "../../../data-window/model/data-window.selectors";
+import {getFilterValue, getOrderValue} from "../../../../_common/filter-switch/model/filter-switch.selectors";
+import {getPaginationDirection, getPaginationQuantity} from "../../../pagination-panel/model/pagination.selectors";
+import {
+    getFirstVisibleDoc,
+    getLastVisibleDoc,
+    getSearchBarValue
+} from "../../../data-window/model/data-window.selectors";
 
 interface IModalWindowContent {
     children?: ReactNode
@@ -22,17 +26,18 @@ interface IModalWindowContent {
 
 const ModalWindowContent: FC<IModalWindowContent> = () => {
 
+    const dispatch = useAppDispatch();
+    const [media, setMedia] = useState<string[]>([])
+    const paginationDirection = useSelector(getPaginationDirection);
     const paginationQuantity = useSelector(getPaginationQuantity);
     const saveButtonState = useSelector(getSaveButtonState);
+    const firstDoc = useSelector(getFirstVisibleDoc);
+    const lastDoc = useSelector(getLastVisibleDoc);
     const searchBarValue = useSelector(getSearchBarValue);
     const modalForm = useSelector(getModalContent);
     const filter = useSelector(getFilterValue);
     const order = useSelector(getOrderValue);
-
-    const location = modalForm?.location
-
-    const dispatch = useAppDispatch();
-    const [media, setMedia] = useState<string[]>([])
+    const location = modalForm?.location;
 
 
     // useEffect(()=>{
@@ -109,8 +114,9 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
                 borderRadius={"15px"}
                 onClick={
                     clickSaveButton({
-                        dispatch, modalForm, filter, order,
-                        paginationQuantity, searchBarValue
+                        dispatch, modalForm, filter, order, firstDoc,
+                        paginationQuantity, searchBarValue, lastDoc,
+                        paginationDirection
                     })
                 }
             >

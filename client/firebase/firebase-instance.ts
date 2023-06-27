@@ -1,4 +1,12 @@
-import {collection, doc, Firestore, getFirestore, query} from "firebase/firestore";
+import {
+    collection,
+    CollectionReference,
+    doc, DocumentData,
+    Firestore,
+    getCountFromServer,
+    getFirestore,
+    query
+} from "firebase/firestore";
 import {FirebaseApp, initializeApp} from "firebase/app";
 import {authenticateFirebaseUser} from "./authenticate-firebase-user";
 import {IContextProviderValue} from "../context/context";
@@ -9,6 +17,11 @@ const firebase: FirebaseApp = initializeApp(firebaseDevConfig);
 const auth: Auth = getAuth(firebase);
 const firestore: Firestore = getFirestore(firebase);
 const reportsRef = collection(firestore, "reports");
+const reportsCountPromise = (async() => await getCountFromServer(reportsRef)
+    .then(
+        data => data.data().count
+    )
+)();
 const dynamicInfoRef = collection(firestore, "dynamic_info");
 const userProviderRef = collection(firestore, "user_providers");
 const usersDocRef = doc(firestore!, "user_providers", "password")
@@ -22,6 +35,7 @@ const firebaseInstance: IContextProviderValue = {
     authenticateUser,
     firestore,
     reportsRef,
+    reportsCountPromise,
     userProviderRef,
     dynamicInfoRef,
     reportsQuery,

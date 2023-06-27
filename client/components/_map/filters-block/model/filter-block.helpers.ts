@@ -1,4 +1,4 @@
-import {garbageTypes} from "../../../../map/model/mapbox-configs";
+import {wasteTypes} from "../../../../map/model/mapbox-configs";
 
 export const locationStatusFilter = ({
     map,
@@ -29,7 +29,7 @@ export const locationStatusFilter = ({
 
         }).filter(feature => feature);
 
-        garbageTypes.forEach(garbageType => {
+        wasteTypes.forEach(garbageType => {
 
             const filteredPoints = filteredData.map(feature => {
                 if(feature.properties.waste_type === garbageType){
@@ -46,7 +46,7 @@ export const locationStatusFilter = ({
 
     } else if (activeLocationStatus.length === 0) {
 
-        garbageTypes.forEach(garbageType => {
+        wasteTypes.forEach(garbageType => {
 
             // @ts-ignore
             const filteredPoints = mapboxGeoJsonData?.features?.map((feature)  => {
@@ -84,7 +84,7 @@ export const litterTypeFilter = ({
 
         if(activeLitterTypes.length > 0){
 
-            garbageTypes.forEach(garbageType => {
+            wasteTypes.forEach(garbageType => {
                 map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "none");
             });
 
@@ -94,7 +94,7 @@ export const litterTypeFilter = ({
 
         } else if(activeLitterTypes.length === 0){
 
-            garbageTypes.forEach(garbageType => {
+            wasteTypes.forEach(garbageType => {
                 map?.current?.setLayoutProperty(`${garbageType}-points`, "visibility", "visible");
             });
 

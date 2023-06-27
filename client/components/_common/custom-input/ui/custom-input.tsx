@@ -4,6 +4,8 @@ import {InputStyled} from "./input.styled";
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange">
 
 export interface InputProps extends HTMLInputProps {
+    id?: string
+    name?: string
     className?: string
     display?: string
     value?: string
@@ -19,15 +21,19 @@ export interface InputProps extends HTMLInputProps {
     borderRadius?: string
     caretColor?: string;
     accept?: string
+    autoComplete?: string
 }
 const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref<HTMLInputElement> ) {
 
     const {
+        id,
+        name,
         value,
         display,
         onChange,
         onEnter,
         type="text",
+        autoComplete,
         width,
         height,
         fontSize,
@@ -50,12 +56,14 @@ const CustomInput = forwardRef( function CustomInput( props:InputProps, ref: Ref
         }
     }
 
-
     return (
         <InputStyled
             display={display}
             value={value}
+            id={id}
+            name={name}
             ref={ref}
+            autoComplete={autoComplete}
             onChange={onChangeHandler}
             onKeyDown={onEnterHandler}
             type={type}

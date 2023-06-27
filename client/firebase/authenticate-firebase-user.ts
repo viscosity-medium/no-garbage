@@ -11,4 +11,5 @@ export const authenticateFirebaseUser = ({auth}) => async ({email, password})  =
     .catch((error) => {
         return error
     })
+
 }

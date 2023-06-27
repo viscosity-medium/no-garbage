@@ -1,7 +1,4 @@
 import {mapboxMarkerLayerConfig, mapboxSingleFeature, markerTypes} from "./mapbox-configs";
-import DefaultMarker from "../ui/marker/marker.svg"
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {mapboxApi} from "../../utilities/mapbox-api";
 import {useSelector} from "react-redux";
 import {getMapboxGeoJsonData} from "./mapbox.selectors";
 

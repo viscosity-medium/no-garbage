@@ -18,7 +18,7 @@ const useSetMapMarkers = ({map}) => {
         (async ()=>{
 
             const data: any = await dispatch(fetchMapboxGeoJson());
-            const geoJsonData = data.payload.mapboxGeoJsonData.data;
+            const geoJsonData = data?.payload?.mapboxGeoJsonData.data;
 
             await loadMapboxMarkers({
                 map,

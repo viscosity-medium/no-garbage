@@ -45,6 +45,15 @@ class FirebaseController {
 
     }
 
+    async updateFirebaseReportAndGeoJson(req: Request, res: Response){
+
+        const {modalForm} = req.body;
+        const response = await firebaseServices.updateFirebaseReportAndGeoJson({modalForm});
+
+        return res.json(response);
+
+    }
+
 }
 
 const firebaseController = new FirebaseController();

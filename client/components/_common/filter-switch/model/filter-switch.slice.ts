@@ -10,7 +10,7 @@ export interface FilterSwitchSchema {
 const initialState: FilterSwitchSchema = {
     allFilters: ["created_on", "status", "description"],
     filter: "created_on",
-    order: "asc",
+    order: "desc",
     types: {
         created_on: "DateAdded",
         status: "Status",
@@ -18,7 +18,7 @@ const initialState: FilterSwitchSchema = {
     }
 };
 
-const filterSwitcherSlice = createSlice({
+const filterSwitchSlice = createSlice({
     name: 'filter-switcher',
     initialState,
     reducers: {
@@ -30,7 +30,7 @@ const filterSwitcherSlice = createSlice({
 const {
     actions: filterSwitcherActions,
     reducer: filterSwitcherReducer
-} = filterSwitcherSlice
+} = filterSwitchSlice
 
 export {
     filterSwitcherActions,

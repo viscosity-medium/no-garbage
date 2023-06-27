@@ -10,20 +10,28 @@ import {store} from "../store/store";
 import '../styles/globals.css';
 import "../default.scss";
 import {Layout} from "../components/_layout/layout";
+import {SessionProvider} from "../configs/providers";
 
-const App: FC<AppProps> = ({ Component, pageProps }) => {
+const App: FC<AppProps> = ({
+    Component,
+    pageProps: {session, ...pageProps} ,
+
+}) => {
     const {passedColors} = pageProps;
+    console.log(session)
     return (
         <>
-            <Provider store={store}>
-                <Context.Provider
-                    value={ firebaseInstance }
-                >
-                    <Layout passedColors={passedColors}>
-                        <Component { ...pageProps } />
-                    </Layout>
-                </Context.Provider>
-            </Provider>
+            <SessionProvider session={session}>
+                <Provider store={store}>
+                    <Context.Provider
+                        value={ firebaseInstance }
+                    >
+                        <Layout passedColors={passedColors}>
+                            <Component { ...pageProps } />
+                        </Layout>
+                    </Context.Provider>
+                </Provider>
+            </SessionProvider>
         </>
     )
 }

@@ -12,6 +12,7 @@ const VStackStyled = styled.div<IStack>`
     flex-grow: ${props => props.wrap};
     width: ${props => props.width};
     height: ${props => props.height};
+    min-width: ${props => props.minWidth};
     margin: ${props => props.margin};
     padding: ${props => props.padding};
     text-align: ${props => props.textAlign};

@@ -6,5 +6,6 @@ export interface DropDownMenuProps {
     selectedProperty: string
     setSelectedProperty: Dispatch<SetStateAction<string>>
     buttonHeight?: number
+    buttonWidth?: number
     backgroundColorOnHover?: string
 }

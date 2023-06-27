@@ -3,7 +3,7 @@ import {
     axiosInstance,
     axiosMultipartInstance,
     axiosStreamInstance,
-    onAxiosUploadHandler
+
 } from "../configs/axios-config";
 
 interface BucketListProperties {

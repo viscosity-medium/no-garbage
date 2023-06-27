@@ -1,6 +1,5 @@
 import NextNProgress from 'nextjs-progressbar';
-import colors from "../../../../styles/globals/colors";
 
-export const PageProgressBar = () => {
-    return <NextNProgress height={6} color={colors.mediumGrey} showOnShallow={true} />;
+export const PageProgressBar = ({progressBarColor}) => {
+    return <NextNProgress height={6} color={progressBarColor} showOnShallow={true} />;
 }

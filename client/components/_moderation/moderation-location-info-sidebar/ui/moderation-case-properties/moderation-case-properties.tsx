@@ -6,9 +6,9 @@ import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {reportsStatuses} from "../../../reports-statuses/reports-statuses";
 import {CustomInput} from "../../../../_common/custom-input";
 import colors from "../../../../../styles/globals/colors";
+import {wasteTypes} from "../../../../../map/model/mapbox-configs";
 
 const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
-
 
     return (
         <>
@@ -181,7 +181,7 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     >
                         <Div
                             position={"relative"}
-                            zIndex={2}
+                            zIndex={3}
                             width={"100%"}
                             height={"100%"}
                             overflow={"nones"}
@@ -204,25 +204,29 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                         height={"40px"}
                         margin={"5px 0"}
                     >
-                        <CustomInput
-                            value={
-                                modalForm?.wasteType ?
-                                    modalForm?.wasteType :
-                                    "Common waste"
-                            }
-                            onChange={
-                                changeModalForm({
-                                    changedValue: "wasteType",
-                                    inputType: "input"
-                                })
-                            }
+                        <Div
+                            position={"relative"}
+                            zIndex={2}
                             width={"100%"}
                             height={"100%"}
-                            fontSize={"14px"}
-                            border={"none"}
-                            borderRadius={"8px"}
-                            backgroundColor={colors.middleGrey}
-                        />
+                            overflow={"nones"}
+                        >
+                            <VerticalDropdownMenu
+                                position={"absolute"}
+                                items={wasteTypes}
+                                selectedProperty={
+                                    modalForm?.wasteType ?
+                                        modalForm?.wasteType :
+                                        "Common waste"
+                                }
+                                setSelectedProperty={
+                                    changeModalForm({
+                                        changedValue: "wasteType",
+                                        inputType: "select"
+                                    })
+                                }
+                            />
+                        </Div>
                     </VStack>
                     <VStack
                         justify={"center"}

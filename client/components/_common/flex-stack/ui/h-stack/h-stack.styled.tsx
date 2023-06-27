@@ -11,6 +11,7 @@ export interface IStack {
     onClick?: (e: any) => void
     width?: string
     height?: string
+    minWidth?: string
     margin?: string
     padding?: string
     textAlign?: string

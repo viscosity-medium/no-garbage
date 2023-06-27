@@ -36,6 +36,7 @@ const DataTable = React.memo(() => {
                                             id: document.id || "",
                                             document: document,
                                             description: document?.description || "",
+                                            fullDescription: document?.full_description || "",
                                             status: document?.status || "",
                                             wasteType: document?.waste_type || "",
                                             community: document?.community || "",

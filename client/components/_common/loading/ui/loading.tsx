@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import Dot from "./dot/dot";
+import Contour from "./img/contour.svg";
 import cls from "./loading.module.scss";
 import clsSub from "./dot/dot.module.scss";
 const Loading: FC = () => {
@@ -13,8 +14,9 @@ const Loading: FC = () => {
                 <Dot dotClass={clsSub.dot4}/>
                 <Dot dotClass={clsSub.dot5}/>
                 <Dot dotClass={clsSub.dot6}/>
-                <div className={cls.contour}>
-                </div>
+                <Contour
+                    className={cls.contour}
+                />
             </div>
             <h4 className={cls["loading-text"]}>Страница загружается</h4>
         </div>

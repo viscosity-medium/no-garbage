@@ -1,7 +1,12 @@
 import {IFirebaseInstance} from "../types/firebase-types";
 import {firebaseInstance} from "../firebase/firebase-instance";
-import {deleteDoc, doc, getDocs, query, setDoc} from "firebase/firestore";
+import {deleteDoc, doc, getDocs, query, setDoc, updateDoc} from "firebase/firestore";
 import {createGeoJsonFeatureSchema, GeoJsonFeatureSchema} from "../firebase/firebase-schemas";
+import {
+    createFireBaseGeoJsonDoc,
+    createFirebaseReportDoc,
+    getOnlyEditedValuesFromModalFormData
+} from "../utilities/firebase-utilities";
 
 
 interface GetAllFirebaseDocuments {
@@ -105,11 +110,25 @@ class FirebaseServices {
             })
 
         }
+        return geoJsonFeatures;
+    };
 
+    async updateFirebaseReportAndGeoJson({modalForm}){
 
-        console.log(geoJsonFeatures.length)
-        return geoJsonFeatures
-    }
+        const db = this.firebaseInstance.firestore;
+        const reportData = createFirebaseReportDoc({ modalForm });
+        const geoJson = createFireBaseGeoJsonDoc({modalForm})
+        const reportRef = doc(db, "reports", modalForm.id);
+        const geoJsonRef = doc(db, "geo_json_features", modalForm.id);
+
+        await updateDoc(reportRef, reportData);
+        await updateDoc(geoJsonRef, geoJson);
+
+        return {
+            data: "success"
+        };
+
+    };
 
 }
 

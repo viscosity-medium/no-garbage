@@ -12,6 +12,8 @@ const systemVariables = {
     firebaseDevAppId: process.env.NEXT_PUBLIC_FIREBASE_DEV_APP_ID!,
     firebaseDevMessagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_DEV_MESSAGING_SENDER_ID!,
     firebaseDevMeasurementId: process.env.NEXT_PUBLIC_FIREBASE_DEV_MEASUREMENT_ID!,
+    firebaseDevWebClientId: process.env.NEXT_PUBLIC_FIREBASE_DEV_WEB_CLIENT_ID!,
+    firebaseDevWebClientSecret: process.env.NEXT_PUBLIC_FIREBASE_DEV_WEB_CLIENT_SECRET!,
 
     //mapbox
     mapboxAccessToken: process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!,

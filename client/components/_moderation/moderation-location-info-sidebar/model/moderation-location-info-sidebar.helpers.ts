@@ -1,8 +1,10 @@
-import {fetchFirebaseReports} from "../../data-window/model/data-window.slice";
-import {updateFirebaseReport} from "../../../../firebase/update-firebase-report";
+
+import {updateFirebaseReportAndGeoJson} from "../../../../firebase/update-firebase-report-and-geo-json";
 import {moderationLocationInfoSidebarSliceActions} from "./moderation-location-info-sidebar.slice";
 import colors from "../../../../styles/globals/colors";
 import {batch} from "react-redux";
+import {fetchFirebaseReports} from "../../data-window/model/data-window.async-thunks";
+import {paginationActions} from "../../pagination-panel/model/pagination.slice";
 
 const changeModalForm = ({dispatch, modalForm}) => ({
     changedValue,
@@ -42,10 +44,17 @@ const hideModalWindow = ({dispatch}) => () => {
 
 };
 
-const clickSaveButton = ({dispatch, modalForm, filter, order, paginationQuantity, searchBarValue}) => async () => {
+const clickSaveButton = ({
+    dispatch, modalForm, filter, order, paginationDirection,
+    paginationQuantity, searchBarValue, firstDoc, lastDoc
+}) => async () => {
 
-    await updateFirebaseReport({ modalForm })
-    await dispatch(fetchFirebaseReports({filter, order, paginationQuantity, searchBarValue}));
+    await dispatch(paginationActions.setPaginationDirection("save"));
+    await updateFirebaseReportAndGeoJson({ modalForm });
+    await dispatch(fetchFirebaseReports({
+        filter, order, paginationQuantity, firstDoc,
+        searchBarValue, paginationDirection: "save", lastDoc
+    }));
     dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
         text: "Changes saved!",
         isActive: false,

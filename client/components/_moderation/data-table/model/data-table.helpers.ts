@@ -6,9 +6,9 @@ import colors from "../../../../styles/globals/colors";
 export interface TableRowInfo {
     id: any,
     document: any,
-    description: any,
+    description: string,
+    fullDescription?: string
     status: any,
-    wasteType: any,
     community: any,
     announcement: any,
     created: any,
@@ -20,6 +20,7 @@ export interface TableRowInfo {
     meetUpDate: any,
     meetUpTime: any,
     meetUpDescription: any,
+    wasteType: string
 }
 
 const onTableRowClickHandler = ({
@@ -33,7 +34,9 @@ const onTableRowClickHandler = ({
         status, created, modified,
         community, announcement,
         location, photos, videos,
-        meetUpDate, meetUpTime, meetUpDescription
+        meetUpDate, meetUpTime,
+        meetUpDescription, fullDescription,
+        wasteType
     }: TableRowInfo = tableRowInfo;
 
     const dateAdded = created ? new Date(created * 1000).toLocaleDateString("en-US", dateOptions) : "————";
@@ -44,9 +47,10 @@ const onTableRowClickHandler = ({
         dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(photos[0]));
         dispatch(moderationLocationInfoSidebarSliceActions.setContent({
             id, document, description,
+            fullDescription,
             status, community,
             created: dateAdded,
-            modified: dateModified,
+            modified: dateModified, wasteType,
             announcement, photos, location, videos,
             meetUpDate, meetUpTime, meetUpDescription
         }));

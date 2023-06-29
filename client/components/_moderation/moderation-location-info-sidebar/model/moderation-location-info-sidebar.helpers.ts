@@ -45,15 +45,14 @@ const hideModalWindow = ({dispatch}) => () => {
 };
 
 const clickSaveButton = ({
-    dispatch, modalForm, filter, order, paginationDirection,
+    dispatch, modalForm, filter, order,
     paginationQuantity, searchBarValue, firstDoc, lastDoc
 }) => async () => {
 
-    await dispatch(paginationActions.setPaginationDirection("save"));
     await updateFirebaseReportAndGeoJson({ modalForm });
     await dispatch(fetchFirebaseReports({
         filter, order, paginationQuantity, firstDoc,
-        searchBarValue, paginationDirection: "save", lastDoc
+        searchBarValue, lastDoc
     }));
     dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
         text: "Changes saved!",

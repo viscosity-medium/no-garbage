@@ -7,7 +7,6 @@ export const onClickPrevPage = (props) => {
 
     if(currentPage > 1){
         dispatch(paginationActions.setCurrentPage(currentPage - 1));
-        dispatch(paginationActions.setPaginationDirection("prev"));
     }
 
 };
@@ -20,7 +19,6 @@ export const onClickNextPage = (props) => {
         batch(()=>{
 
             dispatch(paginationActions.setCurrentPage(currentPage + 1));
-            dispatch(paginationActions.setPaginationDirection("next"));
 
         });
     }

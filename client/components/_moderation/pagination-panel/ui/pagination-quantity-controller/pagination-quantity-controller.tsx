@@ -12,7 +12,6 @@ const PaginationQuantityController = () => {
     const paginationQuantity = useSelector(getPaginationQuantity);
     const setSelectedProperty = (quantity) => {
 
-        dispatch(paginationActions.setPaginationDirection("freeze"));
         dispatch(paginationActions.setPaginationQuantity(quantity));
         dispatch(paginationActions.setCurrentPage(1));
 

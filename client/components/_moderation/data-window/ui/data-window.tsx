@@ -9,7 +9,6 @@ import {batch, useSelector} from "react-redux";
 import {getFilterValue, getOrderValue} from "../../../_common/filter-switch/model/filter-switch.selectors";
 import {
     getCurrentPage,
-    getPaginationDirection,
     getPaginationQuantity
 } from "../../pagination-panel/model/pagination.selectors";
 import {getFirstVisibleDoc, getLastVisibleDoc, getSearchBarValue} from "../model/data-window.selectors";
@@ -29,7 +28,6 @@ const DataWindow = () => {
     const dispatch = useAppDispatch();
     const filter = useSelector(getFilterValue);
     const order = useSelector(getOrderValue);
-    const paginationDirection = useSelector(getPaginationDirection);
     const currentPage = useSelector(getCurrentPage);
     const firstDoc = useSelector(getFirstVisibleDoc);
     const lastDoc = useSelector(getLastVisibleDoc);
@@ -39,7 +37,6 @@ const DataWindow = () => {
     const dataSearchInputHandler = (e: any) => {
         if(e?.target){
             batch(()=>{
-                dispatch(paginationActions.setPaginationDirection("freeze"));
                 dispatch(moderationDataWindowActions.setSearchBarText(e.target.value));
             });
         }
@@ -49,7 +46,7 @@ const DataWindow = () => {
         async () => {
             await dispatch(fetchFirebaseReports({
                 filter, order, paginationQuantity, firstDoc,
-                searchBarValue, paginationDirection, lastDoc
+                searchBarValue, lastDoc, currentPage
             }));
         },
         [filter, order, paginationQuantity, searchBarValue, currentPage]

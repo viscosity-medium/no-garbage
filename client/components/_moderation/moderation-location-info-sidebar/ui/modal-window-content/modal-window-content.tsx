@@ -13,7 +13,7 @@ import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {Text} from "../../../../_common/text";
 import {useAppDispatch} from "../../../../../store/store";
 import {getFilterValue, getOrderValue} from "../../../../_common/filter-switch/model/filter-switch.selectors";
-import {getPaginationDirection, getPaginationQuantity} from "../../../pagination-panel/model/pagination.selectors";
+import {getPaginationQuantity} from "../../../pagination-panel/model/pagination.selectors";
 import {
     getFirstVisibleDoc,
     getLastVisibleDoc,
@@ -28,7 +28,6 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
 
     const dispatch = useAppDispatch();
     const [media, setMedia] = useState<string[]>([])
-    const paginationDirection = useSelector(getPaginationDirection);
     const paginationQuantity = useSelector(getPaginationQuantity);
     const saveButtonState = useSelector(getSaveButtonState);
     const firstDoc = useSelector(getFirstVisibleDoc);
@@ -38,7 +37,6 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
     const filter = useSelector(getFilterValue);
     const order = useSelector(getOrderValue);
     const location = modalForm?.location;
-
 
     // useEffect(()=>{
     //     dispatch(moderationLocationInfoSidebarSliceActions.setContent(initializeModalForm({content})));
@@ -116,7 +114,6 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
                     clickSaveButton({
                         dispatch, modalForm, filter, order, firstDoc,
                         paginationQuantity, searchBarValue, lastDoc,
-                        paginationDirection
                     })
                 }
             >

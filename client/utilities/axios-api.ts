@@ -76,29 +76,34 @@ class AxiosApi {
             wasteType = "Common waste"
         } = urlParams;
 
-        const params = new URLSearchParams();
         const coordinates = {
             lat: userMarkerProperties.coordinates[0],
             lon: userMarkerProperties.coordinates[1]
         }
 
-        params.set("id", id);
-        params.set("name", name);
-        params.set("extension", extension);
-        params.set("type", type);
-        params.set("size", size);
-        params.set("totalChunks", totalChunks);
-        params.set("currentChunk", currentChunk);
-        params.set("sessionUniqueId", sessionUniqueId);
-        params.set("userSessionInfo", JSON.stringify(userSessionInfo));
-        params.set("fileList", JSON.stringify(fileList));
-        params.set("location", userMarkerProperties.name);
-        params.set("coordinates", JSON.stringify(coordinates));
-        params.set("description", textAreaValue);
-        params.set("wasteType", wasteType);
+        const params = {
+            id: id,
+            name: name,
+            extension: extension,
+            type: type,
+            size: size,
+            totalChunks: totalChunks,
+            currentChunk: currentChunk,
+            sessionUniqueId: sessionUniqueId,
+            userSessionInfo: JSON.stringify(userSessionInfo),
+            fileList: JSON.stringify(fileList),
+            location: userMarkerProperties.name,
+            coordinates: JSON.stringify(coordinates),
+            description: textAreaValue,
+            wasteType: wasteType,
+        };
 
         try {
-            await this.axiosStream.post(`/upload-files-on-server/chunks?${params.toString()}`, chunk);
+            await this.axiosStream.post(
+                `/upload-files-on-server/chunks?${params.toString()}`,
+                chunk,
+                {params}
+            );
         }
         catch(err){
             console.log(err)

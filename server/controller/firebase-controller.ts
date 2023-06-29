@@ -1,11 +1,9 @@
-import path from "path";
-import { Request, Response } from 'express';
-import { awsServices } from "../services/aws-services";
-import {AWSServicesProps} from "../types/services-types";
+import {Request, Response} from 'express';
 import {systemVariables} from "../system/system";
-import {utilities} from "../utilities/utilities";
 import {firebaseServices} from "../services/firebase-services";
-import {createGeoJsonFeatureSchema} from "../firebase/firebase-schemas";
+import {firebaseAdminInstance} from "../firebase/firebase-admin";
+import firebaseFunctions from "firebase-functions";
+
 
 const {rootDir} = systemVariables
 
@@ -19,6 +17,15 @@ class FirebaseController {
         });
         console.log(data.length)
         return res.json(data);
+
+    }
+
+    async getSpecificFirebaseCollections(req: Request, res: Response){
+
+       const queryParams = req.query;
+       const data = await firebaseServices.getSpecificFirebaseCollections({queryParams});
+
+       return res.json(data);
 
     }
 

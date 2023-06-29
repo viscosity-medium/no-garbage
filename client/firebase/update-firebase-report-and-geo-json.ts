@@ -2,7 +2,7 @@ import {axiosInstance} from "../configs/axios-config";
 
 const updateFirebaseReportAndGeoJson = async ({ modalForm }) => {
 
-    await axiosInstance.put("update-firebase-reports-and-geo-json", {
+    await axiosInstance.put("firebase/update-firebase-reports-and-geo-json", {
         modalForm: modalForm
     });
     

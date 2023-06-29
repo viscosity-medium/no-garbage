@@ -1,8 +1,8 @@
 import Google from "next-auth/providers/google";
 import NextAuth, {AuthOptions} from "next-auth";
-import {FirebaseAdapter} from "@next-auth/firebase-adapter"
 import {systemVariables} from "../../../system/system";
 import {firebaseInstance} from "../../../firebase/firebase-instance";
+import {FirestoreAdapter} from "@next-auth/firebase-adapter";
 
 
 export const authConfig: AuthOptions = {
@@ -12,7 +12,7 @@ export const authConfig: AuthOptions = {
             clientSecret: "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"
         })
     ],
-    adapter: FirebaseAdapter(firebaseInstance.firestore)
+    adapter: FirestoreAdapter(firebaseInstance.firestore)
 }
 
 export default NextAuth(authConfig);

@@ -23,7 +23,7 @@ const FilterSwitch = () => {
     const capitalizedOrder = getCapitalizedOrder({order});
     const filter = useSelector(getFilterValue);
     const setFilter = (arg) => {
-        dispatch(paginationActions.setPaginationDirection("freeze"));
+
         dispatch(paginationActions.setCurrentPage(1));
         dispatch(filterSwitcherActions.setCurrentFilter(arg));
     }

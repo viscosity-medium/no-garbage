@@ -26,9 +26,7 @@ export const moderationDataWindow = createSlice({
             })
             .addCase(fetchFirebaseReports.fulfilled, (state, action) => {
                 state.firebaseReports = action.payload.data;
-                state.firstVisibleDoc = action.payload.firstVisibleDoc;
-                state.lastVisibleDoc = action.payload.lastVisibleDoc;
-                state.reportsCount = action.payload.reportsCount
+                state.reportsCount = action.payload.totalDocsCount;
             })
             .addCase(fetchFirebaseReports.rejected, state => {
                 state.firebaseReports = []

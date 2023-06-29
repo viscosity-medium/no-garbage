@@ -3,9 +3,10 @@ import {firebaseInstance} from "../firebase/firebase-instance";
 import {deleteDoc, doc, getDocs, query, setDoc, updateDoc} from "firebase/firestore";
 import {createGeoJsonFeatureSchema, GeoJsonFeatureSchema} from "../firebase/firebase-schemas";
 import {
+    compareArrayOfObjectsByFilter,
     createFireBaseGeoJsonDoc,
-    createFirebaseReportDoc,
-    getOnlyEditedValuesFromModalFormData
+    createFirebaseReportDoc, findObjectsWithMatchedDescription,
+    getAllFirebaseDocs,
 } from "../utilities/firebase-utilities";
 
 
@@ -37,6 +38,57 @@ class FirebaseServices {
         return querySnapshots.docs.map(doc => (doc.data())) as any;
 
     };
+
+    async getSpecificFirebaseCollections({queryParams}: any) {
+
+        const {
+            filter, order,
+            paginationQuantity,
+            currentPage = 0,
+            searchBarValue,
+        } = queryParams;
+
+        const allFirebaseDocs = await getAllFirebaseDocs({filter, order});
+        const sortedDocs = compareArrayOfObjectsByFilter({
+            firebaseDocs: allFirebaseDocs,
+            filter, order
+        });
+
+        console.log(sortedDocs.length)
+
+        const totalDocsCount = sortedDocs.length;
+        const firstArrayArgument = paginationQuantity * (+currentPage - 1);
+        const lastArrayArgument = paginationQuantity * (currentPage);
+
+        if(searchBarValue.length > 0){
+
+            const filteredDocs = findObjectsWithMatchedDescription({
+                firebaseDocs: allFirebaseDocs,
+                searchBarValue
+            });
+            const data = filteredDocs.slice(
+                firstArrayArgument,
+                lastArrayArgument
+            );
+
+            return {
+                data,
+                totalDocsCount
+            };
+
+        }
+
+        const data = sortedDocs.slice(
+            firstArrayArgument,
+            lastArrayArgument
+        );
+
+        return {
+            data,
+            totalDocsCount
+        };
+
+    }
 
     async deleteUnnecessaryFirebaseDocuments(){
 

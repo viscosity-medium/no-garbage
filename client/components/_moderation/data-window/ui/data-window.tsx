@@ -7,10 +7,7 @@ import {PaginationPanel} from "../../pagination-panel";
 import {useAppDispatch} from "../../../../store/store";
 import {batch, useSelector} from "react-redux";
 import {getFilterValue, getOrderValue} from "../../../_common/filter-switch/model/filter-switch.selectors";
-import {
-    getCurrentPage,
-    getPaginationQuantity
-} from "../../pagination-panel/model/pagination.selectors";
+import {getCurrentPage, getPaginationQuantity} from "../../pagination-panel/model/pagination.selectors";
 import {getFirstVisibleDoc, getLastVisibleDoc, getSearchBarValue} from "../model/data-window.selectors";
 import {moderationDataWindowActions} from "../model/data-window.slice";
 import {useDebounce} from "../../../../hooks/use-debounce";
@@ -20,7 +17,6 @@ import {useCallback} from "react";
 import {useDefineSidebarSizes} from "../../../../hooks/use-define-sidebar-sizes";
 import useWindowDimensions from "../../../../hooks/use-window-dimensions";
 import {fetchFirebaseReports} from "../model/data-window.async-thunks";
-import {paginationActions} from "../../pagination-panel/model/pagination.slice";
 
 const DataWindow = () => {
 

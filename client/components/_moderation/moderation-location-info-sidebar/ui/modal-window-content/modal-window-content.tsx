@@ -13,7 +13,7 @@ import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {Text} from "../../../../_common/text";
 import {useAppDispatch} from "../../../../../store/store";
 import {getFilterValue, getOrderValue} from "../../../../_common/filter-switch/model/filter-switch.selectors";
-import {getPaginationQuantity} from "../../../pagination-panel/model/pagination.selectors";
+import {getCurrentPage, getPaginationQuantity} from "../../../pagination-panel/model/pagination.selectors";
 import {
     getFirstVisibleDoc,
     getLastVisibleDoc,
@@ -28,6 +28,7 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
 
     const dispatch = useAppDispatch();
     const [media, setMedia] = useState<string[]>([])
+    const currentPage = useSelector(getCurrentPage);
     const paginationQuantity = useSelector(getPaginationQuantity);
     const saveButtonState = useSelector(getSaveButtonState);
     const firstDoc = useSelector(getFirstVisibleDoc);
@@ -113,7 +114,7 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
                 onClick={
                     clickSaveButton({
                         dispatch, modalForm, filter, order, firstDoc,
-                        paginationQuantity, searchBarValue, lastDoc,
+                        paginationQuantity, searchBarValue, lastDoc, currentPage
                     })
                 }
             >

@@ -54,8 +54,6 @@ class FirebaseServices {
             filter, order
         });
 
-        console.log(sortedDocs.length)
-
         const totalDocsCount = sortedDocs.length;
         const firstArrayArgument = paginationQuantity * (+currentPage - 1);
         const lastArrayArgument = paginationQuantity * (currentPage);

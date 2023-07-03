@@ -34,7 +34,7 @@ const FilterFiller = ({filterName, fillerOption}) => {
                     width={"20px"}
                     height={"20px"}
                     zIndex={10}
-
+                    className={"hiding-div"}
                 />
                 <CustomCheckbox
                     id={`${filterName}-${fillerOption}`}

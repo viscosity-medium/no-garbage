@@ -19,6 +19,7 @@ import {
     getLastVisibleDoc,
     getSearchBarValue
 } from "../../../data-window/model/data-window.selectors";
+import {useSetMedia} from "../../model/moderation-locatin-info-sidebar.hooks";
 
 interface IModalWindowContent {
     children?: ReactNode
@@ -39,20 +40,10 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
     const order = useSelector(getOrderValue);
     const location = modalForm?.location;
 
-    // useEffect(()=>{
-    //     dispatch(moderationLocationInfoSidebarSliceActions.setContent(initializeModalForm({content})));
-    // },[content]);
-
-
-    useEffect(()=>{
-
-        const photos = modalForm?.photos || [];
-        const videos = modalForm?.videos || [];
-        const newMedia = [...photos, ...videos];
-
-        setMedia(newMedia);
-
-    },[modalForm]);
+    useSetMedia({
+        setMedia,
+        modalForm
+    });
 
     return (
         <VStack

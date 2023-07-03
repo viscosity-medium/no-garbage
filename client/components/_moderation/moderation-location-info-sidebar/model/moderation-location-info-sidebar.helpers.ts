@@ -1,15 +1,20 @@
-
 import {updateFirebaseReportAndGeoJson} from "../../../../firebase/update-firebase-report-and-geo-json";
 import {moderationLocationInfoSidebarSliceActions} from "./moderation-location-info-sidebar.slice";
 import colors from "../../../../styles/globals/colors";
 import {batch} from "react-redux";
 import {fetchFirebaseReports} from "../../data-window/model/data-window.async-thunks";
-import {paginationActions} from "../../pagination-panel/model/pagination.slice";
+
+interface ChangeModalForm {
+    changedValue: any,
+    inputType: any,
+    internalProperty?: string
+}
 
 const changeModalForm = ({dispatch, modalForm}) => ({
     changedValue,
-    inputType
-}) => (event) => {
+    inputType,
+    internalProperty
+}: ChangeModalForm) => (event) => {
 
     const newValue = inputType === "input" ? event?.target?.value : inputType === "select" ? event : "";
 
@@ -19,13 +24,34 @@ const changeModalForm = ({dispatch, modalForm}) => ({
         textColor: colors.white,
         backgroundColor: colors.orange
     }));
-    dispatch(moderationLocationInfoSidebarSliceActions.setContent(
-        {
-            ...modalForm,
-            isChanged: true,
-            [changedValue]: newValue
-        }
-    ));
+
+    if(changedValue !== "location" || !internalProperty){
+        dispatch(moderationLocationInfoSidebarSliceActions.setContent(
+            {
+                ...modalForm,
+                isChanged: true,
+                [changedValue]: newValue
+            }
+        ));
+    } else {
+
+        const coordinatesValue = (newValue.replace(/\D/gm, ''));
+        const coordinatesValueLength = coordinatesValue.length;
+        const coordinateRightFormat = coordinatesValueLength> 2 ? `${coordinatesValue.slice(0, 2)}.${coordinatesValue.slice(2, coordinatesValueLength)}` : coordinatesValue;
+
+        console.log(coordinatesValue);
+
+        dispatch(moderationLocationInfoSidebarSliceActions.setContent(
+            {
+                ...modalForm,
+                isChanged: true,
+                [changedValue]: {
+                    ...modalForm[changedValue],
+                    [internalProperty]: +coordinateRightFormat
+                }
+            }
+        ));
+    }
 
 };
 

@@ -4,7 +4,7 @@ import {InputProps} from "./custom-input";
 
 const InputStyled = styled.input<InputProps>`
     display: ${props => props.display};
-    padding-left: 10px;
+    padding: 0 10px;
     width: ${props => props.width || "200px"};
     height: ${props => props.height || "40px"};
     font-size: ${props => props.fontSize || "18px"};

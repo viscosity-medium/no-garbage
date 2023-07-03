@@ -53,13 +53,27 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                                 borderRadius={"8px"}
                                 backgroundColor={colors?.middleGrey}
                             >
-                                <Text
-                                    tag={"span"}
-                                    text={modalForm?.fullDescription}
-                                    color={colors?.darkGrey}
-                                    size={"14px"}
-                                    lineHeight={"1"}
-                                />
+                                <VStack
+                                    justify={"center"}
+                                    height={"40px"}
+                                    margin={"5px 0"}
+                                >
+                                    <CustomInput
+                                        value={modalForm?.fullDescription}
+                                        onChange={
+                                            changeModalForm({
+                                                changedValue: "fullDescription",
+                                                inputType: "input"
+                                            })
+                                        }
+                                        width={"100%"}
+                                        height={"100%"}
+                                        fontSize={"14px"}
+                                        border={"none"}
+                                        borderRadius={"8px"}
+                                        backgroundColor={colors.middleGrey}
+                                    />
+                                </VStack>
                             </Div>
                         </VStack>
                     ) : <></>
@@ -74,6 +88,19 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     width={"40%"}
                     grow={0}
                 >
+                    <VStack
+                        justify={"center"}
+                        height={"40px"}
+                        margin={"5px 0"}
+                    >
+                        <Text
+                            tag={"h3"}
+                            size={"14px"}
+                            margin={"8px 0"}
+                        >
+                            Coordinates
+                        </Text>
+                    </VStack>
                     <VStack
                         justify={"center"}
                         height={"40px"}
@@ -174,6 +201,73 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                     width={"100%"}
                     margin={"0 0 0 20px"}
                 >
+                    <VStack
+                        justify={"center"}
+                        height={"auto"}
+                        margin={"5px 0"}
+                    >
+                        <HStack
+                            height={"25px"}
+                            align={"center"}
+                        >
+                            <HStack
+                                width={"50px"}
+                            >
+                                <Text
+                                    tag={"span"}
+                                >
+                                    Lat:
+                                </Text>
+                            </HStack>
+                            <CustomInput
+                                value={modalForm?.location?.lat}
+                                onChange={
+                                    changeModalForm({
+                                        changedValue: "location",
+                                        inputType: "input",
+                                        internalProperty: "lat"
+                                    })
+                                }
+                                width={"100%"}
+                                height={"100%"}
+                                fontSize={"14px"}
+                                border={"none"}
+                                borderRadius={"8px"}
+                                backgroundColor={colors.middleGrey}
+                            />
+                        </HStack>
+                        <HStack
+                            height={"25px"}
+                            margin={"7px 0 0"}
+                            align={"center"}
+                        >
+                            <HStack
+                                width={"50px"}
+                            >
+                                <Text
+                                    tag={"span"}
+                                >
+                                    Lon:
+                                </Text>
+                            </HStack>
+                            <CustomInput
+                                value={modalForm?.location?.lon}
+                                onChange={
+                                    changeModalForm({
+                                        changedValue: "location",
+                                        inputType: "input",
+                                        internalProperty: "lon"
+                                    })
+                                }
+                                width={"100%"}
+                                height={"100%"}
+                                fontSize={"14px"}
+                                border={"none"}
+                                borderRadius={"8px"}
+                                backgroundColor={colors.middleGrey}
+                            />
+                        </HStack>
+                    </VStack>
                     <VStack
                         justify={"center"}
                         height={"40px"}

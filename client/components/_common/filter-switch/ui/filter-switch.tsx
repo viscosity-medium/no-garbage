@@ -16,6 +16,7 @@ import {
 import {HStack, VStack} from "../../flex-stack";
 import {Text} from "../../text";
 import {paginationActions} from "../../../_moderation/pagination-panel/model/pagination.slice";
+import colors from "../../../../styles/globals/colors";
 
 const FilterSwitch = () => {
     const dispatch = useAppDispatch();
@@ -65,6 +66,7 @@ const FilterSwitch = () => {
                         setSelectedProperty={
                             (arg) => switchFilterProperty({arg, setFilter})
                         }
+                        backgroundColorOnHover={colors.moderation}
                     />
                 </Div>
             </HStack>
@@ -95,6 +97,7 @@ const FilterSwitch = () => {
                         items={filterOrderOptions}
                         buttonHeight={40}
                         selectedProperty={capitalizedOrder}
+                        backgroundColorOnHover={colors.moderation}
                         setSelectedProperty={
                             (value) => {
                                 switchFilterOrder({

@@ -35,6 +35,7 @@ export interface IStyledWrapper {
     minHeight?: string
     boxShadow?: string
     transition?: string
+    userSelect?: "none" | "unset"
 }
 
 export const Div = styled.div<IStyledWrapper>`
@@ -65,6 +66,7 @@ export const Div = styled.div<IStyledWrapper>`
     cursor: ${props => props.cursor};
     box-shadow: ${props => props.boxShadow};
     transition: ${props => props.transition || "0.3s"};
+    user-select: ${props => props.userSelect};
     
     &:after {
         position: absolute;

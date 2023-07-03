@@ -1,17 +1,31 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {VStack} from "../../../../_common/flex-stack";
 import FilterButton from "../filter-button/filter-button";
 import FilterFiller from "../filter-filler/filter-filler";
 import colors from "../../../../../styles/globals/colors";
+import {batch, useSelector} from "react-redux";
+import {getFiltersFormState} from "../../model/filter-block.selectors";
+import {filterBlockActions} from "../../model/filters-block.slice";
 
-const FilterItem = ({filterName, filterOptions, map}) => {
+const FilterItem = ({filterName, filterOptions}) => {
 
     const [visibility, setVisibility] = useState<boolean>(false);
-    const optionPanelHeight = filterOptions.length * 40;
+    const optionPanelHeight = filterOptions?.length * 40;
+
+    const formState = useSelector(getFiltersFormState);
 
     const onButtonClick = () => {
         setVisibility(prevState => !prevState);
     };
+
+    useEffect(() => {
+
+        if( formState === "reset" ){
+            setVisibility(false);
+        }
+
+    },[formState]);
+
 
     return (
         <VStack>
@@ -34,12 +48,11 @@ const FilterItem = ({filterName, filterOptions, map}) => {
                 transition={"0.5s"}
                 opacity={visibility ? 1 : 0}
             >
-                {filterOptions.map(fillerOption => (
+                {filterOptions?.map(fillerOption => (
                     <FilterFiller
                         key={`filter-filler-${filterName}-${fillerOption}`}
                         filterName={filterName}
                         fillerOption={fillerOption}
-                        map={map}
                     />))
                 }
             </VStack>

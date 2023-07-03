@@ -9,13 +9,13 @@ import {VStack} from "../components/_common/flex-stack";
 import {VolunteersSection} from "../components/_main/volunteers-section";
 import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-friends-section";
 import {useSelector} from "react-redux";
-import {getMainPageDynamicInfo} from "./main-page/model/main-page.selectors";
 import {BottomImageSection} from "../components/_main/bottom-image-section";
+import {getDynamicInfo} from "../components/_layout/layout/model/layout.selectors";
 
 const MainPage = () => {
 
     const promoImagePath = "/assets/main-page/map-backgroundColor.png";
-    const mainPageDynamicInfo = useSelector(getMainPageDynamicInfo);
+    const mainPageDynamicInfo = useSelector(getDynamicInfo);
     const { t } = useTranslation(['main']);
 
     return (
@@ -31,7 +31,7 @@ const MainPage = () => {
                 >
                     <PromoSection backgroundImage={promoImagePath}/>
                     <GoalsSection
-                        goals={mainPageDynamicInfo?.goals}
+                        goals={mainPageDynamicInfo?.main_page.goals}
                     />
                     <VolunteersSection/>
                     <CommunitiesAndFriendsSection/>

@@ -1,18 +1,27 @@
 import Google from "next-auth/providers/google";
 import NextAuth, {AuthOptions} from "next-auth";
-import {systemVariables} from "../../../system/system";
 import {firebaseInstance} from "../../../firebase/firebase-instance";
 import {FirestoreAdapter} from "@next-auth/firebase-adapter";
+import {systemVariables} from "../../../system/system";
+import {adapter} from "next/dist/server/web/adapter";
+import {initializeApp} from "firebase/app";
+import {firebaseDevConfig} from "../../../configs/firebase-configs";
+import {Firestore, getFirestore} from "firebase/firestore";
 
+
+const firebaseApp = initializeApp(firebaseDevConfig);
+const firestore = getFirestore(firebaseApp);
 
 export const authConfig: AuthOptions = {
+    //change Authorized JavaScript origins and Authorized redirect URIs on google cloud api and services for prod
+    //https://console.cloud.google.com/apis/credentials/oauthclient/107165234014-0juqbbhtkkgpufov4djqf2j1rj0n5hj9.apps.googleusercontent.com?project=dev-nogarbage
     providers: [
         Google({
-            clientId: "107165234014-ec0v42gtrf3heblth2lvuskg5qq489gu.apps.googleusercontent.com",
-            clientSecret: "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"
-        })
-    ],
-    adapter: FirestoreAdapter(firebaseInstance.firestore)
-}
+            clientId: systemVariables.authGoogleClientId,
+            clientSecret: systemVariables.authGoogleClientSecret
+        }),
 
+    ],
+    adapter: FirestoreAdapter(firestore)
+}
 export default NextAuth(authConfig);

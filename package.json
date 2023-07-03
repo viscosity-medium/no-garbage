@@ -1,6 +1,0 @@
-{
-	"dependencies": {
-		"next-auth": "^4.22.1",
-		"@next-auth/firebase-adapter": "0.0.2-canary.207"
-	}
-}

@@ -38,18 +38,23 @@ const markerTypes = [
     { "user": MarkerUser },
 ]
 
-const wasteTypes = ["Common waste", "Construction waste"]
+const wasteTypes = ["Common waste", "Construction waste"];
+
+const communities = ["No garbage", "Dream Team"];
 
 const filtersData = {
-    "Communities": ["Option 1", "Option 2", "Option 3"],
+    "Communities": communities,
     "Status of location": reportsStatuses,
     "Type of Litter": wasteTypes
-}
+};
+
+
 
 export {
     mapboxMarkerLayerConfig,
     markerTypes,
     filtersData,
     wasteTypes,
+    communities,
     mapboxSingleFeature
 }

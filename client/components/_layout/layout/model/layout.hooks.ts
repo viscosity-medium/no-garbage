@@ -1,13 +1,14 @@
 import {useEffect} from "react";
-import {fetchMainPageDynamicInfo} from "./main-page.async-thunks";
-import {useAppDispatch} from "../../../store/store";
+
+import {useAppDispatch} from "../../../../store/store";
+import {fetchDynamicInfo} from "./layout.async-thunks";
 
 export const useFetchDynamicInfo = () => {
 
     if( typeof window !== "undefined"){
         const dispatch = useAppDispatch();
         useEffect(()=> {
-            dispatch(fetchMainPageDynamicInfo())
+            dispatch(fetchDynamicInfo())
         },[])
     }
 

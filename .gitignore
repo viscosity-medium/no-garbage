@@ -43,3 +43,4 @@
 
 /server/temp
 /server/file-storage
+/server/firebase/service-account-keys

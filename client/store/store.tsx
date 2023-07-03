@@ -10,7 +10,7 @@ import {filterBlockReducer as filterBlock} from "../components/_map/filters-bloc
 import {locationInfoSidebarReducer as locationInfoSidebar} from "../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
 import {mapboxReducer as mapbox} from "../map/model/mapbox.slice";
 import {mapPageReducer as mapPage} from "../pages/map/model/map-page.slice";
-import {mainPageReducer as mainPage} from "../pages/main-page/model/main-page.slice";
+import {layoutReducer as layout} from "../components/_layout/layout/model/layout.slice";
 import {modalWindowReducer as modalWindow} from "../components/_common/modal-window/model/modal-window.slice";
 import {useDispatch} from "react-redux";
 const store = configureStore({
@@ -26,7 +26,7 @@ const store = configureStore({
         locationInfoSidebar,
         mapbox,
         mapPage,
-        mainPage,
+        layout,
         modalWindow
     }),
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({

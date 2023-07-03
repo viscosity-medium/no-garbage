@@ -1,6 +1,7 @@
-import {mapboxMarkerLayerConfig, mapboxSingleFeature, markerTypes} from "./mapbox-configs";
+import {communities, mapboxMarkerLayerConfig, mapboxSingleFeature, markerTypes, wasteTypes} from "./mapbox-configs";
 import {useSelector} from "react-redux";
 import {getMapboxGeoJsonData} from "./mapbox.selectors";
+import {reportsStatuses} from "../../components/_moderation/reports-statuses/reports-statuses";
 
 const addMapboxLayer = ({map}) => {
     map.addLayer()
@@ -38,7 +39,25 @@ const addNewMapMarker = ({map, sourceId, coordinates}) => {
         ]
     });
 
-}
+};
+
+const createDynamicFiltersData = ({dynamicData}) => {
+
+    if (dynamicData?.communities && dynamicData?.waste_types && dynamicData?.location_statuses){
+        return ({
+            "Communities": dynamicData?.communities,
+            "Status of location": dynamicData?.location_statuses,
+            "Type of Litter": dynamicData?.waste_types
+        })
+    } else {
+        return ({
+            "Communities": communities,
+            "Status of location": reportsStatuses,
+            "Type of Litter": wasteTypes
+        })
+    }
+
+};
 
 const setUserMapMarker = ({map, sourceId, coordinates}) => {
 
@@ -60,31 +79,6 @@ const setUserMapMarker = ({map, sourceId, coordinates}) => {
     }
 
 }
-
-const showFilteredPoints = ({map, points}) => {
-
-    const sourceData = map.current.getSource();
-
-    const mapboxGeoJsonData = useSelector(getMapboxGeoJsonData);
-
-    console.log(mapboxGeoJsonData);
-
-    if(sourceData){
-    //     sourceData.setData({
-    //         type: 'FeatureCollection',
-    //         features: [
-    //             mapboxSingleFeature({coordinates})
-    //         ]
-    //     });
-    // } else {
-    //     setTimeout(()=>{
-    //         setUserMapMarker({map, sourceId, coordinates})
-    //     },200)
-    }
-
-}
-
-
 
 const createGeoJsonMarkersData = ({ geoJsonNeededMarkers }) => ({
     'type': 'FeatureCollection',
@@ -173,5 +167,5 @@ export {
     addMapboxLayer,
     loadMapboxMarkers,
     setUserMapMarker,
-    showFilteredPoints
+    createDynamicFiltersData
 }

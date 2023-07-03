@@ -5,7 +5,7 @@ import GoalItem from "../goals-item/goal-item";
 import {Text} from "../../../../_common/text";
 import GoalsItemInternal from "../goals-item/goals-item-internal/goals-item-internal";
 import {VStack} from "../../../../_common/flex-stack";
-import {MainPageGoals} from "../../../../../pages/main-page/model/main-page.slice";
+import {MainPageGoals} from "../../../../_layout/layout/model/layout.slice";
 
 interface IGoals {
     goals?: MainPageGoals

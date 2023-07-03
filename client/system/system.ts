@@ -1,5 +1,9 @@
 const systemVariables = {
 
+    //auth providers
+    authGoogleClientId: process.env.NEXT_PUBLIC_CLIENT_ID!,
+    authGoogleClientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET!,
+
     //firebase prod values
     firebaseProdApiKey: process.env.NEXT_PUBLIC_FIREBASE_PROD_API_KEY!,
     firebaseProdProjectId: process.env.NEXT_PUBLIC_FIREBASE_PROD_PROJECT_ID!,

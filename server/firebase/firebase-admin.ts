@@ -1,6 +1,6 @@
 import admin, {ServiceAccount} from "firebase-admin";
 import { initializeApp } from 'firebase-admin/app';
-import {serviceAccountCredentials} from "./service-account-keys";
+import {serviceAccountCredentials} from "./service-account-keys/service-account-keys";
 import {systemVariables} from "../system/system";
 
 export const firebaseAdminInstance = (() => {

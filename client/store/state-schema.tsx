@@ -11,7 +11,7 @@ import {
     ModerationLocationInfoSidebarSchema
 } from "../components/_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.types";
 import {MapPageSchema} from "../pages/map/model/map-page.slice";
-import {MainPageSchema} from "../pages/main-page/model/main-page.slice";
+import {LayoutSchema} from "../components/_layout/layout/model/layout.slice";
 import {LoginFormSchema} from "../components/_common/login-form/model/login-form.types";
 import {ModalWindowSchema} from "../components/_common/modal-window/model/modal-window.slice";
 import {ModerationDataWindowSchema} from "../components/_moderation/data-window/model/data-window.types";
@@ -31,5 +31,5 @@ export interface StateSchema {
     modalWindow: ModalWindowSchema
 
     mapPage: MapPageSchema
-    mainPage: MainPageSchema
+    layout: LayoutSchema
 }

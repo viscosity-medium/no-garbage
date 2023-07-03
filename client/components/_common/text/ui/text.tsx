@@ -27,6 +27,7 @@ interface IText {
     textOverflow?: string
     whiteSpace?: string
     overflow?: string
+    zIndex?: number
 }
 const Text: FC<IText> = ({
     children,
@@ -49,7 +50,8 @@ const Text: FC<IText> = ({
     textOverflow,
     whiteSpace,
     overflow,
-    height
+    height,
+    zIndex
 }) => {
     if(tag === "h1"){
         return <StyledH1

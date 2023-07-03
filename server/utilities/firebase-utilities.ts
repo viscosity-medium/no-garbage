@@ -32,7 +32,8 @@ export const createFireBaseGeoJsonDoc = ({modalForm}) => (
             description: modalForm.fullDescription,
             status: modalForm.status,
             title: modalForm.description,
-            waste_type: modalForm.wasteType
+            waste_type: modalForm.wasteType,
+            community: modalForm.community
         },
         type: "Feature"
     }
@@ -113,7 +114,7 @@ export const compareArrayOfObjectsByFilter = ({ firebaseDocs, order, filter }:{f
 export const findObjectsWithMatchedDescription = ({ firebaseDocs, searchBarValue }: {firebaseDocs:  DocumentData[], searchBarValue: string}) => {
 
     return firebaseDocs.filter(doc => (
-        doc?.description?.startsWith(searchBarValue)
+        doc?.description?.toLowerCase().startsWith(searchBarValue.toLowerCase())
     ));
 
 }

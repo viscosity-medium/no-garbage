@@ -18,7 +18,8 @@ const HStack:FC<IStack> = ({
     grow=1,
     opacity,
     transition,
-    cursor
+    cursor,
+    zIndex,
 }) => {
     return (
         <HStackStyled
@@ -38,6 +39,7 @@ const HStack:FC<IStack> = ({
             opacity={opacity}
             transition={transition}
             cursor={cursor}
+            zIndex={zIndex}
         >
             {children}
         </HStackStyled>

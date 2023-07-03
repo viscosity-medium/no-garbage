@@ -1,9 +1,9 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {getDocs, query} from "firebase/firestore";
-import {firebaseInstance} from "../../../firebase/firebase-instance";
+import {firebaseInstance} from "../../../../firebase/firebase-instance";
 
-export const fetchMainPageDynamicInfo = createAsyncThunk(
-    "main-page/get-main-page-dynamic-info",
+export const fetchDynamicInfo = createAsyncThunk(
+    "layout/fetch-dynamic-info",
     async () => {
         const {dynamicInfoRef} = firebaseInstance;
         const querySnapshot = await getDocs(

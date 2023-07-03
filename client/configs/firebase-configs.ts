@@ -1,6 +1,6 @@
 import {systemVariables} from "../system/system";
 
-interface IFirebaseConfig {
+interface FirebaseConfig {
     apiKey: string
     authDomain: string
     projectId: string
@@ -25,7 +25,7 @@ const {
     firebaseDevMeasurementId
 } = systemVariables;
 
-const firebaseProdConfig: IFirebaseConfig = {
+const firebaseProdConfig: FirebaseConfig = {
     apiKey: firebaseProdApiKey,
     authDomain: `${firebaseProdProjectId}.firebaseapp.com`,
     projectId: firebaseProdProjectId,
@@ -35,7 +35,7 @@ const firebaseProdConfig: IFirebaseConfig = {
     measurementId: firebaseProdMeasurementId
 };
 
-const firebaseDevConfig: IFirebaseConfig = {
+const firebaseDevConfig: FirebaseConfig = {
 
     apiKey: firebaseDevApiKey,
     authDomain: `${firebaseDevProjectId}.firebaseapp.com`,

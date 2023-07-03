@@ -14,7 +14,7 @@ const useSwitchMapFilter = ({map}) => {
             map,
             filters,
             mapboxGeoJsonData
-        })
+        });
     },[filters])
 
 };

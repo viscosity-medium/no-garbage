@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SourceStyled, VideoStyled} from "./video.styled";
 import {VStack} from "../../../flex-stack";
 import colors from "../../../../../styles/globals/colors";
 
 const Video = ({media, width, height, borderRadius}) => {
+
+    useEffect(()=>{
+        console.log(media)
+    },[media])
+
     return (
         <VStack
             width={width}
@@ -15,6 +20,7 @@ const Video = ({media, width, height, borderRadius}) => {
             background={colors.middleGrey}
         >
             <VideoStyled
+                key={media}
                 controls
                 autoPlay
                 width={"100%"}

@@ -16,12 +16,14 @@ export const useInitializeMap = ({map, mapboxGL, mapContainer, lng, lat, zoom}) 
 
         if (map.current) return;
 
+        console.log(lng, lat)
+
         if(agentLanguage){
             const mapBoxOptions: MapboxOptions = {
                 accessToken: systemVariables.mapboxAccessToken,
                 container: mapContainer.current,
                 style: 'mapbox://styles/mapbox/streets-v12',
-                center: [lng, lat],
+                center: {lng, lat},
                 zoom: zoom,
                 attributionControl: false,
                 fadeDuration: 300

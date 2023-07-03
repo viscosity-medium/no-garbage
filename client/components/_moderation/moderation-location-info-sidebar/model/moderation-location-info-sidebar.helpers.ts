@@ -39,8 +39,6 @@ const changeModalForm = ({dispatch, modalForm}) => ({
         const coordinatesValueLength = coordinatesValue.length;
         const coordinateRightFormat = coordinatesValueLength> 2 ? `${coordinatesValue.slice(0, 2)}.${coordinatesValue.slice(2, coordinatesValueLength)}` : coordinatesValue;
 
-        console.log(coordinatesValue);
-
         dispatch(moderationLocationInfoSidebarSliceActions.setContent(
             {
                 ...modalForm,

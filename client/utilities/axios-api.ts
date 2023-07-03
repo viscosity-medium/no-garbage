@@ -77,9 +77,11 @@ class AxiosApi {
         } = urlParams;
 
         const coordinates = {
-            lat: userMarkerProperties.coordinates[0],
-            lon: userMarkerProperties.coordinates[1]
+            lon: userMarkerProperties.coordinates[0],
+            lat: userMarkerProperties.coordinates[1]
         }
+
+        console.log(coordinates)
 
         const params = {
             id: id,

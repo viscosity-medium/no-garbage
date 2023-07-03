@@ -11,8 +11,8 @@ export interface FirebaseDocumentInfo {
     full_description: string,
     description: string,
     location: [
+        lon: string,
         lat: string,
-        lon: string
     ],
     status: string
     photos: MediaObject[],

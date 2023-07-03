@@ -87,8 +87,8 @@ const createGeoJsonMarkersData = ({ geoJsonNeededMarkers }) => ({
         geometry: {
             type: 'Point',
             coordinates: [
+                singleMarker.geometry.coordinates.lon,
                 singleMarker.geometry.coordinates.lat,
-                singleMarker.geometry.coordinates.lon
             ]
         },
         properties: {

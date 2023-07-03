@@ -8,18 +8,27 @@ const TextArea: FC<ITextArea> = ({
     placeholderText,
     placeholderFontSize,
     onChangeHandler,
-    textAreaValue
+    textAreaValue,
+    reference
 }) => {
 
     return (
         <TextAreaStyled
+            value={textAreaValue}
+            style={{
+                padding: "7px 12px",
+                fontSize: "16px"
+            }}
+            onChange={onChangeHandler}
+            ref={reference}
             width={width}
             height={height}
             margin={margin}
             placeholder={placeholderText}
             placeholderFontSize={placeholderFontSize}
-            value={textAreaValue}
-            onChange={onChangeHandler}
+            border={"none"}
+            outline={"none"}
+            backgroundColor={"rgba(255,255,255,0)"}
         />
     );
 

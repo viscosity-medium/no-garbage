@@ -1,17 +1,22 @@
-import React, {useRef} from 'react';
+import React, {FC, useRef} from 'react';
 import {Text} from "../../../../_common/text";
 import {Mapbox} from "../../../../../map/ui";
 import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {HStack, VStack} from "../../../../_common/flex-stack";
 import colors from "../../../../../styles/globals/colors";
 import {CustomInput} from "../../../../_common/custom-input";
+import {IModalContent} from "../../model/moderation-location-info-sidebar.types";
 
-interface IMeetIp {
+interface MeetUpProps {
     location?: any
+    modalForm: IModalContent
+    changeModalForm: any
 }
-const MeetUp = ({location, modalForm, changeModalForm}) => {
+const MeetUp: FC<MeetUpProps> = ({location, modalForm, changeModalForm}) => {
 
     const upperLevelMapCopy = useRef();
+
+    console.log(location?.lon, location.lat)
 
     return (
         <VStack
@@ -149,7 +154,7 @@ const MeetUp = ({location, modalForm, changeModalForm}) => {
             >
                 <Mapbox
                     size={"100%"}
-                    lngProp={location?.lng}
+                    lngProp={location?.lon}
                     latProp={location?.lat}
                     zoomProp={15}
                     upperLevelMapCopy={upperLevelMapCopy}

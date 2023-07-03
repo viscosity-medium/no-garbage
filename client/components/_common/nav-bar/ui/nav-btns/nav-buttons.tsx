@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {HStack} from "../../../flex-stack";
 import {useTranslation} from "next-i18next";
 import {useCustomTranslation} from "../../../../../hooks/use-custom-translation";
@@ -10,6 +10,7 @@ import {getLoginData} from "../../../login-form/model/login-form.selectors";
 import {VerticalDropdownMenu} from "../../../dropdown-menu";
 import {switchModalWindowVisibility} from "../../../modal-window/model/modal-window.helpers";
 import {Button} from "../../../button";
+import {useRouter} from "next/router";
 
 export interface NavButtonsProps {
     userData?: any
@@ -19,9 +20,28 @@ export interface NavButtonsProps {
 const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
 
     const { t } = useTranslation("main");
+    const {pathname} = useRouter();
+    const [backgroundOnHoverColor, setBackgroundOnHoverColor] = useState(colors.moderation)
     const dispatch = useAppDispatch();
     const profileData = useSelector(getLoginData);
     const [language, setLanguage]: any = useCustomTranslation();
+
+
+    useEffect(()=> {
+        console.log(pathname)
+        switch (pathname){
+            case "/":
+                setBackgroundOnHoverColor(colors.pastelGreen);
+                break;
+            case "/map":
+                setBackgroundOnHoverColor(colors.pastelGray);
+                break;
+            case "/moderation":
+                setBackgroundOnHoverColor(colors.moderation);
+                break;
+
+        }
+    },[pathname])
 
     return (
         <HStack
@@ -58,7 +78,7 @@ const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
                     buttonHeight={50}
                     selectedProperty={language}
                     setSelectedProperty={setLanguage}
-                    backgroundColorOnHover={colors.middleGrey}
+                    backgroundColorOnHover={backgroundOnHoverColor}
                 />
             </HStack>
         </HStack>

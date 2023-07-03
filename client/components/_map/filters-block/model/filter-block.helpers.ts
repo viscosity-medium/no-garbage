@@ -1,22 +1,29 @@
 import {wasteTypes} from "../../../../map/model/mapbox-configs";
-import {filterBlockActions} from "./filters-block.slice";
 
 const returnAllFeatures = ({map, mapboxGeoJsonData}) => {
+
     wasteTypes.forEach(garbageType => {
 
         const filteredPoints = mapboxGeoJsonData?.features?.map((feature)  => {
 
             if(feature?.properties?.waste_type === garbageType){
+                console.log(feature?.geometry?.coordinates.lat);
+                console.log(feature?.geometry?.coordinates.lon)
                 return {
                     ...feature,
                     geometry: {
                         ...feature?.geometry,
-                        coordinates: [feature?.geometry?.coordinates.lat, feature?.geometry?.coordinates.lon]
+                        coordinates: [
+                            feature?.geometry?.coordinates.lon,
+                            feature?.geometry?.coordinates.lat,
+                        ],
                     }
                 };
             }
 
         }).filter(feature => feature);
+
+        console.log(filteredPoints)
 
         map?.current?.getSource(`${garbageType}-points`)?.setData({
             type: 'FeatureCollection',
@@ -24,6 +31,7 @@ const returnAllFeatures = ({map, mapboxGeoJsonData}) => {
         });
 
     });
+
 }
 
 const addFeaturesByFilterParameter = ({ mapboxGeoJsonData, activeFilter, featureParameter }) => {
@@ -35,7 +43,10 @@ const addFeaturesByFilterParameter = ({ mapboxGeoJsonData, activeFilter, feature
                     ...feature,
                     geometry: {
                         ...feature.geometry,
-                        coordinates: [feature.geometry.coordinates.lat, feature.geometry.coordinates.lon]
+                        coordinates: [
+                            feature.geometry.coordinates.lon,
+                            feature.geometry.coordinates.lat,
+                        ]
                     }
                 };
             } else {
@@ -96,8 +107,9 @@ export const masterFilter = ({
 
         });
 
-    } else if (activeLocationStatus.length === 0) {
+    } else if (activeLocationStatus.length === 0 && activeCommunities.length === 0) {
 
+        console.log("return all features");
         returnAllFeatures({map, mapboxGeoJsonData});
 
     }

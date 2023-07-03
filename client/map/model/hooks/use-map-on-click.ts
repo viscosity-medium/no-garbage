@@ -42,6 +42,8 @@ const useMapOnClick = ({map}) => {
                     language
                 }).then((response)=> response?.data.features[0].place_name);
 
+                // console.log(mapboxLocationInformation)
+
                 dispatch(mapboxActions.setUserMarkerIsSet(true));
                 dispatch(locationInfoSidebarActions.setUserMarkerProperties({
                     name: mapboxLocationInformation,

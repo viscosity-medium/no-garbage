@@ -48,6 +48,7 @@ const onTableRowClickHandler = ({
         dispatch(moderationLocationInfoSidebarSliceActions.setContent({
             id, document, description,
             fullDescription,
+            hasFullDescription: !!fullDescription,
             status, community,
             created: dateAdded,
             modified: dateModified, wasteType,

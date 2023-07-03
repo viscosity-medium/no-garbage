@@ -42,13 +42,6 @@ const Mapbox: FC<IMapbox> = ({
         useMapOnClick({map});
     }
 
-    //console.log(map.current?.getSource(`Common waste-points`))
-
-    // useEffect(()=>{
-    //     setMapLng(lngProp);
-    //     setMapLat(latProp)
-    // },[lngProp, latProp])
-
     return (
         <div
             style={{

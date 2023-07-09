@@ -10,36 +10,31 @@ import {wasteTypes} from "../../../../../map/model/mapbox-configs";
 import {TextArea} from "../../../../_common/text-area";
 import {useSelector} from "react-redux";
 import {getDynamicInfo} from "../../../../_layout/layout/model/layout.selectors";
+import {useResizeTextArea} from "../../../../_common/text-area/model/text-area.hooks";
 
 const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
 
     const dynamicInfo = useSelector(getDynamicInfo);
     const fullDescriptionRef = useRef(modalForm);
     const announcementRef = useRef(modalForm);
-    let fullDescriptionHeight = fullDescriptionRef?.current?.scrollHeight;
-    const fullDescriptionLength = modalForm.fullDescription.length;
 
-    let announcementHeight = announcementRef?.current?.scrollHeight;
     const announcementLength = modalForm.announcement.length;
+    const fullDescriptionLength = modalForm.fullDescription.length;
+    const fullDescriptionHeight = fullDescriptionRef?.current?.scrollHeight;
+    const announcementHeight = announcementRef?.current?.scrollHeight;
 
-
-    useEffect(()=>{
-
-        if(fullDescriptionRef?.current?.style){
-
-            fullDescriptionRef.current.style.height = "auto";
-            fullDescriptionRef.current.style.height = fullDescriptionRef?.current?.scrollHeight + "px";
-
+    const resizeParameters = [
+        {
+            reference: fullDescriptionRef,
+            contentLength: fullDescriptionLength
+        },
+        {
+            reference: announcementRef,
+            contentLength: announcementLength
         }
+    ];
 
-        if(announcementRef?.current?.style){
-
-            announcementRef.current.style.height = "auto";
-            announcementRef.current.style.height = announcementRef?.current?.scrollHeight + "px";
-
-        }
-
-    },[fullDescriptionLength, announcementLength])
+    useResizeTextArea({ resizeParameters });
 
     return (
         <>
@@ -92,6 +87,8 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                                         textAreaValue={modalForm?.fullDescription}
                                         width={"100%"}
                                         height={fullDescriptionHeight}
+                                        border={"none"}
+                                        outline={"none"}
                                         onChangeHandler={
                                             changeModalForm({
                                                 changedValue: "fullDescription",
@@ -399,6 +396,7 @@ const ModerationCaseProperties = ({modalForm, changeModalForm}) => {
                             reference={announcementRef}
                             backgroundColor={colors.middleGrey}
                             border={"none"}
+                            outline={"none"}
                         />
                     </VStack>
                     <VStack

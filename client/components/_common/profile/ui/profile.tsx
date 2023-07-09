@@ -10,6 +10,8 @@ import {loginFormActions} from "../../login-form/model/login-form.slice";
 import {useAppDispatch} from "../../../../store/store";
 import {useRouter} from "next/router";
 import {Button} from "../../button";
+import {getAuth, signOut} from "firebase/auth";
+import {signOut as nextAuthSignOut} from "next-auth/react";
 
 
 const Profile: FC<NavButtonsProps> = ({fontColor}) => {
@@ -20,10 +22,27 @@ const Profile: FC<NavButtonsProps> = ({fontColor}) => {
 
     const onLogout = () => {
         if( typeof window !== undefined){
+
             localStorage.removeItem("email");
             localStorage.removeItem("password");
             localStorage.removeItem("accessToken");
             localStorage.removeItem("refreshToken");
+
+            document.cookie = "email"+ '=; Max-Age=0';
+            document.cookie = "password"+ '=; Max-Age=0';
+            document.cookie = "accessToken"+ '=; Max-Age=0';
+            document.cookie = "refreshToken"+ '=; Max-Age=0';
+
+
+            const auth = getAuth();
+            signOut(auth).then(() => {
+                console.log("Successful logout");
+            }).catch((error) => {
+                // An error happened.
+            });
+            nextAuthSignOut()
+            .then(res => console.log(res));
+
         }
         batch(()=>{
             dispatch(loginFormActions.setLoginFormEmail(""));

@@ -19,7 +19,8 @@ const nextConfig = {
     env: {
         BASE_URL: process.env.BASE_URL,
         NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-        NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET
+        NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+        GOOGLE_APPLICATION_CREDENTIALS: process.env.GOOGLE_APPLICATION_CREDENTIALS
     },
     i18n,
     compiler: {

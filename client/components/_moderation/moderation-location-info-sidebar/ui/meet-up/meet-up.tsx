@@ -5,18 +5,16 @@ import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {HStack, VStack} from "../../../../_common/flex-stack";
 import colors from "../../../../../styles/globals/colors";
 import {CustomInput} from "../../../../_common/custom-input";
-import {IModalContent} from "../../model/moderation-location-info-sidebar.types";
+import {ModalForm} from "../../model/moderation-location-info-sidebar.types";
 
 interface MeetUpProps {
     location?: any
-    modalForm: IModalContent
+    modalForm: ModalForm
     changeModalForm: any
 }
 const MeetUp: FC<MeetUpProps> = ({location, modalForm, changeModalForm}) => {
 
     const upperLevelMapCopy = useRef();
-
-    console.log(location?.lon, location.lat)
 
     return (
         <VStack

@@ -23,7 +23,6 @@ const LocationInfoSidebar: FC<LocationInfoSidebarProps> = ({
     modalWindowHeight,
     setModalWindowHeight,
     onEscapeFunction,
-    className
 }) => {
 
     const right = visibility ? "0" : "-460px";

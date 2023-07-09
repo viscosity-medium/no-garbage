@@ -7,8 +7,7 @@ const returnAllFeatures = ({map, mapboxGeoJsonData}) => {
         const filteredPoints = mapboxGeoJsonData?.features?.map((feature)  => {
 
             if(feature?.properties?.waste_type === garbageType){
-                console.log(feature?.geometry?.coordinates.lat);
-                console.log(feature?.geometry?.coordinates.lon)
+
                 return {
                     ...feature,
                     geometry: {
@@ -22,8 +21,6 @@ const returnAllFeatures = ({map, mapboxGeoJsonData}) => {
             }
 
         }).filter(feature => feature);
-
-        console.log(filteredPoints)
 
         map?.current?.getSource(`${garbageType}-points`)?.setData({
             type: 'FeatureCollection',
@@ -109,7 +106,6 @@ export const masterFilter = ({
 
     } else if (activeLocationStatus.length === 0 && activeCommunities.length === 0) {
 
-        console.log("return all features");
         returnAllFeatures({map, mapboxGeoJsonData});
 
     }

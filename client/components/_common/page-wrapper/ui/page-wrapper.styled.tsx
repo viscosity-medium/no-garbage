@@ -6,6 +6,7 @@ export interface PageWrapperProps {
     margin?: string
     isAnimated?: boolean
     backgroundColor?: string
+    opacity?: string
 }
 
 const pageWrapperAnimation = keyframes`
@@ -16,6 +17,7 @@ const pageWrapperAnimation = keyframes`
 const PageWrapperStyled = styled.div<PageWrapperProps>`
     width: auto;
     height: auto;
+    opacity: ${props => props.opacity};
     background-color: ${props => props.backgroundColor};
     animation-name: ${props => props.isAnimated ? pageWrapperAnimation : null};
     animation-duration: 1s;

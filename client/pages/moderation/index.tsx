@@ -14,11 +14,7 @@ import {
 import {DataWindow} from "../../components/_moderation/data-window";
 import {onEscapeFunction} from "./model/moderation-page.helpers";
 import {useResetModerationPage} from "./model/moderation-page.hooks";
-
-interface Tokens {
-    accessToken: string | undefined | null
-    refreshToken: string | undefined | null
-}
+import {Tokens} from "./model/moderation-page.types";
 
 const ModerationPage = () => {
 

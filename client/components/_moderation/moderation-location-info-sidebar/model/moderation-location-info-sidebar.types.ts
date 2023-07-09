@@ -1,4 +1,4 @@
-export interface IModalContent {
+export interface ModalForm {
     id: string
     document: any
     description?: string
@@ -37,7 +37,7 @@ export interface ChosenPhoto {
 
 export interface ModerationLocationInfoSidebarSchema {
     modalVisibility: boolean
-    modalContent: IModalContent
+    modalContent: ModalForm
     chosenPhoto: ChosenPhoto
     saveButtonState: SaveButtonState
 }

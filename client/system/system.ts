@@ -1,5 +1,6 @@
 const systemVariables = {
 
+    isDev: process.env.MODE! === "DEVELOPMENT",
     //auth providers
     authGoogleClientId: process.env.NEXT_PUBLIC_CLIENT_ID!,
     authGoogleClientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET!,
@@ -18,6 +19,11 @@ const systemVariables = {
     firebaseDevMeasurementId: process.env.NEXT_PUBLIC_FIREBASE_DEV_MEASUREMENT_ID!,
     firebaseDevWebClientId: process.env.NEXT_PUBLIC_FIREBASE_DEV_WEB_CLIENT_ID!,
     firebaseDevWebClientSecret: process.env.NEXT_PUBLIC_FIREBASE_DEV_WEB_CLIENT_SECRET!,
+
+    //firebase admin
+    firebaseAdminDevProjectId: process.env.NEXT_PUBLIC_FIREBASE_ADMIN_DEV_PROJECT_ID!,
+    firebaseAdminDevClientEmail: process.env.NEXT_PUBLIC_FIREBASE_ADMIN_DEV_CLIENT_EMAIL!,
+    firebaseAdminDevPrivateKey: process.env.NEXT_PUBLIC_FIREBASE_ADMIN_DEV_PRIVATE_KEY!,
 
     //mapbox
     mapboxAccessToken: process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!,

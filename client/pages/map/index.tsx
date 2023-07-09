@@ -14,23 +14,20 @@ import {useInitiateMapSessionId} from "./model/hooks/use-initiate-map-session-id
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {FiltersBlock} from "../../components/_map/filters-block";
 import {
-    moderationLocationInfoSidebarSliceActions
-} from "../../components/_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.slice";
-import {
-    locationInfoSidebarActions
-} from "../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
-import {
     hideLocationSidebar
 } from "../../components/_map/map-location-info-sidebar-content/model/helpers/map-location-info-sidebar.helpers";
+import {getLoginData} from "../../components/_common/login-form/model/login-form.selectors";
 
 const MapPage = () => {
 
     const dispatch = useDispatch();
-    const upperLevelMapCopy = useRef();
+    const [modalWindowHeight, setModalWindowHeight] = useState(0);
     const visibility = useSelector(getLocationInfoSidebarVisibility);
     const dataStatus = useSelector(getDataStatus);
-    const [modalWindowHeight, setModalWindowHeight] = useState(0);
+    const userData = useSelector(getLoginData);
+    const upperLevelMapCopy = useRef();
     const onEscapeFunction = hideLocationSidebar({map: upperLevelMapCopy, dispatch, dataStatus});
+    const mapInteractivity = userData !== undefined && userData.email && userData.accessToken && userData.refreshToken;
 
     useSwitchMapLocationInfoSidebar();
     useInitiateMapSessionId();
@@ -46,6 +43,7 @@ const MapPage = () => {
                 <Mapbox
                     size={"full"}
                     upperLevelMapCopy={upperLevelMapCopy}
+                    interactivity={mapInteractivity}
                 />
                 <FiltersBlock
                     map={upperLevelMapCopy}

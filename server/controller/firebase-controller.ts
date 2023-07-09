@@ -1,7 +1,6 @@
 import {Request, Response} from 'express';
 import {systemVariables} from "../system/system";
 import {firebaseServices} from "../services/firebase-services";
-import {firebaseAdminInstance} from "../firebase/firebase-admin";
 import firebaseFunctions from "firebase-functions";
 
 

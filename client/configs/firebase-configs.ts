@@ -47,7 +47,8 @@ const firebaseDevConfig: FirebaseConfig = {
 
 };
 
+
 export {
     firebaseProdConfig,
-    firebaseDevConfig
+    firebaseDevConfig,
 }

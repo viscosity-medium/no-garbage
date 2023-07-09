@@ -40,8 +40,6 @@ const ModalWindowContent: FC<IModalWindowContent> = () => {
     const order = useSelector(getOrderValue);
     const location = modalForm?.location;
 
-    console.log(location)
-
     useSetMedia({
         setMedia,
         modalForm

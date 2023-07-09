@@ -11,6 +11,7 @@ import {VerticalDropdownMenu} from "../../../dropdown-menu";
 import {switchModalWindowVisibility} from "../../../modal-window/model/modal-window.helpers";
 import {Button} from "../../../button";
 import {useRouter} from "next/router";
+import {useSetOnHoverCover} from "../../model/nav-bar.hooks";
 
 export interface NavButtonsProps {
     userData?: any
@@ -20,28 +21,10 @@ export interface NavButtonsProps {
 const NavButtons: FC<NavButtonsProps> = ({userData, fontColor}) => {
 
     const { t } = useTranslation("main");
-    const {pathname} = useRouter();
-    const [backgroundOnHoverColor, setBackgroundOnHoverColor] = useState(colors.moderation)
     const dispatch = useAppDispatch();
     const profileData = useSelector(getLoginData);
     const [language, setLanguage]: any = useCustomTranslation();
-
-
-    useEffect(()=> {
-        console.log(pathname)
-        switch (pathname){
-            case "/":
-                setBackgroundOnHoverColor(colors.pastelGreen);
-                break;
-            case "/map":
-                setBackgroundOnHoverColor(colors.pastelGray);
-                break;
-            case "/moderation":
-                setBackgroundOnHoverColor(colors.moderation);
-                break;
-
-        }
-    },[pathname])
+    const backgroundOnHoverColor = useSetOnHoverCover();
 
     return (
         <HStack

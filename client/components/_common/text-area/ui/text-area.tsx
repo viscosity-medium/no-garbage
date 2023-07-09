@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import {ITextArea, TextAreaStyled} from "./text-area.styled";
+import {TextAreaProps, TextAreaStyled} from "./text-area.styled";
 
-const TextArea: FC<ITextArea> = ({
+const TextArea: FC<TextAreaProps> = ({
     width,
     height,
     margin,
@@ -9,7 +9,11 @@ const TextArea: FC<ITextArea> = ({
     placeholderFontSize,
     onChangeHandler,
     textAreaValue,
-    reference
+    reference,
+    border,
+    borderRadius,
+    outline,
+    color
 }) => {
 
     return (
@@ -26,9 +30,11 @@ const TextArea: FC<ITextArea> = ({
             margin={margin}
             placeholder={placeholderText}
             placeholderFontSize={placeholderFontSize}
-            border={"none"}
-            outline={"none"}
+            border={border}
+            borderRadius={borderRadius}
+            outline={outline}
             backgroundColor={"rgba(255,255,255,0)"}
+            color={color}
         />
     );
 

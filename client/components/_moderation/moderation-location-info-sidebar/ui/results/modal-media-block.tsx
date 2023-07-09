@@ -61,7 +61,7 @@ const ModalMediaBlock: FC<IResults> = ({media}) => {
                                     backgroundColor={colors.mediumGrey}
                                     backgroundImage={photo?.preview_image_url}
                                     imageTransition={"0.4s"}
-                                    imageScale={"1.2"}
+                                    imageScale={"1"}
                                     borderRadius={"8px"}
                                 />
                             </Div>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export interface ITextArea {
+export interface TextAreaProps {
     width?: string
     height?: string
     margin?: string
@@ -10,11 +10,13 @@ export interface ITextArea {
     onChangeHandler?: (e: any) => void
     reference?: any
     backgroundColor?: string
+    color?: string
     border?: string
+    borderRadius?: string
     outline?: string
 }
 
-export const TextAreaStyled = styled.textarea<ITextArea>`
+export const TextAreaStyled = styled.textarea<TextAreaProps>`
     min-width: ${props => props.width};
     max-width: ${props => props.width};
     min-height: ${props => props.height};
@@ -23,6 +25,7 @@ export const TextAreaStyled = styled.textarea<ITextArea>`
     padding: 2px 12px;
     background-color: ${props => props.backgroundColor};
     border: ${props => props.border};
+    border-radius: ${props => props.borderRadius};
     outline: ${props => props.outline};
     resize: none;
     overflow-y: hidden;

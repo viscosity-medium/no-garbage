@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {NavBar} from "../../../_common/nav-bar";
+import {Header} from "../../../_common/nav-bar";
 import Head from "next/head";
 import {PageWrapper} from "../../../_common/page-wrapper";
 import {useAuthenticateUser} from "../../../../hooks/use-authenticate-user";
@@ -43,7 +43,7 @@ const Layout:FC<LayoutProps> = ({children, passedColors}) => {
                 <PageProgressBar
                     progressBarColor={progressBarColor}
                 />
-                <NavBar
+                <Header
                     backgroundColor={ passedColors?.backgroundColor }
                     nameColor1={ passedColors?.nameColor1 }
                     nameColor2={ passedColors?.nameColor2 }

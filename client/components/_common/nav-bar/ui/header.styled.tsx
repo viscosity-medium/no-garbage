@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import sizes from "../../../../styles/globals/sizes";
 
-export interface IStyledNavbar {
+export interface IStyledHeader {
     backgroundColor?: string
     nameColor1?: string
     nameColor2?: string
@@ -10,7 +10,7 @@ export interface IStyledNavbar {
     linkHoverBackground?: string
     profileFontColor?: string
 }
-const StyledNavbar = styled.nav<IStyledNavbar>`
+const StyledHeader = styled.header<IStyledHeader>`
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -23,5 +23,5 @@ const StyledNavbar = styled.nav<IStyledNavbar>`
 `
 
 export {
-    StyledNavbar
+    StyledHeader
 }

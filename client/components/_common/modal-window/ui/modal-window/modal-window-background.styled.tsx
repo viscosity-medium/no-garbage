@@ -8,6 +8,7 @@ export interface IModalWindow {
     width?: string
     zIndex?: number
 }
+
 export const ModalWindowBackgroundStyled = styled.dialog<IModalWindow>`
   position: fixed;
   display:  block;

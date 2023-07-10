@@ -11,6 +11,7 @@ import {CommunitiesAndFriendsSection} from "../components/_main/communities-and-
 import {useSelector} from "react-redux";
 import {BottomImageSection} from "../components/_main/bottom-image-section";
 import {getDynamicInfo} from "../components/_layout/layout/model/layout.selectors";
+import Main from "../components/_common/main/ui/main";
 
 const MainPage = () => {
 
@@ -20,24 +21,26 @@ const MainPage = () => {
 
     return (
         <>
-            <PageWrapper
-                isAnimated={false}
-                backgroundColor={colors.lightGrey}
-            >
-                <VStack
-                    width={"1440px"}
-                    margin={"0 auto"}
-
+            <Main>
+                <PageWrapper
+                    isAnimated={false}
+                    backgroundColor={colors.lightGrey}
                 >
-                    <PromoSection backgroundImage={promoImagePath}/>
-                    <GoalsSection
-                        goals={mainPageDynamicInfo?.main_page.goals}
-                    />
-                    <VolunteersSection/>
-                    <CommunitiesAndFriendsSection/>
-                </VStack>
-            </PageWrapper>
-            <BottomImageSection/>
+                    <VStack
+                        width={"1440px"}
+                        margin={"0 auto"}
+
+                    >
+                        <PromoSection backgroundImage={promoImagePath}/>
+                        <GoalsSection
+                            goals={mainPageDynamicInfo?.main_page.goals}
+                        />
+                        <VolunteersSection/>
+                        <CommunitiesAndFriendsSection/>
+                    </VStack>
+                    <BottomImageSection/>
+                </PageWrapper>
+            </Main>
             <Footer/>
         </>
     );

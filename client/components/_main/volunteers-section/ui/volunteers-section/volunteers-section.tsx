@@ -4,6 +4,7 @@ import {HStack} from "../../../../_common/flex-stack";
 import {CustomImage} from "../../../../_common/custom-image";
 import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {Swiper} from "../../../../_common/swiper";
+import {StyledSection} from "../../../promo-section/ui/promo-section/promo.styled";
 
 const VolunteersSection = () => {
 
@@ -11,7 +12,9 @@ const VolunteersSection = () => {
     const photos = ["/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png"]
 
     return (
-        <div>
+        <StyledSection
+            width={"100%"}
+        >
             <Text
                 tag={"h3"}
                 size={"48px"}
@@ -51,7 +54,7 @@ const VolunteersSection = () => {
 
             </HStack>
 
-        </div>
+        </StyledSection>
     );
 };
 

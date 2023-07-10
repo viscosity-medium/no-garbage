@@ -7,6 +7,7 @@ import {
 import colors from "../../../../styles/globals/colors";
 import {Div} from "../../custom-image/ui/custom-div.styled";
 import {useCloseModalOnEscape} from "../../modal-window/model/modal-window.hooks";
+import {LocationInfoSidebarStyled} from "./location-info-sidebar.styled";
 
 interface LocationInfoSidebarProps {
     children: ReactNode
@@ -39,22 +40,13 @@ const LocationInfoSidebar: FC<LocationInfoSidebarProps> = ({
     });
 
     return (
-        <Div
-            overflow={"scroll"}
-            overflowX={"hidden"}
-            position={"absolute"}
-            zIndex={12}
-            zIndexAfter={-1}
-            width={"460px"}
-            height={modalWindowHeight || "100vh"}
+        <LocationInfoSidebarStyled
+            modalWindowHeight={modalWindowHeight}
             right={right}
-            top={"0"}
-            borderLeft={`solid 2px ${colors.darkGrey}`}
-            background={colors.white}
-            className={"sidebar-scroll-inner"}
         >
             {children}
-        </Div>
+        </LocationInfoSidebarStyled>
+
     );
 };
 

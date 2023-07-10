@@ -26,6 +26,7 @@ const Mapbox: FC<IMapbox> = ({
     interactivity = true
 }) => {
 
+    // console.log(interactivity)
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<any>(null);
     const [mapLng, setMapLng] = useState(lngProp);
@@ -37,10 +38,7 @@ const Mapbox: FC<IMapbox> = ({
     useInitializeMap({map, mapboxGL, mapContainer, lng: mapLng, lat: mapLat, zoom: zoomProp});
     useReloadMap({map, lng: lngProp, lat: latProp, zoom: zoomProp});
     useSetMapMarkers({map});
-
-    if(interactivity){
-        useMapOnClick({map});
-    }
+    useMapOnClick({map, interactivity});
 
     return (
         <div

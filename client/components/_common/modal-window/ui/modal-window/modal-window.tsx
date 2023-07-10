@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import {createPortal} from "react-dom";
 import {useSelector} from "react-redux";
 import {onEscapeDown, switchModalWindowVisibility} from "../../model/modal-window.helpers";
-import {ModalWindowBackgroundStyled} from "../../../location-info-sidebar/ui/modal-window-background.styled";
+import {ModalWindowBackgroundStyled} from "./modal-window-background.styled";
 import colors from "../../../../../styles/globals/colors";
 import {getModalWindowVisibility} from "../../model/modal-window.selectors";
 import {useAppDispatch} from "../../../../../store/store";

@@ -2,9 +2,9 @@ import React from 'react';
 import {Text} from "../../../text";
 import {useRouter} from "next/router";
 import {HStack} from "../../../flex-stack";
-import {IStyledNavbar} from "../nav-bar.styled";
+import {IStyledHeader} from "../nav-bar.styled";
 
-const LogoBlock = ({ nameColor1, nameColor2 }: IStyledNavbar) => {
+const LogoBlock = ({ nameColor1, nameColor2 }: IStyledHeader) => {
     const router = useRouter();
     return (
         <HStack

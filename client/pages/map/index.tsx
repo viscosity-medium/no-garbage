@@ -1,6 +1,5 @@
 import {Mapbox} from "../../map/ui";
 import colors from "../../styles/globals/colors";
-import {Div} from "../../components/_common/custom-image/ui/custom-div.styled";
 import React, {useRef, useState} from "react";
 import {LocationInfoSidebar} from "../../components/_common/location-info-sidebar";
 import {useDispatch, useSelector} from "react-redux";
@@ -17,6 +16,7 @@ import {
     hideLocationSidebar
 } from "../../components/_map/map-location-info-sidebar-content/model/helpers/map-location-info-sidebar.helpers";
 import {getLoginData} from "../../components/_common/login-form/model/login-form.selectors";
+import Main from "../../components/_common/main/ui/main";
 
 const MapPage = () => {
 
@@ -33,34 +33,34 @@ const MapPage = () => {
     useInitiateMapSessionId();
 
     return (
-        <>
-            <Div
-                zIndex={2}
-                height={"100%"}
-                width={"100%"}
-                position={"relative"}
-            >
-                <Mapbox
-                    size={"full"}
-                    upperLevelMapCopy={upperLevelMapCopy}
-                    interactivity={mapInteractivity}
-                />
-                <FiltersBlock
-                    map={upperLevelMapCopy}
-                />
-                <LocationInfoSidebar
-                    visibility={visibility}
-                    modalWindowHeight={`${modalWindowHeight}px`}
-                    setModalWindowHeight={setModalWindowHeight}
-                    onEscapeFunction={onEscapeFunction}
-                    className={"sidebar-scroll-inner"}
-                >
-                    <MapLocationInfoSidebarContent
-                        map={upperLevelMapCopy}
-                    />
-                </LocationInfoSidebar>
-            </Div>
-        </>
+
+        <Main>
+            <Mapbox
+                size={"full"}
+                upperLevelMapCopy={upperLevelMapCopy}
+                interactivity={mapInteractivity}
+            />
+            <FiltersBlock
+                map={upperLevelMapCopy}
+            />
+            {
+                userData ? (
+                    <LocationInfoSidebar
+                        visibility={visibility}
+                        modalWindowHeight={`${modalWindowHeight}px`}
+                        setModalWindowHeight={setModalWindowHeight}
+                        onEscapeFunction={onEscapeFunction}
+                        className={"sidebar-scroll-inner"}
+                    >
+                        <MapLocationInfoSidebarContent
+                            map={upperLevelMapCopy}
+                        />
+                    </LocationInfoSidebar>
+                ) : <></>
+            }
+
+        </Main>
+
     );
 };
 

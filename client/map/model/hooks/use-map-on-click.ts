@@ -13,7 +13,7 @@ import {getLanguage} from "../../../components/_common/nav-bar/model/nav-bar.sel
 import {hideLocationSidebar} from "../../../components/_map/map-location-info-sidebar-content/model/helpers/map-location-info-sidebar.helpers";
 import {getDataStatus} from "../../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.selectors";
 
-const useMapOnClick = ({map}) => {
+const useMapOnClick = ({map, interactivity}) => {
 
     const markerIsSet = useSelector(getMapboxMarkerIsSet);
     const dataStatus = useSelector(getDataStatus);
@@ -69,7 +69,7 @@ const useMapOnClick = ({map}) => {
             dispatch(mapboxActions.setUserMarkerIsHovered(false));
         }
 
-        if(map.current !== null){
+        if(map.current !== null && interactivity){
 
             map.current.on("click", showMarkerOnClick);
             map.current.on("click", "user-points", hideMarkerOnClick);
@@ -87,7 +87,7 @@ const useMapOnClick = ({map}) => {
         }
 
 
-    },[markerIsSet, markerIsHovered, language]);
+    },[markerIsSet, markerIsHovered, language, interactivity]);
 
 }
 

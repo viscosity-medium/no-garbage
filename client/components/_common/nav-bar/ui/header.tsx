@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import {IStyledNavbar, StyledNavbar} from "./nav-bar.styled";
+import {IStyledHeader, StyledHeader} from "./header.styled";
 import LogoBlock from "./logo-block/logo-block";
-import LinkPanel from "./link-panel/link-panel";
+import NavPanel from "./nav-panel/nav-panel";
 import NavButtons from "./nav-btns/nav-buttons";
 import {getUserDataFromLocalStorage} from "../../../../hooks/get-user-data-from-local-storage";
-const NavBar: FC<IStyledNavbar> = ({
+const Header: FC<IStyledHeader> = ({
     backgroundColor,
     nameColor1,
     nameColor2,
@@ -16,7 +16,7 @@ const NavBar: FC<IStyledNavbar> = ({
     const userData = getUserDataFromLocalStorage();
 
     return (
-        <StyledNavbar
+        <StyledHeader
             backgroundColor={backgroundColor}
             navbarHeight={100}
         >
@@ -24,7 +24,7 @@ const NavBar: FC<IStyledNavbar> = ({
                 nameColor1={nameColor1}
                 nameColor2={nameColor2}
             />
-            <LinkPanel
+            <NavPanel
                 linkHoverFontColor={linkHoverFontColor}
                 linkHoverBackground={linkHoverBackground}
             />
@@ -32,8 +32,8 @@ const NavBar: FC<IStyledNavbar> = ({
                 userData={userData}
                 fontColor={profileFontColor}
             />
-        </StyledNavbar>
+        </StyledHeader>
     );
 };
 
-export { NavBar };
+export { Header };

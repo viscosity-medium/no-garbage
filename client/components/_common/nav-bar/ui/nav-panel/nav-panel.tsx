@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {StyledLinkPanel} from "./link-panel.styled";
+import {StyledNavPanel} from "./nav-panel.styled";
 import {useTranslation} from "next-i18next";
 import {linksArray} from "../../model/links-array";
 import {CustomLink} from "../../../link";
@@ -13,13 +13,13 @@ interface LinkPanelProps {
     linkHoverBackground?: string
 }
 
-const LinkPanel: FC<LinkPanelProps> = ({linkHoverFontColor,linkHoverBackground}) => {
+const NavPanel: FC<LinkPanelProps> = ({linkHoverFontColor,linkHoverBackground}) => {
 
     const { t } = useTranslation("main");
     const loggedIn = useSelector(getLoginState) === "success";
 
     return (
-        <StyledLinkPanel>
+        <StyledNavPanel>
             {
                 linksArray.map(link => {
                     return(
@@ -52,8 +52,8 @@ const LinkPanel: FC<LinkPanelProps> = ({linkHoverFontColor,linkHoverBackground})
                     />
                 ) : null
             }
-        </StyledLinkPanel>
+        </StyledNavPanel>
     );
 };
 
-export default LinkPanel;
+export default NavPanel;

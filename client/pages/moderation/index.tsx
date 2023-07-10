@@ -2,7 +2,6 @@ import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useCheckIsAuth} from "../../hooks/use-check-is-auth";
 import {LocationInfoSidebar} from "../../components/_common/location-info-sidebar";
 import {useState} from "react";
-import {Div} from "../../components/_common/custom-image/ui/custom-div.styled";
 import {Sidebar} from "../../components/_common/sidebar";
 import {HStack} from "../../components/_common/flex-stack";
 import colors from "../../styles/globals/colors";
@@ -15,6 +14,7 @@ import {DataWindow} from "../../components/_moderation/data-window";
 import {onEscapeFunction} from "./model/moderation-page.helpers";
 import {useResetModerationPage} from "./model/moderation-page.hooks";
 import {Tokens} from "./model/moderation-page.types";
+import Main from "../../components/_common/main/ui/main";
 
 const ModerationPage = () => {
 
@@ -34,12 +34,7 @@ const ModerationPage = () => {
             {
                 (tokens.accessToken && tokens?.refreshToken) ? (
                    <>
-                       <Div
-                           zIndex={1}
-                           height={"100%"}
-                           width={"100%"}
-                           position={"relative"}
-                       >
+                       <Main>
                            <HStack
                                justify={"start"}
                                align={"start"}
@@ -63,7 +58,7 @@ const ModerationPage = () => {
                            >
                                <ModalWindowContent/>
                            </LocationInfoSidebar>
-                       </Div>
+                       </Main>
                    </>
                 )  : <></>
             }

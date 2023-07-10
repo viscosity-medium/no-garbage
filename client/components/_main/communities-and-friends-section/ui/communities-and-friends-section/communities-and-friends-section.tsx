@@ -2,10 +2,13 @@ import React from 'react';
 import CommunitiesAndFriendsCard from "../communities-and-friends-card/communities-and-friends-card";
 import {Text} from "../../../../_common/text";
 import {HStack} from '../../../../_common/flex-stack';
+import {StyledSection} from "../../../promo-section/ui/promo-section/promo.styled";
 
 const CommunitiesAndFriendsSection = () => {
     return (
-        <div>
+        <StyledSection
+            width={"100%"}
+        >
             <Text
                 tag={"h3"}
                 size={"48px"}
@@ -26,7 +29,7 @@ const CommunitiesAndFriendsSection = () => {
                 <CommunitiesAndFriendsCard/>
                 <CommunitiesAndFriendsCard/>
             </HStack>
-        </div>
+        </StyledSection>
     );
 };
 

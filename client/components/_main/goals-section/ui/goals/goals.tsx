@@ -5,15 +5,15 @@ import GoalItem from "../goals-item/goal-item";
 import {Text} from "../../../../_common/text";
 import GoalsItemInternal from "../goals-item/goals-item-internal/goals-item-internal";
 import {VStack} from "../../../../_common/flex-stack";
-import {MainPageGoals} from "../../../../_layout/layout/model/layout.slice";
+import {IGoals} from "../../model/goals-section.types";
+import {goalsSectionData} from "../../model/goals-section.data";
+import {useSelector} from "react-redux";
+import {getDynamicInfo} from "../../../../_layout/layout/model/layout.selectors";
 
-interface IGoals {
-    goals?: MainPageGoals
-    width?: string
-}
-const Goals: FC<IGoals> = ({ goals, width }) => {
+const Goals: FC<IGoals> = ({ width }) => {
 
-    const { cleanups_number, volunteers_number, garbage_kilograms } = goals || {};
+    const mainPageDynamicInfo = useSelector(getDynamicInfo);
+    const goals = mainPageDynamicInfo?.main_page.goals || {};
     const { t } = useTranslation('main');
 
     return (
@@ -28,6 +28,7 @@ const Goals: FC<IGoals> = ({ goals, width }) => {
                     tag={"h3"}
                     size={"48px"}
                     lineHeight={"1.5"}
+                    fontWeight={"500"}
                     position={"relative"}
                     alignSelf={"flex-start"}
                     width={"510px"}
@@ -40,48 +41,28 @@ const Goals: FC<IGoals> = ({ goals, width }) => {
                     width={"1000px"}
                     margin={"80px 0"}
                 >
-                    <GoalItem
-                        backgroundImage={"/assets/main-page/goals-section-1.png"}
-                        number={t('goals1Number')}
-                        descriptionText={t('goals1Description')}
-                        width={"240px"}
-                        height={"240px"}
-                        margin={"0 auto 0 0"}
-                    >
-                        <GoalsItemInternal
-                            number={`${cleanups_number}`}
-                            descriptionText={t('goals1Description')}
-                            width={"240px"}
-                        />
-                    </GoalItem>
-                    <GoalItem
-                        backgroundImage={"/assets/main-page/goals-section-2.png"}
-                        number={t('goals2Number')}
-                        descriptionText={t('goals2Description')}
-                        width={"240px"}
-                        height={"240px"}
-                        margin={"36px 0 36px auto"}
-                    >
-                        <GoalsItemInternal
-                            number={`${garbage_kilograms}`}
-                            descriptionText={t('goals2Description')}
-                            width={"240px"}
-                        />
-                    </GoalItem>
-                    <GoalItem
-                        backgroundImage={"/assets/main-page/goals-section-3.png"}
-                        number={t('goals3Number')}
-                        descriptionText={t('goals3Description')}
-                        width={"240px"}
-                        height={"240px"}
-                        margin={"0 auto 0 0"}
-                    >
-                        <GoalsItemInternal
-                            number={`${volunteers_number}`}
-                            descriptionText={t('goals3Description')}
-                            width={"240px"}
-                        />
-                    </GoalItem>
+                    {
+                        goalsSectionData(t, goals).map((goalsItem, index) => {
+                            return (
+                                <GoalItem
+                                    key={`${index}-${goalsItem.descriptionText}`}
+                                    backgroundImage={goalsItem.backgroundImage}
+                                    number={goalsItem.number}
+                                    descriptionText={goalsItem.descriptionText}
+                                    width={"240px"}
+                                    height={"240px"}
+                                    margin={goalsItem.margin}
+                                >
+                                    <GoalsItemInternal
+                                        number={goalsItem.number}
+                                        descriptionText={goalsItem.descriptionText}
+                                        width={"240px"}
+                                    />
+                                </GoalItem>
+                            )
+                        })
+                    }
+
                 </VStack>
             </VStack>
         </StyledSection>

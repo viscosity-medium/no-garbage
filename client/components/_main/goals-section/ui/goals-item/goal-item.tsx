@@ -1,13 +1,8 @@
-import React, {FC, ReactNode} from 'react';
+import React, {FC} from 'react';
 import {HStack} from "../../../../_common/flex-stack";
 import {CustomImage} from "../../../../_common/custom-image";
-import {IGoalsItemInternal} from "./goals-item-internal/goals-item-internal";
+import {IGoalsItem} from "../../model/goals-section.types";
 
-interface IGoalsItem extends  IGoalsItemInternal {
-    children?: ReactNode
-    margin?: string
-    backgroundImage: string
-}
 const GoalItem: FC<IGoalsItem> = ({
     backgroundImage,
     width,

@@ -9,7 +9,7 @@ import {loginFormReducer as loginForm} from "../components/_common/login-form/mo
 import {filterBlockReducer as filterBlock} from "../components/_map/filters-block/model/filters-block.slice";
 import {locationInfoSidebarReducer as locationInfoSidebar} from "../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.slice";
 import {mapboxReducer as mapbox} from "../map/model/mapbox.slice";
-import {mapPageReducer as mapPage} from "../pages/map/model/map-page.slice";
+import {mapPageReducer as mapPage} from "../pages-models/map/model/map-page.slice";
 import {layoutReducer as layout} from "../components/_layout/layout/model/layout.slice";
 import {modalWindowReducer as modalWindow} from "../components/_common/modal-window/model/modal-window.slice";
 import {useDispatch} from "react-redux";

@@ -3,8 +3,12 @@ import CommunitiesAndFriendsCard from "../communities-and-friends-card/communiti
 import {Text} from "../../../../_common/text";
 import {HStack} from '../../../../_common/flex-stack';
 import {StyledSection} from "../../../promo-section/ui/promo-section/promo.styled";
+import {useTranslation} from "next-i18next";
+import {communitiesAndFriendsData} from "../../model/communities-and-friends.data";
 
 const CommunitiesAndFriendsSection = () => {
+    const {t} = useTranslation("main")
+    const communitiesAndFriends = t("communitiesAndFriends");
     return (
         <StyledSection
             width={"100%"}
@@ -16,7 +20,7 @@ const CommunitiesAndFriendsSection = () => {
                 position={"relative"}
                 alignSelf={"flex-start"}
             >
-                Communities and friends
+                {communitiesAndFriends}
             </Text>
             <HStack
                 justify={"center"}
@@ -25,9 +29,16 @@ const CommunitiesAndFriendsSection = () => {
                 height={"auto"}
                 position={"relative"}
             >
-                <CommunitiesAndFriendsCard/>
-                <CommunitiesAndFriendsCard/>
-                <CommunitiesAndFriendsCard/>
+                {
+                    communitiesAndFriendsData.map(communityInfo => {
+                        return (
+                            <CommunitiesAndFriendsCard
+                                key={communityInfo.name}
+                            	communityInfo={communityInfo}
+                            />
+                        )
+                    })
+                }
             </HStack>
         </StyledSection>
     );

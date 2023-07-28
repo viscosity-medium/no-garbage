@@ -2,6 +2,7 @@ import { moderationLocationInfoSidebarSliceActions } from "../../moderation-loca
 import { dateOptions } from "../ui/table-row/table-row";
 import { batch } from "react-redux";
 import colors from "../../../../styles/globals/colors";
+import {moderationDataWindowActions} from "../../data-window/model/data-window.slice";
 
 export interface TableRowInfo {
     id: any,
@@ -26,7 +27,8 @@ export interface TableRowInfo {
 const onTableRowClickHandler = ({
     tableRowInfo,
     dispatch,
-    modalVisibility
+    modalVisibility,
+    index
 }) => () => {
 
     const {
@@ -44,6 +46,7 @@ const onTableRowClickHandler = ({
 
     batch(()=>{
         !modalVisibility ? dispatch(moderationLocationInfoSidebarSliceActions.setVisibility()) : null;
+        dispatch(moderationDataWindowActions.setModerationTableChosenRow(index));
         dispatch(moderationLocationInfoSidebarSliceActions.setChosenPhoto(photos[0]));
         dispatch(moderationLocationInfoSidebarSliceActions.setContent({
             id, document, description,

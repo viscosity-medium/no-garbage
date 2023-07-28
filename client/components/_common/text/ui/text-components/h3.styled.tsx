@@ -6,7 +6,7 @@ const StyledH3 = styled.h3<ITextProps>`
     display: ${props => props.display};
     margin: ${props => props.margin};
     font-style: normal;
-    font-weight: 600;
+    font-weight: ${props => props.fontWeight || 400};
     line-height: ${props => props.lineHeight || 1.2};
     align-items: ${props => props.textAlign};
     align-self: ${props => props.alignSelf};

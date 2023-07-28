@@ -26,7 +26,7 @@ const LinkFiller: FC<ICustomLink> = ({
                         width={width}
                         height={height}
                         size={size}
-                        weight={weight}
+                        fontWeight={weight}
                         textDecoration={textDecoration}
                     >
                         {linkName}

@@ -6,6 +6,8 @@ import {HStack, VStack} from "../../../../_common/flex-stack";
 import colors from "../../../../../styles/globals/colors";
 import {CustomInput} from "../../../../_common/custom-input";
 import {ModalForm} from "../../model/moderation-location-info-sidebar.types";
+import {CustomDatePicker} from "../../../../_common/custom-date-picker";
+import {CustomTimePicker} from "../../../../_common/custom-time-picker";
 
 interface MeetUpProps {
     location?: any
@@ -15,6 +17,7 @@ interface MeetUpProps {
 const MeetUp: FC<MeetUpProps> = ({location, modalForm, changeModalForm}) => {
 
     const upperLevelMapCopy = useRef();
+
 
     return (
         <VStack
@@ -81,20 +84,14 @@ const MeetUp: FC<MeetUpProps> = ({location, modalForm, changeModalForm}) => {
                         height={"40px"}
                         margin={"5px 0"}
                     >
-                        <CustomInput
+                        <CustomDatePicker
                             value={modalForm?.meetUpDate}
-                            onChange={
+                            onChangeHandler={
                                 changeModalForm({
                                     changedValue: "meetUpDate",
                                     inputType: "input"
                                 })
                             }
-                            width={"100%"}
-                            height={"100%"}
-                            fontSize={"14px"}
-                            border={"none"}
-                            borderRadius={"8px"}
-                            backgroundColor={colors.middleGrey}
                         />
                     </VStack>
                     <VStack
@@ -102,20 +99,14 @@ const MeetUp: FC<MeetUpProps> = ({location, modalForm, changeModalForm}) => {
                         height={"40px"}
                         margin={"5px 0"}
                     >
-                        <CustomInput
+                        <CustomTimePicker
                             value={modalForm?.meetUpTime}
-                            onChange={
+                            onChangeHandler={
                                 changeModalForm({
                                     changedValue: "meetUpTime",
                                     inputType: "input"
                                 })
                             }
-                            width={"100%"}
-                            height={"100%"}
-                            fontSize={"14px"}
-                            border={"none"}
-                            borderRadius={"8px"}
-                            backgroundColor={colors.middleGrey}
                         />
                     </VStack>
                     <VStack

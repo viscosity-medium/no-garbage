@@ -1,16 +1,22 @@
 import type {AppProps} from 'next/app';
 import {appWithTranslation} from 'next-i18next';
 import {FC} from "react";
-import "firebase/firestore";
-import "firebase/auth";
 import {Context} from "../context/context";
 import {firebaseInstance} from "../firebase/firebase-instance";
 import {Provider} from "react-redux";
+import {Layout} from "../components/_layout/layout";
 import {store} from "../store/store";
+import localFont from "@next/font/local";
+import "firebase/firestore";
+import "firebase/auth";
 import '../styles/globals.css';
 import "../default.scss";
-import {Layout} from "../components/_layout/layout";
-import {SessionProvider} from "../configs/providers";
+// import {SessionProvider} from "../configs/providers";
+
+
+const notoSans = localFont({
+    src: '../public/assets/fonts/NotoSans-Regular.woff2',
+});
 
 const App: FC<AppProps> = ({
     Component,
@@ -18,20 +24,21 @@ const App: FC<AppProps> = ({
 
 }) => {
     const {passedColors} = pageProps;
-    console.log(session)
+    //console.log(session)
     return (
         <>
-            <SessionProvider session={session}>
-                <Provider store={store}>
-                    <Context.Provider
-                        value={ firebaseInstance }
+            <Provider store={store}>
+                <Context.Provider
+                    value={ firebaseInstance }
+                >
+                    <Layout
+                        passedColors={passedColors}
+                        className={notoSans.className}
                     >
-                        <Layout passedColors={passedColors}>
-                            <Component { ...pageProps } />
-                        </Layout>
-                    </Context.Provider>
-                </Provider>
-            </SessionProvider>
+                        <Component { ...pageProps } />
+                    </Layout>
+                </Context.Provider>
+            </Provider>
         </>
     )
 }

@@ -14,7 +14,8 @@ export interface ITableRow {
         },
         photos?: string[],
         videos?: string[]
-    }
+    },
+    index?: number
 }
 
 export interface DateOptions {

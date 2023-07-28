@@ -17,15 +17,21 @@
   "goals2Description": "kg of garbage\ncollected",
   "goals3Description": "volunteers took\npart in our cleanups",
 
-  "mapSectionTitle": "You can explore our database of \nlocations",
-  "mapSectionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ",
-  "mapSectionButtonName": "Go to the map",
+  "mapSectionTitle": "Where to clean?",
+  "mapSectionUpperDescription": "Explore our interactive map. Add your data.",
+  "mapSectionMiddleDescription": "With our live map, you can explore locations where a cleanup is needed. Pick a place, grab your friends — and don't forget to mark it clean at the end! You can also add information like photos, videos and coordinates for other volunteers.",
+  "mapSectionDownDescription": "Let's make our effort useful!",
+  "mapSectionButtonName": "Open the map",
 
   "helpSectionTitle": "You can help us\nby adding littered locations to the map",
   "step": "step",
   "step1Description": "Upload media",
   "step2Description": "Confirm location",
   "step3Description": "Give description",
+
+  "cleanupsReasons": "Why doing cleanups?",
+
+  "communitiesAndFriends": "Communities and friends",
 
   "footerDownloadApp" : "Download our app",
   "footerTelegramBotStart": "You can use our ",

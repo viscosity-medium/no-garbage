@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import {useRouter} from "next/router";
+import {firebaseInstance} from "../firebase/firebase-instance";
 
 const useCheckIsAuth = ({setTokens}) => {
 
@@ -15,11 +16,13 @@ const useCheckIsAuth = ({setTokens}) => {
                 refreshToken: refreshToken,
                 accessToken: accessToken
             })
+
             if(!refreshToken || !accessToken) {
                 push("/")
             }
+
         }
-    },[])
+    },[firebaseInstance.auth.currentUser])
 }
 
 export {

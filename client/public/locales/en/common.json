@@ -1,1 +1,6 @@
-{}
+{
+    "navbar": {
+        "map": "Map",
+        "moderation": "Moderation"
+    }
+}

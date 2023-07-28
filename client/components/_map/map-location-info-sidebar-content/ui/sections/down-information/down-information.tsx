@@ -12,7 +12,7 @@ import {
 import {useAppDispatch} from "../../../../../../store/store";
 import {uploadMapFilesToTheServerByChunks} from "../../../model/map-location-info-sidebar.async-thunks";
 import {hideLocationSidebar} from "../../../model/helpers/map-location-info-sidebar.helpers";
-import {getMapPageUniqueId} from "../../../../../../pages/map/model/map-page.selectors";
+import {getMapPageUniqueId} from "../../../../../../pages-models/map/model/map-page.selectors";
 
 const DownInformation = ({map}) => {
 
@@ -92,7 +92,7 @@ const DownInformation = ({map}) => {
                     </Text>
                     <Text
                         tag={"span"}
-                        weight={"16px"}
+                        fontWeight={"16px"}
                         margin={"10"}
                     >
                         Our moderators will review the location and if it is accurate it will be added to our interactive map

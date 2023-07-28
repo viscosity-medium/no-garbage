@@ -9,29 +9,28 @@ import {getModalWindowVisibility} from "../../../_common/modal-window/model/moda
 import {LoginForm} from "../../../_common/login-form";
 import {ModalWindow} from "../../../_common/modal-window";
 import {PageProgressBar} from "../../page-progress-bar";
-import {useSession} from "next-auth/react";
 import {useRouter} from "next/router";
 import {definePageProgressBarColor} from "../model/layout.helpers";
 import {useFetchDynamicInfo} from "../model/layout.hooks";
-import {getLoginData} from "../../../_common/login-form/model/login-form.selectors";
 import {LayoutProps} from "../model/layout.types";
+import {firebaseInstance} from "../../../../firebase/firebase-instance";
 
 const Layout:FC<LayoutProps> = ({children, passedColors}) => {
 
     const {pathname, push} = useRouter();
-    const progressBarColor = definePageProgressBarColor({pathname})
+    const progressBarColor = definePageProgressBarColor({pathname});
 
     const modalWindowVisibility = useSelector(getModalWindowVisibility);
-    const loginData = useSelector(getLoginData);
     const zIndex = modalWindowVisibility ? 1000 : -1;
-
-    console.log(useSession());
+    const opacity = (!firebaseInstance.auth.currentUser && pathname.match("/moderation")) ? "0" : "1";
 
     useAuthenticateUser();
     useFetchDynamicInfo();
 
     return (
-        <>
+        <div style={{
+            opacity: opacity
+        }}>
             <PageWrapper
                 isAnimated={true}
             >
@@ -65,7 +64,7 @@ const Layout:FC<LayoutProps> = ({children, passedColors}) => {
             <ModalWindow>
                 <LoginForm/>
             </ModalWindow>
-        </>
+        </div>
     );
 };
 

@@ -5,11 +5,13 @@ import {CustomImage} from "../../../../_common/custom-image";
 import {Div} from "../../../../_common/custom-image/ui/custom-div.styled";
 import {Swiper} from "../../../../_common/swiper";
 import {StyledSection} from "../../../promo-section/ui/promo-section/promo.styled";
+import {useTranslation} from "next-i18next";
 
 const VolunteersSection = () => {
 
-    const message = "/assets/main-page/message.png"
-    const photos = ["/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png", "/assets/main-page/volunteer.png"]
+    const {t} = useTranslation("main")
+    const message = "/assets/main-page/message.png";
+	const cleanupsReasons = t("cleanupsReasons");
 
     return (
         <StyledSection
@@ -23,7 +25,7 @@ const VolunteersSection = () => {
                 alignSelf={"flex-start"}
                 width={"510px"}
             >
-                Why doing cleanups?
+                {cleanupsReasons}
             </Text>
             <HStack
                 margin={"48px 0"}

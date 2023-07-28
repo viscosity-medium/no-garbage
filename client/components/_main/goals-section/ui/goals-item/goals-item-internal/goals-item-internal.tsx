@@ -3,13 +3,8 @@ import {VStack} from "../../../../../_common/flex-stack";
 import {CustomNumber} from "../../../../../_common/custom-number";
 import {Text} from "../../../../../_common/text";
 import {useTranslation} from "next-i18next";
+import {IGoalsItemInternal} from "../../../model/goals-section.types";
 
-export interface IGoalsItemInternal {
-    number: string,
-    descriptionText: string
-    width?: string
-    height?: string
-}
 const GoalsItemInternal: FC<IGoalsItemInternal> = ({
     number,
     descriptionText,
@@ -32,7 +27,7 @@ const GoalsItemInternal: FC<IGoalsItemInternal> = ({
                 <Text
                     tag={"span"}
                     size={"32px"}
-                    weight={"600"}
+                    fontWeight={"600"}
                     textAlign={"left"}
                 >
                     {t(descriptionText)}

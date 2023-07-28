@@ -55,6 +55,7 @@ const DataTable = React.memo(() => {
                                         return (
                                             <TableRow
                                                 key={`table-row-${index}`}
+                                                index={index}
                                                 tableRowInfo={tableRowInfo}
                                             />
                                         )

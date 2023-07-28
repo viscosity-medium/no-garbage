@@ -11,9 +11,9 @@ import {
     getModalVisibility
 } from "../../components/_moderation/moderation-location-info-sidebar/model/moderation-location-info-sidebar.selectors";
 import {DataWindow} from "../../components/_moderation/data-window";
-import {onEscapeFunction} from "./model/moderation-page.helpers";
-import {useResetModerationPage} from "./model/moderation-page.hooks";
-import {Tokens} from "./model/moderation-page.types";
+import {onEscapeFunction} from "../../pages-models/moderation/model/moderation-page.helpers";
+import {useResetModerationPage} from "../../pages-models/moderation/model/moderation-page.hooks";
+import {Tokens} from "../../pages-models/moderation/model/moderation-page.types";
 import Main from "../../components/_common/main/ui/main";
 
 const ModerationPage = () => {
@@ -69,7 +69,7 @@ const ModerationPage = () => {
 export async function getStaticProps({ locale }: any) {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ['main', 'moderation'])),
+            ...(await serverSideTranslations(locale, ['main', 'moderation', 'common'])),
             passedColors: {
                 backgroundColor: colors.moderationNavbar,
                 nameColor1: colors.lightBlack,

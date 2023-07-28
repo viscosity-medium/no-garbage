@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
 import colors from "../../../../../styles/globals/colors";
 import {CustomImage} from "../../../../_common/custom-image";
 import {VStack} from "../../../../_common/flex-stack";
 import {Text} from "../../../../_common/text";
 import SocialPanel from "./social-panel/social-panel";
+import {CommunitiesAndFriendsCardProps} from "../../model/communities-and-friends-section.types";
 
-const CommunitiesAndFriendsCard = () => {
+const CommunitiesAndFriendsCard: FC<CommunitiesAndFriendsCardProps> = ({communityInfo}) => {
 
     const cardImage = "/assets/main-page/communities-and-friends-card.png";
 
@@ -22,11 +23,10 @@ const CommunitiesAndFriendsCard = () => {
         >
             <CustomImage
                 position={"relative"}
-                backgroundImage={cardImage}
+                backgroundImage={communityInfo.logo}
                 zIndex={1}
                 width={"160px"}
                 height={"160px"}
-                borderRadius={"50%"}
             />
             <VStack
                 margin={"30px 0 0"}
@@ -38,8 +38,11 @@ const CommunitiesAndFriendsCard = () => {
                     size={"28px"}
                     lineHeight={"1.2"}
                     textAlign={"center"}
+                    fontWeight={"500"}
                 >
-                    Community
+                    {
+                        communityInfo.name
+                    }
                 </Text>
                 <Text
                     margin={"18px 0 56px"}
@@ -48,7 +51,9 @@ const CommunitiesAndFriendsCard = () => {
                     lineHeight={"1.3"}
                     textAlign={"center"}
                 >
-                    Lorem ipsum dolor sit amet consecte adipiscing elit amet hendrerit pretium nulla sed enim iaculis mi.
+                    {
+                        communityInfo.description
+                    }
                 </Text>
                 <SocialPanel/>
             </VStack>

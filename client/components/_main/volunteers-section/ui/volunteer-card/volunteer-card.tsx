@@ -35,13 +35,14 @@ const VolunteerCard = () => {
                     tag={"h3"}
                     size={"28px"}
                     lineHeight={"1.2"}
+                    fontWeight={"500"}
                 >
                     Name Surname
                 </Text>
                 <Text
                     tag={"span"}
                     margin={"6px 0 19px"}
-                    weight={"700"}
+                    fontWeight={"700"}
                     lineHeight={"32px"}
                 >
                     Community, Job, 22 y.o.

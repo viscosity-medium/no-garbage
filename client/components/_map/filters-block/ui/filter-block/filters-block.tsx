@@ -49,7 +49,7 @@ const FiltersBlock = ({map}) => {
                     >
                         <Text
                             tag={"span"}
-                            weight={"400"}
+                            fontWeight={"400"}
                             color={"#fff"}
                         >
                             Reset all filters

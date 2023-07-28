@@ -1,6 +1,7 @@
 export interface FetchFirebaseLogin {
     email: string
     password: string
+    token?: string
 }
 
 export interface LoginFormSchema extends FetchFirebaseLogin {

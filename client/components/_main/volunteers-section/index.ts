@@ -1,1 +1,1 @@
-export { VolunteersSection } from "./ui/volunteers-section/volunteers-section"
+export { VolunteersSection } from "./ui/volunteers-section/volunteers-section";

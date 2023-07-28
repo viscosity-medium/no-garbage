@@ -5,7 +5,7 @@ const StyledH2 = styled.h2<ITextProps>`
     position: ${props => props.position};
     display: ${props => props.display};
     margin: ${props => props.margin};
-    font-weight: 700;
+    font-weight: ${props => props.fontWeight || 600};
     align-items: ${props => props.textAlign};
     align-self: ${props => props.alignSelf};
     letter-spacing: 2px;

@@ -7,13 +7,12 @@ interface IStyledCustomLink {
     width?: string
     height?: string
     size?: string
-    weight?: number
+    fontWeight?: number
     textDecoration?: string
 }
 
 export const StyledCustomLink = styled.span<IStyledCustomLink>`
-    font-family: Montserrat;
-    font-weight: ${props => props.weight};
+    font-weight: ${props => props.fontWeight};
     font-size: ${props => props.size};
     line-height: 24px;
     display: flex;

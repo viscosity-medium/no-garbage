@@ -7,9 +7,9 @@ import {
     getDataStatus,
     getLocationInfoSidebarVisibility
 } from "../../components/_map/map-location-info-sidebar-content/model/map-location-info-sidebar.selectors";
-import {useSwitchMapLocationInfoSidebar} from "./model/hooks/use-switch-map-location-info-sidebar";
+import {useSwitchMapLocationInfoSidebar} from "../../pages-models/map/model/hooks/use-switch-map-location-info-sidebar";
 import {MapLocationInfoSidebarContent} from "../../components/_map/map-location-info-sidebar-content";
-import {useInitiateMapSessionId} from "./model/hooks/use-initiate-map-session-id";
+import {useInitiateMapSessionId} from "../../pages-models/map/model/hooks/use-initiate-map-session-id";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {FiltersBlock} from "../../components/_map/filters-block";
 import {
@@ -67,7 +67,7 @@ const MapPage = () => {
 export async function getStaticProps({ locale }: any) {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ['main', 'map'])),
+            ...(await serverSideTranslations(locale, ['main', 'map', 'common'])),
             passedColors: {
                 backgroundColor: colors.pastelGray,
                 nameColor1: colors.lightBlack,

@@ -16,8 +16,6 @@ export const useInitializeMap = ({map, mapboxGL, mapContainer, lng, lat, zoom}) 
 
         if (map.current) return;
 
-        console.log(lng, lat)
-
         if(agentLanguage){
             const mapBoxOptions: MapboxOptions = {
                 accessToken: systemVariables.mapboxAccessToken,

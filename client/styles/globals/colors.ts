@@ -24,6 +24,7 @@ const colors = {
     opaqueOrange: "rgba(241,153,126,0.8)",
     lightBlack: "#100F0F",
     opaqueBlack: "rgba(0,0,0,0.1)",
+    opaqueGolden: "rgba(235,219,27,0.15)",
 
     defaultTextColor: "#61646B",
 

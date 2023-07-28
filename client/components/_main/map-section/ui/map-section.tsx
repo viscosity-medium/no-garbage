@@ -44,7 +44,7 @@ const MapSection = () => {
                     tag={"span"}
                     textAlign={"center"}
                     width={"500px"}
-                >{t("mapSectionDescription")}</Text>
+                >{t("mapSectionUpperDescription")}</Text>
                 <Button
                     buttonName={t("mapSectionButtonName")!}
                     onClick={mapButtonHandler}

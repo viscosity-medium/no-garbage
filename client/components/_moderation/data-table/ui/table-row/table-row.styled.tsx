@@ -4,6 +4,7 @@ import colors from "../../../../../styles/globals/colors";
 interface IStyledRow {
     position: string
     width?: string
+    isChosen?: boolean
 }
 
 export const StyledRow = styled.tr<IStyledRow>`
@@ -18,6 +19,7 @@ export const StyledRow = styled.tr<IStyledRow>`
         content: "";
         width: 100%;
         height: 100%;
+        background-color: ${props => props.isChosen ? colors.opaqueGolden : "none"};
         transition: 0.2s;
     }
 
@@ -27,7 +29,7 @@ export const StyledRow = styled.tr<IStyledRow>`
             content: "";
             width: 100%;
             height: 100%;
-            background-color: ${colors.opaqueBlack};
+            background-color: ${props => !props.isChosen ? colors.opaqueBlack : "none"};
         }
     }
 `

@@ -16,7 +16,17 @@ const changeModalForm = ({dispatch, modalForm}) => ({
     internalProperty
 }: ChangeModalForm) => (event) => {
 
-    const newValue = inputType === "input" ? event?.target?.value : inputType === "select" ? event : "";
+    const newValue = (() => {
+
+        switch (inputType) {
+            case "input":
+                return event?.target?.value !== undefined ? event?.target?.value : event;
+            case "select":
+                return event;
+        }
+
+    })();
+
 
     dispatch(moderationLocationInfoSidebarSliceActions.setSaveButtonState({
         text: "Save changes",

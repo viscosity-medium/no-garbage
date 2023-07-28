@@ -7,18 +7,10 @@ import sizes from "../../../../../styles/globals/sizes";
 import {Text} from "../../../../_common/text";
 import PromoBanner from "../promo-banner/promo-banner";
 
-const PromoSection = (props: any) => {
+const PromoSection = () => {
 
-    const {windowHeight, document} = useWindowDimensions();
-    const [promoHeight, setPromoHeight] = useState(0);
     const {t} = useTranslation('main');
     const title = t('promoTitle');
-
-    useEffect(() => {
-        if(windowHeight && document){
-            setPromoHeight(prevState => windowHeight - sizes.navbarHeight);
-        }
-    },[windowHeight, document])
 
     return (
         <StyledSection
@@ -31,6 +23,7 @@ const PromoSection = (props: any) => {
                     tag={"h2"}
                     size={"64px"}
                     bottom={"89px"}
+                    fontWeight={"600"}
                     textAlign={'left'}
                 >
                     {title}

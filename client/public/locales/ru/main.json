@@ -17,15 +17,21 @@
   "goals2Description": "кг собранного\nмусора",
   "goals3Description": "волонтеры,\nпринявшие участие",
 
-  "mapSectionTitle": "Вы можете ознакомиться с нашей базой данных местоположений",
-  "mapSectionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ",
-  "mapSectionButtonName": "Перейти к карте",
+  "mapSectionTitle": "Где проводятся уборки?",
+  "mapSectionUpperDescription": "Изучите нашу интерактивную карту. Добавьте свои данные.",
+  "mapSectionMiddleDescription": "С помощью нашей карты в режиме реального времени вы можете исследовать места, где требуется уборка. Выбирайте место, приводите своих друзей — и не забудьте отметить его чистым в конце! Вы также можете добавить информацию, такую как фотографии, видео и координаты для других добровольцев.",
+  "mapSectionDownDescription": "Давайте сделаем наши усилия полезными!",
+  "mapSectionButtonName": "Открыть карту",
 
   "helpSectionTitle": "Вы можете помочь нам,\n добавив замусоренные места на карту",
   "step": "шаг",
   "step1Description": "Загрузить медиа",
   "step2Description": "Подтвердить локацию",
   "step3Description": "Сделать описание",
+
+  "cleanupsReasons": "Зачем проводить уборку?",
+
+  "communitiesAndFriends": "Сообщества и друзья",
 
   "footerDownloadApp" : "Скачайте наше приложение",
   "footerTelegramBotStart": "Воспользуйтесь нашим ",

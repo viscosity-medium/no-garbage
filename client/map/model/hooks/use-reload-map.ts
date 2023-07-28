@@ -4,7 +4,7 @@ export const useReloadMap = ({map, lng, lat, zoom}) => {
 
     useEffect(() => {
         if (map.current) {
-            console.log("lng: " + lng, "lat: " + lat)
+            //console.log("lng: " + lng, "lat: " + lat)
             map.current.setCenter({lng, lat});
             map.current.setZoom(zoom);
         }

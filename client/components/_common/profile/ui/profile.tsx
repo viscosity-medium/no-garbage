@@ -11,12 +11,12 @@ import {useAppDispatch} from "../../../../store/store";
 import {useRouter} from "next/router";
 import {Button} from "../../button";
 import {getAuth, signOut} from "firebase/auth";
-import {signOut as nextAuthSignOut} from "next-auth/react";
+// import {signOut as nextAuthSignOut} from "next-auth/react";
 
 
 const Profile: FC<NavButtonsProps> = ({fontColor}) => {
 
-    const {route, push} = useRouter();
+    const {route, push, reload} = useRouter();
     const dispatch = useAppDispatch();
     const userData = getUserDataFromLocalStorage();
 
@@ -27,7 +27,8 @@ const Profile: FC<NavButtonsProps> = ({fontColor}) => {
             localStorage.removeItem("password");
             localStorage.removeItem("accessToken");
             localStorage.removeItem("refreshToken");
-
+console.log("fuck")
+            document.cookie = "currentUser"+ '=; Max-Age=0';
             document.cookie = "email"+ '=; Max-Age=0';
             document.cookie = "password"+ '=; Max-Age=0';
             document.cookie = "accessToken"+ '=; Max-Age=0';
@@ -40,8 +41,10 @@ const Profile: FC<NavButtonsProps> = ({fontColor}) => {
             }).catch((error) => {
                 // An error happened.
             });
-            nextAuthSignOut()
-            .then(res => console.log(res));
+
+
+            // nextAuthSignOut()
+            // .then(res => console.log(res));
 
         }
         batch(()=>{
@@ -51,11 +54,13 @@ const Profile: FC<NavButtonsProps> = ({fontColor}) => {
             dispatch(loginFormActions.setLoginFormStatus("not-authenticated"))
         })
 
-        if(route === "/moderation") {
-            (async()=>{
-                await push("/")
-            })()
-        }
+        reload();
+
+        // if(route === "/moderation") {
+        //     (async()=>{
+        //         await push("/")
+        //     })()
+        // }
     }
 
     return (

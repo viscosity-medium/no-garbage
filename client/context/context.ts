@@ -6,7 +6,7 @@ export interface IContextProviderValue {
     firebase: FirebaseApp | undefined,
     auth: any | undefined,
     firestore: any | undefined
-    authenticateUser: (({ email, password }: { email: any, password: any }) => Promise<void>) | undefined
+    authenticateUser: (({ email, password, token }: { email: any, password: any, token: any }) => Promise<void>) | undefined
     reportsRef: CollectionReference<DocumentData> | undefined
     reportsCountPromise?: Promise<number> | undefined
     userProviderRef: CollectionReference<DocumentData> | undefined

@@ -27,18 +27,27 @@ const LoginModalSlice = createSlice({
         })
         .addCase(fetchFirebaseLogin.fulfilled, (state, action: PayloadAction<any>) => {
 
-            if(action?.payload?.auth){
+            if(action?.payload?.user?.auth){
                 state.loginState = "success"
-                state.loginData = action.payload;
+                //console.log(action.payload)
+                state.loginData = {
+                    ...action?.payload?.user,
+                    tokenResponse: action?.payload?._tokenResponse
+                };
 
                 if(state.email && state.password){
                     localStorage.setItem("email", state.email);
                     localStorage.setItem("password", state.password);
                     localStorage.setItem("accessToken", state?.loginData?.stsTokenManager?.accessToken);
+                    localStorage.setItem("currentUser", state?.loginData?.uid);
                     localStorage.setItem("refreshToken", state?.loginData?.stsTokenManager?.refreshToken);
 
+                    const currentUser = state?.loginData
+
+                    //console.log(currentUser);
                     document.cookie = (`email=${state.email}`);
                     document.cookie = (`password=${state.password}`);
+                    document.cookie = (`currentUser=${currentUser.uid}`);
                     document.cookie = (`accessToken=${state?.loginData?.stsTokenManager?.accessToken}`);
                     document.cookie = (`refreshToken=${state?.loginData?.stsTokenManager?.refreshToken}`);
 

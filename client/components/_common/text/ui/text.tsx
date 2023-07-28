@@ -18,7 +18,7 @@ interface IText {
     bottom?: string
     top?: string
     size?: string
-    weight?: string
+    fontWeight?: string
     textAlign?: string
     alignSelf?:string
     color?: string
@@ -36,7 +36,7 @@ const Text: FC<IText> = ({
     width,
     tag,
     text,
-    weight,
+    fontWeight,
     left,
     right,
     bottom,
@@ -63,7 +63,7 @@ const Text: FC<IText> = ({
             bottom={bottom}
             top={top}
             size={size}
-            weight={weight}
+            fontWeight={fontWeight}
             alignSelf={alignSelf}
             textAlign={textAlign}
             color={color}
@@ -86,7 +86,7 @@ const Text: FC<IText> = ({
             bottom={bottom}
             top={top}
             size={size}
-            weight={weight}
+            fontWeight={fontWeight}
             alignSelf={alignSelf}
             textAlign={textAlign}
             color={color}
@@ -109,7 +109,7 @@ const Text: FC<IText> = ({
             bottom={bottom}
             top={top}
             size={size}
-            weight={weight}
+            fontWeight={fontWeight}
             alignSelf={alignSelf}
             textAlign={textAlign}
             color={color}
@@ -134,7 +134,7 @@ const Text: FC<IText> = ({
                 bottom={bottom}
                 top={top}
                 size={size}
-                weight={weight}
+                fontWeight={fontWeight}
                 alignSelf={alignSelf}
                 textAlign={textAlign}
                 color={color}

@@ -1,10 +1,69 @@
 {
+  "headerPanel": {
+    "dataBase": "Database",
+    "search": "Search",
+    "filter": {
+      "title": "filter",
+      "date": "Date Added",
+      "community": "Community",
+      "status": "Status"
+    },
+    "order": {
+      "title": "Order",
+      "descending": "Descending",
+      "ascending": "Ascending"
+    }
+  },
+  "table": {
+    "title": "Title",
+    "community": "Community",
+    "status": "Status",
+    "dateAdded": "Date Added",
+    "dateModified": "Date Modified"
+  },
   "databaseTitle": "Location Database",
-
-  "locationDescription": "Location description",
-  "status": "Status",
-  "date": "Date added",
-  "dateShort": "Date",
-  "description": "Description",
-  "announcement": "Announcement (link)"
+  "sidebarLocationContent": {
+    "locationName": "Location name",
+    "userDescription": "User description",
+    "coordinates": {
+      "title": "Coordinates",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "status": {
+        "title": "status",
+        "clean": "clean",
+        "dirty": "dirty",
+        "declined": "declined",
+        "planned": "cleanup planned",
+        "notEnough": "not enough info",
+        "moderation": "requires moderation"
+      },
+      "wasteTypes": {
+        "title": "Waste type",
+        "commonWaste": "Common waste",
+        "constructionWaste": "Construction waste"
+      },
+      "communities": {
+        "title": "Community",
+        "noGarbage": "No Garbage",
+        "another": "Указать дополнительные комьюнити !!!"
+      },
+      "announcement": {
+        "title": "Announcement"
+      },
+      "dateAdded": "Date Added",
+      "reportedBy": "Reported by",
+      "meetUp": {
+       	"title": "Meet-up",
+        "date": "Date",
+        "time": "Time",
+        "location": "Location"
+      },
+      "buttonStates": {
+        "edit": "Edit form to save changes",
+        "save": "Save changes",
+        "success": "Changes saved"
+      }
+    }
+  }
 }

@@ -26,7 +26,6 @@ const Mapbox: FC<IMapbox> = ({
     interactivity = true
 }) => {
 
-    // console.log(interactivity)
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<any>(null);
     const [mapLng, setMapLng] = useState(lngProp);

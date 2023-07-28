@@ -1,29 +1,69 @@
 {
-  "promoTitle": "We’re organising cleanups in Tbilisi \nand all across Georgia ",
-  "map": "Map",
-  "addLocation": "Add Location",
-  "manuals": "Manuals",
-  "faq": "FAQ",
-  "login": "Login",
-  "rus": "Rus",
-  "eng": "Eng",
-  "geo": "Geo",
-
-  "goalsTitle": "Since the beginning of 2022\nwe’ve had",
-  "goals1Number": 23,
-  "goals2Number": 6700,
-  "goals3Number": 751,
-  "goals1Description": "cleanups\n arranged \n ",
-  "goals2Description": "kg  of garbage collected and recycled",
-  "goals3Description": "volunteers \nwho took \npart in our events",
-
-  "mapSectionTitle": "You can explore our database of \nlocations",
-  "mapSectionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ",
-  "mapSectionButtonName": "Go to the map",
-
-  "helpSectionTitle": "You can help us\nby adding littered locations to the map",
-  "step": "step",
-  "step1Description": "Upload media",
-  "step2Description": "Confirm location",
-  "step3Description": "Give description"
+  "submitLocationContent": {
+    "generalInfo": {
+      "title": "Submit your location for future cleanups",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in ex eleifend, faucibus libero ac, lobortis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in ex eleifend, faucibus libero ac, lobortis leo."
+    },
+    "steps": {
+      "step": "Step",
+      "step1": {
+        "details": "Location details",
+        "coordinatesName": "Coordinates",
+        "coordinatesDetails": "Please check the coordinates for your pin and change another location if needed",
+        "locationName": "Location name",
+        "locationDescription": "Please choose the exact or nearest place",
+        "litterTypes": {
+          "common": "Common waste",
+          "construction": "Construction waste"
+        },
+        "litterDescription": "Please choose the garbage type"
+      },
+      "step2": {
+        "relevantMedia": "Upload relevant media",
+        "states": {
+          "initial": {
+            "title": "Click or drag file to this area to upload",
+            "description": "You can upload up to 10 files by adding them all together or separately"
+          },
+          "filled": {
+            "title": "Wonderful! You did it!",
+            "description": "You can upload up to 10 files by adding them all together or separately"
+          },
+          "limited": {
+            "title": "The limit has been reached",
+            "description": "You have uploaded 10 files"
+          }
+        }
+      },
+      "step3": {
+        "locationDescription": {
+          "title": "Describe the location",
+          "description": "Type additional description if it helps to define the location"
+        },
+        "results": {
+          "success": {
+            "title": "Thank you",
+            "description": "Our moderators will review the location and if it is accurate it will be added to our interactive map"
+          },
+          "reject": {
+            "title": "Something went wrong",
+            "description": "Try to send the files again"
+          }
+        },
+        "buttonStates": {
+          "submit": "Submit",
+          "addFiles": "Add some files",
+          "processing": "Processing...",
+          "success": "Reset the form?",
+          "reject": "Oops..."
+        }
+      }
+    }
+  },
+  "filters": {
+    "reset": "Reset all filters",
+    "communities": "Communities",
+    "status": "Status of location",
+    "type": "Type of Litter"
+  }
 }

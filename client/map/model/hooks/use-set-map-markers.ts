@@ -9,9 +9,7 @@ import {getMapFilters} from "../../../components/_map/filters-block/model/filter
 const useSetMapMarkers = ({map}) => {
 
     const dispatch = useAppDispatch();
-    const mapFilters = useSelector(getMapFilters);
-
-    //console.log(mapFilters)
+   // const mapFilters = useSelector(getMapFilters);
 
     useEffect(()=> {
 
@@ -24,9 +22,6 @@ const useSetMapMarkers = ({map}) => {
                 map,
                 geoJsonData
             });
-
-            //const source = map.current.getSource("Common waste-points")
-            //console.log(source)
 
         })();
 

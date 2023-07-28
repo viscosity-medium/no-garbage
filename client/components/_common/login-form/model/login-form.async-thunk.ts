@@ -5,6 +5,6 @@ import {FetchFirebaseLogin} from "./login-form.types";
 const { authenticateUser } = firebaseInstance;
 export const fetchFirebaseLogin = createAsyncThunk(
     "/",
-    async ({email, password}: FetchFirebaseLogin)=> {
-        return await authenticateUser?.({email, password});
+    async ({email, password, token}: FetchFirebaseLogin)=> {
+        return await authenticateUser?.({email, password, token});
 })

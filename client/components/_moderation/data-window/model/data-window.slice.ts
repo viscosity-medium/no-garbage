@@ -5,6 +5,7 @@ import {ModerationDataWindowSchema} from "./data-window.types";
 const initialState: ModerationDataWindowSchema = {
     searchBarText: "",
     firebaseReports: undefined,
+    chosenRow: undefined,
     firstVisibleDoc: "",
     lastVisibleDoc: "",
     reportsCount: undefined,
@@ -17,6 +18,9 @@ export const moderationDataWindow = createSlice({
     reducers: {
         setSearchBarText: (state, action) => {
             state.searchBarText = action.payload
+        },
+        setModerationTableChosenRow: (state, action) => {
+            state.chosenRow = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -26,6 +30,7 @@ export const moderationDataWindow = createSlice({
             })
             .addCase(fetchFirebaseReports.fulfilled, (state, action) => {
                 state.firebaseReports = action.payload.data;
+                state.chosenRow = undefined;
                 state.reportsCount = action.payload.totalDocsCount;
             })
             .addCase(fetchFirebaseReports.rejected, state => {

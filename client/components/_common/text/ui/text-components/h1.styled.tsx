@@ -10,7 +10,7 @@ export interface ITextProps {
     bottom?: string
     top?: string
     size?: string
-    weight?: string
+    fontWeight?: string
     textAlign?: string
     margin?: string
     lineHeight?: string
@@ -23,7 +23,7 @@ const StyledH1 = styled.h1<ITextProps>`
     position: ${props => props.position};
     display: ${props => props.display};
     font-style: normal;
-    font-weight: ${props => props.weight || 600};
+    font-weight: ${props => props.fontWeight || 600};
     line-height:  ${props => props.lineHeight || 1.2};
     margin: ${props => props.margin};
     align-items: ${props => props.textAlign};

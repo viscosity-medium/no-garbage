@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {HStack} from "../../../flex-stack";
 import {useTranslation} from "next-i18next";
 import {useCustomTranslation} from "../../../../../hooks/use-custom-translation";
@@ -10,7 +10,6 @@ import {getLoginData} from "../../../login-form/model/login-form.selectors";
 import {VerticalDropdownMenu} from "../../../dropdown-menu";
 import {switchModalWindowVisibility} from "../../../modal-window/model/modal-window.helpers";
 import {Button} from "../../../button";
-import {useRouter} from "next/router";
 import {useSetOnHoverCover} from "../../model/nav-bar.hooks";
 
 export interface NavButtonsProps {

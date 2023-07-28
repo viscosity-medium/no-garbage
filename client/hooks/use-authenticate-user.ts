@@ -8,12 +8,13 @@ const useAuthenticateUser = () => {
 
         const email = localStorage.getItem("email");
         const password = localStorage.getItem("password");
+        const accessToken = localStorage.getItem("accessToken")!;
         const dispatch = useAppDispatch();
 
         useEffect(()=>{
             (async ()=>{
                 if(email && password){
-                    await dispatch(fetchFirebaseLogin({email, password}));
+                    await dispatch(fetchFirebaseLogin({email, password, token: accessToken}));
                 }
             })()
         },[])

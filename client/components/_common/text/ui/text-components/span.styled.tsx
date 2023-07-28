@@ -6,7 +6,7 @@ const StyledSpan = styled.span<ITextProps>`
     display: ${props => props.display};
     margin: ${props => props.margin};
     font-style: normal;
-    font-weight: ${props => props.weight || 400};
+    font-weight: ${props => props.fontWeight || 400};
     line-height: ${props => props.lineHeight || 1.2};
     font-size: ${props => props.size};
     align-items: ${props => props.textAlign};

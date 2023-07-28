@@ -17,15 +17,21 @@
   "goals2Description": "კგ ნაგავი შეგროვებული და გადამუშავებული",
   "goals3Description": "მოხალისეები, რომლებმაც მონაწილეობა მიიღეს ჩვენს ღონისძიებებში",
 
-  "mapSectionTitle": "თქვენ შეგიძლიათ შეამოწმოთ ჩვენი ადგილმდებარეობის მონაცემთა ბაზა",
-  "mapSectionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ",
-  "mapSectionButtonName": "გადადით რუკაზე",
+  "mapSectionTitle": "სად გაწმენდა?",
+  "mapSectionUpperDescription": "გამოიკვლიეთ ჩვენი ინტერაქტიული რუკა. დაამატეთ თქვენი მონაცემები.",
+  "mapSectionMiddleDescription": "ჩვენი ცოცხალი რუქით შეგიძლიათ შეისწავლოთ ადგილები, სადაც საჭიროა გასუფთავება. აირჩიეთ ადგილი, დაიბრუნოს თქვენი მეგობრები — და არ უნდა დაგვავიწყდეს, რომ აღსანიშნავად სუფთა ბოლოს! თქვენ ასევე შეგიძლიათ დაამატოთ ინფორმაცია, როგორიცაა ფოტოები, ვიდეოები და კოორდინატები სხვა მოხალისეებისთვის.",
+  "mapSectionDownDescription": "მოდით, ჩვენი ძალისხმევა სასარგებლო გავხადოთ!",
+  "mapSectionButtonName": "გახსენით რუკა",
 
   "helpSectionTitle": "თქვენ შეგიძლიათ დაგვეხმაროთ\nრუკაზე დანაგვიანებული ადგილების დამატებით",
   "step": "ნაბიჯი",
   "step1Description": "ატვირთეთ მედია",
   "step2Description": "დაადასტურეთ ადგილმდებარეობა",
   "step3Description": "მიეცით აღწერა",
+
+  "cleanupsReasons": "რატომ აკეთებს გასუფთავებას?",
+
+  "communitiesAndFriends": "საზოგადოებები და მეგობრები",
 
   "footerDownloadApp" : "ჩამოტვირთეთ ჩვენი აპლიკაცია",
   "footerTelegramBotStart": "გამოიყენეთ ჩვენი ",

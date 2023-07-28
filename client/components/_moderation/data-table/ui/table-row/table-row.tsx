@@ -9,21 +9,26 @@ import {
 } from "../../../moderation-location-info-sidebar/model/moderation-location-info-sidebar.selectors";
 import {DateOptions, ITableRow} from "../../model/data-table.types";
 import {onTableRowClickHandler} from "../../model/data-table.helpers";
+import {getModerationTableChosenRow} from "../../../data-window/model/data-window.selectors";
 
 export const dateOptions: DateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 
 const TableRow: FC<ITableRow> = ({
-    tableRowInfo
+    tableRowInfo,
+    index
 }) => {
 
     const modalVisibility = useSelector(getModalVisibility);
+    const chosenRow = useSelector(getModerationTableChosenRow) === index;
     const dispatch = useDispatch();
 
     return (
         <StyledRow
             position={"relative"}
+            isChosen={chosenRow}
             onClick={
                 onTableRowClickHandler({
+                    index,
                     tableRowInfo,
                     dispatch,
                     modalVisibility
